@@ -10,8 +10,276 @@
         </author>
         <description>所念皆星河</description>
         <language>zh-CN</language>
-        <pubDate>Fri, 21 Jan 2022 22:40:47 +0800</pubDate>
-        <lastBuildDate>Fri, 21 Jan 2022 22:40:47 +0800</lastBuildDate>
+        <pubDate>Fri, 21 Jan 2022 23:40:47 +0800</pubDate>
+        <lastBuildDate>Fri, 21 Jan 2022 23:40:47 +0800</lastBuildDate>
+        <item>
+            <guid isPermalink="true">http://tagbug.gitlab.io/2022/01/21/Web%E5%AE%89%E5%85%A8%E5%9F%BA%E7%A1%80-%E7%AC%94%E8%AE%B0/</guid>
+            <title>Web安全基础 - 笔记</title>
+            <link>http://tagbug.gitlab.io/2022/01/21/Web%E5%AE%89%E5%85%A8%E5%9F%BA%E7%A1%80-%E7%AC%94%E8%AE%B0/</link>
+            <category term="学习笔记" scheme="http://tagbug.gitlab.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" />
+            <category term="前端" scheme="http://tagbug.gitlab.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E5%89%8D%E7%AB%AF/" />
+            <category term="Web" scheme="http://tagbug.gitlab.io/tags/Web/" />
+            <category term="前端" scheme="http://tagbug.gitlab.io/tags/%E5%89%8D%E7%AB%AF/" />
+            <category term="Web安全" scheme="http://tagbug.gitlab.io/tags/Web%E5%AE%89%E5%85%A8/" />
+            <category term="笔记补完计划" scheme="http://tagbug.gitlab.io/tags/%E7%AC%94%E8%AE%B0%E8%A1%A5%E5%AE%8C%E8%AE%A1%E5%88%92/" />
+            <pubDate>Fri, 21 Jan 2022 23:40:47 +0800</pubDate>
+            <description><![CDATA[ &lt;blockquote&gt;
+&lt;p&gt;从攻击角度和防御角度看 Web 安全：XSS、CSRF、Injection、Dos、DDos、中间人攻击&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;span id=&#34;more&#34;&gt;&lt;/span&gt;
+&lt;h1 id=&#34;web开发安全-笔记&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#web开发安全-笔记&#34;&gt;#&lt;/a&gt; Web 开发安全 - 笔记&lt;/h1&gt;
+&lt;h2 id=&#34;攻击篇&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#攻击篇&#34;&gt;#&lt;/a&gt; 攻击篇&lt;/h2&gt;
+&lt;h3 id=&#34;xss&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#xss&#34;&gt;#&lt;/a&gt; XSS&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;XSS（&lt;em&gt; &lt;code&gt;Cross-Site Scripting&lt;/code&gt; &lt;/em&gt;）&lt;/li&gt;
+&lt;li&gt;在安全内容中插入用户自己的恶意代码&lt;/li&gt;
+&lt;li&gt;利用了网站开发者&lt;strong&gt;盲目信任用户的提交内容&lt;/strong&gt; + HTML 文档特性（string -&amp;gt; DOM）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;特点&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#特点&#34;&gt;#&lt;/a&gt; 特点&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;通常难以从 UI 上感知（暗地里执行脚本）&lt;/li&gt;
+&lt;li&gt;窃取用户信息（cookie/token）&lt;/li&gt;
+&lt;li&gt;绘制 UI（例如弹窗），诱骗用户点击 / 填写表单&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;分类&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#分类&#34;&gt;#&lt;/a&gt; 分类&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Stored XSS&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;恶意脚本被存在数据库中&lt;/li&gt;
+&lt;li&gt;访问页面 -&amp;gt; 读数据 -&amp;gt; 被攻击&lt;/li&gt;
+&lt;li&gt;危害&lt;strong&gt;最大&lt;/strong&gt;，对全部用户可见&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Reflected XSS&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;不涉及数据库&lt;/li&gt;
+&lt;li&gt;从 URL 上攻击&lt;/li&gt;
+&lt;li&gt;例如： &lt;code&gt;host/path/?param=&amp;lt;script&amp;gt;alert(&#39;123&#39;)&amp;lt;/script&amp;gt;&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;DOM-based XSS&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;不需要服务器的参与&lt;/li&gt;
+&lt;li&gt;恶意攻击的发起 + 执行，全在浏览器完成&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Mutation-based XSS&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;利用了浏览器渲染 DOM 的特性（独特优化）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;不同浏览器，会有区别（按浏览器进行攻击）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;例如：&lt;/p&gt;
+&lt;figure class=&#34;highlight html&#34;&gt;&lt;figcaption data-lang=&#34;HTML&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token tag&#34;&gt;&lt;span class=&#34;token tag&#34;&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;lt;&lt;/span&gt;noscript&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;token tag&#34;&gt;&lt;span class=&#34;token tag&#34;&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;lt;&lt;/span&gt;p&lt;/span&gt; &lt;span class=&#34;token attr-name&#34;&gt;title&lt;/span&gt;&lt;span class=&#34;token attr-value&#34;&gt;&lt;span class=&#34;token punctuation attr-equals&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;&#34;&lt;/span&gt;&amp;lt;/noscript&gt;&amp;lt;img src=x onerror=alert(1)&gt;&lt;span class=&#34;token punctuation&#34;&gt;&#34;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;csrf&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#csrf&#34;&gt;#&lt;/a&gt; CSRF&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;CSRF（&lt;em&gt; &lt;code&gt;Cross-site request forgery&lt;/code&gt; &lt;/em&gt;）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;在用户不知情的前提下&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;利用用户权限（cookie）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;构造指定 HTTP 请求，窃取或修改用户敏感信息&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;例如：&lt;/p&gt;
+&lt;figure class=&#34;highlight html&#34;&gt;&lt;figcaption data-lang=&#34;HTML&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token tag&#34;&gt;&lt;span class=&#34;token tag&#34;&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;lt;&lt;/span&gt;img&lt;/span&gt; &lt;span class=&#34;token style-attr&#34;&gt;&lt;span class=&#34;token attr-name&#34;&gt;style&lt;/span&gt;&lt;span class=&#34;token attr-value&#34;&gt;&lt;span class=&#34;token punctuation attr-equals&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;&#34;&lt;/span&gt;&lt;span class=&#34;token style language-css&#34;&gt;&lt;span class=&#34;token property&#34;&gt;display&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt;none&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;&#34;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt; &lt;span class=&#34;token attr-name&#34;&gt;src&lt;/span&gt;&lt;span class=&#34;token attr-value&#34;&gt;&lt;span class=&#34;token punctuation attr-equals&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;&#34;&lt;/span&gt;https://bank.com/transfer?to=hacker&amp;amp;amount=100&lt;span class=&#34;token punctuation&#34;&gt;&#34;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;/&gt;&lt;/span&gt;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;injection&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#injection&#34;&gt;#&lt;/a&gt; Injection&lt;/h3&gt;
+&lt;h4 id=&#34;sql-injection&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#sql-injection&#34;&gt;#&lt;/a&gt; SQL Injection&lt;/h4&gt;
+&lt;p&gt;攻击流程：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;请求
+&lt;ul&gt;
+&lt;li&gt;SQL 参数（恶意注入）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Server
+&lt;ul&gt;
+&lt;li&gt;拼接参数 -&amp;gt; 运行 SQL code&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;数据库
+&lt;ul&gt;
+&lt;li&gt;获取其他数据&lt;/li&gt;
+&lt;li&gt;修改数据&lt;/li&gt;
+&lt;li&gt;删除数据等&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;例如： &lt;code&gt;SELECT XXX FROM $&amp;#123;&#39;any; DROP TABLE table;&#39;&amp;#125;&lt;/code&gt;&lt;/p&gt;
+&lt;h4 id=&#34;其他-injection&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#其他-injection&#34;&gt;#&lt;/a&gt; 其他 Injection&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;CLI&lt;/li&gt;
+&lt;li&gt;OS command&lt;/li&gt;
+&lt;li&gt;SSRF（Server-Side Request Forgery），服务端伪造请求
+&lt;ul&gt;
+&lt;li&gt;严格而言，SSRF 不是 injection，但是原理类似&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;例如：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;const command =  &lt;code&gt;covert-cli video -o &#39;$&amp;#123;&amp;quot;&#39; &amp;amp;&amp;amp; rm -rf /&amp;quot;&amp;#125;&#39;&lt;/code&gt; &lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;请求&lt;strong&gt;用户自定义&lt;/strong&gt;的 callback URL + web server 通常有内网访问权限&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;dos&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#dos&#34;&gt;#&lt;/a&gt; DoS&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;DoS（&lt;em&gt; &lt;code&gt;Denial of Service&lt;/code&gt; &lt;/em&gt;）&lt;/li&gt;
+&lt;li&gt;通过某种方式（构造特定请求），导致服务器资源被显著消耗，来不及相应更多请求，导致请求挤压，进而雪崩&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;例如：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;基于正则表达式的 DoS（利用正则表达式贪婪模式）
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;/^((ab)*)+$/&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;构造 &lt;code&gt;&amp;quot;abababababababa&amp;quot;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;造成算法多次回溯，导致响应时间📈，接口吞吐量📉&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;ddos&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#ddos&#34;&gt;#&lt;/a&gt; DDoS&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;DDoS（&lt;em&gt; &lt;code&gt;Distributed DoS&lt;/code&gt; &lt;/em&gt;）&lt;/li&gt;
+&lt;li&gt;短时间内，来自大量僵尸设备的请求流量，服务器不能及时完成全部请求，导致请求堆积，进而雪崩效应，无法响应新请求&lt;/li&gt;
+&lt;li&gt;攻击特点
+&lt;ul&gt;
+&lt;li&gt;直接访问 IP&lt;/li&gt;
+&lt;li&gt;任意 API&lt;/li&gt;
+&lt;li&gt;消耗大量带宽（耗尽）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;例如： &lt;code&gt;SYN Flood&lt;/code&gt;&lt;/p&gt;
+&lt;h3 id=&#34;中间人攻击&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#中间人攻击&#34;&gt;#&lt;/a&gt; 中间人攻击&lt;/h3&gt;
+&lt;p&gt;前提：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;HTTP 明文传输&lt;/li&gt;
+&lt;li&gt;信息篡改不可知&lt;/li&gt;
+&lt;li&gt;对方身份未验证&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;危害：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;窃取信息&lt;/li&gt;
+&lt;li&gt;修改请求、响应&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;攻击方：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;恶意 WebView&lt;/li&gt;
+&lt;li&gt;路由器&lt;/li&gt;
+&lt;li&gt;ISP 等&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;防御篇&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#防御篇&#34;&gt;#&lt;/a&gt; 防御篇&lt;/h2&gt;
+&lt;h3 id=&#34;xss-2&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#xss-2&#34;&gt;#&lt;/a&gt; XSS&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;永远不信任用户的提交内容&lt;/li&gt;
+&lt;li&gt;永远不要将用户提交内容直接转换成 DOM&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;可用工具：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;前端
+&lt;ul&gt;
+&lt;li&gt;主流框架（React、Vue 等）默认防御 XSS&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;google-closure-library&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;服务端（Node）
+&lt;ul&gt;
+&lt;li&gt;npm 包： &lt;code&gt;DOMPurify&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;注意点：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;⚠string -&amp;gt; DOM：对 string 进行转义&lt;/li&gt;
+&lt;li&gt;⚠上传 svg（svg 可以内嵌 script 标签）：对 svg 标签进行扫描&lt;/li&gt;
+&lt;li&gt;⚠自定义跳转链接：最好不要允许，要做好过滤&lt;/li&gt;
+&lt;li&gt;⚠自定义样式（问卷场景下利用 css 的 &lt;code&gt;background: url(&amp;quot;https://example.com/?income=gt10k&amp;quot;)&lt;/code&gt;  窃取用户隐私）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;安全设置：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Same-origin Policy：同源策略&lt;/li&gt;
+&lt;li&gt;CSP（&lt;em&gt; &lt;code&gt;Content Security Policy&lt;/code&gt; &lt;/em&gt;）：确认安全来源的脚本、拒绝 &lt;code&gt;eval&lt;/code&gt;  等&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;csrf-2&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#csrf-2&#34;&gt;#&lt;/a&gt; CSRF&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Origin 头 + Referer 头&lt;/li&gt;
+&lt;li&gt;token + token 过期时间：token 必须和注册用户绑定&lt;/li&gt;
+&lt;li&gt;针对 iframe 攻击 -&amp;gt;  &lt;code&gt;X-Frame-Options: DENY/SAMEORIGIN&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;anti-pattern：&lt;strong&gt;不要&lt;/strong&gt;将数据更新 &amp;amp; 获取逻辑放在同一个接口中&lt;/li&gt;
+&lt;li&gt;避免用户信息被携带：SameSite Cookie 设置（从根源上解决 CSRF）&lt;/li&gt;
+&lt;li&gt;采用专门的中间件防御 CSRF&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;injection-2&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#injection-2&#34;&gt;#&lt;/a&gt; Injection&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;找到项目中使用 SQL 的地方，使用 &lt;code&gt;prepared statement&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;最小权限原则
+&lt;ul&gt;
+&lt;li&gt;不要随便用 &lt;code&gt;sudo&lt;/code&gt;  或者 &lt;code&gt;root&lt;/code&gt;  执行命令&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;建立允许名单 + 过滤
+&lt;ul&gt;
+&lt;li&gt;不允许执行 &lt;code&gt;rm&lt;/code&gt;  命令&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;对 URL 类型参数进行协议 / 域名 /ip 等限制
+&lt;ul&gt;
+&lt;li&gt;不允许访问内网&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;dos-2&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#dos-2&#34;&gt;#&lt;/a&gt; DoS&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;做好 Code Review：避免出现 &lt;code&gt;/(ab*)+/&lt;/code&gt;  这样的代码&lt;/li&gt;
+&lt;li&gt;代码扫描工具 + 正则性能测试&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;不允许&lt;/strong&gt;使用用户提供的正则&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;ddos-2&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#ddos-2&#34;&gt;#&lt;/a&gt; DDoS&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;流量治理
+&lt;ul&gt;
+&lt;li&gt;负载均衡&lt;/li&gt;
+&lt;li&gt;API 网关&lt;/li&gt;
+&lt;li&gt;CDN&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;快速自动扩容&lt;/li&gt;
+&lt;li&gt;非核心服务降级&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;防御中间人&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#防御中间人&#34;&gt;#&lt;/a&gt; 防御中间人&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;使用 HTTPS：可靠性、完整性、不可抵赖性&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://cdn.jsdelivr.net/gh/tagbug/demo@latest/img/image-20220121145153571.png&#34; alt=&#34;image-20220121145153571&#34;&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;HSTS（&lt;em&gt; &lt;code&gt;HTTP Strict-Transport-Security&lt;/code&gt; &lt;/em&gt;）：将 HTTP 主动升级到 HTTPS&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;SRI（&lt;em&gt; &lt;code&gt;SubResource Integrity&lt;/code&gt; &lt;/em&gt;）：对比从 CDN 中拿到的文件 hash 值，例如： &lt;code&gt;&amp;lt;script src=&amp;quot;/example/app.js&amp;quot; integrity=&amp;quot;sha384-&amp;#123;some-hash-value&amp;#125;&amp;quot; crossorigin= &amp;quot;anonymous&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;参考资料&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#参考资料&#34;&gt;#&lt;/a&gt; 参考资料&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;字节&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly95b3V0aGNhbXAuYnl0ZWRhbmNlLmNvbS8=&#34;&gt;青训营&lt;/span&gt;课程&lt;/li&gt;
+&lt;/ul&gt;
+ ]]></description>
+        </item>
         <item>
             <guid isPermalink="true">http://tagbug.gitlab.io/2022/01/21/WebGL%E5%9F%BA%E7%A1%80-%E7%AC%94%E8%AE%B0/</guid>
             <title>WebGL基础 - 笔记</title>
@@ -2793,274 +3061,6 @@
 &lt;p&gt;示例：&lt;/p&gt;
 &lt;figure class=&#34;highlight js&#34;&gt;&lt;figcaption data-lang=&#34;JavaScript&#34;&gt;&lt;span&gt;使用前&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;const&lt;/span&gt; aMap &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token function-variable function&#34;&gt;show&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;=&gt;&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        console&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;log&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token string&#34;&gt;&#39;开始渲染地图A&#39;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;const&lt;/span&gt; bMap &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;8&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token function-variable function&#34;&gt;display&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;=&gt;&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;9&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        console&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;log&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token string&#34;&gt;&#39;开始渲染地图B&#39;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;10&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;11&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;12&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;13&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;const&lt;/span&gt; &lt;span class=&#34;token function-variable function&#34;&gt;renderMap&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token parameter&#34;&gt;type&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;=&gt;&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;14&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token keyword&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;type &lt;span class=&#34;token operator&#34;&gt;===&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&#39;a&#39;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;15&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        aMap&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;show&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;16&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;else&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;type &lt;span class=&#34;token operator&#34;&gt;===&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&#39;b&#39;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;17&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        bMap&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;display&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;18&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;19&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;figure class=&#34;highlight js&#34;&gt;&lt;figcaption data-lang=&#34;JavaScript&#34;&gt;&lt;span&gt;使用后&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;const&lt;/span&gt; aMap &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token function-variable function&#34;&gt;show&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;=&gt;&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        console&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;log&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token string&#34;&gt;&#39;开始渲染地图A&#39;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;const&lt;/span&gt; bMap &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;8&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token function-variable function&#34;&gt;display&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;=&gt;&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;9&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        console&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;log&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token string&#34;&gt;&#39;开始渲染地图B&#39;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;10&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;11&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;12&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;13&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;// 适配层&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;14&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;const&lt;/span&gt; bMapAdapter &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;15&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token function-variable function&#34;&gt;show&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;=&gt;&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;16&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        &lt;span class=&#34;token keyword&#34;&gt;return&lt;/span&gt; bMap&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;display&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;17&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;18&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;19&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;20&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;const&lt;/span&gt; &lt;span class=&#34;token function-variable function&#34;&gt;renderMap&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token parameter&#34;&gt;map&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;=&gt;&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;21&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token keyword&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;map&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;show &lt;span class=&#34;token keyword&#34;&gt;instanceof&lt;/span&gt; &lt;span class=&#34;token class-name&#34;&gt;Function&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;22&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        map&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;show&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;23&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;24&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;25&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;26&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;renderMap&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;aMap&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;27&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;renderMap&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;bAdapter&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;参考:&lt;br&gt;
  字节青训营课程&lt;/p&gt;
- ]]></description>
-        </item>
-        <item>
-            <guid isPermalink="true">http://tagbug.gitlab.io/2021/11/13/Web%E5%AE%89%E5%85%A8%E5%9F%BA%E7%A1%80-%E7%AC%94%E8%AE%B0/</guid>
-            <title>Web安全基础 - 笔记</title>
-            <link>http://tagbug.gitlab.io/2021/11/13/Web%E5%AE%89%E5%85%A8%E5%9F%BA%E7%A1%80-%E7%AC%94%E8%AE%B0/</link>
-            <category term="学习笔记" scheme="http://tagbug.gitlab.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" />
-            <category term="前端" scheme="http://tagbug.gitlab.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E5%89%8D%E7%AB%AF/" />
-            <category term="Web" scheme="http://tagbug.gitlab.io/tags/Web/" />
-            <category term="前端" scheme="http://tagbug.gitlab.io/tags/%E5%89%8D%E7%AB%AF/" />
-            <category term="Web安全" scheme="http://tagbug.gitlab.io/tags/Web%E5%AE%89%E5%85%A8/" />
-            <category term="笔记补完计划" scheme="http://tagbug.gitlab.io/tags/%E7%AC%94%E8%AE%B0%E8%A1%A5%E5%AE%8C%E8%AE%A1%E5%88%92/" />
-            <pubDate>Sat, 13 Nov 2021 18:15:48 +0800</pubDate>
-            <description><![CDATA[ &lt;blockquote&gt;
-&lt;p&gt;从攻击角度和防御角度看 Web 安全：XSS、CSRF、Injection、Dos、DDos、中间人攻击&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;span id=&#34;more&#34;&gt;&lt;/span&gt;
-&lt;h1 id=&#34;web开发安全-笔记&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#web开发安全-笔记&#34;&gt;#&lt;/a&gt; Web 开发安全 - 笔记&lt;/h1&gt;
-&lt;h2 id=&#34;攻击篇&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#攻击篇&#34;&gt;#&lt;/a&gt; 攻击篇&lt;/h2&gt;
-&lt;h3 id=&#34;xss&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#xss&#34;&gt;#&lt;/a&gt; XSS&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;XSS（&lt;em&gt; &lt;code&gt;Cross-Site Scripting&lt;/code&gt; &lt;/em&gt;）&lt;/li&gt;
-&lt;li&gt;在安全内容中插入用户自己的恶意代码&lt;/li&gt;
-&lt;li&gt;利用了网站开发者&lt;strong&gt;盲目信任用户的提交内容&lt;/strong&gt; + HTML 文档特性（string -&amp;gt; DOM）&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h4 id=&#34;特点&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#特点&#34;&gt;#&lt;/a&gt; 特点&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;通常难以从 UI 上感知（暗地里执行脚本）&lt;/li&gt;
-&lt;li&gt;窃取用户信息（cookie/token）&lt;/li&gt;
-&lt;li&gt;绘制 UI（例如弹窗），诱骗用户点击 / 填写表单&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h4 id=&#34;分类&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#分类&#34;&gt;#&lt;/a&gt; 分类&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Stored XSS&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;恶意脚本被存在数据库中&lt;/li&gt;
-&lt;li&gt;访问页面 -&amp;gt; 读数据 -&amp;gt; 被攻击&lt;/li&gt;
-&lt;li&gt;危害&lt;strong&gt;最大&lt;/strong&gt;，对全部用户可见&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Reflected XSS&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;不涉及数据库&lt;/li&gt;
-&lt;li&gt;从 URL 上攻击&lt;/li&gt;
-&lt;li&gt;例如： &lt;code&gt;host/path/?param=&amp;lt;script&amp;gt;alert(&#39;123&#39;)&amp;lt;/script&amp;gt;&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;DOM-based XSS&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;不需要服务器的参与&lt;/li&gt;
-&lt;li&gt;恶意攻击的发起 + 执行，全在浏览器完成&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Mutation-based XSS&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;利用了浏览器渲染 DOM 的特性（独特优化）&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;不同浏览器，会有区别（按浏览器进行攻击）&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;例如：&lt;/p&gt;
-&lt;figure class=&#34;highlight html&#34;&gt;&lt;figcaption data-lang=&#34;HTML&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token tag&#34;&gt;&lt;span class=&#34;token tag&#34;&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;lt;&lt;/span&gt;noscript&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;token tag&#34;&gt;&lt;span class=&#34;token tag&#34;&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;lt;&lt;/span&gt;p&lt;/span&gt; &lt;span class=&#34;token attr-name&#34;&gt;title&lt;/span&gt;&lt;span class=&#34;token attr-value&#34;&gt;&lt;span class=&#34;token punctuation attr-equals&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;&#34;&lt;/span&gt;&amp;lt;/noscript&gt;&amp;lt;img src=x onerror=alert(1)&gt;&lt;span class=&#34;token punctuation&#34;&gt;&#34;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;csrf&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#csrf&#34;&gt;#&lt;/a&gt; CSRF&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;CSRF（&lt;em&gt; &lt;code&gt;Cross-site request forgery&lt;/code&gt; &lt;/em&gt;）&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;在用户不知情的前提下&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;利用用户权限（cookie）&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;构造指定 HTTP 请求，窃取或修改用户敏感信息&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;例如：&lt;/p&gt;
-&lt;figure class=&#34;highlight html&#34;&gt;&lt;figcaption data-lang=&#34;HTML&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token tag&#34;&gt;&lt;span class=&#34;token tag&#34;&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;lt;&lt;/span&gt;img&lt;/span&gt; &lt;span class=&#34;token style-attr&#34;&gt;&lt;span class=&#34;token attr-name&#34;&gt;style&lt;/span&gt;&lt;span class=&#34;token attr-value&#34;&gt;&lt;span class=&#34;token punctuation attr-equals&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;&#34;&lt;/span&gt;&lt;span class=&#34;token style language-css&#34;&gt;&lt;span class=&#34;token property&#34;&gt;display&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt;none&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;&#34;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt; &lt;span class=&#34;token attr-name&#34;&gt;src&lt;/span&gt;&lt;span class=&#34;token attr-value&#34;&gt;&lt;span class=&#34;token punctuation attr-equals&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;&#34;&lt;/span&gt;https://bank.com/transfer?to=hacker&amp;amp;amount=100&lt;span class=&#34;token punctuation&#34;&gt;&#34;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;/&gt;&lt;/span&gt;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;injection&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#injection&#34;&gt;#&lt;/a&gt; Injection&lt;/h3&gt;
-&lt;h4 id=&#34;sql-injection&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#sql-injection&#34;&gt;#&lt;/a&gt; SQL Injection&lt;/h4&gt;
-&lt;p&gt;攻击流程：&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;请求
-&lt;ul&gt;
-&lt;li&gt;SQL 参数（恶意注入）&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Server
-&lt;ul&gt;
-&lt;li&gt;拼接参数 -&amp;gt; 运行 SQL code&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;数据库
-&lt;ul&gt;
-&lt;li&gt;获取其他数据&lt;/li&gt;
-&lt;li&gt;修改数据&lt;/li&gt;
-&lt;li&gt;删除数据等&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;例如： &lt;code&gt;SELECT XXX FROM $&amp;#123;&#39;any; DROP TABLE table;&#39;&amp;#125;&lt;/code&gt;&lt;/p&gt;
-&lt;h4 id=&#34;其他-injection&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#其他-injection&#34;&gt;#&lt;/a&gt; 其他 Injection&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;CLI&lt;/li&gt;
-&lt;li&gt;OS command&lt;/li&gt;
-&lt;li&gt;SSRF（Server-Side Request Forgery），服务端伪造请求
-&lt;ul&gt;
-&lt;li&gt;严格而言，SSRF 不是 injection，但是原理类似&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;例如：&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;code&gt;const command =  &lt;code&gt;covert-cli video -o &#39;$&amp;#123;&amp;quot;&#39; &amp;amp;&amp;amp; rm -rf /&amp;quot;&amp;#125;&#39;&lt;/code&gt; &lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;请求&lt;strong&gt;用户自定义&lt;/strong&gt;的 callback URL + web server 通常有内网访问权限&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h3 id=&#34;dos&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#dos&#34;&gt;#&lt;/a&gt; DoS&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;DoS（&lt;em&gt; &lt;code&gt;Denial of Service&lt;/code&gt; &lt;/em&gt;）&lt;/li&gt;
-&lt;li&gt;通过某种方式（构造特定请求），导致服务器资源被显著消耗，来不及相应更多请求，导致请求挤压，进而雪崩&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;例如：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;基于正则表达式的 DoS（利用正则表达式贪婪模式）
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;/^((ab)*)+$/&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;构造 &lt;code&gt;&amp;quot;abababababababa&amp;quot;&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;造成算法多次回溯，导致响应时间📈，接口吞吐量📉&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;ddos&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#ddos&#34;&gt;#&lt;/a&gt; DDoS&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;DDoS（&lt;em&gt; &lt;code&gt;Distributed DoS&lt;/code&gt; &lt;/em&gt;）&lt;/li&gt;
-&lt;li&gt;短时间内，来自大量僵尸设备的请求流量，服务器不能及时完成全部请求，导致请求堆积，进而雪崩效应，无法响应新请求&lt;/li&gt;
-&lt;li&gt;攻击特点
-&lt;ul&gt;
-&lt;li&gt;直接访问 IP&lt;/li&gt;
-&lt;li&gt;任意 API&lt;/li&gt;
-&lt;li&gt;消耗大量带宽（耗尽）&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;例如： &lt;code&gt;SYN Flood&lt;/code&gt;&lt;/p&gt;
-&lt;h3 id=&#34;中间人攻击&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#中间人攻击&#34;&gt;#&lt;/a&gt; 中间人攻击&lt;/h3&gt;
-&lt;p&gt;前提：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;HTTP 明文传输&lt;/li&gt;
-&lt;li&gt;信息篡改不可知&lt;/li&gt;
-&lt;li&gt;对方身份未验证&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;危害：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;窃取信息&lt;/li&gt;
-&lt;li&gt;修改请求、响应&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;攻击方：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;恶意 WebView&lt;/li&gt;
-&lt;li&gt;路由器&lt;/li&gt;
-&lt;li&gt;ISP 等&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;防御篇&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#防御篇&#34;&gt;#&lt;/a&gt; 防御篇&lt;/h2&gt;
-&lt;h3 id=&#34;xss-2&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#xss-2&#34;&gt;#&lt;/a&gt; XSS&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;永远不信任用户的提交内容&lt;/li&gt;
-&lt;li&gt;永远不要将用户提交内容直接转换成 DOM&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;可用工具：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;前端
-&lt;ul&gt;
-&lt;li&gt;主流框架（React、Vue 等）默认防御 XSS&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;google-closure-library&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;服务端（Node）
-&lt;ul&gt;
-&lt;li&gt;npm 包： &lt;code&gt;DOMPurify&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;注意点：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;⚠string -&amp;gt; DOM：对 string 进行转义&lt;/li&gt;
-&lt;li&gt;⚠上传 svg（svg 可以内嵌 script 标签）：对 svg 标签进行扫描&lt;/li&gt;
-&lt;li&gt;⚠自定义跳转链接：最好不要允许，要做好过滤&lt;/li&gt;
-&lt;li&gt;⚠自定义样式（问卷场景下利用 css 的 &lt;code&gt;background: url(&amp;quot;https://example.com/?income=gt10k&amp;quot;)&lt;/code&gt;  窃取用户隐私）&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;安全设置：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Same-origin Policy：同源策略&lt;/li&gt;
-&lt;li&gt;CSP（&lt;em&gt; &lt;code&gt;Content Security Policy&lt;/code&gt; &lt;/em&gt;）：确认安全来源的脚本、拒绝 &lt;code&gt;eval&lt;/code&gt;  等&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;csrf-2&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#csrf-2&#34;&gt;#&lt;/a&gt; CSRF&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;Origin 头 + Referer 头&lt;/li&gt;
-&lt;li&gt;token + token 过期时间：token 必须和注册用户绑定&lt;/li&gt;
-&lt;li&gt;针对 iframe 攻击 -&amp;gt;  &lt;code&gt;X-Frame-Options: DENY/SAMEORIGIN&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;anti-pattern：&lt;strong&gt;不要&lt;/strong&gt;将数据更新 &amp;amp; 获取逻辑放在同一个接口中&lt;/li&gt;
-&lt;li&gt;避免用户信息被携带：SameSite Cookie 设置（从根源上解决 CSRF）&lt;/li&gt;
-&lt;li&gt;采用专门的中间件防御 CSRF&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;injection-2&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#injection-2&#34;&gt;#&lt;/a&gt; Injection&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;找到项目中使用 SQL 的地方，使用 &lt;code&gt;prepared statement&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;最小权限原则
-&lt;ul&gt;
-&lt;li&gt;不要随便用 &lt;code&gt;sudo&lt;/code&gt;  或者 &lt;code&gt;root&lt;/code&gt;  执行命令&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;建立允许名单 + 过滤
-&lt;ul&gt;
-&lt;li&gt;不允许执行 &lt;code&gt;rm&lt;/code&gt;  命令&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;对 URL 类型参数进行协议 / 域名 /ip 等限制
-&lt;ul&gt;
-&lt;li&gt;不允许访问内网&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;dos-2&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#dos-2&#34;&gt;#&lt;/a&gt; DoS&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;做好 Code Review：避免出现 &lt;code&gt;/(ab*)+/&lt;/code&gt;  这样的代码&lt;/li&gt;
-&lt;li&gt;代码扫描工具 + 正则性能测试&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;不允许&lt;/strong&gt;使用用户提供的正则&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;ddos-2&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#ddos-2&#34;&gt;#&lt;/a&gt; DDoS&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;流量治理
-&lt;ul&gt;
-&lt;li&gt;负载均衡&lt;/li&gt;
-&lt;li&gt;API 网关&lt;/li&gt;
-&lt;li&gt;CDN&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;快速自动扩容&lt;/li&gt;
-&lt;li&gt;非核心服务降级&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;防御中间人&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#防御中间人&#34;&gt;#&lt;/a&gt; 防御中间人&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;使用 HTTPS：可靠性、完整性、不可抵赖性&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;https://cdn.jsdelivr.net/gh/tagbug/demo@latest/img/image-20220121145153571.png&#34; alt=&#34;image-20220121145153571&#34;&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;HSTS（&lt;em&gt; &lt;code&gt;HTTP Strict-Transport-Security&lt;/code&gt; &lt;/em&gt;）：将 HTTP 主动升级到 HTTPS&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;SRI（&lt;em&gt; &lt;code&gt;SubResource Integrity&lt;/code&gt; &lt;/em&gt;）：对比从 CDN 中拿到的文件 hash 值，例如： &lt;code&gt;&amp;lt;script src=&amp;quot;/example/app.js&amp;quot; integrity=&amp;quot;sha384-&amp;#123;some-hash-value&amp;#125;&amp;quot; crossorigin= &amp;quot;anonymous&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;&lt;/code&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;参考资料&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#参考资料&#34;&gt;#&lt;/a&gt; 参考资料&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;字节&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly95b3V0aGNhbXAuYnl0ZWRhbmNlLmNvbS8=&#34;&gt;青训营&lt;/span&gt;课程&lt;/li&gt;
-&lt;/ul&gt;
  ]]></description>
         </item>
         <item>
