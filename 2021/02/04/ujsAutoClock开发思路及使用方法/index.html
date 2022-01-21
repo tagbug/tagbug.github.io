@@ -1,0 +1,686 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#FFF">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="icon" type="image/ico" sizes="32x32" href="/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+<link rel="alternate" type="application/rss+xml" title="🐟" href="http://tagbug.gitlab.io/rss.xml"/>
+<link rel="alternate" type="application/atom+xml" title="🐟" href="http://tagbug.gitlab.io/atom.xml"/>
+<link rel="alternate" type="application/json" title="🐟" href="http://tagbug.gitlab.io/feed.json"/>
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="/css/app.css?v=0.2.5">
+    
+  <meta name="keywords" content="Chrome扩展应用,Android应用,works" />
+
+
+<link rel="canonical" href="http://tagbug.gitlab.io/2021/02/04/ujsAutoClock%E5%BC%80%E5%8F%91%E6%80%9D%E8%B7%AF%E5%8F%8A%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/">
+
+
+
+    <title>
+      
+ujsAutoClock使用方法及开发思路 - works |
+Tag Bug = 🐟</title>
+  <meta name="generator" content="Hexo 5.4.0"></head>
+  <body itemscope="itemscope" itemtype="http://schema.org/WebPage">
+    <div id="loading">
+      <div class="cat">
+        <div class="body"></div>
+        <div class="head">
+          <div class="face"></div>
+        </div>
+        <div class="foot">
+          <div class="tummy-end"></div>
+          <div class="bottom"></div>
+          <div class="legs left"></div>
+          <div class="legs right"></div>
+        </div>
+        <div class="paw">
+          <div class="hands left"></div>
+          <div class="hands right"></div>
+        </div>
+      </div>
+    </div>
+    <div id="container">
+      <header id="header" itemscope="itemscope" itemtype="http://schema.org/WPHeader">
+        <div class="inner">
+          <div id="brand">
+            <div class="pjax">
+              
+  <h1 itemprop="name headline">ujsAutoClock使用方法及开发思路
+  </h1>
+  
+<div class="meta">
+  <span class="item" title="创建时间：2021-02-04 06:55:55">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">发表于</span>
+    <time itemprop="dateCreated datePublished" datetime="2021-02-04T06:55:55+08:00">2021-02-04</time>
+  </span>
+  <span class="item" title="本文字数">
+    <span class="icon">
+      <i class="ic i-pen"></i>
+    </span>
+    <span class="text">本文字数</span>
+    <span>3k</span>
+    <span class="text">字</span>
+  </span>
+  <span class="item" title="阅读时长">
+    <span class="icon">
+      <i class="ic i-clock"></i>
+    </span>
+    <span class="text">阅读时长</span>
+    <span>3 分钟</span>
+  </span>
+</div>
+
+
+            </div>
+          </div>
+          <nav id="nav">
+  <div class="inner">
+    <div class="toggle">
+      <div class="lines" aria-label="切换导航栏">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <ul class="menu">
+      <li class="item title"><a href="/" rel="start">Tag Bug</a></li>
+    </ul>
+    <ul class="right">
+      <li class="item theme">
+        <i class="ic i-sun"></i>
+      </li>
+      <li class="item search">
+        <i class="ic i-search"></i>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+        </div>
+        <div id="imgs" class="pjax">
+            <img src="https://cdn.jsdelivr.net/gh/tagbug/demo@latest/img/1612394877886.png">
+        </div>
+      </header>
+      <div id="waves">
+        <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewbox="0 24 150 28" preserveaspectratio="none" shape-rendering="auto">
+          <defs>
+            <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"/>
+          </defs>
+          <g class="parallax">
+            <use xlink:href="#gentle-wave" x="48" y="0"/>
+            <use xlink:href="#gentle-wave" x="48" y="3"/>
+            <use xlink:href="#gentle-wave" x="48" y="5"/>
+            <use xlink:href="#gentle-wave" x="48" y="7"/>
+          </g>
+        </svg>
+      </div>
+      <main>
+        <div class="inner">
+          <div id="main" class="pjax">
+            
+  <div class="article wrap">
+    
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/">首页</a></span><i class="ic i-angle-right"></i>
+<span  class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/works/" itemprop="item" rel="index" title="分类于 works"><span itemprop="name">works</span></a>
+<meta itemprop="position" content="1" /></span>
+</div>
+
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh-CN">
+  <link itemprop="mainEntityOfPage" href="http://tagbug.gitlab.io/2021/02/04/ujsAutoClock%E5%BC%80%E5%8F%91%E6%80%9D%E8%B7%AF%E5%8F%8A%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/">
+
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="/images/avatar.png">
+    <meta itemprop="name" content="TagBug">
+    <meta itemprop="description" content=", 所念皆星河">
+  </span>
+
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="🐟">
+  </span>
+
+  <div class="body md" itemprop="articleBody">
+    
+
+    <p>ujsAutoClock 江苏大学自动健康打卡项目（Chrome 扩展 &amp; Android APP）</p>
+<ul>
+<li>设置简单，通知推送，QQ 接龙，熄屏运行（不同系统环境、Chrome 版本可能不一定有效）<del>（妈妈再也不用担心没打卡啦</del></li>
+<li>Chrome 扩展项目地址：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3RhZ2J1Zy91anNBdXRvQ2xvY2s=">https://github.com/tagbug/ujsAutoClock</span></li>
+<li>Android 项目地址：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3RhZ2J1Zy91anNBdXRvQ2xvY2suYXBr">https://github.com/tagbug/ujsAutoClock.apk</span></li>
+</ul>
+<span id="more"></span>
+<h2 id="食用方法"><a class="anchor" href="#食用方法">#</a> 食用方法</h2>
+<hr>
+<blockquote>
+<p>下面是 Chrome 扩展的使用说明，Android 版本直接下载就行了，应该不用说明了</p>
+</blockquote>
+<ul>
+<li>
+<p>1. 在 Github 上下载扩展</p>
+</li>
+<li>
+<p>2. 打开 Chrome 扩展程序的开发者模式<br>
+<img data-src="https://cdn.jsdelivr.net/gh/tagbug/demo@latest/img/caozuo1.png" alt="在最右上角" title="在最右上角"></p>
+</li>
+<li>
+<p>3. 选择 <code>加载已解压的扩展程序</code></p>
+</li>
+<li>
+<p>4. 选择 ujsAutoClock 文件夹</p>
+</li>
+<li>
+<p>5. 允许 Chrome 在后台运行（占用系统资源很小）<br>
+<img data-src="https://cdn.jsdelivr.net/gh/tagbug/demo@latest/img/caozuo2.png" alt="在设置-&gt;高级-&gt;系统里可以找到" title="在设置-&gt;高级-&gt;系统里可以找到"></p>
+</li>
+<li>
+<p>6. 首次安装会自动弹出设置页，填写好配置后保存，就可以自动运行了</p>
+</li>
+<li>
+<p>7. 如果想测试打卡效果直接在 Chrome 地址栏旁边的扩展程序里点击扩展图标</p>
+</li>
+</ul>
+<div class="img-x">
+<p><img data-src="https://cdn.jsdelivr.net/gh/tagbug/demo@latest/img/caozuo3.png" alt="也可以在这里快速更改信息" title="也可以在这里快速更改信息"></p>
+</div>
+<ul>
+<li>8. 最新版增加 QQ 群自动接龙功能，接龙是接群的第一个，因为有 QQ 密码这种敏感信息，需要右键扩展，在选项中配置</li>
+</ul>
+<div class="img-x">
+<p><img data-src="https://cdn.jsdelivr.net/gh/tagbug/demo@latest/img/caozuo4.png" alt="就是这里" title="就是这里"></p>
+</div>
+<ul>
+<li>附。在 Chrome 扩展程序页选择选择 <code>ujs自动健康打卡</code>  -&gt; 查看视图 <code>背景页</code> 可以在 <code>Console</code>  里看到自动打卡记录。</li>
+</ul>
+<p>使用截图：<br>
+<img data-src="https://cdn.jsdelivr.net/gh/tagbug/demo@latest/img/use1.png"><br>
+<img data-src="https://cdn.jsdelivr.net/gh/tagbug/demo@latest/img/use2.png"></p>
+<h2 id="开发思路"><a class="anchor" href="#开发思路">#</a> 开发思路</h2>
+<hr>
+<h3 id="chrome扩展"><a class="anchor" href="#chrome扩展">#</a> Chrome 扩展</h3>
+<p>其实一开始，我是拒绝的，一是因为写代码麻烦，二是因为觉得不重要，每天手动打卡就顺手的事，然而我错了，对于尤其像我这种昼夜时差颠倒的人，一不小心就会忘记，然后被打电话，所以…╮(￣▽￣&quot;)╭</p>
+<h4 id="登录认证"><a class="anchor" href="#登录认证">#</a> <strong>登录认证</strong></h4>
+<ol>
+<li>打卡界面本来是在微信上的，选择 <code>在浏览器打开</code> 会得到一个打卡网址 <code>serviceUrl=&quot;http://yun.ujs.edu.cn/xxhgl/yqsb/index&quot;</code> ，很显然需要用户认证，通过 <code>&quot;https://pass.ujs.edu.cn/cas/login?service=&quot;+serviceUrl</code>  进行统一身份认证，浏览器会自动保存 Cookie（或者直接 <code>&quot;https://pass.ujs.edu.cn/cas/login&quot;</code>  好像也可以，这个参数的作用好像不是很明显，我没深究)</li>
+<li>对登陆页的 form.submit 进行分析，可知 POST 有以下参数： <code>username</code> | <code>password</code> | <code>captchaResponse</code> | <code>lt</code> | <code>dllt</code> | <code>execution</code> | <code>_eventId</code> | <code>rmShown</code></li>
+<li>后面五个参数都是隐藏在 form 表单中，每次请求内容好像都没变过，前三个参数都是需要用户填写的，其中 password 字段在 POST 提交时还会被用 AES 加密（AES 用到的密钥也放在了表单中，每次请求都会改变）</li>
+<li>知道了这些后，就可以写登录认证方法了，前面两个参数用户提供，每次不变，后面五个参数直接从 document 中提取，唯一比较棘手的就是验证码的处理，验证码每次从 <code>'https://pass.ujs.edu.cn/cas/captcha.html?ts=' + new Date().getMilliseconds()</code>  中随机生成</li>
+<li>想到可以用 OCR 识别，在网上找了很多 OCR 的 API，要么是要钱，要么是效果不好，还好知道一个效果不错的免费 OCR，但是却没有开放的 API 接口，无奈只好自己扒</li>
+<li>其实扒这个 OCR 的接口才是最耗时间精力的，中间踩了不少坑，反复用浏览器 F12 下断点调试 + BurpSuite 抓包，最后总算也是解决了，太过冗长也就不细讲了（其实这里用图像处理来对付验证码也可以，但是对于 JS 来说显然调 API 更省力）</li>
+<li>到这里终于是可以写自动化脚本把这个流程串联起来了（访问 <code>https://pass.ujs.edu.cn/cas/login</code>  获取表单参数 -&gt; 访问 <code>'https://pass.ujs.edu.cn/cas/captcha.html?ts=' + new Date().getMilliseconds()</code>  获取验证码图片信息 -&gt; 丢给 OCR 处理 -&gt; 返回验证码后把表单参数接起来 -&gt;POST 获取返回数据 -&gt; 检查登录状态是否成功（因为 OCR 有一定几率识别有误差，如果是验证码错误就重试，如果用户名密码错误直接结束，其他错误抛出异常））</li>
+</ol>
+<h4 id="定时打卡任务"><a class="anchor" href="#定时打卡任务">#</a> <strong>定时打卡任务</strong></h4>
+<ol>
+<li>在登录认证后直接访问 <code>'http://yun.ujs.edu.cn/xxhgl/yqsb/grmrsb?v=' + parseInt(Math.random() * 10000)</code>  就可以看到保存的打卡表单信息，注意到只有 <code>下午温度</code> 、 <code>上午温度</code> 和 <code>其他异常</code> 三个字段每天刷新，需要填写，这里用 Chrome 扩展强大的脚本插入功能，在页面加载完成后自动填写空缺字段提交，并返回提交结果</li>
+<li>最后实现每天定时执行，用 Chrome 扩展的消息通信功能协调各个子模块的运行，用 <code>chrome.storage.local</code>  储存 <code>用户名</code> 、 <code>密码</code> 和 <code>每日自动执行时间</code> ，用 <code>chrome.notifications</code>  实现桌面通知， <code>popup.html</code>  和 <code>options.html</code>  实现设置的读取和保存，方便用户操作</li>
+</ol>
+<h3 id="android应用"><a class="anchor" href="#android应用">#</a> Android 应用</h3>
+<p>这个是后来开发的，因为吧，虽然 Chrome 扩展开发起来简单，但最大的不足之处就在于无法同步通知到手机上，本来是想用发邮件的方式，找了很久也没发现什么用 JS 实现起来较为简单的方案，然后呢，我想着干脆直接在手机上开发一个应用，这样不就方便多了，而且实现原理都差不多… 嗯，原理是差不多，细节就差远了，本来以为一两天就能写完，最后边学边写写了四五天…</p>
+<h4 id="基本逻辑"><a class="anchor" href="#基本逻辑">#</a> <strong>基本逻辑</strong></h4>
+<ol>
+<li>Get 登录页 -&gt; 拿到一部分 Post 表单数据 -&gt;Get 验证码 -&gt; 用 OCR 读取 -&gt; 整合表单 Post 登录 -&gt;Get 打卡表单 -&gt; 填补空缺项后 Post 打卡</li>
+</ol>
+<h4 id="细节"><a class="anchor" href="#细节">#</a> <strong>细节</strong></h4>
+<ol>
+<li>
+<p>整个流程都是需要 HTTP 协议来进行数据交换的，原生的 Java HTTP API 效率太低了，用了开源软件 OkHttp，而且还需要实现 Cookie 的存储、更新和提交，Chrome 中浏览器就已经做好了这些，而在 Java 中只能自己来处理<br>
+解决方法：实现 OkHttp 中的 CookieJar 接口来自动处理 Cookie（缓存、读取、过期更新、本地化）<br>
+这里参考了：<span class="exturl" data-url="aHR0cHM6Ly9zcXVhcmUuZ2l0aHViLmlvL29raHR0cC8=">OkHttp 官方文档</span>和<span class="exturl" data-url="aHR0cHM6Ly93d3cuY25ibG9ncy5jb20vc2hlbmNoYW5naHVpL3AvNjQwOTY5OS5odG1s"> OkHttp3 实现 Cookies 管理及持久化</span></p>
+</li>
+<li>
+<p>然后第二个就是 Android 应用运行机制，包括应用组件：Activity、Service、BroadcastReceiver 和 ContentProvider（虽然我只用到了第一个和第三个…），清单文件，应用资源（布局、图标等），Intent、Context、Bundle…<br>
+ 不得不说，相当复杂…<del>（关键是官方 API 文档还全是英文，看都看不懂）</del></p>
+</li>
+<li>
+<p>第三个是用闹钟 AlarmManager 实现定时执行任务<del>（这个东西是真迷幻，不知道为什么定时总会有几分钟偏差）</del>（用 setExactAndAllowWhileIdle 方法即可准时广播）</p>
+</li>
+<li>
+<p>最后用 Notification 推送通知（这个东西也是，不同的 API 所要求的实现方法有细微区别，不注意就会导致通知推送不出来，找半天都不知道是哪的问题…）</p>
+</li>
+<li>
+<p>Android 系统的开放性、既要兼顾不同的 Android 系统版本（从高到低的 SDK 版本）、又因为各种厂商对自家手机系统的魔改，导致 Android 开发是个相当不容易的工作… 很佩服</p>
+</li>
+</ol>
+<p>参考:<br>
+<span class="exturl" data-url="aHR0cHM6Ly93d3cuY25ibG9ncy5jb20vbGl1eGlhbmFuL3AvY2hyb21lLXBsdWdpbi1kZXZlbG9wLmh0bWw=">Chrome 插件 (扩展) 开发全攻略</span><br>
+<span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIuYW5kcm9pZC5nb29nbGUuY24vZG9jcw=="> Android 开发者</span></p>
+
+      <div class="tags">
+          <a href="/tags/Chrome%E6%89%A9%E5%B1%95%E5%BA%94%E7%94%A8/" rel="tag"><i class="ic i-tag"></i> Chrome扩展应用</a>
+          <a href="/tags/Android%E5%BA%94%E7%94%A8/" rel="tag"><i class="ic i-tag"></i> Android应用</a>
+          <a href="/tags/works/" rel="tag"><i class="ic i-tag"></i> works</a>
+      </div>
+  </div>
+
+   <footer>
+
+    <div class="meta">
+  <span class="item">
+    <span class="icon">
+      <i class="ic i-calendar-check"></i>
+    </span>
+    <span class="text">更新于</span>
+    <time title="修改时间：2022-01-17 03:48:41" itemprop="dateModified" datetime="2022-01-17T03:48:41+08:00">2022-01-17</time>
+  </span>
+  <span id="2021/02/04/ujsAutoClock开发思路及使用方法/" class="item leancloud_visitors" data-flag-title="ujsAutoClock使用方法及开发思路" title="阅读次数">
+      <span class="icon">
+        <i class="ic i-eye"></i>
+      </span>
+      <span class="text">阅读次数</span>
+      <span class="leancloud-visitors-count"></span>
+      <span class="text">次</span>
+  </span>
+</div>
+
+      
+<div class="reward">
+  <button><i class="ic i-heartbeat"></i> 赞赏</button>
+  <p>请我喝[茶]~(￣▽￣)~*</p>
+  <div id="qr">
+      
+      <div>
+        <img data-src="/images/wechatpay.png" alt="TagBug 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/alipay.jpg" alt="TagBug 支付宝">
+        <p>支付宝</p>
+      </div>
+  </div>
+</div>
+
+      
+
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>本文作者： </strong>TagBug <i class="ic i-at"><em>@</em></i>🐟
+  </li>
+  <li class="link">
+    <strong>本文链接：</strong>
+    <a href="http://tagbug.gitlab.io/2021/02/04/ujsAutoClock%E5%BC%80%E5%8F%91%E6%80%9D%E8%B7%AF%E5%8F%8A%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/" title="ujsAutoClock使用方法及开发思路">http://tagbug.gitlab.io/2021/02/04/ujsAutoClock开发思路及使用方法/</a>
+  </li>
+  <li class="license">
+    <strong>版权声明： </strong>本站所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+  </footer>
+
+</article>
+
+  </div>
+  
+
+<div class="post-nav">
+  <div class="item left">
+      
+
+  <a href="/2021/01/28/C%E8%AF%AD%E8%A8%80%E5%9B%BE%E7%BB%93%E6%9E%84%E6%80%BB%E7%BB%93%EF%BC%88%E4%B8%80%EF%BC%89/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;cdn.jsdelivr.net&#x2F;gh&#x2F;tagbug&#x2F;demo@latest&#x2F;img&#x2F;1611837869906.png" title="C语言图结构总结（一）">
+  <span class="type">上一篇</span>
+  <span class="category">
+    <i class="ic i-flag"></i>
+    算法与数据结构</span>
+  <h3>C语言图结构总结（一）</h3>
+  </a>
+
+  </div>
+  <div class="item right">
+      
+
+  <a href="/2021/02/23/Linux%E7%BB%88%E7%AB%AF%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%93/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;cdn.jsdelivr.net&#x2F;gh&#x2F;tagbug&#x2F;demo@latest&#x2F;img&#x2F;1614076358773.png" title="Linux终端使用总结">
+  <span class="type">下一篇</span>
+  <span class="category">
+    <i class="ic i-flag"></i>
+    Shell</span>
+  <h3>Linux终端使用总结</h3>
+  </a>
+
+  </div>
+</div>
+  
+  <div class="wrap" id="comments"></div>
+
+
+          </div>
+          <div id="sidebar">
+            
+
+<div class="inner">
+
+  <div class="panels">
+    <div class="inner">
+      <div class="contents panel pjax" data-title="文章目录">
+          <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A3%9F%E7%94%A8%E6%96%B9%E6%B3%95"><span class="toc-number">1.</span> <span class="toc-text"> 食用方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%80%E5%8F%91%E6%80%9D%E8%B7%AF"><span class="toc-number">2.</span> <span class="toc-text"> 开发思路</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#chrome%E6%89%A9%E5%B1%95"><span class="toc-number">2.1.</span> <span class="toc-text"> Chrome 扩展</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%99%BB%E5%BD%95%E8%AE%A4%E8%AF%81"><span class="toc-number">2.1.1.</span> <span class="toc-text"> 登录认证</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%9A%E6%97%B6%E6%89%93%E5%8D%A1%E4%BB%BB%E5%8A%A1"><span class="toc-number">2.1.2.</span> <span class="toc-text"> 定时打卡任务</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#android%E5%BA%94%E7%94%A8"><span class="toc-number">2.2.</span> <span class="toc-text"> Android 应用</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E9%80%BB%E8%BE%91"><span class="toc-number">2.2.1.</span> <span class="toc-text"> 基本逻辑</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BB%86%E8%8A%82"><span class="toc-number">2.2.2.</span> <span class="toc-text"> 细节</span></a></li></ol></li></ol></li></ol>
+      </div>
+      <div class="related panel pjax" data-title="系列文章">
+        <ul>
+          <li class="active"><a href="/2021/02/04/ujsAutoClock%E5%BC%80%E5%8F%91%E6%80%9D%E8%B7%AF%E5%8F%8A%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/" rel="bookmark" title="ujsAutoClock使用方法及开发思路">ujsAutoClock使用方法及开发思路</a></li>
+        </ul>
+      </div>
+      <div class="overview panel" data-title="站点概览">
+        <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="image" itemprop="image" alt="TagBug"
+      data-src="/images/avatar.png">
+  <p class="name" itemprop="name">TagBug</p>
+  <div class="description" itemprop="description">所念皆星河</div>
+</div>
+
+<nav class="state">
+    <div class="item posts">
+      <a href="/archives/">
+        <span class="count">20</span>
+        <span class="name">文章</span>
+      </a>
+    </div>
+    <div class="item categories">
+      <a href="/categories/">
+        <span class="count">9</span>
+        <span class="name">分类</span>
+      </a>
+    </div>
+    <div class="item tags">
+      <a href="/tags/">
+        <span class="count">25</span>
+        <span class="name">标签</span>
+      </a>
+    </div>
+</nav>
+
+<div class="social">
+      <span class="exturl item github" data-url="aHR0cHM6Ly9naXRodWIuY29tL3RhZ2J1Zw==" title="https:&#x2F;&#x2F;github.com&#x2F;tagbug"><i class="ic i-github"></i></span>
+      <span class="exturl item email" data-url="bWFpbHRvOjEyNDIxMzUyOTVAcXEuY29t" title="mailto:1242135295@qq.com"><i class="ic i-envelope"></i></span>
+      <span class="exturl item bilibili" data-url="aHR0cHM6Ly9zcGFjZS5iaWxpYmlsaS5jb20vMjgyMjMzMg==" title="https:&#x2F;&#x2F;space.bilibili.com&#x2F;2822332"><i class="ic i-play"></i></span>
+      <span class="exturl item music" data-url="aHR0cHM6Ly9tdXNpYy4xNjMuY29tLyMvdXNlci9ob21lP2lkPTEzMzg4MTUwNw==" title="https:&#x2F;&#x2F;music.163.com&#x2F;#&#x2F;user&#x2F;home?id&#x3D;133881507"><i class="ic i-cloud-music"></i></span>
+      <span class="exturl item weibo" data-url="aHR0cHM6Ly93ZWliby5jb20vdS8yMTc5OTQ4OTM0" title="https:&#x2F;&#x2F;weibo.com&#x2F;u&#x2F;2179948934"><i class="ic i-weibo"></i></span>
+</div>
+
+<ul class="menu">
+  
+    
+  <li class="item">
+    <a href="/" rel="section"><i class="ic i-home"></i>首页</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/about/" rel="section"><i class="ic i-user"></i>关于</a>
+  </li>
+
+        
+  <li class="item dropdown">
+      <a href="javascript:void(0);"><i class="ic i-feather"></i>文章</a>
+    <ul class="submenu">
+
+        
+  <li class="item">
+    <a href="/archives/" rel="section"><i class="ic i-list-alt"></i>归档</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/categories/" rel="section"><i class="ic i-th"></i>分类</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/tags/" rel="section"><i class="ic i-tags"></i>标签</a>
+  </li>
+
+  </ul>
+    
+  <li class="item">
+    <a href="/friend/" rel="section"><i class="ic i-heart"></i>友链</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/music/" rel="section"><i class="ic i-music"></i>音乐</a>
+  </li>
+
+
+</ul>
+
+      </div>
+    </div>
+  </div>
+
+  <ul id="quick">
+    <li class="prev pjax">
+        <a href="/2021/01/28/C%E8%AF%AD%E8%A8%80%E5%9B%BE%E7%BB%93%E6%9E%84%E6%80%BB%E7%BB%93%EF%BC%88%E4%B8%80%EF%BC%89/" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a>
+    </li>
+    <li class="up"><i class="ic i-arrow-up"></i></li>
+    <li class="down"><i class="ic i-arrow-down"></i></li>
+    <li class="next pjax">
+        <a href="/2021/02/23/Linux%E7%BB%88%E7%AB%AF%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%93/" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a>
+    </li>
+    <li class="percent"></li>
+  </ul>
+</div>
+
+
+          </div>
+          <div class="dimmer"></div>
+        </div>
+      </main>
+      <footer id="footer">
+        <div class="inner">
+          <div class="widgets">
+            
+<div class="rpost pjax">
+  <h2>随机文章</h2>
+  <ul>
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="分类于 学习笔记">学习笔记</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E5%89%8D%E7%AB%AF/" title="分类于 前端">前端</a>
+</div>
+
+    <span><a href="/2022/01/20/%E5%93%8D%E5%BA%94%E5%BC%8F%E7%B3%BB%E7%BB%9F%E4%B8%8EReact-%E7%AC%94%E8%AE%B0/" title="响应式系统与React - 笔记">响应式系统与React - 笔记</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Java/" title="分类于 Java">Java</a>
+</div>
+
+    <span><a href="/2021/11/30/Maven%E7%AE%80%E5%8D%95%E6%80%BB%E7%BB%93/" title="Maven简单总结">Maven简单总结</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" title="分类于 算法与数据结构">算法与数据结构</a>
+</div>
+
+    <span><a href="/2021/05/07/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93/" title="排序算法总结">排序算法总结</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="分类于 学习笔记">学习笔记</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E5%89%8D%E7%AB%AF/" title="分类于 前端">前端</a>
+</div>
+
+    <span><a href="/2021/11/15/JS%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E7%AC%94%E8%AE%B0/" title="JS设计模式 - 笔记">JS设计模式 - 笔记</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="分类于 学习笔记">学习笔记</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E5%89%8D%E7%AB%AF/" title="分类于 前端">前端</a>
+</div>
+
+    <span><a href="/2022/01/20/HTTP%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97-%E7%AC%94%E8%AE%B0/" title="HTTP实用指南 - 笔记">HTTP实用指南 - 笔记</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="分类于 学习笔记">学习笔记</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E5%89%8D%E7%AB%AF/" title="分类于 前端">前端</a>
+</div>
+
+    <span><a href="/2021/09/23/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96-%E7%AC%94%E8%AE%B0/" title="前端工程化 - 笔记">前端工程化 - 笔记</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Linux/" title="分类于 Linux">Linux</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Linux/Shell/" title="分类于 Shell">Shell</a>
+</div>
+
+    <span><a href="/2021/02/23/Linux%E7%BB%88%E7%AB%AF%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%93/" title="Linux终端使用总结">Linux终端使用总结</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="分类于 学习笔记">学习笔记</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E5%89%8D%E7%AB%AF/" title="分类于 前端">前端</a>
+</div>
+
+    <span><a href="/2021/11/13/Web%E5%AE%89%E5%85%A8%E5%9F%BA%E7%A1%80-%E7%AC%94%E8%AE%B0/" title="Web安全基础 - 笔记">Web安全基础 - 笔记</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="分类于 学习笔记">学习笔记</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E5%89%8D%E7%AB%AF/" title="分类于 前端">前端</a>
+</div>
+
+    <span><a href="/2022/01/21/WebGL%E5%9F%BA%E7%A1%80-%E7%AC%94%E8%AE%B0/" title="WebGL基础 - 笔记">WebGL基础 - 笔记</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="分类于 学习笔记">学习笔记</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E5%89%8D%E7%AB%AF/" title="分类于 前端">前端</a>
+</div>
+
+    <span><a href="/2022/01/17/%E5%89%8D%E7%AB%AF%E4%B8%8EHTML-%E7%AC%94%E8%AE%B0/" title="前端与HTML - 笔记">前端与HTML - 笔记</a></span>
+  </li>
+
+  </ul>
+</div>
+<div>
+  <h2>最新评论</h2>
+  <ul class="leancloud-recent-comment"></ul>
+</div>
+
+          </div>
+          <div class="status">
+  <div class="copyright">
+    
+    &copy; 2021 – 
+    <span itemprop="copyrightYear">2022</span>
+    <span class="with-love">
+      <i class="ic i-sakura rotate"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">TagBug @ Tag Bug</span>
+  </div>
+  <div class="count">
+    <span class="post-meta-item-icon">
+      <i class="ic i-chart-area"></i>
+    </span>
+    <span title="站点总字数">82k 字</span>
+
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="ic i-coffee"></i>
+    </span>
+    <span title="站点阅读时长">1:15</span>
+  </div>
+
+  <div class="viewer">
+    <span>❤️感谢 <strong><span id="busuanzi_value_site_uv">282</span></strong> 小伙伴的 <strong><span id="busuanzi_value_site_pv">1685</span></strong> 次光临！❤️</span>
+  </div>
+  <script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" defer></script>
+  <div class="powered-by">
+    基于 <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
+  </div>
+</div>
+
+        </div>
+      </footer>
+    </div>
+    <script data-config="data-config" type="text/javascript">
+      var LOCAL = {
+        path: '2021/02/04/ujsAutoClock开发思路及使用方法/',
+        favicon: {
+          show: "（●´3｀●）やれやれだぜ",
+          hide: "(´Д｀)大変だ！"
+        },
+        search: {
+          placeholder: "文章搜索",
+          empty: "关于 「 ${query} 」，什么也没搜到",
+          stats: "${time} ms 内找到 ${hits} 条结果"
+        },
+          valine: true,fancybox: true,
+            copyright: '复制成功，转载请遵守 <i class="ic i-creative-commons"></i>BY-NC-SA 协议。',
+        ignores: [
+          function (uri) {
+            return uri.includes('#');
+          },
+          function (uri) {
+            return new RegExp(LOCAL.path + "$").test(uri);
+          }
+        ]
+      };
+    </script>
+
+    <script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
+
+    <script src="//cdn.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
+
+    <script src="/js/app.js?v=0.2.5"></script>
+
+    
+
+
+  </body>
+</html>

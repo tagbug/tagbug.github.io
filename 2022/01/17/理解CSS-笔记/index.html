@@ -1,0 +1,1010 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#FFF">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="icon" type="image/ico" sizes="32x32" href="/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+<link rel="alternate" type="application/rss+xml" title="🐟" href="http://tagbug.gitlab.io/rss.xml"/>
+<link rel="alternate" type="application/atom+xml" title="🐟" href="http://tagbug.gitlab.io/atom.xml"/>
+<link rel="alternate" type="application/json" title="🐟" href="http://tagbug.gitlab.io/feed.json"/>
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="/css/app.css?v=0.2.5">
+    
+  <meta name="keywords" content="Web,前端,笔记补完计划,CSS" />
+
+
+<link rel="canonical" href="http://tagbug.gitlab.io/2022/01/17/%E7%90%86%E8%A7%A3CSS-%E7%AC%94%E8%AE%B0/">
+
+
+
+    <title>
+      
+理解CSS - 笔记 - 前端 - 学习笔记 |
+Tag Bug = 🐟</title>
+  <meta name="generator" content="Hexo 5.4.0"></head>
+  <body itemscope="itemscope" itemtype="http://schema.org/WebPage">
+    <div id="loading">
+      <div class="cat">
+        <div class="body"></div>
+        <div class="head">
+          <div class="face"></div>
+        </div>
+        <div class="foot">
+          <div class="tummy-end"></div>
+          <div class="bottom"></div>
+          <div class="legs left"></div>
+          <div class="legs right"></div>
+        </div>
+        <div class="paw">
+          <div class="hands left"></div>
+          <div class="hands right"></div>
+        </div>
+      </div>
+    </div>
+    <div id="container">
+      <header id="header" itemscope="itemscope" itemtype="http://schema.org/WPHeader">
+        <div class="inner">
+          <div id="brand">
+            <div class="pjax">
+              
+  <h1 itemprop="name headline">理解CSS - 笔记
+  </h1>
+  
+<div class="meta">
+  <span class="item" title="创建时间：2022-01-17 03:31:45">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">发表于</span>
+    <time itemprop="dateCreated datePublished" datetime="2022-01-17T03:31:45+08:00">2022-01-17</time>
+  </span>
+  <span class="item" title="本文字数">
+    <span class="icon">
+      <i class="ic i-pen"></i>
+    </span>
+    <span class="text">本文字数</span>
+    <span>6.4k</span>
+    <span class="text">字</span>
+  </span>
+  <span class="item" title="阅读时长">
+    <span class="icon">
+      <i class="ic i-clock"></i>
+    </span>
+    <span class="text">阅读时长</span>
+    <span>6 分钟</span>
+  </span>
+</div>
+
+
+            </div>
+          </div>
+          <nav id="nav">
+  <div class="inner">
+    <div class="toggle">
+      <div class="lines" aria-label="切换导航栏">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <ul class="menu">
+      <li class="item title"><a href="/" rel="start">Tag Bug</a></li>
+    </ul>
+    <ul class="right">
+      <li class="item theme">
+        <i class="ic i-sun"></i>
+      </li>
+      <li class="item search">
+        <i class="ic i-search"></i>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+        </div>
+        <div id="imgs" class="pjax">
+            <ul>
+                <li class="item" data-background-image="https://tva1.sinaimg.cn/large/81ef6186ly8gwtz8fhnmbj20zk0k0n0g.jpg"></li>
+                <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1giph4lm9i7j20zk0m84qp.jpg"></li>
+                <li class="item" data-background-image="https://tva1.sinaimg.cn/large/81ef6186ly8gwtysz7l4ej20u01hc0yc.jpg"></li>
+                <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1giciszlczyj20zk0m816d.jpg"></li>
+                <li class="item" data-background-image="https://tva1.sinaimg.cn/large/81ef6186ly8gwtzfo3szyj20um0u077e.jpg"></li>
+                <li class="item" data-background-image="https://tva1.sinaimg.cn/large/81ef6186ly8gwtzc2wf0gj20zk0k0gpt.jpg"></li>
+            </ul>
+        </div>
+      </header>
+      <div id="waves">
+        <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewbox="0 24 150 28" preserveaspectratio="none" shape-rendering="auto">
+          <defs>
+            <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"/>
+          </defs>
+          <g class="parallax">
+            <use xlink:href="#gentle-wave" x="48" y="0"/>
+            <use xlink:href="#gentle-wave" x="48" y="3"/>
+            <use xlink:href="#gentle-wave" x="48" y="5"/>
+            <use xlink:href="#gentle-wave" x="48" y="7"/>
+          </g>
+        </svg>
+      </div>
+      <main>
+        <div class="inner">
+          <div id="main" class="pjax">
+            
+  <div class="article wrap">
+    
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/">首页</a></span><i class="ic i-angle-right"></i>
+<span  itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" itemprop="item" rel="index" title="分类于 学习笔记"><span itemprop="name">学习笔记</span></a>
+<meta itemprop="position" content="1" /></span>
+<i class="ic i-angle-right"></i>
+<span  class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E5%89%8D%E7%AB%AF/" itemprop="item" rel="index" title="分类于 前端"><span itemprop="name">前端</span></a>
+<meta itemprop="position" content="2" /></span>
+</div>
+
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh-CN">
+  <link itemprop="mainEntityOfPage" href="http://tagbug.gitlab.io/2022/01/17/%E7%90%86%E8%A7%A3CSS-%E7%AC%94%E8%AE%B0/">
+
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="/images/avatar.png">
+    <meta itemprop="name" content="TagBug">
+    <meta itemprop="description" content=", 所念皆星河">
+  </span>
+
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="🐟">
+  </span>
+
+  <div class="body md" itemprop="articleBody">
+    
+
+    <blockquote>
+<p>CSS 是什么、CSS 如何工作、CSS 的简单使用、CSS 的调试、CSS 盒模型、CSS 布局、学习 CSS 的方法等</p>
+</blockquote>
+<span id="more"></span>
+<h1 id="理解css-笔记"><a class="anchor" href="#理解css-笔记">#</a> 理解 CSS - 笔记</h1>
+<h2 id="css是什么"><a class="anchor" href="#css是什么">#</a> CSS 是什么</h2>
+<p><span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9XZWIvQ1NT">Cascading Style Sheets</span>：用来定义 HTML 元素的渲染样式</p>
+<p>基本代码如下：</p>
+<figure class="highlight css"><figcaption data-lang="CSS"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token selector">h1</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>    <span class="token property">color</span><span class="token punctuation">:</span> white<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="3"></td><td><pre>    <span class="token property">font-size</span><span class="token punctuation">:</span> 14px<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure><p>在 html 页面中使用：</p>
+<ol>
+<li>外链，如： <code>&lt;link href=&quot;style.css&quot; /&gt;</code></li>
+<li>嵌入，如： <code>&lt;style&gt;h1 &#123; color: white; &#125;&lt;/style&gt;</code></li>
+<li>内联，如： <code>&lt;h1 style=&quot;color: white;&quot;&gt;Title&lt;/h1&gt;</code></li>
+</ol>
+<p>优先级逐级减小</p>
+<p>一般而言，<em>不太建议</em>使用内联样式</p>
+<h2 id="css如何工作"><a class="anchor" href="#css如何工作">#</a> CSS 如何工作</h2>
+<p><img data-src="https://cdn.jsdelivr.net/gh/tagbug/demo@latest/img/image-20220117004456268.png" alt="image-20220117004456268"></p>
+<p>DOM 树 + CSS =&gt; 渲染树（最终展示的页面效果）</p>
+<h2 id="css简单使用"><a class="anchor" href="#css简单使用">#</a> CSS 简单使用</h2>
+<h3 id="选择器"><a class="anchor" href="#选择器">#</a> 选择器</h3>
+<ul>
+<li><span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9XZWIvQ1NTL1VuaXZlcnNhbF9zZWxlY3RvcnM=">通配选择器</span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9XZWIvQ1NTL1R5cGVfc2VsZWN0b3Jz">标签选择器</span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9XZWIvQ1NTL0lEX3NlbGVjdG9ycw==">id 选择器</span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9XZWIvQ1NTL0NsYXNzX3NlbGVjdG9ycw==">类选择器</span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9XZWIvQ1NTL0F0dHJpYnV0ZV9zZWxlY3RvcnM=">属性选择器</span></li>
+</ul>
+<h3 id="伪类伪元素"><a class="anchor" href="#伪类伪元素">#</a> 伪类 &amp; 伪元素</h3>
+<p><span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9XZWIvQ1NTL1BzZXVkby1jbGFzc2Vz">伪类</span>分两种，状态类伪类和结构类伪类。</p>
+<ul>
+<li>
+<p>状态类伪类：选择元素的不同状态的样式，比如 a:hover（鼠标覆盖时）、a:focus（获得焦点时）等</p>
+</li>
+<li>
+<p>结构类伪类：根据元素所处结构、位置等选择样式，比如 li:first-child（父元素中的第一个子元素）等</p>
+</li>
+</ul>
+<p><span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9XZWIvQ1NTL1BzZXVkby1lbGVtZW50cw==">伪元素</span>常用的一般就两个， <code>::before</code>  和 <code>::after</code> ，都是用来向被选中的元素添加元素之外的装饰性内容（文字）等</p>
+<h3 id="组合"><a class="anchor" href="#组合">#</a> 组合</h3>
+<p>选择器与选择器、选择器与伪类之间都可以进行组合，组合按照以下规则：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">名称</th>
+<th style="text-align:center">语法</th>
+<th style="text-align:left">说明</th>
+<th style="text-align:left">示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">直接组合</td>
+<td style="text-align:center">AB</td>
+<td style="text-align:left">条件 A 和 B 要同时满足</td>
+<td style="text-align:left">a:hover</td>
+</tr>
+<tr>
+<td style="text-align:left">后代组合</td>
+<td style="text-align:center">A B</td>
+<td style="text-align:left">如果 B 为 A 的子孙，则选中 B</td>
+<td style="text-align:left">ol li</td>
+</tr>
+<tr>
+<td style="text-align:left">亲子组合</td>
+<td style="text-align:center">A &gt; B</td>
+<td style="text-align:left">如果 B 为 A 的直接子元素，则选中 B</td>
+<td style="text-align:left">section &gt; article</td>
+</tr>
+<tr>
+<td style="text-align:left">兄弟选择器</td>
+<td style="text-align:center">A ~ B</td>
+<td style="text-align:left">如果 B 在 A 后面并且 B 与 A 同级，则选中 B</td>
+<td style="text-align:left">h2 ~ p</td>
+</tr>
+<tr>
+<td style="text-align:left">相邻选择器</td>
+<td style="text-align:center">A + B</td>
+<td style="text-align:left">如果 B<strong> 紧跟</strong> A 后面并且 B 与 A 同级，则选中 B</td>
+<td style="text-align:left">img + p</td>
+</tr>
+</tbody>
+</table>
+<h3 id="选择器组"><a class="anchor" href="#选择器组">#</a> 选择器组</h3>
+<p>当多个选择器使用相同样式时，可以用 <code>,</code>  将多个选择器隔开</p>
+<p>例如：</p>
+<figure class="highlight css"><figcaption data-lang="CSS"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token selector">h1, h2, h3, h4</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>    <span class="token property">color</span><span class="token punctuation">:</span> red<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="4"></td><td><pre></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token selector">a:link, input[type="text"]</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="6"></td><td><pre>    <span class="token property">border</span><span class="token punctuation">:</span> 1px solid blue<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="7"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure><h3 id="css中的颜色表示"><a class="anchor" href="#css中的颜色表示">#</a> CSS 中的颜色表示</h3>
+<p>详细内容见<span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9XZWIvQ1NTL2NvbG9yX3ZhbHVl"> &lt;color&gt;-MDN</span></p>
+<h4 id="rgb"><a class="anchor" href="#rgb">#</a> RGB</h4>
+<p>R：Red，G：Green，B：Blue</p>
+<p>可以通过两种方式表示：</p>
+<ol>
+<li>带 <code>#</code> 号的十六进制数字，例如 <code>#FFAA00</code> ，其中 <code>FF</code>  表示红色大小， <code>AA</code>  表示绿色大小， <code>00</code>  表示蓝色大小</li>
+<li><code>rgb()</code>  函数，例如 <code>rgb(255, 100, 0)</code></li>
+</ol>
+<h4 id="hsl"><a class="anchor" href="#hsl">#</a> HSL</h4>
+<p>H：Hue，S：Saturation，L：Lightness</p>
+<p>通过 <code>hsl()</code>  函数表示，例如 <code>hsl(180, 0.6, 0.9)</code></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/tagbug/demo@latest/img/image-20220117020416691.png" alt="image-20220117020416691"></p>
+<h4 id="关键字"><a class="anchor" href="#关键字">#</a> 关键字</h4>
+<p>例如：red、blue、white、black 等等，<span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9XZWIvQ1NTL2NvbG9yX3ZhbHVlIyVFOSVBMiU5QyVFOCU4OSVCMiVFNSU4NSVCMyVFOSU5NCVBRSVFNSVBRCU5Nw==">详细列表</span></p>
+<h4 id="alpha透明度"><a class="anchor" href="#alpha透明度">#</a> alpha 透明度</h4>
+<p>取值为 [0, 1] 之间，例如：</p>
+<ol>
+<li>#FFAA00 <code>A0</code> ， <code>A0</code>  就表示透明度</li>
+<li>rgb(255, 100, 0,  <code>0.5</code> ) 或 hsl (255, 100, 0,  <code>0.5</code> )， <code>0.5</code>  就表示透明度</li>
+</ol>
+<h3 id="css中的字体设置"><a class="anchor" href="#css中的字体设置">#</a> CSS 中的字体设置</h3>
+<h4 id="字体-font-family"><a class="anchor" href="#字体-font-family">#</a> 字体 font-family</h4>
+<p>通过具体字体名称或字体族指示要使用的字体，例如：</p>
+<figure class="highlight css"><figcaption data-lang="CSS"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token selector">h1</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>    <span class="token property">font-family</span><span class="token punctuation">:</span> Megrim<span class="token punctuation">,</span> Cursive<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure><p>通过设置多种字体，特别是通用字体族，可以对不同平台 &amp; 系统不支持的字体做一个兜底，不会让页面显示效果大相径庭。</p>
+<p>字体族类型如下：</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/tagbug/demo@latest/img/image-20220117005035921.png" alt="image-20220117005035921"></p>
+<p>font-family 使用建议：</p>
+<ul>
+<li>
+<p>字体列表最后写上通用字体族</p>
+</li>
+<li>
+<p>英文字体放在中文字体前面</p>
+</li>
+</ul>
+<p>使用 web-fonts：</p>
+<figure class="highlight css"><figcaption data-lang="CSS"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token atrule"><span class="token rule">@font-face</span></span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>    <span class="token property">font-family</span><span class="token punctuation">:</span> "xxx<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="3"></td><td><pre>    <span class="token property">src</span><span class="token punctuation">:</span> <span class="token url"><span class="token function">url</span><span class="token punctuation">(</span>...<span class="token punctuation">)</span></span> <span class="token function">format</span><span class="token punctuation">(</span><span class="token string">'...'</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure><h4 id="字体大小-font-size"><a class="anchor" href="#字体大小-font-size">#</a> 字体大小 font-size</h4>
+<p>通过不同的单位可以设置字体显示的大小，例如：</p>
+<figure class="highlight css"><figcaption data-lang="CSS"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token selector">h1</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>    <span class="token property">font-size</span><span class="token punctuation">:</span> 2rem<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="4"></td><td><pre></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token selector">p</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="6"></td><td><pre>    <span class="token property">font-size</span><span class="token punctuation">:</span> 24px<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="7"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure><h4 id="字体样式-font-style"><a class="anchor" href="#字体样式-font-style">#</a> 字体样式 font-style</h4>
+<p>通过关键字设置字体样式，例如：</p>
+<figure class="highlight css"><figcaption data-lang="CSS"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token property">font-style</span><span class="token punctuation">:</span> italic<span class="token punctuation">;</span></pre></td></tr></table></figure><h4 id="字体字重-font-weight"><a class="anchor" href="#字体字重-font-weight">#</a> 字体字重 font-weight</h4>
+<p>通过关键字和具体数字设置字体的粗细程度，例如：</p>
+<figure class="highlight css"><figcaption data-lang="CSS"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token property">font-weight</span><span class="token punctuation">:</span> bold<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token property">font-weight</span><span class="token punctuation">:</span> 200<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token property">font-weight</span><span class="token punctuation">:</span> 500<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token property">font-weight</span><span class="token punctuation">:</span> 800<span class="token punctuation">;</span></pre></td></tr></table></figure><p>当字体不支持某种字重时，系统会选择最接近的另一种字重代替显示。</p>
+<h4 id="行高-line-height"><a class="anchor" href="#行高-line-height">#</a> 行高 line-height</h4>
+<p>即每行文字的 baseline 的间距，可以用不带单位的数字表示行高为字体大小的数倍</p>
+<figure class="highlight css"><figcaption data-lang="CSS"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token property">line-height</span><span class="token punctuation">:</span> 1.6<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token property">line-height</span><span class="token punctuation">:</span> 32px<span class="token punctuation">;</span></pre></td></tr></table></figure><h4 id="文本对齐方式-text-align"><a class="anchor" href="#文本对齐方式-text-align">#</a> 文本对齐方式 text-align</h4>
+<p>使用 left、center、right、justify 关键词，控制容器内每一行文字相对容器的水平对齐方式</p>
+<h4 id="文字间距"><a class="anchor" href="#文字间距">#</a> 文字间距</h4>
+<ul>
+<li>字母间距 letter-spacing</li>
+<li>单词间距 word-spacing</li>
+</ul>
+<h4 id="首行缩进-text-indent"><a class="anchor" href="#首行缩进-text-indent">#</a> 首行缩进 text-indent</h4>
+<h4 id="文本修饰-text-decoration"><a class="anchor" href="#文本修饰-text-decoration">#</a> 文本修饰 <span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9XZWIvQ1NTL3RleHQtZGVjb3JhdGlvbg==">text-decoration</span></h4>
+<h3 id="css中的其他重要属性"><a class="anchor" href="#css中的其他重要属性">#</a> CSS 中的其他重要属性</h3>
+<h4 id="空白符表现形式-white-space"><a class="anchor" href="#空白符表现形式-white-space">#</a> 空白符表现形式 white-space</h4>
+<p>使用 normal（默认选项）、nowarp、pre、pre-wrap、pre-line 关键词</p>
+<ul>
+<li>不保留连续空格：normal、nowarp、pre-line</li>
+<li>保留连续空格：pre、pre-warp</li>
+<li>自动换行：normal、pre-warp、pre-line（pre-line 是在 normal 的基础上保留了 html 中的换行符）</li>
+</ul>
+<h2 id="css如何调试"><a class="anchor" href="#css如何调试">#</a> CSS 如何调试</h2>
+<p>使用浏览器自带的开发者工具 DevTools，快捷键<kbd>Ctrl+Shift+I</kbd>或<kbd>F12</kbd>（Windows）</p>
+<h3 id="选择器特异度优先级"><a class="anchor" href="#选择器特异度优先级">#</a> 选择器<span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9MZWFybi9DU1MvQnVpbGRpbmdfYmxvY2tzL0Nhc2NhZGVfYW5kX2luaGVyaXRhbmNlIyVFNCVCQyU5OCVFNSU4NSU4OCVFNyVCQSVBN18y">特异度（优先级）</span></h3>
+<p>哪些规则能覆盖别的？</p>
+<p>规则的覆盖遵循以下原则：</p>
+<ol>
+<li>重要程度</li>
+<li>优先级</li>
+<li>资源顺序</li>
+</ol>
+<p>使用 <code>!important</code>  可以让某条规则强制生效（除非另一条规则也使用 <code>!important</code>  且具有更高优先级或者相同优先级但顺序更靠后）</p>
+<p>优先级的计算遵循以下规则：</p>
+<ol>
+<li><strong>千位</strong>： 如果声明在 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Global_attributes#attr-style"> <code>style</code> </a> 的属性（内联样式）则该位得一分。</li>
+<li><strong>百位</strong>： 选择器中包含<strong> ID 选择器</strong>则该位得一分。</li>
+<li><strong>十位</strong>： 选择器中包含类<strong>选择器、属性选择器或者伪类</strong>则该位得一分。</li>
+<li><strong>个位</strong>：选择器中包含<strong>元素、伪元素选择器</strong>则该位得一分。</li>
+<li>计算时不允许进位，比如 100 个<strong>十位</strong>还是小于 1 个<strong>百位</strong></li>
+</ol>
+<p>当优先级相同时，位置靠后的规则生效</p>
+<h3 id="属性继承"><a class="anchor" href="#属性继承">#</a> 属性继承</h3>
+<p>某些属性会自动继承其父元素的<strong>计算值</strong> <em>(Computed Value)</em>，除非显示指定一个值。</p>
+<p>一般而言，和文字相关的属性自动继承，和盒模型相关的属性不会自动继承。</p>
+<p>同时，CSS 为每个属性都提供了一个通用的值 <code>inherit</code>  用于从父元素继承该属性值。</p>
+<h3 id="属性初始值"><a class="anchor" href="#属性初始值">#</a> 属性初始值</h3>
+<p>在 CSS 中，每个元素都拥有自己的初始值，并且提供了一个通用的值 <code>initial</code>  用于还原为属性值为其初始值。</p>
+<h3 id="unset值"><a class="anchor" href="#unset值">#</a> unset 值</h3>
+<p>在 CSS 中，还提供一个特殊值 <code>unset</code> ，当属性值设置为 unset 时，有两种情况：</p>
+<pre><code>1. 当要设置的属性值能自动继承并且父元素有相应的定义值时，该元素会继承父元素的值，即行为与`inherit`相同
+2. 当要设置的属性值不能自动继承或者父元素没有相应值的定义，该元素会使用默认（初始）值，即行为与`initial`相同
+</code></pre>
+<h3 id="css工作流程"><a class="anchor" href="#css工作流程">#</a> CSS 工作流程</h3>
+<p><img data-src="https://cdn.jsdelivr.net/gh/tagbug/demo@latest/img/image-20220117011943180.png" alt="image-20220117011943180"></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/tagbug/demo@latest/img/image-20220117012054371.png" alt="image-20220117012054371"></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/tagbug/demo@latest/img/image-20220117012131405.png" alt="image-20220117012131405"></p>
+<h2 id="css盒模型"><a class="anchor" href="#css盒模型">#</a> CSS 盒模型</h2>
+<h3 id="width-height-padding-border-margin"><a class="anchor" href="#width-height-padding-border-margin">#</a> width、height、padding、border、margin</h3>
+<p><strong>如何使用 CSS 模拟三角形🔺？</strong></p>
+<figure class="highlight css"><figcaption data-lang="CSS"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token selector">div</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>  <span class="token property">width</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="3"></td><td><pre>  <span class="token property">border-style</span><span class="token punctuation">:</span> solid<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="4"></td><td><pre>  <span class="token property">border-width</span><span class="token punctuation">:</span> 50px<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="5"></td><td><pre>  <span class="token property">border-color</span><span class="token punctuation">:</span> transparent transparent black transparent<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="6"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure><p><img data-src="https://cdn.jsdelivr.net/gh/tagbug/demo@latest/img/image-20220117012952354.png" alt="image-20220117012952354"></p>
+<p><strong>水平居中如何实现？</strong></p>
+<figure class="highlight css"><figcaption data-lang="CSS"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token property">margin</span><span class="token punctuation">:</span> 0 auto<span class="token punctuation">;</span></pre></td></tr></table></figure><p>外边距折叠 margin collapse：<strong>水平方向</strong>上的两个不同的 margin 值相邻，margin 值会取较大的那个</p>
+<h3 id="box-sizing-border-box"><a class="anchor" href="#box-sizing-border-box">#</a> box-sizing: border-box</h3>
+<p>当 box-sizing 值为 border-box 时，width 与 height 代表除了 margin 以外的盒模型的宽和高；</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/tagbug/demo@latest/img/image-20220117013246922.png" alt="image-20220117013246922"></p>
+<p>当 box-sizing 值为 content-box 时，width 与 height 代表除了 margin、border、padding 以外的盒模型的宽和高；</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/tagbug/demo@latest/img/image-20220117013331489.png" alt="image-20220117013331489"></p>
+<p>默认值为 content-box，可以全局设置 border-box 方便开发</p>
+<h3 id="overflow"><a class="anchor" href="#overflow">#</a> overflow</h3>
+<p>控制盒内元素溢出方式，常用 visible、hidden、scroll 三种值，分别代表显示溢出内容、隐藏溢出内容、对溢出内容增加滚动条</p>
+<h3 id="块级行级"><a class="anchor" href="#块级行级">#</a> 块级 &amp; 行级</h3>
+<table>
+<thead>
+<tr>
+<th>块级盒子</th>
+<th style="text-align:left">行级盒子</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>在常规流中不和其他盒子并列摆放</td>
+<td style="text-align:left">和其他行级盒子一起放在一行或拆开成多行</td>
+</tr>
+<tr>
+<td>适用所有的盒模型属性</td>
+<td style="text-align:left">盒模型中的 width、height 不适用，并且 margin、padding、border 虽然生效，但是不能推开<strong>上下</strong>内容</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>块级元素</th>
+<th>行级元素</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>特性</strong></td>
+<td>生成块级盒子</td>
+<td>生成行级盒子<br>内容分散在多个行盒 (line box) 中</td>
+</tr>
+<tr>
+<td><strong>举例</strong></td>
+<td>body、article、div、main、section、h1-6、p、ul、li 等 (<span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9XZWIvSFRNTC9CbG9jay1sZXZlbF9lbGVtZW50cyMlRTUlODUlODMlRTclQjQlQTAlRTUlODglOTclRTglQTElQTg=">完整列表</span>)</td>
+<td>span、ern、strong、cite、code 等 (<span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9XZWIvSFRNTC9JbmxpbmVfZWxlbWVudHMjZWxlbWVudHM=">完整列表</span>)</td>
+</tr>
+<tr>
+<td><strong>实际属性</strong></td>
+<td>display: block</td>
+<td>display: inline</td>
+</tr>
+</tbody>
+</table>
+<p>盒子是渲染时的概念，而元素是书写 html 时的概念，一个块级盒子生成一个块级盒子。</p>
+<p>块级元素或行级元素也可以通过 <code>display: inline/display: block</code>  改变默认行为（变成行级 / 块级盒子）。</p>
+<h3 id="display属性"><a class="anchor" href="#display属性">#</a> display 属性</h3>
+<p>对于行级和块级来说，有以下可选值：</p>
+<ul>
+<li>block：块级盒子</li>
+<li>inline：行级盒子</li>
+<li>inline-block：本身是行级，可以放在行盒中；可以设置宽高；作为一个整体不会被拆散成多行</li>
+<li>none：布局时完全被忽略</li>
+</ul>
+<p>需要注意的是：元素本身的盒子属性和元素内部的盒子属性是两回事</p>
+<p>例如：一个设置为 <code>display: inline-block</code>  的行级盒子，现在表现为 inline-block，但是其内部文字依然是默认使用行级盒子</p>
+<h2 id="css布局"><a class="anchor" href="#css布局">#</a> CSS 布局</h2>
+<p>CSS 中的布局分为三套不同的模式：常规流、浮动、绝对定位</p>
+<p>常规流中包括：行级、块级、表格布局、FlexBox、Grid 布局</p>
+<h3 id="常规流-normal-flow"><a class="anchor" href="#常规流-normal-flow">#</a> 常规流 Normal Flow</h3>
+<p>要点：</p>
+<ul>
+<li>根元素、浮动和绝对定位的元素会脱离常规流</li>
+<li>其它元素都在常规流之内 (in-flow)</li>
+<li>常规流中的盒子，在某种排版上下文中参与布局</li>
+</ul>
+<p>排版上下文通过 <code>display</code>  属性创建</p>
+<h3 id="行级排版上下文"><a class="anchor" href="#行级排版上下文">#</a> 行级排版上下文</h3>
+<p>Inline Formatting Context (IFC)</p>
+<p><strong>只包含行级盒子</strong>的容器会创建一个 IFC</p>
+<p>IFC 内的排版规则：</p>
+<ul>
+<li>
+<p>盒子在一行内水平摆放</p>
+</li>
+<li>
+<p>一行放不下时，换行显示</p>
+</li>
+<li>
+<p><strong>text-align</strong> 决定一行内盒子的<strong>水平</strong>对齐</p>
+</li>
+<li>
+<p><strong>vertical-align</strong> 决定一行内盒子<strong>在行内的垂直对齐</strong></p>
+</li>
+<li>
+<p>避开浮动 (float) 元素</p>
+</li>
+</ul>
+<h3 id="块级排版上下文"><a class="anchor" href="#块级排版上下文">#</a> 块级排版上下文</h3>
+<p>Block Formatting Context (BFC)</p>
+<p>不是每一个新的块级盒子都会创建一个新的 BFC，只有某些容器会创建一个 BFC：</p>
+<ul>
+<li>根元素</li>
+<li>浮动、绝对定位、inline-block</li>
+<li>Flex 子项和 Grid 子项</li>
+<li>overflow 值不是 visible 的块盒</li>
+<li>display: flow-root;</li>
+</ul>
+<p>BFC 内的排版规则：</p>
+<ul>
+<li>盒子从上到下摆放</li>
+<li>垂直 margin 合并（margin collapse）</li>
+<li>BFC 内盒子的 margin 不会与外面的合并</li>
+<li>BFC 不会和浮动元素重叠</li>
+</ul>
+<p>如果一个块级盒子夹在行级盒子内部，那么这个行级盒子会被拆成两个行级上下文，中间夹一个块级上下文。</p>
+<h3 id="flex-box排版上下文"><a class="anchor" href="#flex-box排版上下文">#</a> Flex Box 排版上下文</h3>
+<p>一种新的排版上下文</p>
+<p>它可以控制子级盒子的：</p>
+<ul>
+<li>摆放的流向 (👆👇👈👉)</li>
+<li>摆放顺序</li>
+<li>盒子宽度和高度</li>
+<li>水平和垂直方向的对齐</li>
+<li>是否允许折行</li>
+</ul>
+<h4 id="flex-direction属性"><a class="anchor" href="#flex-direction属性">#</a> flex-direction 属性</h4>
+<p>控制 flex 上下文内元素的摆放流向</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/tagbug/demo@latest/img/image-20220117023655521.png" alt="image-20220117023655521"></p>
+<h4 id="justify-content属性"><a class="anchor" href="#justify-content属性">#</a> justify-content 属性</h4>
+<p>控制 flex 上下文内主轴的元素摆放规则（水平对齐规则）</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/tagbug/demo@latest/img/image-20220117023729442.png" alt="image-20220117023729442"></p>
+<h4 id="align-items属性"><a class="anchor" href="#align-items属性">#</a> align-items 属性</h4>
+<p>控制 flex 上下文内侧轴（交叉轴）的元素摆放规则（垂直对齐规则）</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/tagbug/demo@latest/img/image-20220117023751000.png" alt="image-20220117023751000"></p>
+<h4 id="align-self属性"><a class="anchor" href="#align-self属性">#</a> align-self 属性</h4>
+<p>对于单个元素自身设置其侧轴（交叉轴）的摆放规则（垂直对齐规则）</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/tagbug/demo@latest/img/image-20220117023808745.png" alt="image-20220117023808745"></p>
+<h4 id="order属性"><a class="anchor" href="#order属性">#</a> order 属性</h4>
+<p>调整元素的在摆放顺序中的位置，值越小越靠前</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/tagbug/demo@latest/img/image-20220117023830566.png" alt="image-20220117023830566"></p>
+<h4 id="flexibility"><a class="anchor" href="#flexibility">#</a> Flexibility</h4>
+<p>对于 flex 上下文中的每个元素来说，都有一定的弹性，可以在指定方向伸展或收缩。</p>
+<p>可以设置子项的弹性：当容器有剩余空间时，会伸展；容器空间不够时，会收缩。</p>
+<p>flex-grow 设置拥有剩余空间时的伸展能力（注意：剩余空间不包括元素初始状态所占空间）</p>
+<p>flex-shrink 设置容器空间不足时收缩的能力（默认值为 1—— 即默认每个元素都能被压缩）</p>
+<p>flex-basis 没有伸展或收缩时的基础长度</p>
+<h4 id="flex属性"><a class="anchor" href="#flex属性">#</a> flex 属性</h4>
+<p><img data-src="https://cdn.jsdelivr.net/gh/tagbug/demo@latest/img/image-20220117024042407.png" alt="image-20220117024042407"></p>
+<h3 id="grid排版上下文"><a class="anchor" href="#grid排版上下文">#</a> Grid 排版上下文</h3>
+<p>Grid 是一种二维的排版上下文</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/tagbug/demo@latest/img/image-20220117024111407.png" alt="image-20220117024111407"></p>
+<p>通过 <code>grid-template-columns</code>  和 <code>grid-template-rows</code>  分别确定网格中行与列所占大小的划分</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/tagbug/demo@latest/img/image-20220117024130502.png" alt="image-20220117024130502"></p>
+<p>grid line 网格线</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/tagbug/demo@latest/img/image-20220117024146605.png" alt="image-20220117024146605"></p>
+<p>grid area 网格区域</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/tagbug/demo@latest/img/image-20220117024200866.png" alt="image-20220117024200866"></p>
+<p>用法：</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/tagbug/demo@latest/img/image-20220117024218098.png" alt="image-20220117024218098"></p>
+<h3 id="float-浮动"><a class="anchor" href="#float-浮动">#</a> float 浮动</h3>
+<p><span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9XZWIvQ1NTL2Zsb2F0">float</span> 属性常用取值有 left、right、none，使用 float 后，元素会脱离常规流</p>
+<p>需要注意的是：以前 float 被滥用过，现在来说只需要在实现图文环绕时使用，其余场景尽量不要使用。</p>
+<h3 id="position-定位"><a class="anchor" href="#position-定位">#</a> position 定位</h3>
+<p>position 属性有 4 种常用取值：static、relative、absolute、fixed</p>
+<h4 id="position-static"><a class="anchor" href="#position-static">#</a> position: static</h4>
+<p><strong>默认值</strong>，非定位元素</p>
+<h4 id="postion-relative"><a class="anchor" href="#postion-relative">#</a> postion: relative</h4>
+<p>相对自身原本位置偏移，不脱离文档流</p>
+<p>要点：</p>
+<ul>
+<li>在常规流里面布局</li>
+<li>相对于自己本应该在的位置进行偏移</li>
+<li>使用 top、left、bottom、right 设置偏移长度</li>
+<li>文档流内的其它元素把它当作没有偏移的正常元素来布局</li>
+</ul>
+<h4 id="postion-absolute"><a class="anchor" href="#postion-absolute">#</a> postion: absolute</h4>
+<p>绝对定位，相对非 static 祖先元素定位，脱离常规流</p>
+<p>要点：</p>
+<ul>
+<li>脱离常规流，即不为元素预留空间</li>
+<li>相对于最近的<strong>非 static 祖先</strong>定位</li>
+<li>不会对流内元素布局造成影响</li>
+</ul>
+<p>absolute 定位需要配合 top、bottom、left、right 属性使用，表示对于上下左右的间隔距离</p>
+<h4 id="position-fixed"><a class="anchor" href="#position-fixed">#</a> position: fixed</h4>
+<p>相对于视口绝对定位</p>
+<p>要点：</p>
+<ul>
+<li>脱离常规流，即不为元素预留空间</li>
+<li>相对于屏幕视口（viewport）的位置来指定元素位置</li>
+<li>元素的位置在屏幕滚动时不会改变</li>
+</ul>
+<p>fixed 定位也需要配合 top、bottom、left、right 属性使用，表示对于视口上下左右的间隔距离</p>
+<h4 id="position-sticky"><a class="anchor" href="#position-sticky">#</a> position: sticky</h4>
+<p>要点：</p>
+<ul>
+<li>在常规流里面布局</li>
+<li>相对于其<strong>最近滚动祖先</strong>和最近块级祖先偏移</li>
+<li>使用 top、left、bottom、right 设置偏移长度</li>
+<li>文档流内的其它元素把它当作没有偏移的正常元素来布局</li>
+</ul>
+<p>sticky 定位同样需要配合 top、bottom、left、right 属性使用，表示对于<strong>离它最近的拥有 “滚动机制” 的祖先</strong>的上下左右间隔距离</p>
+<h2 id="学习css的方法"><a class="anchor" href="#学习css的方法">#</a> 学习 CSS 的方法</h2>
+<p>充分利用<span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9XZWI="> MDN</span> 和<span class="exturl" data-url="aHR0cHM6Ly93d3cudzMub3JnLw=="> W3C</span> CSS 规范（MDN 偏向给开发者使用，W3C 标准偏向给浏览器开发者使用，详细度不同）</p>
+<p>保持好奇心，善用览器的开发者工具</p>
+<p>持续学习，CSS 新特性还在不断出现</p>
+<h3 id="css的书写规范"><a class="anchor" href="#css的书写规范">#</a> CSS 的书写规范</h3>
+<p>CSS 书写建议遵循以下顺序（黑马前端推荐）：</p>
+<ol>
+<li>布局定位属性：display /position/float /clear/visibility /overflow（建议 display 第一个写，毕竟关系到模式）</li>
+<li>自身属性：width /height/margin /padding/border /background</li>
+<li>文本属性：color /font/text-decoration /text-align/vertical-align /white- space /break-word</li>
+<li>其他属性（CSS3）：content /cursor/border-radius /box-shadow/text-shadow /background:linear-gradient</li>
+</ol>
+<h2 id="参考资料"><a class="anchor" href="#参考资料">#</a> 参考资料</h2>
+<ul>
+<li>
+<p>字节<span class="exturl" data-url="aHR0cHM6Ly95b3V0aGNhbXAuYnl0ZWRhbmNlLmNvbS8=">青训营</span>课程</p>
+</li>
+<li>
+<p><span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9XZWI=">MDN</span> 中文文档</p>
+</li>
+</ul>
+
+      <div class="tags">
+          <a href="/tags/Web/" rel="tag"><i class="ic i-tag"></i> Web</a>
+          <a href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag"><i class="ic i-tag"></i> 前端</a>
+          <a href="/tags/%E7%AC%94%E8%AE%B0%E8%A1%A5%E5%AE%8C%E8%AE%A1%E5%88%92/" rel="tag"><i class="ic i-tag"></i> 笔记补完计划</a>
+          <a href="/tags/CSS/" rel="tag"><i class="ic i-tag"></i> CSS</a>
+      </div>
+  </div>
+
+   <footer>
+
+    <div class="meta">
+  <span class="item">
+    <span class="icon">
+      <i class="ic i-calendar-check"></i>
+    </span>
+    <span class="text">更新于</span>
+    <time title="修改时间：2022-01-18 20:21:24" itemprop="dateModified" datetime="2022-01-18T20:21:24+08:00">2022-01-18</time>
+  </span>
+  <span id="2022/01/17/理解CSS-笔记/" class="item leancloud_visitors" data-flag-title="理解CSS - 笔记" title="阅读次数">
+      <span class="icon">
+        <i class="ic i-eye"></i>
+      </span>
+      <span class="text">阅读次数</span>
+      <span class="leancloud-visitors-count"></span>
+      <span class="text">次</span>
+  </span>
+</div>
+
+      
+<div class="reward">
+  <button><i class="ic i-heartbeat"></i> 赞赏</button>
+  <p>请我喝[茶]~(￣▽￣)~*</p>
+  <div id="qr">
+      
+      <div>
+        <img data-src="/images/wechatpay.png" alt="TagBug 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/alipay.jpg" alt="TagBug 支付宝">
+        <p>支付宝</p>
+      </div>
+  </div>
+</div>
+
+      
+
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>本文作者： </strong>TagBug <i class="ic i-at"><em>@</em></i>🐟
+  </li>
+  <li class="link">
+    <strong>本文链接：</strong>
+    <a href="http://tagbug.gitlab.io/2022/01/17/%E7%90%86%E8%A7%A3CSS-%E7%AC%94%E8%AE%B0/" title="理解CSS - 笔记">http://tagbug.gitlab.io/2022/01/17/理解CSS-笔记/</a>
+  </li>
+  <li class="license">
+    <strong>版权声明： </strong>本站所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+  </footer>
+
+</article>
+
+  </div>
+  
+
+<div class="post-nav">
+  <div class="item left">
+      
+
+  <a href="/2022/01/17/%E5%89%8D%E7%AB%AF%E4%B8%8EHTML-%E7%AC%94%E8%AE%B0/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;tva1.sinaimg.cn&#x2F;mw690&#x2F;81ef6186ly8gwtyt4fb1tj20u013b0xd.jpg" title="前端与HTML - 笔记">
+  <span class="type">上一篇</span>
+  <span class="category">
+    <i class="ic i-flag"></i>
+    前端</span>
+  <h3>前端与HTML - 笔记</h3>
+  </a>
+
+  </div>
+  <div class="item right">
+      
+
+  <a href="/2022/01/17/%E5%A6%82%E4%BD%95%E5%86%99%E5%A5%BDJavaScript-%E7%AC%94%E8%AE%B0/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;tva1.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1giciszlczyj20zk0m816d.jpg" title="如何写好JavaScript - 笔记">
+  <span class="type">下一篇</span>
+  <span class="category">
+    <i class="ic i-flag"></i>
+    前端</span>
+  <h3>如何写好JavaScript - 笔记</h3>
+  </a>
+
+  </div>
+</div>
+  
+  <div class="wrap" id="comments"></div>
+
+
+          </div>
+          <div id="sidebar">
+            
+
+<div class="inner">
+
+  <div class="panels">
+    <div class="inner">
+      <div class="contents panel pjax" data-title="文章目录">
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%90%86%E8%A7%A3css-%E7%AC%94%E8%AE%B0"><span class="toc-number">1.</span> <span class="toc-text"> 理解 CSS - 笔记</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#css%E6%98%AF%E4%BB%80%E4%B9%88"><span class="toc-number">1.1.</span> <span class="toc-text"> CSS 是什么</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#css%E5%A6%82%E4%BD%95%E5%B7%A5%E4%BD%9C"><span class="toc-number">1.2.</span> <span class="toc-text"> CSS 如何工作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#css%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8"><span class="toc-number">1.3.</span> <span class="toc-text"> CSS 简单使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%89%E6%8B%A9%E5%99%A8"><span class="toc-number">1.3.1.</span> <span class="toc-text"> 选择器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BC%AA%E7%B1%BB%E4%BC%AA%E5%85%83%E7%B4%A0"><span class="toc-number">1.3.2.</span> <span class="toc-text"> 伪类 &amp; 伪元素</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%84%E5%90%88"><span class="toc-number">1.3.3.</span> <span class="toc-text"> 组合</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%89%E6%8B%A9%E5%99%A8%E7%BB%84"><span class="toc-number">1.3.4.</span> <span class="toc-text"> 选择器组</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#css%E4%B8%AD%E7%9A%84%E9%A2%9C%E8%89%B2%E8%A1%A8%E7%A4%BA"><span class="toc-number">1.3.5.</span> <span class="toc-text"> CSS 中的颜色表示</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#rgb"><span class="toc-number">1.3.5.1.</span> <span class="toc-text"> RGB</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#hsl"><span class="toc-number">1.3.5.2.</span> <span class="toc-text"> HSL</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%B3%E9%94%AE%E5%AD%97"><span class="toc-number">1.3.5.3.</span> <span class="toc-text"> 关键字</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#alpha%E9%80%8F%E6%98%8E%E5%BA%A6"><span class="toc-number">1.3.5.4.</span> <span class="toc-text"> alpha 透明度</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#css%E4%B8%AD%E7%9A%84%E5%AD%97%E4%BD%93%E8%AE%BE%E7%BD%AE"><span class="toc-number">1.3.6.</span> <span class="toc-text"> CSS 中的字体设置</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AD%97%E4%BD%93-font-family"><span class="toc-number">1.3.6.1.</span> <span class="toc-text"> 字体 font-family</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AD%97%E4%BD%93%E5%A4%A7%E5%B0%8F-font-size"><span class="toc-number">1.3.6.2.</span> <span class="toc-text"> 字体大小 font-size</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AD%97%E4%BD%93%E6%A0%B7%E5%BC%8F-font-style"><span class="toc-number">1.3.6.3.</span> <span class="toc-text"> 字体样式 font-style</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AD%97%E4%BD%93%E5%AD%97%E9%87%8D-font-weight"><span class="toc-number">1.3.6.4.</span> <span class="toc-text"> 字体字重 font-weight</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%A1%8C%E9%AB%98-line-height"><span class="toc-number">1.3.6.5.</span> <span class="toc-text"> 行高 line-height</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%87%E6%9C%AC%E5%AF%B9%E9%BD%90%E6%96%B9%E5%BC%8F-text-align"><span class="toc-number">1.3.6.6.</span> <span class="toc-text"> 文本对齐方式 text-align</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%87%E5%AD%97%E9%97%B4%E8%B7%9D"><span class="toc-number">1.3.6.7.</span> <span class="toc-text"> 文字间距</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%A6%96%E8%A1%8C%E7%BC%A9%E8%BF%9B-text-indent"><span class="toc-number">1.3.6.8.</span> <span class="toc-text"> 首行缩进 text-indent</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%87%E6%9C%AC%E4%BF%AE%E9%A5%B0-text-decoration"><span class="toc-number">1.3.6.9.</span> <span class="toc-text"> 文本修饰 text-decoration</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#css%E4%B8%AD%E7%9A%84%E5%85%B6%E4%BB%96%E9%87%8D%E8%A6%81%E5%B1%9E%E6%80%A7"><span class="toc-number">1.3.7.</span> <span class="toc-text"> CSS 中的其他重要属性</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%A9%BA%E7%99%BD%E7%AC%A6%E8%A1%A8%E7%8E%B0%E5%BD%A2%E5%BC%8F-white-space"><span class="toc-number">1.3.7.1.</span> <span class="toc-text"> 空白符表现形式 white-space</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#css%E5%A6%82%E4%BD%95%E8%B0%83%E8%AF%95"><span class="toc-number">1.4.</span> <span class="toc-text"> CSS 如何调试</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%89%E6%8B%A9%E5%99%A8%E7%89%B9%E5%BC%82%E5%BA%A6%E4%BC%98%E5%85%88%E7%BA%A7"><span class="toc-number">1.4.1.</span> <span class="toc-text"> 选择器特异度（优先级）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B1%9E%E6%80%A7%E7%BB%A7%E6%89%BF"><span class="toc-number">1.4.2.</span> <span class="toc-text"> 属性继承</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B1%9E%E6%80%A7%E5%88%9D%E5%A7%8B%E5%80%BC"><span class="toc-number">1.4.3.</span> <span class="toc-text"> 属性初始值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#unset%E5%80%BC"><span class="toc-number">1.4.4.</span> <span class="toc-text"> unset 值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#css%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B"><span class="toc-number">1.4.5.</span> <span class="toc-text"> CSS 工作流程</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#css%E7%9B%92%E6%A8%A1%E5%9E%8B"><span class="toc-number">1.5.</span> <span class="toc-text"> CSS 盒模型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#width-height-padding-border-margin"><span class="toc-number">1.5.1.</span> <span class="toc-text"> width、height、padding、border、margin</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#box-sizing-border-box"><span class="toc-number">1.5.2.</span> <span class="toc-text"> box-sizing: border-box</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#overflow"><span class="toc-number">1.5.3.</span> <span class="toc-text"> overflow</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9D%97%E7%BA%A7%E8%A1%8C%E7%BA%A7"><span class="toc-number">1.5.4.</span> <span class="toc-text"> 块级 &amp; 行级</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#display%E5%B1%9E%E6%80%A7"><span class="toc-number">1.5.5.</span> <span class="toc-text"> display 属性</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#css%E5%B8%83%E5%B1%80"><span class="toc-number">1.6.</span> <span class="toc-text"> CSS 布局</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E8%A7%84%E6%B5%81-normal-flow"><span class="toc-number">1.6.1.</span> <span class="toc-text"> 常规流 Normal Flow</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A1%8C%E7%BA%A7%E6%8E%92%E7%89%88%E4%B8%8A%E4%B8%8B%E6%96%87"><span class="toc-number">1.6.2.</span> <span class="toc-text"> 行级排版上下文</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9D%97%E7%BA%A7%E6%8E%92%E7%89%88%E4%B8%8A%E4%B8%8B%E6%96%87"><span class="toc-number">1.6.3.</span> <span class="toc-text"> 块级排版上下文</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#flex-box%E6%8E%92%E7%89%88%E4%B8%8A%E4%B8%8B%E6%96%87"><span class="toc-number">1.6.4.</span> <span class="toc-text"> Flex Box 排版上下文</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#flex-direction%E5%B1%9E%E6%80%A7"><span class="toc-number">1.6.4.1.</span> <span class="toc-text"> flex-direction 属性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#justify-content%E5%B1%9E%E6%80%A7"><span class="toc-number">1.6.4.2.</span> <span class="toc-text"> justify-content 属性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#align-items%E5%B1%9E%E6%80%A7"><span class="toc-number">1.6.4.3.</span> <span class="toc-text"> align-items 属性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#align-self%E5%B1%9E%E6%80%A7"><span class="toc-number">1.6.4.4.</span> <span class="toc-text"> align-self 属性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#order%E5%B1%9E%E6%80%A7"><span class="toc-number">1.6.4.5.</span> <span class="toc-text"> order 属性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#flexibility"><span class="toc-number">1.6.4.6.</span> <span class="toc-text"> Flexibility</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#flex%E5%B1%9E%E6%80%A7"><span class="toc-number">1.6.4.7.</span> <span class="toc-text"> flex 属性</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#grid%E6%8E%92%E7%89%88%E4%B8%8A%E4%B8%8B%E6%96%87"><span class="toc-number">1.6.5.</span> <span class="toc-text"> Grid 排版上下文</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#float-%E6%B5%AE%E5%8A%A8"><span class="toc-number">1.6.6.</span> <span class="toc-text"> float 浮动</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#position-%E5%AE%9A%E4%BD%8D"><span class="toc-number">1.6.7.</span> <span class="toc-text"> position 定位</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#position-static"><span class="toc-number">1.6.7.1.</span> <span class="toc-text"> position: static</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#postion-relative"><span class="toc-number">1.6.7.2.</span> <span class="toc-text"> postion: relative</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#postion-absolute"><span class="toc-number">1.6.7.3.</span> <span class="toc-text"> postion: absolute</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#position-fixed"><span class="toc-number">1.6.7.4.</span> <span class="toc-text"> position: fixed</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#position-sticky"><span class="toc-number">1.6.7.5.</span> <span class="toc-text"> position: sticky</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AD%A6%E4%B9%A0css%E7%9A%84%E6%96%B9%E6%B3%95"><span class="toc-number">1.7.</span> <span class="toc-text"> 学习 CSS 的方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#css%E7%9A%84%E4%B9%A6%E5%86%99%E8%A7%84%E8%8C%83"><span class="toc-number">1.7.1.</span> <span class="toc-text"> CSS 的书写规范</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="toc-number">1.8.</span> <span class="toc-text"> 参考资料</span></a></li></ol></li></ol>
+      </div>
+      <div class="related panel pjax" data-title="系列文章">
+        <ul>
+          <li><a href="/2021/09/23/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96-%E7%AC%94%E8%AE%B0/" rel="bookmark" title="前端工程化 - 笔记">前端工程化 - 笔记</a></li><li><a href="/2021/09/25/Node-js%E5%85%A5%E9%97%A8-%E7%AC%94%E8%AE%B0/" rel="bookmark" title="Node.js入门 - 笔记">Node.js入门 - 笔记</a></li><li><a href="/2021/11/13/Web%E5%AE%89%E5%85%A8%E5%9F%BA%E7%A1%80-%E7%AC%94%E8%AE%B0/" rel="bookmark" title="Web安全基础 - 笔记">Web安全基础 - 笔记</a></li><li><a href="/2021/11/15/JS%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E7%AC%94%E8%AE%B0/" rel="bookmark" title="JS设计模式 - 笔记">JS设计模式 - 笔记</a></li><li><a href="/2022/01/17/%E5%89%8D%E7%AB%AF%E4%B8%8EHTML-%E7%AC%94%E8%AE%B0/" rel="bookmark" title="前端与HTML - 笔记">前端与HTML - 笔记</a></li><li class="active"><a href="/2022/01/17/%E7%90%86%E8%A7%A3CSS-%E7%AC%94%E8%AE%B0/" rel="bookmark" title="理解CSS - 笔记">理解CSS - 笔记</a></li><li><a href="/2022/01/17/%E5%A6%82%E4%BD%95%E5%86%99%E5%A5%BDJavaScript-%E7%AC%94%E8%AE%B0/" rel="bookmark" title="如何写好JavaScript - 笔记">如何写好JavaScript - 笔记</a></li><li><a href="/2022/01/18/Web%E6%A0%87%E5%87%86%E4%B8%8E%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91-%E7%AC%94%E8%AE%B0/" rel="bookmark" title="Web标准与前端开发 - 笔记">Web标准与前端开发 - 笔记</a></li><li><a href="/2022/01/18/%E5%89%8D%E7%AB%AF%E5%BF%85%E9%A1%BB%E7%9F%A5%E9%81%93%E7%9A%84%E5%BC%80%E5%8F%91%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86-%E7%AC%94%E8%AE%B0/" rel="bookmark" title="前端必须知道的开发调试知识 - 笔记">前端必须知道的开发调试知识 - 笔记</a></li><li><a href="/2022/01/20/%E5%93%8D%E5%BA%94%E5%BC%8F%E7%B3%BB%E7%BB%9F%E4%B8%8EReact-%E7%AC%94%E8%AE%B0/" rel="bookmark" title="响应式系统与React - 笔记">响应式系统与React - 笔记</a></li><li><a href="/2022/01/20/%E5%89%8D%E7%AB%AF%E5%8A%A8%E7%94%BB%E5%AE%9E%E7%8E%B0-%E7%AC%94%E8%AE%B0/" rel="bookmark" title="前端动画实现 - 笔记">前端动画实现 - 笔记</a></li><li><a href="/2022/01/20/HTTP%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97-%E7%AC%94%E8%AE%B0/" rel="bookmark" title="HTTP实用指南 - 笔记">HTTP实用指南 - 笔记</a></li><li><a href="/2022/01/20/Node-js-%E4%B8%8E%E5%BC%80%E5%8F%91%E5%AE%9E%E6%88%98-%E7%AC%94%E8%AE%B0/" rel="bookmark" title="Node.js 与开发实战 - 笔记">Node.js 与开发实战 - 笔记</a></li><li><a href="/2022/01/21/WebGL%E5%9F%BA%E7%A1%80-%E7%AC%94%E8%AE%B0/" rel="bookmark" title="WebGL基础 - 笔记">WebGL基础 - 笔记</a></li>
+        </ul>
+      </div>
+      <div class="overview panel" data-title="站点概览">
+        <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="image" itemprop="image" alt="TagBug"
+      data-src="/images/avatar.png">
+  <p class="name" itemprop="name">TagBug</p>
+  <div class="description" itemprop="description">所念皆星河</div>
+</div>
+
+<nav class="state">
+    <div class="item posts">
+      <a href="/archives/">
+        <span class="count">20</span>
+        <span class="name">文章</span>
+      </a>
+    </div>
+    <div class="item categories">
+      <a href="/categories/">
+        <span class="count">9</span>
+        <span class="name">分类</span>
+      </a>
+    </div>
+    <div class="item tags">
+      <a href="/tags/">
+        <span class="count">25</span>
+        <span class="name">标签</span>
+      </a>
+    </div>
+</nav>
+
+<div class="social">
+      <span class="exturl item github" data-url="aHR0cHM6Ly9naXRodWIuY29tL3RhZ2J1Zw==" title="https:&#x2F;&#x2F;github.com&#x2F;tagbug"><i class="ic i-github"></i></span>
+      <span class="exturl item email" data-url="bWFpbHRvOjEyNDIxMzUyOTVAcXEuY29t" title="mailto:1242135295@qq.com"><i class="ic i-envelope"></i></span>
+      <span class="exturl item bilibili" data-url="aHR0cHM6Ly9zcGFjZS5iaWxpYmlsaS5jb20vMjgyMjMzMg==" title="https:&#x2F;&#x2F;space.bilibili.com&#x2F;2822332"><i class="ic i-play"></i></span>
+      <span class="exturl item music" data-url="aHR0cHM6Ly9tdXNpYy4xNjMuY29tLyMvdXNlci9ob21lP2lkPTEzMzg4MTUwNw==" title="https:&#x2F;&#x2F;music.163.com&#x2F;#&#x2F;user&#x2F;home?id&#x3D;133881507"><i class="ic i-cloud-music"></i></span>
+      <span class="exturl item weibo" data-url="aHR0cHM6Ly93ZWliby5jb20vdS8yMTc5OTQ4OTM0" title="https:&#x2F;&#x2F;weibo.com&#x2F;u&#x2F;2179948934"><i class="ic i-weibo"></i></span>
+</div>
+
+<ul class="menu">
+  
+    
+  <li class="item">
+    <a href="/" rel="section"><i class="ic i-home"></i>首页</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/about/" rel="section"><i class="ic i-user"></i>关于</a>
+  </li>
+
+        
+  <li class="item dropdown">
+      <a href="javascript:void(0);"><i class="ic i-feather"></i>文章</a>
+    <ul class="submenu">
+
+        
+  <li class="item">
+    <a href="/archives/" rel="section"><i class="ic i-list-alt"></i>归档</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/categories/" rel="section"><i class="ic i-th"></i>分类</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/tags/" rel="section"><i class="ic i-tags"></i>标签</a>
+  </li>
+
+  </ul>
+    
+  <li class="item">
+    <a href="/friend/" rel="section"><i class="ic i-heart"></i>友链</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/music/" rel="section"><i class="ic i-music"></i>音乐</a>
+  </li>
+
+
+</ul>
+
+      </div>
+    </div>
+  </div>
+
+  <ul id="quick">
+    <li class="prev pjax">
+        <a href="/2022/01/17/%E5%89%8D%E7%AB%AF%E4%B8%8EHTML-%E7%AC%94%E8%AE%B0/" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a>
+    </li>
+    <li class="up"><i class="ic i-arrow-up"></i></li>
+    <li class="down"><i class="ic i-arrow-down"></i></li>
+    <li class="next pjax">
+        <a href="/2022/01/17/%E5%A6%82%E4%BD%95%E5%86%99%E5%A5%BDJavaScript-%E7%AC%94%E8%AE%B0/" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a>
+    </li>
+    <li class="percent"></li>
+  </ul>
+</div>
+
+
+          </div>
+          <div class="dimmer"></div>
+        </div>
+      </main>
+      <footer id="footer">
+        <div class="inner">
+          <div class="widgets">
+            
+<div class="rpost pjax">
+  <h2>随机文章</h2>
+  <ul>
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="分类于 学习笔记">学习笔记</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E5%89%8D%E7%AB%AF/" title="分类于 前端">前端</a>
+</div>
+
+    <span><a href="/2022/01/18/Web%E6%A0%87%E5%87%86%E4%B8%8E%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91-%E7%AC%94%E8%AE%B0/" title="Web标准与前端开发 - 笔记">Web标准与前端开发 - 笔记</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="分类于 学习笔记">学习笔记</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E5%89%8D%E7%AB%AF/" title="分类于 前端">前端</a>
+</div>
+
+    <span><a href="/2021/11/15/JS%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E7%AC%94%E8%AE%B0/" title="JS设计模式 - 笔记">JS设计模式 - 笔记</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="分类于 学习笔记">学习笔记</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E5%89%8D%E7%AB%AF/" title="分类于 前端">前端</a>
+</div>
+
+    <span><a href="/2021/09/23/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96-%E7%AC%94%E8%AE%B0/" title="前端工程化 - 笔记">前端工程化 - 笔记</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="分类于 学习笔记">学习笔记</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E5%89%8D%E7%AB%AF/" title="分类于 前端">前端</a>
+</div>
+
+    <span><a href="/2022/01/17/%E7%90%86%E8%A7%A3CSS-%E7%AC%94%E8%AE%B0/" title="理解CSS - 笔记">理解CSS - 笔记</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="分类于 学习笔记">学习笔记</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E5%89%8D%E7%AB%AF/" title="分类于 前端">前端</a>
+</div>
+
+    <span><a href="/2022/01/18/%E5%89%8D%E7%AB%AF%E5%BF%85%E9%A1%BB%E7%9F%A5%E9%81%93%E7%9A%84%E5%BC%80%E5%8F%91%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86-%E7%AC%94%E8%AE%B0/" title="前端必须知道的开发调试知识 - 笔记">前端必须知道的开发调试知识 - 笔记</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="分类于 学习笔记">学习笔记</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E5%89%8D%E7%AB%AF/" title="分类于 前端">前端</a>
+</div>
+
+    <span><a href="/2022/01/20/%E5%93%8D%E5%BA%94%E5%BC%8F%E7%B3%BB%E7%BB%9F%E4%B8%8EReact-%E7%AC%94%E8%AE%B0/" title="响应式系统与React - 笔记">响应式系统与React - 笔记</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Java/" title="分类于 Java">Java</a>
+</div>
+
+    <span><a href="/2021/11/30/Maven%E7%AE%80%E5%8D%95%E6%80%BB%E7%BB%93/" title="Maven简单总结">Maven简单总结</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="分类于 学习笔记">学习笔记</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E5%89%8D%E7%AB%AF/" title="分类于 前端">前端</a>
+</div>
+
+    <span><a href="/2022/01/21/WebGL%E5%9F%BA%E7%A1%80-%E7%AC%94%E8%AE%B0/" title="WebGL基础 - 笔记">WebGL基础 - 笔记</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/works/" title="分类于 works">works</a>
+</div>
+
+    <span><a href="/2021/02/04/ujsAutoClock%E5%BC%80%E5%8F%91%E6%80%9D%E8%B7%AF%E5%8F%8A%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/" title="ujsAutoClock使用方法及开发思路">ujsAutoClock使用方法及开发思路</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="分类于 学习笔记">学习笔记</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E5%89%8D%E7%AB%AF/" title="分类于 前端">前端</a>
+</div>
+
+    <span><a href="/2022/01/20/%E5%89%8D%E7%AB%AF%E5%8A%A8%E7%94%BB%E5%AE%9E%E7%8E%B0-%E7%AC%94%E8%AE%B0/" title="前端动画实现 - 笔记">前端动画实现 - 笔记</a></span>
+  </li>
+
+  </ul>
+</div>
+<div>
+  <h2>最新评论</h2>
+  <ul class="leancloud-recent-comment"></ul>
+</div>
+
+          </div>
+          <div class="status">
+  <div class="copyright">
+    
+    &copy; 2021 – 
+    <span itemprop="copyrightYear">2022</span>
+    <span class="with-love">
+      <i class="ic i-sakura rotate"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">TagBug @ Tag Bug</span>
+  </div>
+  <div class="count">
+    <span class="post-meta-item-icon">
+      <i class="ic i-chart-area"></i>
+    </span>
+    <span title="站点总字数">82k 字</span>
+
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="ic i-coffee"></i>
+    </span>
+    <span title="站点阅读时长">1:15</span>
+  </div>
+
+  <div class="viewer">
+    <span>❤️感谢 <strong><span id="busuanzi_value_site_uv">282</span></strong> 小伙伴的 <strong><span id="busuanzi_value_site_pv">1685</span></strong> 次光临！❤️</span>
+  </div>
+  <script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" defer></script>
+  <div class="powered-by">
+    基于 <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
+  </div>
+</div>
+
+        </div>
+      </footer>
+    </div>
+    <script data-config="data-config" type="text/javascript">
+      var LOCAL = {
+        path: '2022/01/17/理解CSS-笔记/',
+        favicon: {
+          show: "（●´3｀●）やれやれだぜ",
+          hide: "(´Д｀)大変だ！"
+        },
+        search: {
+          placeholder: "文章搜索",
+          empty: "关于 「 ${query} 」，什么也没搜到",
+          stats: "${time} ms 内找到 ${hits} 条结果"
+        },
+          valine: true,fancybox: true,
+            copyright: '复制成功，转载请遵守 <i class="ic i-creative-commons"></i>BY-NC-SA 协议。',
+        ignores: [
+          function (uri) {
+            return uri.includes('#');
+          },
+          function (uri) {
+            return new RegExp(LOCAL.path + "$").test(uri);
+          }
+        ]
+      };
+    </script>
+
+    <script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
+
+    <script src="//cdn.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
+
+    <script src="/js/app.js?v=0.2.5"></script>
+
+    
+
+
+  </body>
+</html>

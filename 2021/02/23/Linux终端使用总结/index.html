@@ -1,0 +1,920 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#FFF">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="icon" type="image/ico" sizes="32x32" href="/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+<link rel="alternate" type="application/rss+xml" title="🐟" href="http://tagbug.gitlab.io/rss.xml"/>
+<link rel="alternate" type="application/atom+xml" title="🐟" href="http://tagbug.gitlab.io/atom.xml"/>
+<link rel="alternate" type="application/json" title="🐟" href="http://tagbug.gitlab.io/feed.json"/>
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="/css/app.css?v=0.2.5">
+    
+  <meta name="keywords" content="Linux终端使用" />
+
+
+<link rel="canonical" href="http://tagbug.gitlab.io/2021/02/23/Linux%E7%BB%88%E7%AB%AF%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%93/">
+
+
+
+    <title>
+      
+Linux终端使用总结 - Shell - Linux |
+Tag Bug = 🐟</title>
+  <meta name="generator" content="Hexo 5.4.0"></head>
+  <body itemscope="itemscope" itemtype="http://schema.org/WebPage">
+    <div id="loading">
+      <div class="cat">
+        <div class="body"></div>
+        <div class="head">
+          <div class="face"></div>
+        </div>
+        <div class="foot">
+          <div class="tummy-end"></div>
+          <div class="bottom"></div>
+          <div class="legs left"></div>
+          <div class="legs right"></div>
+        </div>
+        <div class="paw">
+          <div class="hands left"></div>
+          <div class="hands right"></div>
+        </div>
+      </div>
+    </div>
+    <div id="container">
+      <header id="header" itemscope="itemscope" itemtype="http://schema.org/WPHeader">
+        <div class="inner">
+          <div id="brand">
+            <div class="pjax">
+              
+  <h1 itemprop="name headline">Linux终端使用总结
+  </h1>
+  
+<div class="meta">
+  <span class="item" title="创建时间：2021-02-23 16:32:18">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">发表于</span>
+    <time itemprop="dateCreated datePublished" datetime="2021-02-23T16:32:18+08:00">2021-02-23</time>
+  </span>
+  <span class="item" title="本文字数">
+    <span class="icon">
+      <i class="ic i-pen"></i>
+    </span>
+    <span class="text">本文字数</span>
+    <span>5.4k</span>
+    <span class="text">字</span>
+  </span>
+  <span class="item" title="阅读时长">
+    <span class="icon">
+      <i class="ic i-clock"></i>
+    </span>
+    <span class="text">阅读时长</span>
+    <span>5 分钟</span>
+  </span>
+</div>
+
+
+            </div>
+          </div>
+          <nav id="nav">
+  <div class="inner">
+    <div class="toggle">
+      <div class="lines" aria-label="切换导航栏">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <ul class="menu">
+      <li class="item title"><a href="/" rel="start">Tag Bug</a></li>
+    </ul>
+    <ul class="right">
+      <li class="item theme">
+        <i class="ic i-sun"></i>
+      </li>
+      <li class="item search">
+        <i class="ic i-search"></i>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+        </div>
+        <div id="imgs" class="pjax">
+            <img src="https://cdn.jsdelivr.net/gh/tagbug/demo@latest/img/1614076358773.png">
+        </div>
+      </header>
+      <div id="waves">
+        <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewbox="0 24 150 28" preserveaspectratio="none" shape-rendering="auto">
+          <defs>
+            <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"/>
+          </defs>
+          <g class="parallax">
+            <use xlink:href="#gentle-wave" x="48" y="0"/>
+            <use xlink:href="#gentle-wave" x="48" y="3"/>
+            <use xlink:href="#gentle-wave" x="48" y="5"/>
+            <use xlink:href="#gentle-wave" x="48" y="7"/>
+          </g>
+        </svg>
+      </div>
+      <main>
+        <div class="inner">
+          <div id="main" class="pjax">
+            
+  <div class="article wrap">
+    
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/">首页</a></span><i class="ic i-angle-right"></i>
+<span  itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/Linux/" itemprop="item" rel="index" title="分类于 Linux"><span itemprop="name">Linux</span></a>
+<meta itemprop="position" content="1" /></span>
+<i class="ic i-angle-right"></i>
+<span  class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/Linux/Shell/" itemprop="item" rel="index" title="分类于 Shell"><span itemprop="name">Shell</span></a>
+<meta itemprop="position" content="2" /></span>
+</div>
+
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh-CN">
+  <link itemprop="mainEntityOfPage" href="http://tagbug.gitlab.io/2021/02/23/Linux%E7%BB%88%E7%AB%AF%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%93/">
+
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="/images/avatar.png">
+    <meta itemprop="name" content="TagBug">
+    <meta itemprop="description" content=", 所念皆星河">
+  </span>
+
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="🐟">
+  </span>
+
+  <div class="body md" itemprop="articleBody">
+    
+
+    <blockquote>
+<p>总结归纳一下 Linux 的 Shell 的快捷键和常用命令<br>
+（环境基于 ubuntu-20.04.2.0）</p>
+</blockquote>
+<span id="more"></span>
+<h2 id="shell快捷键"><a class="anchor" href="#shell快捷键">#</a> Shell 快捷键</h2>
+<hr>
+<ul>
+<li>[ <code>方向键←→</code> ] 或 <code>Ctrl+B/F</code>  —— 光标向后（左）/ 前（右）移动</li>
+<li>[ <code>Home/End</code> ] 或 <code>Ctrl+A/E</code>  —— 光标移动到开头（最左边）/ 末尾（最右边）</li>
+<li>[ <code>方向键↑↓</code> ] 或 <code>Ctrl+P/N</code>  —— 显示上一条 / 下一条历史命令</li>
+<li>[ <code>Backspace/Del</code> ] 或 <code>Ctrl+H/D</code>  —— 删除光标前 / 后（被光标覆盖住）的字符</li>
+<li><code>Ctrl+U</code>  —— 删除光标前的所有字符</li>
+<li><code>Ctrl+L</code>  —— 清屏</li>
+<li><code>Tab</code>  —— 快速补全命令或目录（按一次或当有多个匹配项时两次）</li>
+<li><code>Ctrl+Alt+T</code>  —— 新建一个终端窗口</li>
+</ul>
+<h2 id="linux-基础常识"><a class="anchor" href="#linux-基础常识">#</a> Linux 基础常识</h2>
+<hr>
+<ol>
+<li>使用 <code>ls</code>  命令显示文件或目录时的不同颜色：（一般情况下）<br>
+白色 —— 普通文件<br>
+蓝色 —— 目录<br>
+绿色 —— 可执行文件（相当于 Windows .EXE）<br>
+红色 —— 压缩文件<br>
+青色 —— 链接文件（相当于 Windows 快捷方式）<br>
+黄色 —— 设备文件<br>
+灰色 —— 其他文件</li>
+<li>Linux 下的文件类型：</li>
+</ol>
+<blockquote>
+<p>普通文件类型 （-）<br>
+Linux 中最多的一种文件类型，包括 纯文本文件 (ASCII)；二进制文件 (binary)；数据格式的文件 (data); 各种压缩文件。第一个属性为 [-] ，这些文件一般是用一些相关的应用程序创建，比如图像工具、文档工具、归档工具… … 或 cp 工具等。这类文件的删除方式是用 rm 命令。</p>
+<p>目录文件 （d）<br>
+就是目录， 能用 # cd 命令进入的。第一个属性为 [d]，例如 [drwxrwxrwx] ，创建目录的命令可以用 mkdir 命令，或 cp 命令，cp 可以把一个目录复制为另一个目录。删除用 rm 或 rmdir 命令。</p>
+<p>块设备（b）和 字符设备（c）<br>
+这个种类的文件，是用 mknode 来创建，用 rm 来删除。目前在最新的 Linux 发行版本中，我们一般不用自己来创建设备文件。因为这些文件是和内核相关联的。<br>
+块设备文件 ： 就是存储数据以供系统存取的接口设备，简单而言就是硬盘。例如一号硬盘的代码是 /dev/hda1 等文件。第一个属性为 [b] <br>
+字符设备文件：即串行端口的接口设备，例如键盘、鼠标等等。第一个属性为 [c]</p>
+<p>套接字文件 （s）<br>
+这类文件通常用在网络数据连接。可以启动一个程序来监听客户端的要求，客户端就可以通过套接字来进行数据通信。第一个属性为 [s]，最常在 /var/run 目录中看到这种文件类型</p>
+<p>管道文件 （p）<br>
+FIFO 也是一种特殊的文件类型，它主要的目的是，解决多个程序同时存取一个文件所造成的错误。FIFO 是 first-in-first-out (先进先出) 的缩写。第一个属性为 [p]</p>
+<p>符号链接（l）<br>
+和 Windows 操作系统中的快捷方式类似。</p>
+<p><em>引自<span class="exturl" data-url="aHR0cHM6Ly93d3cuY25ibG9ncy5jb20vY3l5ei1sZS9wLzExMTc3NDU1Lmh0bWw="> Linux 下的 7 种文件类型 - CYYZ 古月</span></em></p>
+</blockquote>
+<ol start="2">
+<li><code>ls -a</code>  显示路径下全部文件（包括隐藏的）</li>
+<li><code>ls -l</code>  查看路径下文件的详细信息<br>
+<img data-src="https://cdn.jsdelivr.net/gh/tagbug/demo@latest/img/20210223092335.png" alt="示例" title="示例"><br>
+ tip：在 Linux 下文件夹（目录）所占用的磁盘空间都是 4096byte，目录大小不包括目录内的文件大小</li>
+<li>目录必须有执行权限才能进入</li>
+<li>Linux 下隐藏文件<strong>以。开头</strong></li>
+<li>itcast@itcast:~<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext>第一个</mtext><mi>i</mi><mi>t</mi><mi>c</mi><mi>a</mi><mi>s</mi><mi>t</mi><mtext>：当前登陆的用户第二个</mtext><mi>i</mi><mi>t</mi><mi>c</mi><mi>a</mi><mi>s</mi><mi>t</mi><mtext>：主机名</mtext></mrow><annotation encoding="application/x-tex">
+第一个itcast：当前登陆的用户
+第二个itcast：主机名
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord cjk_fallback">第</span><span class="mord cjk_fallback">一</span><span class="mord cjk_fallback">个</span><span class="mord mathnormal">i</span><span class="mord mathnormal">t</span><span class="mord mathnormal">c</span><span class="mord mathnormal">a</span><span class="mord mathnormal">s</span><span class="mord mathnormal">t</span><span class="mord cjk_fallback">：</span><span class="mord cjk_fallback">当</span><span class="mord cjk_fallback">前</span><span class="mord cjk_fallback">登</span><span class="mord cjk_fallback">陆</span><span class="mord cjk_fallback">的</span><span class="mord cjk_fallback">用</span><span class="mord cjk_fallback">户</span><span class="mord cjk_fallback">第</span><span class="mord cjk_fallback">二</span><span class="mord cjk_fallback">个</span><span class="mord mathnormal">i</span><span class="mord mathnormal">t</span><span class="mord mathnormal">c</span><span class="mord mathnormal">a</span><span class="mord mathnormal">s</span><span class="mord mathnormal">t</span><span class="mord cjk_fallback">：</span><span class="mord cjk_fallback">主</span><span class="mord cjk_fallback">机</span><span class="mord cjk_fallback">名</span></span></span></span>：普通用户<br>
+ $ 换成 #：超级用户（管理员权限）</li>
+<li>Linux 系统中硬盘名字：</li>
+</ol>
+<figure class="highlight shell"><figcaption data-lang="Bash"></figcaption><table><tr><td data-num="1"></td><td><pre>硬盘1：sda</pre></td></tr><tr><td data-num="2"></td><td><pre>   <span class="token operator">|</span>--主分区</pre></td></tr><tr><td data-num="3"></td><td><pre>   <span class="token operator">|</span>    └--（最多允许有4个）--主分区1：sda1</pre></td></tr><tr><td data-num="4"></td><td><pre>   <span class="token operator">|</span>                       <span class="token operator">|</span>-主分区2：sda2</pre></td></tr><tr><td data-num="5"></td><td><pre>   <span class="token operator">|</span>                       <span class="token operator">|</span>-主分区3：sda3</pre></td></tr><tr><td data-num="6"></td><td><pre>   <span class="token operator">|</span>                       └-主分区4：sda4</pre></td></tr><tr><td data-num="7"></td><td><pre>   └--扩展分区</pre></td></tr><tr><td data-num="8"></td><td><pre>          └--（第一个逻辑分区从sda5开始）--逻辑分区1:sda5</pre></td></tr><tr><td data-num="9"></td><td><pre>                                        <span class="token operator">|</span>-逻辑分区2：sda6</pre></td></tr><tr><td data-num="10"></td><td><pre>                                        └<span class="token punctuation">..</span>.</pre></td></tr><tr><td data-num="11"></td><td><pre>  硬盘2：sdb</pre></td></tr><tr><td data-num="12"></td><td><pre>  硬盘3：sdc</pre></td></tr><tr><td data-num="13"></td><td><pre>  硬盘4：sdd</pre></td></tr><tr><td data-num="14"></td><td><pre>  磁盘设备种类：</pre></td></tr><tr><td data-num="15"></td><td><pre>      sd -<span class="token operator">></span> SCSI Device</pre></td></tr><tr><td data-num="16"></td><td><pre>      hd -<span class="token operator">></span> Hard Disk 硬盘</pre></td></tr><tr><td data-num="17"></td><td><pre>      fd -<span class="token operator">></span> Floppy Disk 软盘</pre></td></tr></table></figure><h2 id="shell常用命令"><a class="anchor" href="#shell常用命令">#</a> Shell 常用命令</h2>
+<hr>
+<ol>
+<li>| 管道 - 将命令 1 的输出作为命令 2 的输入（命令 1 | 命令 2)</li>
+<li><code>pwd</code>  查看当前所在路径</li>
+<li>  <code>~</code>  ：家目录</li>
+<li><code>cd -</code>  ：在两个目录间切换</li>
+<li><code>rm</code>  参数：<br>
+ <code>r</code> —— 递归（进入子目录）<br>
+ <code>i</code> —— 提示<br>
+ <code>f</code> —— 强制删除（rm 命令默认会加上这个参数）<br>
+tip： <code>rm -rf /</code>  懂的都懂</li>
+<li><code>mkdir</code>  （ <code>-p</code> ）/ <code>touch</code>  创建目录 / 文件</li>
+<li><code>cat</code>  查看文件内容</li>
+<li><code>cp</code>  拷贝文件或目录（拷贝目录时加 <code>-r</code> ）<br>
+tip: 拷贝文件时：软硬链接都拷贝原文件；<br>
+拷贝目录时：软链接拷贝过去还是软链接，硬链接拷贝原文件</li>
+<li><code>more</code>  一点一点的看某个文件，但是只能往下看，不能往上</li>
+<li><code>less</code>  一点一点的查看某个文件，比 more 更智能</li>
+<li><code>head</code> / <code>tail</code>  显示文件前 / 后十行（也可以加  <code>-5</code>  或者其他任意数字控制显示行数）</li>
+<li><code>mv</code>  移动（到一个已经存在的文件夹）或重命名</li>
+<li><code>ln</code>  创建硬链接<br>
+ <code>ln -s</code>  创建软连接<br>
+ tip：硬链接相当于新建文件名指向文件（给文件取个别名），软链接指向文件名</li>
+<li><code>wc</code>  获取文本文件的行数、单词数、字节数</li>
+<li><code>od</code>  查看二进制文件信息<br>
+参数： <code>-t</code>  指定数据的显示格式（c/d/f/o/u/x）</li>
+<li><code>du -h</code>  查看当前文件夹和子文件夹大小</li>
+<li><code>df -h</code>  查看磁盘容量信息</li>
+<li><code>which</code>  找到命令对应的路径</li>
+<li>
+<figure class="highlight shell"><figcaption data-lang="Bash"><span>修改文件权限：chmod >folded</span></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token number">1</span><span class="token punctuation">)</span> 文字设定法：</pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token function">chmod</span> <span class="token punctuation">[</span>who<span class="token punctuation">]</span> <span class="token punctuation">[</span>+<span class="token operator">|</span>-<span class="token operator">|</span><span class="token operator">=</span><span class="token punctuation">]</span> <span class="token punctuation">[</span>mode<span class="token punctuation">]</span></pre></td></tr><tr><td data-num="3"></td><td><pre>    who: -<span class="token operator">></span> 不写也相当于对所有的人</pre></td></tr><tr><td data-num="4"></td><td><pre>        文件所有者：u</pre></td></tr><tr><td data-num="5"></td><td><pre>        文件所属组：g</pre></td></tr><tr><td data-num="6"></td><td><pre>        其他人：o</pre></td></tr><tr><td data-num="7"></td><td><pre>        所有的人：a</pre></td></tr><tr><td data-num="8"></td><td><pre>    +：添加权限</pre></td></tr><tr><td data-num="9"></td><td><pre>    -：减少权限</pre></td></tr><tr><td data-num="10"></td><td><pre>    <span class="token operator">=</span>：覆盖原来的权限</pre></td></tr><tr><td data-num="11"></td><td><pre>    mode：</pre></td></tr><tr><td data-num="12"></td><td><pre>        r：读</pre></td></tr><tr><td data-num="13"></td><td><pre>        w：写</pre></td></tr><tr><td data-num="14"></td><td><pre>        x：执行</pre></td></tr><tr><td data-num="15"></td><td><pre>例：chmod o+rx <span class="token punctuation">[</span>文件名<span class="token punctuation">]</span></pre></td></tr><tr><td data-num="16"></td><td><pre><span class="token number">2</span><span class="token punctuation">)</span> 数字设定法：</pre></td></tr><tr><td data-num="17"></td><td><pre><span class="token function">chmod</span> <span class="token punctuation">[</span>三位数<span class="token punctuation">]</span> -<span class="token operator">></span>覆盖权限</pre></td></tr><tr><td data-num="18"></td><td><pre><span class="token function">chmod</span> <span class="token punctuation">[</span>+<span class="token operator">|</span>-<span class="token operator">|</span><span class="token operator">=</span><span class="token punctuation">]</span> <span class="token punctuation">[</span>三位数<span class="token punctuation">]</span> -<span class="token operator">></span>增加/减少/覆盖权限</pre></td></tr><tr><td data-num="19"></td><td><pre>    没有权限：0</pre></td></tr><tr><td data-num="20"></td><td><pre>    r：4</pre></td></tr><tr><td data-num="21"></td><td><pre>    w：2</pre></td></tr><tr><td data-num="22"></td><td><pre>    x：1</pre></td></tr><tr><td data-num="23"></td><td><pre>例：chmod <span class="token number">765</span> <span class="token punctuation">[</span>文件名<span class="token punctuation">]</span></pre></td></tr><tr><td data-num="24"></td><td><pre>    <span class="token number">7</span> -- rwx -- 文件所有者</pre></td></tr><tr><td data-num="25"></td><td><pre>    <span class="token number">6</span> -- rw -- 文件所属组</pre></td></tr><tr><td data-num="26"></td><td><pre>    <span class="token number">5</span> -- rx -- 其他人</pre></td></tr></table></figure></li>
+<li><code>chown</code>  改变文件所有者 [和所属组]<br>
+ <code>sudo chown user1[:group2] [文件名]</code> <br>
+ <code>chgrp</code>  改变所属组<br>
+ tip：chown 和 chgrp 都需要管理员权限</li>
+<li><code>find [目录] -name [文件名]</code>  在指定目录下查找文件（文件名也可以使用通配符叠加 例如：* 和？）<br>
+ <code>find [目录] -size [+|-][文件大小]</code>  找大于 / 小于<br>
+例：find [目录] -size +10K -size -10M 按大小范围查找<br>
+ <code>find [目录] -type [d|f|b|c|s|p|l]</code>  按文件类型查找</li>
+<li><code>grep -r &quot;查找的内容&quot; [查找的路径]</code>  按文件内容查找</li>
+<li><code>sudo apt-get install [名字]</code>  在线安装软件<br>
+ <code>sudo apt-get remove [名字]</code>  卸载软件<br>
+ <code>sudo apt-get update</code>  更新软件列表<br>
+ <code>sudo apt-get clean</code>  清理所有软件安装包（/var/cache/apt/archives/*.deb）<br>
+tip：也可用 aptitude 代替</li>
+<li><code>sudo dpkg -i [deb包]</code>  通过 deb 包安装软件<br>
+ <code>sudo dpkg -r [名字]</code>  卸载软件</li>
+<li><code>mount [U盘对应的设备名(/dev/...)] [要挂载的目录]</code>  挂载 U 盘<br>
+ <code>umount [挂载U盘的目录]</code>  卸载 U 盘<br>
+ tip：卸载 U 盘时 U 盘不能被占用（包括 cd 到挂载 U 盘的目录下）<br>
+tip：当挂载 U 盘的目录中有文件时，挂载期间文件会被临时覆盖，待卸载 U 盘后恢复原状</li>
+<li><code>alias</code>  查看或设置别名<br>
+ <code>alias [shell命令]</code>  查看别名<br>
+ <code>alias [封装的命令名]='shell语句'</code>  （例：alias pag=‘ps aux | grep’）<br>
+（注意：需要长久有效需要去设置配置文件：.bashrc）</li>
+</ol>
+<h2 id="压缩包管理"><a class="anchor" href="#压缩包管理">#</a> 压缩包管理</h2>
+<hr>
+<h3 id="基础工具"><a class="anchor" href="#基础工具">#</a> 基础工具</h3>
+<ol>
+<li><code>gzip [要压缩的文件]</code>  —— .gz 格式的压缩包</li>
+<li><code>bzip2 [参数（-k）] [要压缩的文件]</code>  —— .bz2 格式的压缩包</li>
+</ol>
+<p>注意：</p>
+<ol>
+<li>gzip 和 bzip2 都只能对单个文件进行压缩，不能对目录进行压缩。</li>
+<li>gzip 和 bzip2 默认都不保留源文件，只有 bzip2 可以加 - k 参数保留源文件</li>
+</ol>
+<h3 id="进阶工具"><a class="anchor" href="#进阶工具">#</a> 进阶工具</h3>
+<ol>
+<li><code>tar</code>  —— 不使用 z/j 参数，该命令只能对文件或目录打包</li>
+</ol>
+<blockquote>
+<p>参数：<br>
+c —— 创建 —— 压缩<br>
+ x —— 释放 —— 解压缩<br>
+ v —— 显示提示信息 —— 压缩 / 解压缩 —— 可以省略<br>
+ f —— 指定压缩文件的名字<br>
+ z —— 使用 gzip 的方式压缩文件 —— .gz<br>
+j —— 使用 bzip2 的方式压缩文件 —— .bz2</p>
+</blockquote>
+<blockquote>
+<p>压缩：<br>
+ <code>tar zcvf [生成的压缩包的名字(推荐xxx.tar.gz)] [要压缩的文件或目录]</code> <br>
+ <code>tar jcvf [生成的压缩包的名字(推荐xxx.tar.bzip2)] [要压缩的文件或目录]</code></p>
+</blockquote>
+<blockquote>
+<p>解压缩：<br>
+ <code>tar jxvf [压缩包的名字]</code>  -&gt; 解压到当前目录<br>
+ <code>tar jxvf [压缩包的名字] -C [目录]</code>  -&gt; 解压到指定目录</p>
+</blockquote>
+<blockquote>
+<p>Tip：tar 命令主要做的是打包的功能，内部调用 gzip 和 bzip2 进行压缩操作</p>
+</blockquote>
+<ol start="2">
+<li><code>rar</code>  —— 必须手动安装该软件（实测 Ubuntu-20.04.2.0 自带有）</li>
+</ol>
+<blockquote>
+<p>参数：<br>
+a —— 压缩<br>
+ x —— 解压缩</p>
+</blockquote>
+<blockquote>
+<p>压缩：<br>
+ <code>rar a [生成的压缩文件的名字（自动添加.rar后缀）] [要压缩的文件或目录]</code></p>
+</blockquote>
+<blockquote>
+<p>解压缩：<br>
+ <code>rar x [压缩包文件名] [要解压到的目录（不写则默认当前目录）]</code></p>
+</blockquote>
+<ol start="3">
+<li><code>zip</code></li>
+</ol>
+<blockquote>
+<p>参数：<br>
+-r 压缩目录时需要加上</p>
+</blockquote>
+<blockquote>
+<p>压缩：<br>
+ <code>zip [压缩包的名字] [要压缩的文件]</code> <br>
+ <code>zip -r [压缩包的名字] [要压缩的文件或目录]</code></p>
+</blockquote>
+<blockquote>
+<p>解压缩：<br>
+ <code>unzip [压缩包的名字]</code> <br>
+ <code>unzip [压缩包的名字] -d [要解压到的目录]</code></p>
+</blockquote>
+<p>总结：</p>
+<blockquote>
+<p>压缩：tar/rar/zip [参数] [生成的压缩文件的敏子] [要压缩的文件或目录]<br>
+ 解压缩：tar/rar/unzip [参数] [压缩包的名字] [参数（rar 没有参数）] [要解压到的目录]</p>
+</blockquote>
+<h2 id="进程管理"><a class="anchor" href="#进程管理">#</a> 进程管理</h2>
+<hr>
+<h3 id="相关命令"><a class="anchor" href="#相关命令">#</a> 相关命令</h3>
+<ol>
+<li><code>who</code>  查看当前在线用户的情况（登录的用户名、使用的设备终端、登陆到系统的时间）</li>
+</ol>
+<blockquote>
+<p>关于 tty 设备：（这个没搞太清楚，仅做参考）<br>
+tty3 - tty6 表示文字界面（文字终端） - Ctrl+Alt+F3~F6<br>
+tty2 (?) 或：0 表示图形界面 - Ctrl+Alt+F2<br>
+Ctrl + Alt + F2~F6 切换终端<br>
+ Ctrl + Alt + F1 切换到用户登录界面（类似 Windows 下的锁定）</p>
+</blockquote>
+<ol start="2">
+<li>
+<p><code>ps a</code>  列出当前所有用户的进程信息<br>
+ <code>ps au</code>  在上面的基础上再加上 USER、CPU、MEM、VSZ、RSS 的信息<br>
+ <code>ps aux</code>  在上面的基础上再加上没有终端的应用信息（没有 TTY 信息的）<br>
+ <code>ps aux | grep [要查找的内容]</code>  按要查找的内容过滤进程（注：此命令会把自己也找出来）</p>
+</li>
+<li>
+<p><code>kill</code>  杀死进程<br>
+ <code>kill -l</code>  查看 kill 命令可以发出的信号<br>
+ <code>kill -SIGKILL（-9） [进程PID]</code>  发送 SIGKILL 信号杀死进程</p>
+</li>
+<li>
+<p><code>env</code>  查看系统环境变量<br>
+ <code>env | grep [要查找的值]</code>  按内容过滤环境变量</p>
+</li>
+<li>
+<p><code>top</code>  类似 Windows 下的任务管理器，但只能看而不能进行任何操作</p>
+</li>
+</ol>
+<h2 id="网络相关"><a class="anchor" href="#网络相关">#</a> 网络相关</h2>
+<hr>
+<h3 id="常用命令"><a class="anchor" href="#常用命令">#</a> 常用命令</h3>
+<ol>
+<li><code>ifconfig</code>  查看网络配置信息（相当于 CMD 的 ipconfig）</li>
+</ol>
+<blockquote>
+<p>eth0 - 第一块网卡（第二块 eth1…）<br>
+硬件地址（MAC 地址）</p>
+</blockquote>
+<ol start="2">
+<li>
+<p><code>ping</code>  同 CMD 的 ping，但是会一直运行直到用户手动结束<br>
+ <code>ping -c [次数]</code>  指定 ping 的次数<br>
+ <code>ping -i [秒数]</code>  指定每过多少秒给一条回复</p>
+</li>
+<li>
+<p><code>nslookup [域名]</code>  查看网站对应的 IP 地址</p>
+</li>
+</ol>
+<h2 id="用户管理"><a class="anchor" href="#用户管理">#</a> 用户管理</h2>
+<hr>
+<h3 id="相关命令-2"><a class="anchor" href="#相关命令-2">#</a> 相关命令</h3>
+<ol>
+<li>
+<p>创建用户：<br>
+ <code>sudo adduser [用户名（只能小写英文字母）]</code> <br>
+ <code>sudo useradd -s [使用的bash目录（/bin/bash）] -g [所属的组] -d [指定用户的家目录(/home/xxx)] -m（没有这个目录的话就创建） [用户名]</code>  （注：通过这条命令创建的用户没有密码，需要再设置 - sudo passwd [用户名]）</p>
+</li>
+<li>
+<p>删除用户：<br>
+ <code>sudo deluser [用户名]</code>  （注：这样删除后用户对应的家目录不会被删除）<br>
+ <code>sudo userdel -r [用户名]</code>  （注：这样会把用户对应的家目录一起删除）</p>
+</li>
+<li>
+<p>查看现有用户：<br>
+ <code>vi /etc/passwd</code>   （/etc/passwd 里存放的是所有用户的信息）</p>
+</li>
+</ol>
+<h2 id="ftp服务器搭建-vsftpd"><a class="anchor" href="#ftp服务器搭建-vsftpd">#</a> ftp 服务器搭建 – vsftpd</h2>
+<hr>
+<p>ftp 服务器作用：实现文件的上传和下载</p>
+<h3 id="服务器端"><a class="anchor" href="#服务器端">#</a> 服务器端</h3>
+<p><em><strong>（ftp 服务器在本机环境中启动服务失败，原因暂不明，以下仅供参考）</strong></em></p>
+<ol>
+<li>
+<p>修改配置文件（/etc/vsftpd.conf）<br>
+ <code>sudo gedit /etc/vsftpd.conf</code>  或 <code>sudo vi /etc/vsftpd.conf</code>  打开配置文件<br>
+（注意：更改时不要随意修改配置文件书写格式）</p>
+</li>
+<li>
+<p>重启服务<br>
+ <code>sudo service vsftpd restart</code></p>
+</li>
+</ol>
+<h3 id="客户端"><a class="anchor" href="#客户端">#</a> 客户端</h3>
+<p><em><strong>（仅供参考）</strong></em></p>
+<ol>
+<li>
+<p>登录<br>
+ <code>ftp [服务器IP]</code> <br>
+ 实名登录：用户名 + 密码<br>
+匿名登录：anonymous + 直接回车</p>
+</li>
+<li>
+<p>文件的上传和下载<br>
+ <code>put file</code> <br>
+ <code>get file</code> <br>
+（注意：不允许操作目录，可以对目录打包后操作）</p>
+</li>
+</ol>
+<h2 id="nfs网络共享服务器"><a class="anchor" href="#nfs网络共享服务器">#</a> nfs 网络共享服务器</h2>
+<hr>
+<p>类似 Windows 下的共享文件夹</p>
+<h3 id="服务器端-2"><a class="anchor" href="#服务器端-2">#</a> 服务器端</h3>
+<ol>
+<li>
+<p>创建共享目录<br>
+ <code>mkdir [dir]</code></p>
+</li>
+<li>
+<p>修改配置文件（/etc/exports）<br>
+ <code>[共享目录路径] [允许访问的IP网段（*代表所有）]([参数1],[参数2],...)</code> <br>
+ 参数可用：rw —— 可读可写，sync —— 从内存同步到磁盘</p>
+</li>
+<li>
+<p>重启服务<br>
+ <code>sudo service nfs-kernel-server restart</code></p>
+</li>
+</ol>
+<h3 id="客户端-2"><a class="anchor" href="#客户端-2">#</a> 客户端</h3>
+<ol>
+<li>挂载共享目录<br>
+ <code>sudo mount [服务器IP:共享目录路径] /mnt</code></li>
+</ol>
+<h2 id="ssh服务器"><a class="anchor" href="#ssh服务器">#</a> ssh 服务器</h2>
+<hr>
+<p><strong>（需要先安装 openssh-server）</strong></p>
+<h3 id="基本命令"><a class="anchor" href="#基本命令">#</a> 基本命令</h3>
+<p>查看 SSH 是否安装： <code>sudo aptitude show openssh-server</code></p>
+<p>远程登录： <code>ssh [用户名]@[IP]</code></p>
+<p>退出登陆： <code>logout</code></p>
+<h3 id="scp命令super-copy"><a class="anchor" href="#scp命令super-copy">#</a> scp 命令（super copy）</h3>
+<p><code>scp -r [用户名]@[IP]:[目标文件绝对路径] [保存到的本机路径（绝对或相对）]</code></p>
+<p>拷贝目录时须加 <code>-r</code>  参数</p>
+<hr>
+<p><strong>未完待续…</strong></p>
+<p>参考文章:<br>
+<span class="exturl" data-url="aHR0cHM6Ly93d3cuYmlsaWJpbGkuY29tL3ZpZGVvL0JWMWR0NDExZjdUWg==">linux 全套教程【黑马】</span></p>
+
+      <div class="tags">
+          <a href="/tags/Linux%E7%BB%88%E7%AB%AF%E4%BD%BF%E7%94%A8/" rel="tag"><i class="ic i-tag"></i> Linux终端使用</a>
+      </div>
+  </div>
+
+   <footer>
+
+    <div class="meta">
+  <span class="item">
+    <span class="icon">
+      <i class="ic i-calendar-check"></i>
+    </span>
+    <span class="text">更新于</span>
+    <time title="修改时间：2021-11-30 20:12:54" itemprop="dateModified" datetime="2021-11-30T20:12:54+08:00">2021-11-30</time>
+  </span>
+  <span id="2021/02/23/Linux终端使用总结/" class="item leancloud_visitors" data-flag-title="Linux终端使用总结" title="阅读次数">
+      <span class="icon">
+        <i class="ic i-eye"></i>
+      </span>
+      <span class="text">阅读次数</span>
+      <span class="leancloud-visitors-count"></span>
+      <span class="text">次</span>
+  </span>
+</div>
+
+      
+<div class="reward">
+  <button><i class="ic i-heartbeat"></i> 赞赏</button>
+  <p>请我喝[茶]~(￣▽￣)~*</p>
+  <div id="qr">
+      
+      <div>
+        <img data-src="/images/wechatpay.png" alt="TagBug 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/alipay.jpg" alt="TagBug 支付宝">
+        <p>支付宝</p>
+      </div>
+  </div>
+</div>
+
+      
+
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>本文作者： </strong>TagBug <i class="ic i-at"><em>@</em></i>🐟
+  </li>
+  <li class="link">
+    <strong>本文链接：</strong>
+    <a href="http://tagbug.gitlab.io/2021/02/23/Linux%E7%BB%88%E7%AB%AF%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%93/" title="Linux终端使用总结">http://tagbug.gitlab.io/2021/02/23/Linux终端使用总结/</a>
+  </li>
+  <li class="license">
+    <strong>版权声明： </strong>本站所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+  </footer>
+
+</article>
+
+  </div>
+  
+
+<div class="post-nav">
+  <div class="item left">
+      
+
+  <a href="/2021/02/04/ujsAutoClock%E5%BC%80%E5%8F%91%E6%80%9D%E8%B7%AF%E5%8F%8A%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;cdn.jsdelivr.net&#x2F;gh&#x2F;tagbug&#x2F;demo@latest&#x2F;img&#x2F;1612394877886.png" title="ujsAutoClock使用方法及开发思路">
+  <span class="type">上一篇</span>
+  <span class="category">
+    <i class="ic i-flag"></i>
+    works</span>
+  <h3>ujsAutoClock使用方法及开发思路</h3>
+  </a>
+
+  </div>
+  <div class="item right">
+      
+
+  <a href="/2021/05/07/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;cdn.jsdelivr.net&#x2F;gh&#x2F;tagbug&#x2F;demo@latest&#x2F;img&#x2F;1620385114079.png" title="排序算法总结">
+  <span class="type">下一篇</span>
+  <span class="category">
+    <i class="ic i-flag"></i>
+    算法与数据结构</span>
+  <h3>排序算法总结</h3>
+  </a>
+
+  </div>
+</div>
+  
+  <div class="wrap" id="comments"></div>
+
+
+          </div>
+          <div id="sidebar">
+            
+
+<div class="inner">
+
+  <div class="panels">
+    <div class="inner">
+      <div class="contents panel pjax" data-title="文章目录">
+          <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#shell%E5%BF%AB%E6%8D%B7%E9%94%AE"><span class="toc-number">1.</span> <span class="toc-text"> Shell 快捷键</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#linux-%E5%9F%BA%E7%A1%80%E5%B8%B8%E8%AF%86"><span class="toc-number">2.</span> <span class="toc-text"> Linux 基础常识</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#shell%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="toc-number">3.</span> <span class="toc-text"> Shell 常用命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8E%8B%E7%BC%A9%E5%8C%85%E7%AE%A1%E7%90%86"><span class="toc-number">4.</span> <span class="toc-text"> 压缩包管理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E7%A1%80%E5%B7%A5%E5%85%B7"><span class="toc-number">4.1.</span> <span class="toc-text"> 基础工具</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%9B%E9%98%B6%E5%B7%A5%E5%85%B7"><span class="toc-number">4.2.</span> <span class="toc-text"> 进阶工具</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%9B%E7%A8%8B%E7%AE%A1%E7%90%86"><span class="toc-number">5.</span> <span class="toc-text"> 进程管理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9B%B8%E5%85%B3%E5%91%BD%E4%BB%A4"><span class="toc-number">5.1.</span> <span class="toc-text"> 相关命令</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E7%9B%B8%E5%85%B3"><span class="toc-number">6.</span> <span class="toc-text"> 网络相关</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="toc-number">6.1.</span> <span class="toc-text"> 常用命令</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%A8%E6%88%B7%E7%AE%A1%E7%90%86"><span class="toc-number">7.</span> <span class="toc-text"> 用户管理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9B%B8%E5%85%B3%E5%91%BD%E4%BB%A4-2"><span class="toc-number">7.1.</span> <span class="toc-text"> 相关命令</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ftp%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA-vsftpd"><span class="toc-number">8.</span> <span class="toc-text"> ftp 服务器搭建 – vsftpd</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AB%AF"><span class="toc-number">8.1.</span> <span class="toc-text"> 服务器端</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%A2%E6%88%B7%E7%AB%AF"><span class="toc-number">8.2.</span> <span class="toc-text"> 客户端</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#nfs%E7%BD%91%E7%BB%9C%E5%85%B1%E4%BA%AB%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="toc-number">9.</span> <span class="toc-text"> nfs 网络共享服务器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AB%AF-2"><span class="toc-number">9.1.</span> <span class="toc-text"> 服务器端</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%A2%E6%88%B7%E7%AB%AF-2"><span class="toc-number">9.2.</span> <span class="toc-text"> 客户端</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ssh%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="toc-number">10.</span> <span class="toc-text"> ssh 服务器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4"><span class="toc-number">10.1.</span> <span class="toc-text"> 基本命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#scp%E5%91%BD%E4%BB%A4super-copy"><span class="toc-number">10.2.</span> <span class="toc-text"> scp 命令（super copy）</span></a></li></ol></li></ol>
+      </div>
+      <div class="related panel pjax" data-title="系列文章">
+        <ul>
+          <li class="active"><a href="/2021/02/23/Linux%E7%BB%88%E7%AB%AF%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%93/" rel="bookmark" title="Linux终端使用总结">Linux终端使用总结</a></li>
+        </ul>
+      </div>
+      <div class="overview panel" data-title="站点概览">
+        <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="image" itemprop="image" alt="TagBug"
+      data-src="/images/avatar.png">
+  <p class="name" itemprop="name">TagBug</p>
+  <div class="description" itemprop="description">所念皆星河</div>
+</div>
+
+<nav class="state">
+    <div class="item posts">
+      <a href="/archives/">
+        <span class="count">20</span>
+        <span class="name">文章</span>
+      </a>
+    </div>
+    <div class="item categories">
+      <a href="/categories/">
+        <span class="count">9</span>
+        <span class="name">分类</span>
+      </a>
+    </div>
+    <div class="item tags">
+      <a href="/tags/">
+        <span class="count">25</span>
+        <span class="name">标签</span>
+      </a>
+    </div>
+</nav>
+
+<div class="social">
+      <span class="exturl item github" data-url="aHR0cHM6Ly9naXRodWIuY29tL3RhZ2J1Zw==" title="https:&#x2F;&#x2F;github.com&#x2F;tagbug"><i class="ic i-github"></i></span>
+      <span class="exturl item email" data-url="bWFpbHRvOjEyNDIxMzUyOTVAcXEuY29t" title="mailto:1242135295@qq.com"><i class="ic i-envelope"></i></span>
+      <span class="exturl item bilibili" data-url="aHR0cHM6Ly9zcGFjZS5iaWxpYmlsaS5jb20vMjgyMjMzMg==" title="https:&#x2F;&#x2F;space.bilibili.com&#x2F;2822332"><i class="ic i-play"></i></span>
+      <span class="exturl item music" data-url="aHR0cHM6Ly9tdXNpYy4xNjMuY29tLyMvdXNlci9ob21lP2lkPTEzMzg4MTUwNw==" title="https:&#x2F;&#x2F;music.163.com&#x2F;#&#x2F;user&#x2F;home?id&#x3D;133881507"><i class="ic i-cloud-music"></i></span>
+      <span class="exturl item weibo" data-url="aHR0cHM6Ly93ZWliby5jb20vdS8yMTc5OTQ4OTM0" title="https:&#x2F;&#x2F;weibo.com&#x2F;u&#x2F;2179948934"><i class="ic i-weibo"></i></span>
+</div>
+
+<ul class="menu">
+  
+    
+  <li class="item">
+    <a href="/" rel="section"><i class="ic i-home"></i>首页</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/about/" rel="section"><i class="ic i-user"></i>关于</a>
+  </li>
+
+        
+  <li class="item dropdown">
+      <a href="javascript:void(0);"><i class="ic i-feather"></i>文章</a>
+    <ul class="submenu">
+
+        
+  <li class="item">
+    <a href="/archives/" rel="section"><i class="ic i-list-alt"></i>归档</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/categories/" rel="section"><i class="ic i-th"></i>分类</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/tags/" rel="section"><i class="ic i-tags"></i>标签</a>
+  </li>
+
+  </ul>
+    
+  <li class="item">
+    <a href="/friend/" rel="section"><i class="ic i-heart"></i>友链</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/music/" rel="section"><i class="ic i-music"></i>音乐</a>
+  </li>
+
+
+</ul>
+
+      </div>
+    </div>
+  </div>
+
+  <ul id="quick">
+    <li class="prev pjax">
+        <a href="/2021/02/04/ujsAutoClock%E5%BC%80%E5%8F%91%E6%80%9D%E8%B7%AF%E5%8F%8A%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a>
+    </li>
+    <li class="up"><i class="ic i-arrow-up"></i></li>
+    <li class="down"><i class="ic i-arrow-down"></i></li>
+    <li class="next pjax">
+        <a href="/2021/05/07/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93/" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a>
+    </li>
+    <li class="percent"></li>
+  </ul>
+</div>
+
+
+          </div>
+          <div class="dimmer"></div>
+        </div>
+      </main>
+      <footer id="footer">
+        <div class="inner">
+          <div class="widgets">
+            
+<div class="rpost pjax">
+  <h2>随机文章</h2>
+  <ul>
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="分类于 学习笔记">学习笔记</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E5%89%8D%E7%AB%AF/" title="分类于 前端">前端</a>
+</div>
+
+    <span><a href="/2022/01/20/%E5%89%8D%E7%AB%AF%E5%8A%A8%E7%94%BB%E5%AE%9E%E7%8E%B0-%E7%AC%94%E8%AE%B0/" title="前端动画实现 - 笔记">前端动画实现 - 笔记</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="分类于 学习笔记">学习笔记</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E5%89%8D%E7%AB%AF/" title="分类于 前端">前端</a>
+</div>
+
+    <span><a href="/2022/01/17/%E5%89%8D%E7%AB%AF%E4%B8%8EHTML-%E7%AC%94%E8%AE%B0/" title="前端与HTML - 笔记">前端与HTML - 笔记</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" title="分类于 算法与数据结构">算法与数据结构</a>
+</div>
+
+    <span><a href="/2021/01/28/C%E8%AF%AD%E8%A8%80%E5%9B%BE%E7%BB%93%E6%9E%84%E6%80%BB%E7%BB%93%EF%BC%88%E4%B8%80%EF%BC%89/" title="C语言图结构总结（一）">C语言图结构总结（一）</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/works/" title="分类于 works">works</a>
+</div>
+
+    <span><a href="/2021/02/04/ujsAutoClock%E5%BC%80%E5%8F%91%E6%80%9D%E8%B7%AF%E5%8F%8A%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/" title="ujsAutoClock使用方法及开发思路">ujsAutoClock使用方法及开发思路</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="分类于 学习笔记">学习笔记</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E5%89%8D%E7%AB%AF/" title="分类于 前端">前端</a>
+</div>
+
+    <span><a href="/2022/01/21/WebGL%E5%9F%BA%E7%A1%80-%E7%AC%94%E8%AE%B0/" title="WebGL基础 - 笔记">WebGL基础 - 笔记</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="分类于 学习笔记">学习笔记</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E5%89%8D%E7%AB%AF/" title="分类于 前端">前端</a>
+</div>
+
+    <span><a href="/2022/01/20/Node-js-%E4%B8%8E%E5%BC%80%E5%8F%91%E5%AE%9E%E6%88%98-%E7%AC%94%E8%AE%B0/" title="Node.js 与开发实战 - 笔记">Node.js 与开发实战 - 笔记</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="分类于 学习笔记">学习笔记</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E5%89%8D%E7%AB%AF/" title="分类于 前端">前端</a>
+</div>
+
+    <span><a href="/2022/01/17/%E7%90%86%E8%A7%A3CSS-%E7%AC%94%E8%AE%B0/" title="理解CSS - 笔记">理解CSS - 笔记</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="分类于 学习笔记">学习笔记</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E5%89%8D%E7%AB%AF/" title="分类于 前端">前端</a>
+</div>
+
+    <span><a href="/2022/01/17/%E5%A6%82%E4%BD%95%E5%86%99%E5%A5%BDJavaScript-%E7%AC%94%E8%AE%B0/" title="如何写好JavaScript - 笔记">如何写好JavaScript - 笔记</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="分类于 学习笔记">学习笔记</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E5%89%8D%E7%AB%AF/" title="分类于 前端">前端</a>
+</div>
+
+    <span><a href="/2021/11/13/Web%E5%AE%89%E5%85%A8%E5%9F%BA%E7%A1%80-%E7%AC%94%E8%AE%B0/" title="Web安全基础 - 笔记">Web安全基础 - 笔记</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" title="分类于 算法与数据结构">算法与数据结构</a>
+</div>
+
+    <span><a href="/2021/05/07/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93/" title="排序算法总结">排序算法总结</a></span>
+  </li>
+
+  </ul>
+</div>
+<div>
+  <h2>最新评论</h2>
+  <ul class="leancloud-recent-comment"></ul>
+</div>
+
+          </div>
+          <div class="status">
+  <div class="copyright">
+    
+    &copy; 2021 – 
+    <span itemprop="copyrightYear">2022</span>
+    <span class="with-love">
+      <i class="ic i-sakura rotate"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">TagBug @ Tag Bug</span>
+  </div>
+  <div class="count">
+    <span class="post-meta-item-icon">
+      <i class="ic i-chart-area"></i>
+    </span>
+    <span title="站点总字数">82k 字</span>
+
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="ic i-coffee"></i>
+    </span>
+    <span title="站点阅读时长">1:15</span>
+  </div>
+
+  <div class="viewer">
+    <span>❤️感谢 <strong><span id="busuanzi_value_site_uv">282</span></strong> 小伙伴的 <strong><span id="busuanzi_value_site_pv">1685</span></strong> 次光临！❤️</span>
+  </div>
+  <script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" defer></script>
+  <div class="powered-by">
+    基于 <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
+  </div>
+</div>
+
+        </div>
+      </footer>
+    </div>
+    <script data-config="data-config" type="text/javascript">
+      var LOCAL = {
+        path: '2021/02/23/Linux终端使用总结/',
+        favicon: {
+          show: "（●´3｀●）やれやれだぜ",
+          hide: "(´Д｀)大変だ！"
+        },
+        search: {
+          placeholder: "文章搜索",
+          empty: "关于 「 ${query} 」，什么也没搜到",
+          stats: "${time} ms 内找到 ${hits} 条结果"
+        },
+          valine: true,fancybox: true,
+            copyright: '复制成功，转载请遵守 <i class="ic i-creative-commons"></i>BY-NC-SA 协议。',
+        ignores: [
+          function (uri) {
+            return uri.includes('#');
+          },
+          function (uri) {
+            return new RegExp(LOCAL.path + "$").test(uri);
+          }
+        ]
+      };
+    </script>
+
+    <script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
+
+    <script src="//cdn.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
+
+    <script src="/js/app.js?v=0.2.5"></script>
+
+    
+
+
+  </body>
+</html>

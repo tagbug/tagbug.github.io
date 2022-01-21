@@ -1,0 +1,776 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#FFF">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="icon" type="image/ico" sizes="32x32" href="/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+<link rel="alternate" type="application/rss+xml" title="🐟" href="http://tagbug.gitlab.io/rss.xml"/>
+<link rel="alternate" type="application/atom+xml" title="🐟" href="http://tagbug.gitlab.io/atom.xml"/>
+<link rel="alternate" type="application/json" title="🐟" href="http://tagbug.gitlab.io/feed.json"/>
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="/css/app.css?v=0.2.5">
+    
+  <meta name="keywords" content="Web,前端,笔记补完计划" />
+
+
+<link rel="canonical" href="http://tagbug.gitlab.io/2022/01/18/%E5%89%8D%E7%AB%AF%E5%BF%85%E9%A1%BB%E7%9F%A5%E9%81%93%E7%9A%84%E5%BC%80%E5%8F%91%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86-%E7%AC%94%E8%AE%B0/">
+
+
+
+    <title>
+      
+前端必须知道的开发调试知识 - 笔记 - 前端 - 学习笔记 |
+Tag Bug = 🐟</title>
+  <meta name="generator" content="Hexo 5.4.0"></head>
+  <body itemscope="itemscope" itemtype="http://schema.org/WebPage">
+    <div id="loading">
+      <div class="cat">
+        <div class="body"></div>
+        <div class="head">
+          <div class="face"></div>
+        </div>
+        <div class="foot">
+          <div class="tummy-end"></div>
+          <div class="bottom"></div>
+          <div class="legs left"></div>
+          <div class="legs right"></div>
+        </div>
+        <div class="paw">
+          <div class="hands left"></div>
+          <div class="hands right"></div>
+        </div>
+      </div>
+    </div>
+    <div id="container">
+      <header id="header" itemscope="itemscope" itemtype="http://schema.org/WPHeader">
+        <div class="inner">
+          <div id="brand">
+            <div class="pjax">
+              
+  <h1 itemprop="name headline">前端必须知道的开发调试知识 - 笔记
+  </h1>
+  
+<div class="meta">
+  <span class="item" title="创建时间：2022-01-18 20:02:44">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">发表于</span>
+    <time itemprop="dateCreated datePublished" datetime="2022-01-18T20:02:44+08:00">2022-01-18</time>
+  </span>
+  <span class="item" title="本文字数">
+    <span class="icon">
+      <i class="ic i-pen"></i>
+    </span>
+    <span class="text">本文字数</span>
+    <span>2.7k</span>
+    <span class="text">字</span>
+  </span>
+  <span class="item" title="阅读时长">
+    <span class="icon">
+      <i class="ic i-clock"></i>
+    </span>
+    <span class="text">阅读时长</span>
+    <span>2 分钟</span>
+  </span>
+</div>
+
+
+            </div>
+          </div>
+          <nav id="nav">
+  <div class="inner">
+    <div class="toggle">
+      <div class="lines" aria-label="切换导航栏">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <ul class="menu">
+      <li class="item title"><a href="/" rel="start">Tag Bug</a></li>
+    </ul>
+    <ul class="right">
+      <li class="item theme">
+        <i class="ic i-sun"></i>
+      </li>
+      <li class="item search">
+        <i class="ic i-search"></i>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+        </div>
+        <div id="imgs" class="pjax">
+            <ul>
+                <li class="item" data-background-image="https://tva1.sinaimg.cn/large/81ef6186ly8gwtzmywo4jj211s0lctbi.jpg"></li>
+                <li class="item" data-background-image="https://tva1.sinaimg.cn/large/81ef6186ly8gwtz8fhnmbj20zk0k0n0g.jpg"></li>
+                <li class="item" data-background-image="https://tva1.sinaimg.cn/large/81ef6186ly8gwtyt4fb1tj20u013b0xd.jpg"></li>
+                <li class="item" data-background-image="https://tva1.sinaimg.cn/large/81ef6186ly8gwtyt18akhj20qk1b8dq0.jpg"></li>
+                <li class="item" data-background-image="https://tva1.sinaimg.cn/large/81ef6186ly8gwtyteb1msj20u010ln4u.jpg"></li>
+                <li class="item" data-background-image="https://tva1.sinaimg.cn/large/81ef6186ly8gwtzcaega9j21hb0etgqc.jpg"></li>
+            </ul>
+        </div>
+      </header>
+      <div id="waves">
+        <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewbox="0 24 150 28" preserveaspectratio="none" shape-rendering="auto">
+          <defs>
+            <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"/>
+          </defs>
+          <g class="parallax">
+            <use xlink:href="#gentle-wave" x="48" y="0"/>
+            <use xlink:href="#gentle-wave" x="48" y="3"/>
+            <use xlink:href="#gentle-wave" x="48" y="5"/>
+            <use xlink:href="#gentle-wave" x="48" y="7"/>
+          </g>
+        </svg>
+      </div>
+      <main>
+        <div class="inner">
+          <div id="main" class="pjax">
+            
+  <div class="article wrap">
+    
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/">首页</a></span><i class="ic i-angle-right"></i>
+<span  itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" itemprop="item" rel="index" title="分类于 学习笔记"><span itemprop="name">学习笔记</span></a>
+<meta itemprop="position" content="1" /></span>
+<i class="ic i-angle-right"></i>
+<span  class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E5%89%8D%E7%AB%AF/" itemprop="item" rel="index" title="分类于 前端"><span itemprop="name">前端</span></a>
+<meta itemprop="position" content="2" /></span>
+</div>
+
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh-CN">
+  <link itemprop="mainEntityOfPage" href="http://tagbug.gitlab.io/2022/01/18/%E5%89%8D%E7%AB%AF%E5%BF%85%E9%A1%BB%E7%9F%A5%E9%81%93%E7%9A%84%E5%BC%80%E5%8F%91%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86-%E7%AC%94%E8%AE%B0/">
+
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="/images/avatar.png">
+    <meta itemprop="name" content="TagBug">
+    <meta itemprop="description" content=", 所念皆星河">
+  </span>
+
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="🐟">
+  </span>
+
+  <div class="body md" itemprop="articleBody">
+    
+
+    <blockquote>
+<p>Bug 与 Debug：Bug 的产生、前端 Debug 特点</p>
+<p>Chrome 的 DevTools</p>
+<p>移动端 H5 调试：真机调试、代理工具调试</p>
+<p>开发调试技巧</p>
+</blockquote>
+<span id="more"></span>
+<h1 id="前端必须知道的开发调试知识-笔记"><a class="anchor" href="#前端必须知道的开发调试知识-笔记">#</a> 前端必须知道的开发调试知识 - 笔记</h1>
+<h2 id="bug与debug"><a class="anchor" href="#bug与debug">#</a> Bug 与 Debug</h2>
+<h3 id="bug的产生"><a class="anchor" href="#bug的产生">#</a> Bug 的产生</h3>
+<p>这一切都要从一只虫子 (bug) 说起，最早的计算机故障就是由一只飞蛾引起的。</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/tagbug/demo@latest/img/image-20220117140255844.png" alt="image-20220117140255844"></p>
+<h3 id="前端debug特点"><a class="anchor" href="#前端debug特点">#</a> 前端 Debug 特点</h3>
+<ul>
+<li>多平台：浏览器、Hybrid、Node.js、小程序、桌面应用等</li>
+<li>多环境：本地开发环境、线上环境</li>
+<li>多工具：Chrome DevTooles、Charles、Spy-Debugger、Whistle、vConsole 等</li>
+<li>多技巧：Console、BreakPoint、SourceMap、代理等</li>
+</ul>
+<h2 id="chrome的devtools"><a class="anchor" href="#chrome的devtools">#</a> Chrome 的 DevTools</h2>
+<blockquote>
+<p>我录过一期 Chrome 调试方法的视频，有兴趣也可以看看 -&gt; <span class="exturl" data-url="aHR0cHM6Ly93d3cuYmlsaWJpbGkuY29tL3ZpZGVvL0JWMW00NHkxWTdtZA==">link</span></p>
+</blockquote>
+<h3 id="elementsdom树-动态修改元素与样式"><a class="anchor" href="#elementsdom树-动态修改元素与样式">#</a> Elements—DOM 树 动态修改元素与样式</h3>
+<ul>
+<li>
+<p>点击.cls 开启动态修改元素的 class</p>
+</li>
+<li>
+<p>输入字符串可以动态的给元素添加类名</p>
+</li>
+<li>
+<p>勾选 / 取消类名可以动态的查看类名生效效果</p>
+</li>
+<li>
+<p>点击具体的样式值（字号、颜色、宽度高度等) 可以进行编辑，浏览器内容区域实时预览</p>
+</li>
+<li>
+<p>Computed 下点击样式里的箭头可以跳转到 styles 面板中的 css 规则</p>
+</li>
+<li>
+<p>可以使用 2 种方式强制激活伪类：</p>
+<p>选中具有伪类的元素，点击:hov；</p>
+<p>DOM 树右键菜单．选择 Force State</p>
+</li>
+</ul>
+<h3 id="console控制台"><a class="anchor" href="#console控制台">#</a> Console— 控制台</h3>
+<p>在这个面板中可以直接写入 &amp; 运行单 / 多行 js 代码</p>
+<p>左侧可以选择警告等级，对日志进行分类查看</p>
+<p>Console 相关方法：</p>
+<ul>
+<li><code>console.log</code></li>
+<li><code>console.warn</code></li>
+<li><code>console.error</code></li>
+<li><code>console.debug</code></li>
+<li><code>console.info</code></li>
+</ul>
+<p>小技巧：<strong>不同类型的数据</strong>从 console 中打印出的<strong>颜色也不相同</strong>，可以借此判断数据类型</p>
+<p>上面的都是用于区分警告等级，主要区别就在于显示颜色不同，而还有一种日志方法，可以具像化的展示 JSON 和数组数据，方便调试：</p>
+<ul>
+<li><code>console.table</code></li>
+</ul>
+<p>另外，console 打印的日志还可以自定义 css 样式：</p>
+<ul>
+<li>通过占位符给日志添加样式，突出重要的信息</li>
+<li>% s：字符串占位符</li>
+<li>% o：对象占位符</li>
+<li>% c：样式占位符</li>
+<li>% d：数字占位符</li>
+</ul>
+<p>例如：</p>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span> <span class="token string">"%s %o,%c%s"</span><span class="token punctuation">,</span> <span class="token string">"hello"</span><span class="token punctuation">,</span><span class="token punctuation">&#123;</span>name<span class="token operator">:</span> <span class="token string">'tome'</span><span class="token punctuation">,</span> age<span class="token operator">:</span> <span class="token number">18</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">'font-size: 24px; color: red'</span><span class="token punctuation">,</span> <span class="token string">'Welcome to bytedance!'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr></table></figure><p>最后还有一个比较少用的方法，用于展示 HTML 节点的 DOM 对象：</p>
+<ul>
+<li><code>console.dir</code></li>
+</ul>
+<h3 id="sources源码"><a class="anchor" href="#sources源码">#</a> Sources— 源码</h3>
+<p>调试器使用：</p>
+<ul>
+<li>使用关键字 debugger 或代码预览区域的行号可以设置断点</li>
+<li>执行到断点处时代码暂停执行</li>
+<li>展开 Breakpoints 列表可以查看断点列表，勾选 / 取消可以激活 / 禁用对应断点</li>
+<li>暂停状态下，鼠标 hover 变量可以查看变量的值</li>
+<li>在调试器 Watch 右侧点击＋可以添加对变量的监控，查看该变量的值</li>
+<li>展开 Scope 可以查看作用域列表 (包含闭包)</li>
+<li>展开 Call Stack 可以查看当前 JavaScript 代码的调用栈</li>
+</ul>
+<p>前端代码天生具有 &quot;开源&quot; 属性，出于安全考虑，JavaScript 代码在上线时通常会被压缩，压缩后的代码只有一行，变量使用’a’.'b’等替换，整体变得不可阅读。</p>
+<p>那么压缩后的代码如何调试呢？</p>
+<p>答案是：通过在打包过程中生成<strong> SourceMap</strong> 文件来对压缩后的代码进行映射，从而可以在调试时还原源码</p>
+<p>SourceMap： <code>mappings</code>  字段存储了源文件和 SourceMap 的映射</p>
+<ul>
+<li>英文，表示源码及压缩代码的位置关联</li>
+<li>逗号，分隔一行代码中的内容。</li>
+<li>分号，代表换行。之所以没有显示分号是因为压缩后的代码就只有一行。</li>
+</ul>
+<h3 id="performance性能"><a class="anchor" href="#performance性能">#</a> Performance— 性能</h3>
+<p>比较复杂，主要用于高级性能分析</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/tagbug/demo@latest/img/image-20220117144730077.png" alt="image-20220117144730077"></p>
+<h3 id="network网络请求"><a class="anchor" href="#network网络请求">#</a> Network— 网络请求</h3>
+<p>用于查看、筛选各类网络请求，查看请求的详情信息，请求发出堆栈，请求时间栈等等</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/tagbug/demo@latest/img/image-20220117144903372.png" alt="image-20220117144903372"></p>
+<h3 id="application"><a class="anchor" href="#application">#</a> Application</h3>
+<p>Application 面板展示与本地存储相关的信息</p>
+<ul>
+<li>Local Storage</li>
+<li>Session Storage</li>
+<li>IndexedDB</li>
+<li>Web SQL</li>
+<li>Cookie</li>
+</ul>
+<p>通过此面板可以清除网站缓存、本地存储、Cookie 等</p>
+<h2 id="移动端h5调试"><a class="anchor" href="#移动端h5调试">#</a> 移动端 H5 调试</h2>
+<h3 id="真机调试"><a class="anchor" href="#真机调试">#</a> 真机调试</h3>
+<h4 id="ios"><a class="anchor" href="#ios">#</a> IOS</h4>
+<ol>
+<li>
+<p>使用 Lightning 数据线将 iPhone 与 Mac 相连</p>
+</li>
+<li>
+<p>iPhone 开启 Web 检查器（设置→Safari -&gt; 高级 -→&gt; 开启 Web 检查器)</p>
+</li>
+<li>
+<p>iPhone 使用 Safari 浏览器打开要调试的页面</p>
+</li>
+<li>
+<p>Mac 打开 Safari 浏览器调试 (菜单栏→&gt; 开发 - iPhone 设备名 -→选择调试页面)</p>
+</li>
+<li>
+<p>在弹出的 <code>Safari Developer Tools</code>  中调试</p>
+</li>
+<li>
+<p>Tips：没有 iPhone 设备可以在 Mac AppStore 安装 Xcode 使用其内置的 ios 模拟器</p>
+</li>
+</ol>
+<h4 id="android"><a class="anchor" href="#android">#</a> Android</h4>
+<ol>
+<li>使用 USB 数据线将手机与电脑相连</li>
+<li>手机进入开发者模式。勾选 <code>USB调试</code> 。并允许调试</li>
+<li>电脑打开 Chrome 浏览器，在地址栏输入： <code>chrome://inspect/#devices</code>  并勾选 <code>Discover USB devices</code>  选项</li>
+<li>手机允许远程调试，并访问调试页面</li>
+<li>电脑点击 <code>inspect</code>  按钮</li>
+<li>进入调试界面</li>
+</ol>
+<h3 id="代理工具调试"><a class="anchor" href="#代理工具调试">#</a> 代理工具调试</h3>
+<p>原理:</p>
+<ul>
+<li>电脑作为代理服务器</li>
+<li>手机通过 HTTP 代理连接到电脑</li>
+<li>手机上的请求都经过代理服务器</li>
+</ul>
+<p>以 Charles 为例:</p>
+<ol>
+<li>安装 Charles</li>
+<li>查看电脑 IP 和端口</li>
+<li>将 IP、端口号填入手机 HTTP 代理</li>
+<li>Charles 允许授权</li>
+<li>使用 SwitchHosts! 软件给 Mac 电脑配 Hosts</li>
+<li>手机访问开发环境页面</li>
+</ol>
+<p>常用工具：</p>
+<ul>
+<li>Charles：适合查看、控制网络请求、分析数据</li>
+<li>Fiddler：与 Charles 类似，适合 Windows 平台</li>
+<li>spy-debugger：远程调试手机页面、抓包</li>
+<li>Whistle：基于 Node 实现的跨平台 Web 调试代理工具</li>
+</ul>
+<h2 id="开发调试技巧"><a class="anchor" href="#开发调试技巧">#</a> 开发调试技巧</h2>
+<h4 id="chrome的devtools-2"><a class="anchor" href="#chrome的devtools-2">#</a> Chrome 的 DevTools</h4>
+<ol>
+<li>Source-&gt;override：通过开启此功能，可以使得在 DevTools 中的所有更改（DOM、CSS、JS）持久化，并可以查看与原文件的差异（类似 git）</li>
+<li>CORS (跨域) 问题：通过 Whistle 开启代理，使用代理对真实请求地址进行封装和转发，让浏览器请求同源地址，代理转发到真实地址</li>
+<li>启用本地 SourceMap：将远程不存在的 SouceMap 不存在时，使用代理，将请求代理到本地的 SourceMap 文件，便可以进行线上调试</li>
+<li>小黄鸭调试大法（🐤）：传说中程序大师随身携带一只小黄鸭，在调试代码的时候会在桌上放上这只小黄鸭，然后详细地向鸭子解释每行代码，然后很快就将问题定位修复了。 -《程序员修炼之道》</li>
+</ol>
+<h2 id="参考资料"><a class="anchor" href="#参考资料">#</a> 参考资料</h2>
+<ul>
+<li>
+<p>字节<span class="exturl" data-url="aHR0cHM6Ly9mb3J1bS5qdWVqaW4uY24veW91dGhjYW1w">青训营</span>课程</p>
+</li>
+<li>
+<p><span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9XZWI=">MDN</span> 中文文档</p>
+</li>
+</ul>
+
+      <div class="tags">
+          <a href="/tags/Web/" rel="tag"><i class="ic i-tag"></i> Web</a>
+          <a href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag"><i class="ic i-tag"></i> 前端</a>
+          <a href="/tags/%E7%AC%94%E8%AE%B0%E8%A1%A5%E5%AE%8C%E8%AE%A1%E5%88%92/" rel="tag"><i class="ic i-tag"></i> 笔记补完计划</a>
+      </div>
+  </div>
+
+   <footer>
+
+    <div class="meta">
+  <span class="item">
+    <span class="icon">
+      <i class="ic i-calendar-check"></i>
+    </span>
+    <span class="text">更新于</span>
+    <time title="修改时间：2022-01-18 20:15:31" itemprop="dateModified" datetime="2022-01-18T20:15:31+08:00">2022-01-18</time>
+  </span>
+  <span id="2022/01/18/前端必须知道的开发调试知识-笔记/" class="item leancloud_visitors" data-flag-title="前端必须知道的开发调试知识 - 笔记" title="阅读次数">
+      <span class="icon">
+        <i class="ic i-eye"></i>
+      </span>
+      <span class="text">阅读次数</span>
+      <span class="leancloud-visitors-count"></span>
+      <span class="text">次</span>
+  </span>
+</div>
+
+      
+<div class="reward">
+  <button><i class="ic i-heartbeat"></i> 赞赏</button>
+  <p>请我喝[茶]~(￣▽￣)~*</p>
+  <div id="qr">
+      
+      <div>
+        <img data-src="/images/wechatpay.png" alt="TagBug 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/alipay.jpg" alt="TagBug 支付宝">
+        <p>支付宝</p>
+      </div>
+  </div>
+</div>
+
+      
+
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>本文作者： </strong>TagBug <i class="ic i-at"><em>@</em></i>🐟
+  </li>
+  <li class="link">
+    <strong>本文链接：</strong>
+    <a href="http://tagbug.gitlab.io/2022/01/18/%E5%89%8D%E7%AB%AF%E5%BF%85%E9%A1%BB%E7%9F%A5%E9%81%93%E7%9A%84%E5%BC%80%E5%8F%91%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86-%E7%AC%94%E8%AE%B0/" title="前端必须知道的开发调试知识 - 笔记">http://tagbug.gitlab.io/2022/01/18/前端必须知道的开发调试知识-笔记/</a>
+  </li>
+  <li class="license">
+    <strong>版权声明： </strong>本站所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+  </footer>
+
+</article>
+
+  </div>
+  
+
+<div class="post-nav">
+  <div class="item left">
+      
+
+  <a href="/2022/01/18/Web%E6%A0%87%E5%87%86%E4%B8%8E%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91-%E7%AC%94%E8%AE%B0/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;cdn.jsdelivr.net&#x2F;gh&#x2F;tagbug&#x2F;demo@latest&#x2F;img&#x2F;1629192438444.png" title="Web标准与前端开发 - 笔记">
+  <span class="type">上一篇</span>
+  <span class="category">
+    <i class="ic i-flag"></i>
+    前端</span>
+  <h3>Web标准与前端开发 - 笔记</h3>
+  </a>
+
+  </div>
+  <div class="item right">
+      
+
+  <a href="/2022/01/20/%E5%93%8D%E5%BA%94%E5%BC%8F%E7%B3%BB%E7%BB%9F%E4%B8%8EReact-%E7%AC%94%E8%AE%B0/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;tva1.sinaimg.cn&#x2F;mw690&#x2F;81ef6186ly8gwtysz7l4ej20u01hc0yc.jpg" title="响应式系统与React - 笔记">
+  <span class="type">下一篇</span>
+  <span class="category">
+    <i class="ic i-flag"></i>
+    前端</span>
+  <h3>响应式系统与React - 笔记</h3>
+  </a>
+
+  </div>
+</div>
+  
+  <div class="wrap" id="comments"></div>
+
+
+          </div>
+          <div id="sidebar">
+            
+
+<div class="inner">
+
+  <div class="panels">
+    <div class="inner">
+      <div class="contents panel pjax" data-title="文章目录">
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%8D%E7%AB%AF%E5%BF%85%E9%A1%BB%E7%9F%A5%E9%81%93%E7%9A%84%E5%BC%80%E5%8F%91%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86-%E7%AC%94%E8%AE%B0"><span class="toc-number">1.</span> <span class="toc-text"> 前端必须知道的开发调试知识 - 笔记</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#bug%E4%B8%8Edebug"><span class="toc-number">1.1.</span> <span class="toc-text"> Bug 与 Debug</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#bug%E7%9A%84%E4%BA%A7%E7%94%9F"><span class="toc-number">1.1.1.</span> <span class="toc-text"> Bug 的产生</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%89%8D%E7%AB%AFdebug%E7%89%B9%E7%82%B9"><span class="toc-number">1.1.2.</span> <span class="toc-text"> 前端 Debug 特点</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#chrome%E7%9A%84devtools"><span class="toc-number">1.2.</span> <span class="toc-text"> Chrome 的 DevTools</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#elementsdom%E6%A0%91-%E5%8A%A8%E6%80%81%E4%BF%AE%E6%94%B9%E5%85%83%E7%B4%A0%E4%B8%8E%E6%A0%B7%E5%BC%8F"><span class="toc-number">1.2.1.</span> <span class="toc-text"> Elements—DOM 树 动态修改元素与样式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#console%E6%8E%A7%E5%88%B6%E5%8F%B0"><span class="toc-number">1.2.2.</span> <span class="toc-text"> Console— 控制台</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#sources%E6%BA%90%E7%A0%81"><span class="toc-number">1.2.3.</span> <span class="toc-text"> Sources— 源码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#performance%E6%80%A7%E8%83%BD"><span class="toc-number">1.2.4.</span> <span class="toc-text"> Performance— 性能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#network%E7%BD%91%E7%BB%9C%E8%AF%B7%E6%B1%82"><span class="toc-number">1.2.5.</span> <span class="toc-text"> Network— 网络请求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#application"><span class="toc-number">1.2.6.</span> <span class="toc-text"> Application</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A7%BB%E5%8A%A8%E7%AB%AFh5%E8%B0%83%E8%AF%95"><span class="toc-number">1.3.</span> <span class="toc-text"> 移动端 H5 调试</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9C%9F%E6%9C%BA%E8%B0%83%E8%AF%95"><span class="toc-number">1.3.1.</span> <span class="toc-text"> 真机调试</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#ios"><span class="toc-number">1.3.1.1.</span> <span class="toc-text"> IOS</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#android"><span class="toc-number">1.3.1.2.</span> <span class="toc-text"> Android</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%A3%E7%90%86%E5%B7%A5%E5%85%B7%E8%B0%83%E8%AF%95"><span class="toc-number">1.3.2.</span> <span class="toc-text"> 代理工具调试</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%80%E5%8F%91%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A7"><span class="toc-number">1.4.</span> <span class="toc-text"> 开发调试技巧</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#chrome%E7%9A%84devtools-2"><span class="toc-number">1.4.0.1.</span> <span class="toc-text"> Chrome 的 DevTools</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="toc-number">1.5.</span> <span class="toc-text"> 参考资料</span></a></li></ol></li></ol>
+      </div>
+      <div class="related panel pjax" data-title="系列文章">
+        <ul>
+          <li><a href="/2021/09/23/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96-%E7%AC%94%E8%AE%B0/" rel="bookmark" title="前端工程化 - 笔记">前端工程化 - 笔记</a></li><li><a href="/2021/09/25/Node-js%E5%85%A5%E9%97%A8-%E7%AC%94%E8%AE%B0/" rel="bookmark" title="Node.js入门 - 笔记">Node.js入门 - 笔记</a></li><li><a href="/2021/11/13/Web%E5%AE%89%E5%85%A8%E5%9F%BA%E7%A1%80-%E7%AC%94%E8%AE%B0/" rel="bookmark" title="Web安全基础 - 笔记">Web安全基础 - 笔记</a></li><li><a href="/2021/11/15/JS%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E7%AC%94%E8%AE%B0/" rel="bookmark" title="JS设计模式 - 笔记">JS设计模式 - 笔记</a></li><li><a href="/2022/01/17/%E5%89%8D%E7%AB%AF%E4%B8%8EHTML-%E7%AC%94%E8%AE%B0/" rel="bookmark" title="前端与HTML - 笔记">前端与HTML - 笔记</a></li><li><a href="/2022/01/17/%E7%90%86%E8%A7%A3CSS-%E7%AC%94%E8%AE%B0/" rel="bookmark" title="理解CSS - 笔记">理解CSS - 笔记</a></li><li><a href="/2022/01/17/%E5%A6%82%E4%BD%95%E5%86%99%E5%A5%BDJavaScript-%E7%AC%94%E8%AE%B0/" rel="bookmark" title="如何写好JavaScript - 笔记">如何写好JavaScript - 笔记</a></li><li><a href="/2022/01/18/Web%E6%A0%87%E5%87%86%E4%B8%8E%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91-%E7%AC%94%E8%AE%B0/" rel="bookmark" title="Web标准与前端开发 - 笔记">Web标准与前端开发 - 笔记</a></li><li class="active"><a href="/2022/01/18/%E5%89%8D%E7%AB%AF%E5%BF%85%E9%A1%BB%E7%9F%A5%E9%81%93%E7%9A%84%E5%BC%80%E5%8F%91%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86-%E7%AC%94%E8%AE%B0/" rel="bookmark" title="前端必须知道的开发调试知识 - 笔记">前端必须知道的开发调试知识 - 笔记</a></li><li><a href="/2022/01/20/%E5%93%8D%E5%BA%94%E5%BC%8F%E7%B3%BB%E7%BB%9F%E4%B8%8EReact-%E7%AC%94%E8%AE%B0/" rel="bookmark" title="响应式系统与React - 笔记">响应式系统与React - 笔记</a></li><li><a href="/2022/01/20/%E5%89%8D%E7%AB%AF%E5%8A%A8%E7%94%BB%E5%AE%9E%E7%8E%B0-%E7%AC%94%E8%AE%B0/" rel="bookmark" title="前端动画实现 - 笔记">前端动画实现 - 笔记</a></li><li><a href="/2022/01/20/HTTP%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97-%E7%AC%94%E8%AE%B0/" rel="bookmark" title="HTTP实用指南 - 笔记">HTTP实用指南 - 笔记</a></li><li><a href="/2022/01/20/Node-js-%E4%B8%8E%E5%BC%80%E5%8F%91%E5%AE%9E%E6%88%98-%E7%AC%94%E8%AE%B0/" rel="bookmark" title="Node.js 与开发实战 - 笔记">Node.js 与开发实战 - 笔记</a></li><li><a href="/2022/01/21/WebGL%E5%9F%BA%E7%A1%80-%E7%AC%94%E8%AE%B0/" rel="bookmark" title="WebGL基础 - 笔记">WebGL基础 - 笔记</a></li>
+        </ul>
+      </div>
+      <div class="overview panel" data-title="站点概览">
+        <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="image" itemprop="image" alt="TagBug"
+      data-src="/images/avatar.png">
+  <p class="name" itemprop="name">TagBug</p>
+  <div class="description" itemprop="description">所念皆星河</div>
+</div>
+
+<nav class="state">
+    <div class="item posts">
+      <a href="/archives/">
+        <span class="count">20</span>
+        <span class="name">文章</span>
+      </a>
+    </div>
+    <div class="item categories">
+      <a href="/categories/">
+        <span class="count">9</span>
+        <span class="name">分类</span>
+      </a>
+    </div>
+    <div class="item tags">
+      <a href="/tags/">
+        <span class="count">25</span>
+        <span class="name">标签</span>
+      </a>
+    </div>
+</nav>
+
+<div class="social">
+      <span class="exturl item github" data-url="aHR0cHM6Ly9naXRodWIuY29tL3RhZ2J1Zw==" title="https:&#x2F;&#x2F;github.com&#x2F;tagbug"><i class="ic i-github"></i></span>
+      <span class="exturl item email" data-url="bWFpbHRvOjEyNDIxMzUyOTVAcXEuY29t" title="mailto:1242135295@qq.com"><i class="ic i-envelope"></i></span>
+      <span class="exturl item bilibili" data-url="aHR0cHM6Ly9zcGFjZS5iaWxpYmlsaS5jb20vMjgyMjMzMg==" title="https:&#x2F;&#x2F;space.bilibili.com&#x2F;2822332"><i class="ic i-play"></i></span>
+      <span class="exturl item music" data-url="aHR0cHM6Ly9tdXNpYy4xNjMuY29tLyMvdXNlci9ob21lP2lkPTEzMzg4MTUwNw==" title="https:&#x2F;&#x2F;music.163.com&#x2F;#&#x2F;user&#x2F;home?id&#x3D;133881507"><i class="ic i-cloud-music"></i></span>
+      <span class="exturl item weibo" data-url="aHR0cHM6Ly93ZWliby5jb20vdS8yMTc5OTQ4OTM0" title="https:&#x2F;&#x2F;weibo.com&#x2F;u&#x2F;2179948934"><i class="ic i-weibo"></i></span>
+</div>
+
+<ul class="menu">
+  
+    
+  <li class="item">
+    <a href="/" rel="section"><i class="ic i-home"></i>首页</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/about/" rel="section"><i class="ic i-user"></i>关于</a>
+  </li>
+
+        
+  <li class="item dropdown">
+      <a href="javascript:void(0);"><i class="ic i-feather"></i>文章</a>
+    <ul class="submenu">
+
+        
+  <li class="item">
+    <a href="/archives/" rel="section"><i class="ic i-list-alt"></i>归档</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/categories/" rel="section"><i class="ic i-th"></i>分类</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/tags/" rel="section"><i class="ic i-tags"></i>标签</a>
+  </li>
+
+  </ul>
+    
+  <li class="item">
+    <a href="/friend/" rel="section"><i class="ic i-heart"></i>友链</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/music/" rel="section"><i class="ic i-music"></i>音乐</a>
+  </li>
+
+
+</ul>
+
+      </div>
+    </div>
+  </div>
+
+  <ul id="quick">
+    <li class="prev pjax">
+        <a href="/2022/01/18/Web%E6%A0%87%E5%87%86%E4%B8%8E%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91-%E7%AC%94%E8%AE%B0/" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a>
+    </li>
+    <li class="up"><i class="ic i-arrow-up"></i></li>
+    <li class="down"><i class="ic i-arrow-down"></i></li>
+    <li class="next pjax">
+        <a href="/2022/01/20/%E5%93%8D%E5%BA%94%E5%BC%8F%E7%B3%BB%E7%BB%9F%E4%B8%8EReact-%E7%AC%94%E8%AE%B0/" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a>
+    </li>
+    <li class="percent"></li>
+  </ul>
+</div>
+
+
+          </div>
+          <div class="dimmer"></div>
+        </div>
+      </main>
+      <footer id="footer">
+        <div class="inner">
+          <div class="widgets">
+            
+<div class="rpost pjax">
+  <h2>随机文章</h2>
+  <ul>
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="分类于 学习笔记">学习笔记</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E5%89%8D%E7%AB%AF/" title="分类于 前端">前端</a>
+</div>
+
+    <span><a href="/2022/01/20/HTTP%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97-%E7%AC%94%E8%AE%B0/" title="HTTP实用指南 - 笔记">HTTP实用指南 - 笔记</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="分类于 学习笔记">学习笔记</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E5%89%8D%E7%AB%AF/" title="分类于 前端">前端</a>
+</div>
+
+    <span><a href="/2022/01/20/%E5%89%8D%E7%AB%AF%E5%8A%A8%E7%94%BB%E5%AE%9E%E7%8E%B0-%E7%AC%94%E8%AE%B0/" title="前端动画实现 - 笔记">前端动画实现 - 笔记</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" title="分类于 算法与数据结构">算法与数据结构</a>
+</div>
+
+    <span><a href="/2021/01/28/C%E8%AF%AD%E8%A8%80%E5%9B%BE%E7%BB%93%E6%9E%84%E6%80%BB%E7%BB%93%EF%BC%88%E4%B8%80%EF%BC%89/" title="C语言图结构总结（一）">C语言图结构总结（一）</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/works/" title="分类于 works">works</a>
+</div>
+
+    <span><a href="/2021/02/04/ujsAutoClock%E5%BC%80%E5%8F%91%E6%80%9D%E8%B7%AF%E5%8F%8A%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/" title="ujsAutoClock使用方法及开发思路">ujsAutoClock使用方法及开发思路</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="分类于 学习笔记">学习笔记</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E5%89%8D%E7%AB%AF/" title="分类于 前端">前端</a>
+</div>
+
+    <span><a href="/2022/01/17/%E7%90%86%E8%A7%A3CSS-%E7%AC%94%E8%AE%B0/" title="理解CSS - 笔记">理解CSS - 笔记</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="分类于 学习笔记">学习笔记</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E5%89%8D%E7%AB%AF/" title="分类于 前端">前端</a>
+</div>
+
+    <span><a href="/2021/09/23/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96-%E7%AC%94%E8%AE%B0/" title="前端工程化 - 笔记">前端工程化 - 笔记</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="分类于 学习笔记">学习笔记</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E5%89%8D%E7%AB%AF/" title="分类于 前端">前端</a>
+</div>
+
+    <span><a href="/2022/01/17/%E5%A6%82%E4%BD%95%E5%86%99%E5%A5%BDJavaScript-%E7%AC%94%E8%AE%B0/" title="如何写好JavaScript - 笔记">如何写好JavaScript - 笔记</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="分类于 学习笔记">学习笔记</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E5%89%8D%E7%AB%AF/" title="分类于 前端">前端</a>
+</div>
+
+    <span><a href="/2022/01/17/%E5%89%8D%E7%AB%AF%E4%B8%8EHTML-%E7%AC%94%E8%AE%B0/" title="前端与HTML - 笔记">前端与HTML - 笔记</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" title="分类于 算法与数据结构">算法与数据结构</a>
+</div>
+
+    <span><a href="/2021/05/07/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93/" title="排序算法总结">排序算法总结</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Linux/" title="分类于 Linux">Linux</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Linux/Shell/" title="分类于 Shell">Shell</a>
+</div>
+
+    <span><a href="/2021/02/23/Linux%E7%BB%88%E7%AB%AF%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%93/" title="Linux终端使用总结">Linux终端使用总结</a></span>
+  </li>
+
+  </ul>
+</div>
+<div>
+  <h2>最新评论</h2>
+  <ul class="leancloud-recent-comment"></ul>
+</div>
+
+          </div>
+          <div class="status">
+  <div class="copyright">
+    
+    &copy; 2021 – 
+    <span itemprop="copyrightYear">2022</span>
+    <span class="with-love">
+      <i class="ic i-sakura rotate"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">TagBug @ Tag Bug</span>
+  </div>
+  <div class="count">
+    <span class="post-meta-item-icon">
+      <i class="ic i-chart-area"></i>
+    </span>
+    <span title="站点总字数">82k 字</span>
+
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="ic i-coffee"></i>
+    </span>
+    <span title="站点阅读时长">1:15</span>
+  </div>
+
+  <div class="viewer">
+    <span>❤️感谢 <strong><span id="busuanzi_value_site_uv">282</span></strong> 小伙伴的 <strong><span id="busuanzi_value_site_pv">1685</span></strong> 次光临！❤️</span>
+  </div>
+  <script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" defer></script>
+  <div class="powered-by">
+    基于 <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
+  </div>
+</div>
+
+        </div>
+      </footer>
+    </div>
+    <script data-config="data-config" type="text/javascript">
+      var LOCAL = {
+        path: '2022/01/18/前端必须知道的开发调试知识-笔记/',
+        favicon: {
+          show: "（●´3｀●）やれやれだぜ",
+          hide: "(´Д｀)大変だ！"
+        },
+        search: {
+          placeholder: "文章搜索",
+          empty: "关于 「 ${query} 」，什么也没搜到",
+          stats: "${time} ms 内找到 ${hits} 条结果"
+        },
+          valine: true,fancybox: true,
+            copyright: '复制成功，转载请遵守 <i class="ic i-creative-commons"></i>BY-NC-SA 协议。',
+        ignores: [
+          function (uri) {
+            return uri.includes('#');
+          },
+          function (uri) {
+            return new RegExp(LOCAL.path + "$").test(uri);
+          }
+        ]
+      };
+    </script>
+
+    <script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
+
+    <script src="//cdn.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
+
+    <script src="/js/app.js?v=0.2.5"></script>
+
+    
+
+
+  </body>
+</html>

@@ -1,0 +1,717 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#FFF">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="icon" type="image/ico" sizes="32x32" href="/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+<link rel="alternate" type="application/rss+xml" title="🐟" href="http://tagbug.gitlab.io/rss.xml"/>
+<link rel="alternate" type="application/atom+xml" title="🐟" href="http://tagbug.gitlab.io/atom.xml"/>
+<link rel="alternate" type="application/json" title="🐟" href="http://tagbug.gitlab.io/feed.json"/>
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="/css/app.css?v=0.2.5">
+    
+  <meta name="keywords" content="算法" />
+
+
+<link rel="canonical" href="http://tagbug.gitlab.io/2021/05/07/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93/">
+
+
+
+    <title>
+      
+排序算法总结 - 算法与数据结构 |
+Tag Bug = 🐟</title>
+  <meta name="generator" content="Hexo 5.4.0"></head>
+  <body itemscope="itemscope" itemtype="http://schema.org/WebPage">
+    <div id="loading">
+      <div class="cat">
+        <div class="body"></div>
+        <div class="head">
+          <div class="face"></div>
+        </div>
+        <div class="foot">
+          <div class="tummy-end"></div>
+          <div class="bottom"></div>
+          <div class="legs left"></div>
+          <div class="legs right"></div>
+        </div>
+        <div class="paw">
+          <div class="hands left"></div>
+          <div class="hands right"></div>
+        </div>
+      </div>
+    </div>
+    <div id="container">
+      <header id="header" itemscope="itemscope" itemtype="http://schema.org/WPHeader">
+        <div class="inner">
+          <div id="brand">
+            <div class="pjax">
+              
+  <h1 itemprop="name headline">排序算法总结
+  </h1>
+  
+<div class="meta">
+  <span class="item" title="创建时间：2021-05-07 17:53:57">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">发表于</span>
+    <time itemprop="dateCreated datePublished" datetime="2021-05-07T17:53:57+08:00">2021-05-07</time>
+  </span>
+  <span class="item" title="本文字数">
+    <span class="icon">
+      <i class="ic i-pen"></i>
+    </span>
+    <span class="text">本文字数</span>
+    <span>6.9k</span>
+    <span class="text">字</span>
+  </span>
+  <span class="item" title="阅读时长">
+    <span class="icon">
+      <i class="ic i-clock"></i>
+    </span>
+    <span class="text">阅读时长</span>
+    <span>6 分钟</span>
+  </span>
+</div>
+
+
+            </div>
+          </div>
+          <nav id="nav">
+  <div class="inner">
+    <div class="toggle">
+      <div class="lines" aria-label="切换导航栏">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <ul class="menu">
+      <li class="item title"><a href="/" rel="start">Tag Bug</a></li>
+    </ul>
+    <ul class="right">
+      <li class="item theme">
+        <i class="ic i-sun"></i>
+      </li>
+      <li class="item search">
+        <i class="ic i-search"></i>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+        </div>
+        <div id="imgs" class="pjax">
+            <img src="https://cdn.jsdelivr.net/gh/tagbug/demo@latest/img/1620385114079.png">
+        </div>
+      </header>
+      <div id="waves">
+        <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewbox="0 24 150 28" preserveaspectratio="none" shape-rendering="auto">
+          <defs>
+            <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"/>
+          </defs>
+          <g class="parallax">
+            <use xlink:href="#gentle-wave" x="48" y="0"/>
+            <use xlink:href="#gentle-wave" x="48" y="3"/>
+            <use xlink:href="#gentle-wave" x="48" y="5"/>
+            <use xlink:href="#gentle-wave" x="48" y="7"/>
+          </g>
+        </svg>
+      </div>
+      <main>
+        <div class="inner">
+          <div id="main" class="pjax">
+            
+  <div class="article wrap">
+    
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/">首页</a></span><i class="ic i-angle-right"></i>
+<span  class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" itemprop="item" rel="index" title="分类于 算法与数据结构"><span itemprop="name">算法与数据结构</span></a>
+<meta itemprop="position" content="1" /></span>
+</div>
+
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh-CN">
+  <link itemprop="mainEntityOfPage" href="http://tagbug.gitlab.io/2021/05/07/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93/">
+
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="/images/avatar.png">
+    <meta itemprop="name" content="TagBug">
+    <meta itemprop="description" content=", 所念皆星河">
+  </span>
+
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="🐟">
+  </span>
+
+  <div class="body md" itemprop="articleBody">
+    
+
+    <blockquote>
+<p>这里总结如下算法：</p>
+<ul>
+<li>基于比较的排序算法：<br>
+冒泡排序<br>
+选择排序<br>
+插入排序<br>
+归并排序<br>
+快速排序</li>
+<li>不基于比较的排序算法：<br>
+计数排序<br>
+基数排序</li>
+</ul>
+</blockquote>
+<span id="more"></span>
+<h1 id="写在前面"><a class="anchor" href="#写在前面">#</a> 写在前面</h1>
+<p>这次的算法实现全都使用 C 语言，并不是说 C 有多好，只是因为 C 比较接近底层，掌握 C 的写法后，其他语言的写法也很好实现，其次，也是因为现在很多算法的讲解也使用 C。</p>
+<p>然后，本文的算法实现可能还不够完美，虽然都经过了测试用例，但难免还有些疏忽，如有错误或是有更好的意见，欢迎提出。</p>
+<h1 id="基于比较的排序算法-on2"><a class="anchor" href="#基于比较的排序算法-on2">#</a> 基于比较的排序算法 - O (N^2)</h1>
+<h2 id="冒泡排序"><a class="anchor" href="#冒泡排序">#</a> 冒泡排序</h2>
+<h4 id="核心原理"><a class="anchor" href="#核心原理">#</a> 核心原理</h4>
+<p>从左到右，依次将较大的元素交换到后面，那么一次一次排序后，最大的元素就在数组末尾，然后不断重复。</p>
+<blockquote>
+<p>给定一个 N 个元素的数组，冒泡法排序将：</p>
+<ol>
+<li>如果元素大小关系不正确，交换这两个数（在本例中为 a&gt; b）</li>
+<li>比较一对相邻元素（a，b）</li>
+<li>重复步骤 1 和 2，直到我们到达数组的末尾（最后一对是第（N-2）和（N-1）项，因为我们的数组从零开始）</li>
+<li>到目前为止，最大的元素将在最后的位置。 然后我们将 N 减少 1，并重复步骤 1，直到 N = 1。</li>
+</ol>
+<p><em>(引用 VisuAlgo)</em></p>
+</blockquote>
+<p>可视化见<span class="exturl" data-url="aHR0cHM6Ly92aXN1YWxnby5uZXQvemgvc29ydGluZz9zbGlkZT03"> VisuAlgo</span></p>
+<h3 id="算法实现"><a class="anchor" href="#算法实现">#</a> 算法实现</h3>
+<figure class="highlight c"><figcaption data-lang="c"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token macro-name">BOOL</span> <span class="token expression"><span class="token class-name">size_t</span></span></span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token macro-name">FALSE</span> <span class="token expression"><span class="token number">0</span></span></span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token macro-name">TRUE</span> <span class="token expression"><span class="token number">1</span></span></span></pre></td></tr><tr><td data-num="4"></td><td><pre></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token comment">// 原地排序</span></pre></td></tr><tr><td data-num="6"></td><td><pre><span class="token keyword">void</span> <span class="token function">bubbleSort</span><span class="token punctuation">(</span><span class="token keyword">int</span> <span class="token operator">*</span>arr<span class="token punctuation">,</span> <span class="token keyword">int</span> len<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="7"></td><td><pre><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="8"></td><td><pre>    BOOL exchanged <span class="token operator">=</span> FALSE<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="9"></td><td><pre>    <span class="token keyword">int</span> last <span class="token operator">=</span> len<span class="token punctuation">;</span> <span class="token comment">//last 随着冒泡次数而减小</span></pre></td></tr><tr><td data-num="10"></td><td><pre>    <span class="token keyword">do</span></pre></td></tr><tr><td data-num="11"></td><td><pre>    <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="12"></td><td><pre>        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> last<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="13"></td><td><pre>        <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="14"></td><td><pre>            <span class="token keyword">if</span> <span class="token punctuation">(</span>arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">></span> arr<span class="token punctuation">[</span>i <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="15"></td><td><pre>            <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="16"></td><td><pre>                <span class="token comment">// 交换前后项</span></pre></td></tr><tr><td data-num="17"></td><td><pre>                <span class="token comment">//int 整数型可以使用这种算法，不使用中间变量</span></pre></td></tr><tr><td data-num="18"></td><td><pre>                arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">^=</span> arr<span class="token punctuation">[</span>i <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="19"></td><td><pre>                arr<span class="token punctuation">[</span>i <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">^=</span> arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="20"></td><td><pre>                arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">^=</span> arr<span class="token punctuation">[</span>i <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="21"></td><td><pre>                <span class="token comment">// 交换过了</span></pre></td></tr><tr><td data-num="22"></td><td><pre>                exchanged <span class="token operator">=</span> TRUE<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="23"></td><td><pre>            <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="24"></td><td><pre>        <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="25"></td><td><pre>        last<span class="token operator">--</span><span class="token punctuation">;</span><span class="token comment">// 当 last 减到 0 时，说明已经遍历结束，结束排序</span></pre></td></tr><tr><td data-num="26"></td><td><pre>    <span class="token punctuation">&#125;</span> <span class="token keyword">while</span> <span class="token punctuation">(</span>exchanged <span class="token operator">&amp;&amp;</span> last <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 如果一次冒泡后没有发生交换，说明数组已经有序，结束排序</span></pre></td></tr><tr><td data-num="27"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure><h2 id="选择排序"><a class="anchor" href="#选择排序">#</a> 选择排序</h2>
+<h4 id="核心原理-2"><a class="anchor" href="#核心原理-2">#</a> 核心原理</h4>
+<p>从左到右，选择未被排序的数里最小的那个，与数组第一个数交换，然后第二个… 不断重复。</p>
+<blockquote>
+<p>给定 N 个项目和 L = 0 的数组，选择排序将：</p>
+<ol>
+<li>在 [L … N-1] 范围内找出最小项目 X 的位置</li>
+<li>用第 L 项交换 X</li>
+<li>将下限 L 增加 1 并重复步骤 1 直到 L = N-2。</li>
+</ol>
+<p><em>(引用 VisuAlgo)</em></p>
+</blockquote>
+<p>可视化见<span class="exturl" data-url="aHR0cHM6Ly92aXN1YWxnby5uZXQvemgvc29ydGluZz9zbGlkZT04"> VisuAlgo</span></p>
+<h4 id="算法实现-2"><a class="anchor" href="#算法实现-2">#</a> 算法实现</h4>
+<figure class="highlight c"><figcaption data-lang="c"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token comment">// 原地排序</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">void</span> <span class="token function">selectSort</span><span class="token punctuation">(</span><span class="token keyword">int</span> <span class="token operator">*</span>arr<span class="token punctuation">,</span> <span class="token keyword">int</span> len<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="4"></td><td><pre>    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> len<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="5"></td><td><pre>    <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="6"></td><td><pre>        <span class="token comment">// 找出未被排序的数里最小的那个</span></pre></td></tr><tr><td data-num="7"></td><td><pre>        <span class="token keyword">int</span> min <span class="token operator">=</span> arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="8"></td><td><pre>        <span class="token keyword">int</span> minIdx <span class="token operator">=</span> i<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="9"></td><td><pre>        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> j <span class="token operator">=</span> i<span class="token punctuation">;</span> j <span class="token operator">&lt;</span> len<span class="token punctuation">;</span> j<span class="token operator">++</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="10"></td><td><pre>        <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="11"></td><td><pre>            <span class="token keyword">if</span> <span class="token punctuation">(</span>min <span class="token operator">></span> arr<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="12"></td><td><pre>            <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="13"></td><td><pre>                min <span class="token operator">=</span> arr<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="14"></td><td><pre>                minIdx <span class="token operator">=</span> j<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="15"></td><td><pre>            <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="16"></td><td><pre>        <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="17"></td><td><pre>        <span class="token comment">// 交换</span></pre></td></tr><tr><td data-num="18"></td><td><pre>        arr<span class="token punctuation">[</span>minIdx<span class="token punctuation">]</span> <span class="token operator">=</span> arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="19"></td><td><pre>        arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> min<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="20"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="21"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure><h2 id="插入排序"><a class="anchor" href="#插入排序">#</a> 插入排序</h2>
+<h4 id="核心原理-3"><a class="anchor" href="#核心原理-3">#</a> 核心原理</h4>
+<p>将未排序的数依次插入到排序好的数中</p>
+<blockquote>
+<p>插入排序类似于大多数人安排扑克牌的方式。</p>
+<ol>
+<li>从你手中的一张牌开始</li>
+<li>选择下一张卡并将其插入到正确的排序顺序中</li>
+<li>对所有的卡重复上一步。</li>
+</ol>
+<p><em>(引自 VisuAlgo)</em></p>
+</blockquote>
+<p>可视化见<span class="exturl" data-url="aHR0cHM6Ly92aXN1YWxnby5uZXQvemgvc29ydGluZz9zbGlkZT05"> VisuAlgo</span></p>
+<h4 id="算法实现-3"><a class="anchor" href="#算法实现-3">#</a> 算法实现</h4>
+<figure class="highlight c"><figcaption data-lang="c"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token comment">// 原地排序</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">void</span> <span class="token function">insertSort</span><span class="token punctuation">(</span><span class="token keyword">int</span> <span class="token operator">*</span>arr<span class="token punctuation">,</span> <span class="token keyword">int</span> len<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="4"></td><td><pre>    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> len<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token comment">// 这里默认第一个数就是排好序的，所以索引从第二个数开始</span></pre></td></tr><tr><td data-num="5"></td><td><pre>    <span class="token punctuation">&#123;</span> </pre></td></tr><tr><td data-num="6"></td><td><pre>        <span class="token comment">// 将未排序的数插入到排序好的数中</span></pre></td></tr><tr><td data-num="7"></td><td><pre>        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> j <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> j <span class="token operator">&lt;</span> i<span class="token punctuation">;</span> j<span class="token operator">++</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="8"></td><td><pre>        <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="9"></td><td><pre>            <span class="token keyword">if</span> <span class="token punctuation">(</span>arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">&lt;</span> arr<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token comment">// 插入</span></pre></td></tr><tr><td data-num="10"></td><td><pre>            <span class="token punctuation">&#123;</span> </pre></td></tr><tr><td data-num="11"></td><td><pre>                <span class="token comment">// 先缓存要插入的数，因为后面要移动前面的数列，会覆盖它</span></pre></td></tr><tr><td data-num="12"></td><td><pre>                <span class="token keyword">int</span> n <span class="token operator">=</span> arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="13"></td><td><pre>                <span class="token comment">// 移动数列</span></pre></td></tr><tr><td data-num="14"></td><td><pre>                <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> k <span class="token operator">=</span> i<span class="token punctuation">;</span> k <span class="token operator">></span> j<span class="token punctuation">;</span> k<span class="token operator">--</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="15"></td><td><pre>                    arr<span class="token punctuation">[</span>k<span class="token punctuation">]</span> <span class="token operator">=</span> arr<span class="token punctuation">[</span>k <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="16"></td><td><pre>                <span class="token comment">// 放入正确的位置</span></pre></td></tr><tr><td data-num="17"></td><td><pre>                arr<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> n<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="18"></td><td><pre>            <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="19"></td><td><pre>        <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="20"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="21"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure><h2 id="优点缺点"><a class="anchor" href="#优点缺点">#</a> 优点 &amp; 缺点</h2>
+<h4 id="优点"><a class="anchor" href="#优点">#</a> 优点</h4>
+<p>这几个排序算法比较简单，容易想到，也比较容易理解算法原理。</p>
+<h4 id="缺点"><a class="anchor" href="#缺点">#</a> 缺点</h4>
+<p>在数据量变大时，运行效率会非常低，不是很实用。</p>
+<h1 id="基于比较的排序算法-on-log-n"><a class="anchor" href="#基于比较的排序算法-on-log-n">#</a> 基于比较的排序算法 - O (N log N)</h1>
+<h2 id="归并排序"><a class="anchor" href="#归并排序">#</a> 归并排序</h2>
+<h4 id="核心原理-4"><a class="anchor" href="#核心原理-4">#</a> 核心原理</h4>
+<p>将待排序的数组一分为二，分别对左右数组排序，排序时再一分为二，直到分成单个元素，排序完成后再依次合并。</p>
+<blockquote>
+<p>给定一个 N 个项目的数组，归并排序将：</p>
+<ol>
+<li>将每对单个元素（默认情况下，已排序）归并为 2 个元素的有序数组</li>
+<li>将 2 个元素的每对有序数组归并成 4 个元素的有序数组，重复这个过程…</li>
+<li>最后一步：归并 2 个 N / 2 元素的排序数组（为了简化讨论，我们假设 N 是偶数）以获得完全排序的 N 个元素数组。</li>
+</ol>
+<p><em>(引自 VisuAlgo)</em></p>
+</blockquote>
+<p>可视化见<span class="exturl" data-url="aHR0cHM6Ly92aXN1YWxnby5uZXQvemgvc29ydGluZz9zbGlkZT0xMQ=="> VisuAlgo</span></p>
+<h4 id="算法实现-4"><a class="anchor" href="#算法实现-4">#</a> 算法实现</h4>
+<p>注：需要 O (n) 的额外空间</p>
+<figure class="highlight c"><figcaption data-lang="c"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token comment">// 借助临时数组进行排序</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">void</span> <span class="token function">merge</span><span class="token punctuation">(</span><span class="token keyword">int</span> <span class="token operator">*</span>arr<span class="token punctuation">,</span> <span class="token keyword">int</span> low<span class="token punctuation">,</span> <span class="token keyword">int</span> mid<span class="token punctuation">,</span> <span class="token keyword">int</span> high<span class="token punctuation">)</span> <span class="token comment">// 归并排序子函数</span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="4"></td><td><pre>    <span class="token keyword">int</span> N <span class="token operator">=</span> high <span class="token operator">-</span> low <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span>                   <span class="token comment">// 要排序的数字个数</span></pre></td></tr><tr><td data-num="5"></td><td><pre>    <span class="token keyword">int</span> <span class="token operator">*</span>b <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">int</span> <span class="token operator">*</span><span class="token punctuation">)</span><span class="token function">malloc</span><span class="token punctuation">(</span>N <span class="token operator">*</span> <span class="token keyword">sizeof</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// 创建一个新的数组用来排序</span></pre></td></tr><tr><td data-num="6"></td><td><pre>    <span class="token keyword">int</span> lIdx <span class="token operator">=</span> low<span class="token punctuation">,</span> rIdx <span class="token operator">=</span> mid <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">,</span> bIdx <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> <span class="token comment">//lIdx-> 左边数组索引，rIdx-> 右边数组索引，bIdx-> 数组 b 的索引</span></pre></td></tr><tr><td data-num="7"></td><td><pre>    <span class="token comment">// 因为在 low~mid 和 mid+1~high 之间的数都是有序的（从小到大的），所以可以这样</span></pre></td></tr><tr><td data-num="8"></td><td><pre>    <span class="token keyword">while</span> <span class="token punctuation">(</span>lIdx <span class="token operator">&lt;=</span> mid <span class="token operator">&amp;&amp;</span> rIdx <span class="token operator">&lt;=</span> high<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="9"></td><td><pre>    <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="10"></td><td><pre>        <span class="token keyword">if</span> <span class="token punctuation">(</span>arr<span class="token punctuation">[</span>lIdx<span class="token punctuation">]</span> <span class="token operator">&lt;</span> arr<span class="token punctuation">[</span>rIdx<span class="token punctuation">]</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="11"></td><td><pre>        <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="12"></td><td><pre>            b<span class="token punctuation">[</span>bIdx<span class="token punctuation">]</span> <span class="token operator">=</span> arr<span class="token punctuation">[</span>lIdx<span class="token punctuation">]</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="13"></td><td><pre>            lIdx<span class="token operator">++</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="14"></td><td><pre>        <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="15"></td><td><pre>        <span class="token keyword">else</span></pre></td></tr><tr><td data-num="16"></td><td><pre>        <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="17"></td><td><pre>            b<span class="token punctuation">[</span>bIdx<span class="token punctuation">]</span> <span class="token operator">=</span> arr<span class="token punctuation">[</span>rIdx<span class="token punctuation">]</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="18"></td><td><pre>            rIdx<span class="token operator">++</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="19"></td><td><pre>        <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="20"></td><td><pre>        bIdx<span class="token operator">++</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="21"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="22"></td><td><pre>    <span class="token comment">// 可能左数组或右数组还有剩余项</span></pre></td></tr><tr><td data-num="23"></td><td><pre>    <span class="token comment">// 比如：左数组所有数都小于右数组数的情况下</span></pre></td></tr><tr><td data-num="24"></td><td><pre>    <span class="token keyword">while</span> <span class="token punctuation">(</span>lIdx <span class="token operator">&lt;=</span> mid<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="25"></td><td><pre>        b<span class="token punctuation">[</span>bIdx<span class="token operator">++</span><span class="token punctuation">]</span> <span class="token operator">=</span> arr<span class="token punctuation">[</span>lIdx<span class="token operator">++</span><span class="token punctuation">]</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="26"></td><td><pre>    <span class="token keyword">while</span> <span class="token punctuation">(</span>rIdx <span class="token operator">&lt;=</span> high<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="27"></td><td><pre>        b<span class="token punctuation">[</span>bIdx<span class="token operator">++</span><span class="token punctuation">]</span> <span class="token operator">=</span> arr<span class="token punctuation">[</span>rIdx<span class="token operator">++</span><span class="token punctuation">]</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="28"></td><td><pre>    <span class="token comment">// 现在数组 b 中是已经排好序的数，再给它们复制回 arr 中</span></pre></td></tr><tr><td data-num="29"></td><td><pre>    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> j <span class="token operator">=</span> low<span class="token punctuation">;</span> i <span class="token operator">&lt;</span> N<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">,</span> j<span class="token operator">++</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="30"></td><td><pre>    <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="31"></td><td><pre>        arr<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> b<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="32"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="33"></td><td><pre>    <span class="token function">free</span><span class="token punctuation">(</span>b<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="34"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="35"></td><td><pre></pre></td></tr><tr><td data-num="36"></td><td><pre><span class="token keyword">void</span> <span class="token function">mergeSort</span><span class="token punctuation">(</span><span class="token keyword">int</span> <span class="token operator">*</span>arr<span class="token punctuation">,</span> <span class="token keyword">int</span> low<span class="token punctuation">,</span> <span class="token keyword">int</span> high<span class="token punctuation">)</span> <span class="token comment">// 归并排序</span></pre></td></tr><tr><td data-num="37"></td><td><pre><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="38"></td><td><pre>    <span class="token keyword">if</span> <span class="token punctuation">(</span>low <span class="token operator">&lt;</span> high<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="39"></td><td><pre>    <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="40"></td><td><pre>        <span class="token comment">// 将待排序的数组一分为二，递归</span></pre></td></tr><tr><td data-num="41"></td><td><pre>        <span class="token keyword">int</span> mid <span class="token operator">=</span> <span class="token punctuation">(</span>low <span class="token operator">+</span> high<span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token number">2</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="42"></td><td><pre>        <span class="token function">mergeSort</span><span class="token punctuation">(</span>arr<span class="token punctuation">,</span> low<span class="token punctuation">,</span> mid<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="43"></td><td><pre>        <span class="token function">mergeSort</span><span class="token punctuation">(</span>arr<span class="token punctuation">,</span> mid <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">,</span> high<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 注：这里的 mid+1 只要和 merge 子函数里 rIdx 的值保持相同就行</span></pre></td></tr><tr><td data-num="44"></td><td><pre>        <span class="token comment">// 归并</span></pre></td></tr><tr><td data-num="45"></td><td><pre>        <span class="token function">merge</span><span class="token punctuation">(</span>arr<span class="token punctuation">,</span> low<span class="token punctuation">,</span> mid<span class="token punctuation">,</span> high<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//mid 从这里传入，在 merge 子函数中 rIdx=mid+1</span></pre></td></tr><tr><td data-num="46"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="47"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure><p>在此基础上还可以加以改进，使得归并排序在原地排序（不借用中间数组），降低空间复杂度，但是似乎会提升时间复杂度<sup>O(N log^2 N)-<span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3poLWNuLyVFNiU4RSU5MiVFNSVCQSU4RiVFNyVBRSU5NyVFNiVCMyU5NSMlRTclQTklQTklRTUlQUUlOUElRTclOUElODQlRTYlOEUlOTIlRTUlQkElOEY=">wikipedia</span></sup>。</p>
+<h2 id="快速排序-on2on-log-n"><a class="anchor" href="#快速排序-on2on-log-n">#</a> 快速排序 - O (N^2)/O (N log N)</h2>
+<h4 id="核心原理-5"><a class="anchor" href="#核心原理-5">#</a> 核心原理</h4>
+<ul>
+<li>经典的快速排序 - O (N^2)/O (N log N)：在一开始先选择第一个数作为枢轴点 p，遍历剩余数，把所有小于 p 的数放在左边，所有大于 p 的数放在右边，然后把 p 放在中间；然后对左边的数组和右边的数组再分别重复上面的步骤。（不稳定）</li>
+<li>随机快速排序 - O (N log N)：在经典快速排序的基础上，每次随机选择枢轴点 p。（比较稳定）</li>
+</ul>
+<blockquote>
+<p>划分步骤：</p>
+<ol>
+<li>选择一个项目 p（称为枢轴点）</li>
+<li>然后将 a [i…j] 的项目分为三部分：a [i…m-1]，a [m] 和 a [m + 1…j]。 a [i…m-1]（可能为空）包含小于 p 的项目。 a [m] 是枢轴点 p，例如：指数 m 是已排序数组 a 的排序顺序中 p 的正确位置。 a [m + 1…j]（可能为空）包含大于或等于 p 的项目。</li>
+<li>然后，递归地对这两部分进行排序。</li>
+</ol>
+</blockquote>
+<p>可视化见<span class="exturl" data-url="aHR0cHM6Ly92aXN1YWxnby5uZXQvemgvc29ydGluZz9zbGlkZT0xMi05"> VisuAlgo</span></p>
+<h4 id="算法实现-5"><a class="anchor" href="#算法实现-5">#</a> 算法实现</h4>
+<figure class="highlight c"><figcaption data-lang="c"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token comment">// 原地排序</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">int</span> <span class="token function">partition</span><span class="token punctuation">(</span><span class="token keyword">int</span> <span class="token operator">*</span>arr<span class="token punctuation">,</span> <span class="token keyword">int</span> low<span class="token punctuation">,</span> <span class="token keyword">int</span> high<span class="token punctuation">)</span> <span class="token comment">// 快速排序子函数 - 划分</span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="4"></td><td><pre>    <span class="token keyword">int</span> p <span class="token operator">=</span> arr<span class="token punctuation">[</span>low<span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token comment">// 选取第一个数作为枢轴点</span></pre></td></tr><tr><td data-num="5"></td><td><pre>    <span class="token keyword">int</span> m <span class="token operator">=</span> low<span class="token punctuation">;</span>      <span class="token comment">// 分界点，因为左右区域一开始都是空的，所以 m 要在 0 的位置</span></pre></td></tr><tr><td data-num="6"></td><td><pre>    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> low <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> high<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="7"></td><td><pre>    <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="8"></td><td><pre>        <span class="token comment">// 如果 arr [i]>=p，什么都不用做，继续下一次循环即可 (i++)</span></pre></td></tr><tr><td data-num="9"></td><td><pre>        <span class="token keyword">if</span> <span class="token punctuation">(</span>arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">&lt;</span> p<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="10"></td><td><pre>        <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="11"></td><td><pre>            <span class="token comment">// 这里的算法详见 https://visualgo.net/zh/sorting?slide=12-6</span></pre></td></tr><tr><td data-num="12"></td><td><pre>            m<span class="token operator">++</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="13"></td><td><pre>            <span class="token comment">// 交换 arr [m] 和 arr [i]</span></pre></td></tr><tr><td data-num="14"></td><td><pre>            <span class="token keyword">int</span> tmp <span class="token operator">=</span> arr<span class="token punctuation">[</span>m<span class="token punctuation">]</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="15"></td><td><pre>            arr<span class="token punctuation">[</span>m<span class="token punctuation">]</span> <span class="token operator">=</span> arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="16"></td><td><pre>            arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> tmp<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="17"></td><td><pre>            <span class="token comment">// 进入下一次循环 i++</span></pre></td></tr><tr><td data-num="18"></td><td><pre>        <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="19"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="20"></td><td><pre>    <span class="token comment">// 交换枢轴点和分界点</span></pre></td></tr><tr><td data-num="21"></td><td><pre>    arr<span class="token punctuation">[</span>low<span class="token punctuation">]</span> <span class="token operator">=</span> arr<span class="token punctuation">[</span>m<span class="token punctuation">]</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="22"></td><td><pre>    arr<span class="token punctuation">[</span>m<span class="token punctuation">]</span> <span class="token operator">=</span> p<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="23"></td><td><pre>    <span class="token comment">// 返回枢轴点所在位置</span></pre></td></tr><tr><td data-num="24"></td><td><pre>    <span class="token keyword">return</span> m<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="25"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="26"></td><td><pre></pre></td></tr><tr><td data-num="27"></td><td><pre><span class="token keyword">void</span> <span class="token function">quickSort</span><span class="token punctuation">(</span><span class="token keyword">int</span> <span class="token operator">*</span>arr<span class="token punctuation">,</span> <span class="token keyword">int</span> low<span class="token punctuation">,</span> <span class="token keyword">int</span> high<span class="token punctuation">)</span><span class="token comment">// 快速排序</span></pre></td></tr><tr><td data-num="28"></td><td><pre><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="29"></td><td><pre>    <span class="token keyword">if</span> <span class="token punctuation">(</span>low <span class="token operator">&lt;</span> high<span class="token punctuation">)</span> <span class="token comment">// 如果 low>high，说明已经划分为单个</span></pre></td></tr><tr><td data-num="30"></td><td><pre>    <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="31"></td><td><pre>        <span class="token comment">// 先划分为左右两个区域</span></pre></td></tr><tr><td data-num="32"></td><td><pre>        <span class="token keyword">int</span> m <span class="token operator">=</span> <span class="token function">partition</span><span class="token punctuation">(</span>arr<span class="token punctuation">,</span> low<span class="token punctuation">,</span> high<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="33"></td><td><pre>        <span class="token comment">// 再递归对左右两个区域排序</span></pre></td></tr><tr><td data-num="34"></td><td><pre>        <span class="token comment">// 注：m 所在位置已经在正确的位置了，所以不需要包括进去</span></pre></td></tr><tr><td data-num="35"></td><td><pre>        <span class="token function">quickSort</span><span class="token punctuation">(</span>arr<span class="token punctuation">,</span> low<span class="token punctuation">,</span> m <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="36"></td><td><pre>        <span class="token function">quickSort</span><span class="token punctuation">(</span>arr<span class="token punctuation">,</span> m <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">,</span> high<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="37"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="38"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure><p>上面是经典快速排序，使用随机快速排序只需要让 p 随机选取即可。</p>
+<figure class="highlight c"><figcaption data-lang="c"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">int</span> <span class="token function">partition</span><span class="token punctuation">(</span><span class="token keyword">int</span> <span class="token operator">*</span>arr<span class="token punctuation">,</span> <span class="token keyword">int</span> low<span class="token punctuation">,</span> <span class="token keyword">int</span> high<span class="token punctuation">)</span> <span class="token comment">// 快速排序子函数 - 划分</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="3"></td><td><pre>    <span class="token keyword">int</span> pIdx <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token function">rand</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">%</span> <span class="token punctuation">(</span>high <span class="token operator">-</span> low <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">+</span> low<span class="token punctuation">;</span> <span class="token comment">// 随机选取 [low,high]</span></pre></td></tr><tr><td data-num="4"></td><td><pre>    <span class="token comment">// 交换 arr [pIdx] 和 arr [low]</span></pre></td></tr><tr><td data-num="5"></td><td><pre>    <span class="token keyword">int</span> p <span class="token operator">=</span> arr<span class="token punctuation">[</span>pIdx<span class="token punctuation">]</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="6"></td><td><pre>    arr<span class="token punctuation">[</span>pIdx<span class="token punctuation">]</span> <span class="token operator">=</span> arr<span class="token punctuation">[</span>low<span class="token punctuation">]</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="7"></td><td><pre>    arr<span class="token punctuation">[</span>low<span class="token punctuation">]</span> <span class="token operator">=</span> p<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="8"></td><td><pre>    <span class="token keyword">int</span> m <span class="token operator">=</span> low<span class="token punctuation">;</span> <span class="token comment">// 分界点，因为左右区域一开始都是空的，所以 m 要在 0 的位置</span></pre></td></tr><tr><td data-num="9"></td><td><pre>    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> low <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> high<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="10"></td><td><pre>    <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="11"></td><td><pre>        <span class="token comment">// 如果 arr [i]>=p，什么都不用做，继续下一次循环即可 (i++)</span></pre></td></tr><tr><td data-num="12"></td><td><pre>        <span class="token keyword">if</span> <span class="token punctuation">(</span>arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">&lt;</span> p<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="13"></td><td><pre>        <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="14"></td><td><pre>            <span class="token comment">// 这里的算法详见 https://visualgo.net/zh/sorting?slide=12-6</span></pre></td></tr><tr><td data-num="15"></td><td><pre>            m<span class="token operator">++</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="16"></td><td><pre>            <span class="token comment">// 交换 arr [m] 和 arr [i]</span></pre></td></tr><tr><td data-num="17"></td><td><pre>            <span class="token keyword">int</span> tmp <span class="token operator">=</span> arr<span class="token punctuation">[</span>m<span class="token punctuation">]</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="18"></td><td><pre>            arr<span class="token punctuation">[</span>m<span class="token punctuation">]</span> <span class="token operator">=</span> arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="19"></td><td><pre>            arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> tmp<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="20"></td><td><pre>            <span class="token comment">// 进入下一次循环 i++</span></pre></td></tr><tr><td data-num="21"></td><td><pre>        <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="22"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="23"></td><td><pre>    <span class="token comment">// 交换枢轴点和分界点</span></pre></td></tr><tr><td data-num="24"></td><td><pre>    arr<span class="token punctuation">[</span>low<span class="token punctuation">]</span> <span class="token operator">=</span> arr<span class="token punctuation">[</span>m<span class="token punctuation">]</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="25"></td><td><pre>    arr<span class="token punctuation">[</span>m<span class="token punctuation">]</span> <span class="token operator">=</span> p<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="26"></td><td><pre>    <span class="token comment">// 返回枢轴点所在位置</span></pre></td></tr><tr><td data-num="27"></td><td><pre>    <span class="token keyword">return</span> m<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="28"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="29"></td><td><pre></pre></td></tr><tr><td data-num="30"></td><td><pre><span class="token keyword">void</span> <span class="token function">quickSort</span><span class="token punctuation">(</span><span class="token keyword">int</span> <span class="token operator">*</span>arr<span class="token punctuation">,</span> <span class="token keyword">int</span> low<span class="token punctuation">,</span> <span class="token keyword">int</span> high<span class="token punctuation">)</span> <span class="token comment">// 随机快速排序</span></pre></td></tr><tr><td data-num="31"></td><td><pre><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="32"></td><td><pre>    <span class="token function">srand</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token keyword">unsigned</span><span class="token punctuation">)</span><span class="token function">time</span><span class="token punctuation">(</span><span class="token constant">NULL</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="33"></td><td><pre>    <span class="token keyword">if</span> <span class="token punctuation">(</span>low <span class="token operator">&lt;</span> high<span class="token punctuation">)</span> <span class="token comment">// 如果 low>high，说明已经划分为单个</span></pre></td></tr><tr><td data-num="34"></td><td><pre>    <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="35"></td><td><pre>        <span class="token comment">// 先划分为左右两个区域</span></pre></td></tr><tr><td data-num="36"></td><td><pre>        <span class="token keyword">int</span> m <span class="token operator">=</span> <span class="token function">partition</span><span class="token punctuation">(</span>arr<span class="token punctuation">,</span> low<span class="token punctuation">,</span> high<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="37"></td><td><pre>        <span class="token comment">// 再递归对左右两个区域排序</span></pre></td></tr><tr><td data-num="38"></td><td><pre>        <span class="token comment">// 注：m 所在位置已经在正确的位置了，所以不需要包括进去</span></pre></td></tr><tr><td data-num="39"></td><td><pre>        <span class="token function">quickSort</span><span class="token punctuation">(</span>arr<span class="token punctuation">,</span> low<span class="token punctuation">,</span> m <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="40"></td><td><pre>        <span class="token function">quickSort</span><span class="token punctuation">(</span>arr<span class="token punctuation">,</span> m <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">,</span> high<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="41"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="42"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure><h2 id="优点缺点-2"><a class="anchor" href="#优点缺点-2">#</a> 优点 &amp; 缺点</h2>
+<h4 id="优点-2"><a class="anchor" href="#优点-2">#</a> 优点</h4>
+<p>在基于比较的排序算法中已经是最快的了（当然还可以针对不同的数据继续优化），比较实用，在数据量大的情况下表现也不错，可能是现在使用最多的排序算法。</p>
+<h4 id="缺点-2"><a class="anchor" href="#缺点-2">#</a> 缺点</h4>
+<p>归并排序需要额外的空间，快速排序不是稳定的排序（即它会交换同样大小的数字的顺序）。</p>
+<h1 id="不基于比较的排序算法"><a class="anchor" href="#不基于比较的排序算法">#</a> 不基于比较的排序算法</h1>
+<h2 id="计数排序-onk"><a class="anchor" href="#计数排序-onk">#</a> 计数排序 - O (n+k)</h2>
+<h4 id="核心原理-6"><a class="anchor" href="#核心原理-6">#</a> 核心原理</h4>
+<p>针对<strong>小范围</strong>的<strong>自然数</strong>，统计每个数字出现的次数，然后按照从小到大依次输出。</p>
+<blockquote>
+<p>如果要排序的项目是小范围的整数，我们可以计算每个整数（在这个小范围内）的出现频率，然后通过循环该小范围来按排序顺序输出项目。</p>
+<p><em>(引自 VisuAlgo)</em></p>
+</blockquote>
+<h4 id="算法实现-6"><a class="anchor" href="#算法实现-6">#</a> 算法实现</h4>
+<p>注：需要 O (n+k) 的额外空间</p>
+<figure class="highlight c"><figcaption data-lang="c"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token comment">// 借助临时数组排序</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">void</span> <span class="token function">countSort</span><span class="token punctuation">(</span><span class="token keyword">int</span> <span class="token operator">*</span>arr<span class="token punctuation">,</span> <span class="token keyword">int</span> len<span class="token punctuation">,</span> <span class="token keyword">int</span> maxNum<span class="token punctuation">)</span> <span class="token comment">// 计数排序</span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="4"></td><td><pre>    <span class="token keyword">int</span> <span class="token operator">*</span>con <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">int</span> <span class="token operator">*</span><span class="token punctuation">)</span><span class="token function">calloc</span><span class="token punctuation">(</span>maxNum <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token keyword">sizeof</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="5"></td><td><pre>    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> len<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="6"></td><td><pre>    <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="7"></td><td><pre>        con<span class="token punctuation">[</span>arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token operator">++</span><span class="token punctuation">;</span> <span class="token comment">// 统计每个数字出现次数</span></pre></td></tr><tr><td data-num="8"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="9"></td><td><pre>    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> idx <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> maxNum<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="10"></td><td><pre>    <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="11"></td><td><pre>        <span class="token keyword">while</span> <span class="token punctuation">(</span>con<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">--</span> <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="12"></td><td><pre>        <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="13"></td><td><pre>            arr<span class="token punctuation">[</span>idx<span class="token operator">++</span><span class="token punctuation">]</span> <span class="token operator">=</span> i<span class="token punctuation">;</span> <span class="token comment">// 复制回去</span></pre></td></tr><tr><td data-num="14"></td><td><pre>        <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="15"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="16"></td><td><pre>    <span class="token function">free</span><span class="token punctuation">(</span>con<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="17"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure><h2 id="基数排序-okn"><a class="anchor" href="#基数排序-okn">#</a> 基数排序 - O (kN)</h2>
+<h4 id="核心原理-7"><a class="anchor" href="#核心原理-7">#</a> 核心原理</h4>
+<p>针对<strong>范围大但数位小</strong>的<strong>自然数</strong>，创建 10 个桶 (0-9)，按照指定数位，依次放入对应桶中，再放入顺序取出，对每个数位从低到高重复操作。</p>
+<blockquote>
+<p>如果要排序的项目是大范围但小数位的整数，我们可以将计数排序（Counting Sort）思想与基数排序（Radix Sort）结合起来，以实现线性时间复杂度。<br>
+在基数排序中，我们将每个项目排序为一个 w 数字串（如果需要，我们填充小于 w 数字的前几个零的整数）。<br>
+对于最低有效位（最右边）到最高有效位（最左边），我们通过 N 个项目并将它们按照活动数字放到 10 个队列中（每个数字 [0…9] 一个），就好像 一个修改的计数排序，因为这保留了稳定性。 然后我们再次重新连接组，以便进行后续迭代。</p>
+<p><em>(引自 VisuAlgo)</em></p>
+</blockquote>
+<h4 id="算法实现-7"><a class="anchor" href="#算法实现-7">#</a> 算法实现</h4>
+<p>注：需要 O (N+k) 的额外空间</p>
+<figure class="highlight c"><figcaption data-lang="c"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">void</span> <span class="token function">radixSort</span><span class="token punctuation">(</span><span class="token keyword">int</span> <span class="token operator">*</span>arr<span class="token punctuation">,</span> <span class="token keyword">int</span> len<span class="token punctuation">)</span> <span class="token comment">// 基数排序</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="3"></td><td><pre>    <span class="token keyword">int</span> N <span class="token operator">=</span> len <span class="token operator">/</span> <span class="token number">10</span><span class="token punctuation">;</span>         <span class="token comment">// 桶初始化可以装下的元素数 &amp; 后续每次增加量</span></pre></td></tr><tr><td data-num="4"></td><td><pre>    <span class="token keyword">int</span> count<span class="token punctuation">[</span><span class="token number">10</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token number">0</span><span class="token punctuation">&#125;</span><span class="token punctuation">;</span>      <span class="token comment">// 每个桶当前装载的元素数量</span></pre></td></tr><tr><td data-num="5"></td><td><pre>    <span class="token keyword">int</span> maxCount<span class="token punctuation">[</span><span class="token number">10</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">&#123;</span>len<span class="token punctuation">&#125;</span><span class="token punctuation">;</span> <span class="token comment">// 每个桶当前能装下的最大元素数量，0 桶设置为 len，原因见下面</span></pre></td></tr><tr><td data-num="6"></td><td><pre>    <span class="token comment">// 初始化桶</span></pre></td></tr><tr><td data-num="7"></td><td><pre>    <span class="token keyword">int</span> <span class="token operator">*</span><span class="token operator">*</span>con <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">int</span> <span class="token operator">*</span><span class="token operator">*</span><span class="token punctuation">)</span><span class="token function">malloc</span><span class="token punctuation">(</span><span class="token number">10</span> <span class="token operator">*</span> <span class="token keyword">sizeof</span><span class="token punctuation">(</span><span class="token keyword">int</span> <span class="token operator">*</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="8"></td><td><pre>    <span class="token comment">// 最后遍历完所有数位后，所有的数都会过一遍 0 桶，所以一开始就设置为 len 的长度</span></pre></td></tr><tr><td data-num="9"></td><td><pre>    con<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">int</span> <span class="token operator">*</span><span class="token punctuation">)</span><span class="token function">malloc</span><span class="token punctuation">(</span>len <span class="token operator">*</span> <span class="token keyword">sizeof</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="10"></td><td><pre>    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">10</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="11"></td><td><pre>    <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="12"></td><td><pre>        con<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">int</span> <span class="token operator">*</span><span class="token punctuation">)</span><span class="token function">malloc</span><span class="token punctuation">(</span>N <span class="token operator">*</span> <span class="token keyword">sizeof</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="13"></td><td><pre>        maxCount<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> N<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="14"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="15"></td><td><pre>    <span class="token comment">// 遍历每个数位</span></pre></td></tr><tr><td data-num="16"></td><td><pre>    BOOL ended <span class="token operator">=</span> FALSE<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="17"></td><td><pre>    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> Bit <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span> Bit <span class="token operator">&lt;=</span> INT_MAX <span class="token operator">&amp;&amp;</span> <span class="token operator">!</span>ended<span class="token punctuation">;</span> Bit <span class="token operator">*=</span> <span class="token number">10</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="18"></td><td><pre>    <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="19"></td><td><pre>        ended <span class="token operator">=</span> TRUE<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="20"></td><td><pre>        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> len<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="21"></td><td><pre>        <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="22"></td><td><pre>            <span class="token comment">// 提取当前数位，并将该数放入桶中</span></pre></td></tr><tr><td data-num="23"></td><td><pre>            <span class="token keyword">int</span> radix <span class="token operator">=</span> arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">%</span> Bit <span class="token operator">/</span> <span class="token punctuation">(</span>Bit <span class="token operator">/</span> <span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 当前数位</span></pre></td></tr><tr><td data-num="24"></td><td><pre>            <span class="token keyword">if</span> <span class="token punctuation">(</span>count<span class="token punctuation">[</span>radix<span class="token punctuation">]</span> <span class="token operator">>=</span> maxCount<span class="token punctuation">[</span>radix<span class="token punctuation">]</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="25"></td><td><pre>            <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="26"></td><td><pre>                <span class="token comment">// 桶满了，重新分配内存空间</span></pre></td></tr><tr><td data-num="27"></td><td><pre>                maxCount<span class="token punctuation">[</span>radix<span class="token punctuation">]</span> <span class="token operator">*=</span> <span class="token number">2</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="28"></td><td><pre>                con<span class="token punctuation">[</span>radix<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">int</span> <span class="token operator">*</span><span class="token punctuation">)</span><span class="token function">realloc</span><span class="token punctuation">(</span>con<span class="token punctuation">[</span>radix<span class="token punctuation">]</span><span class="token punctuation">,</span> maxCount<span class="token punctuation">[</span>radix<span class="token punctuation">]</span> <span class="token operator">*</span> <span class="token keyword">sizeof</span><span class="token punctuation">(</span><span class="token keyword">int</span> <span class="token operator">*</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="29"></td><td><pre>                <span class="token keyword">if</span> <span class="token punctuation">(</span>con<span class="token punctuation">[</span>radix<span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token constant">NULL</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="30"></td><td><pre>                <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="31"></td><td><pre>                    <span class="token comment">// 内存分配失败</span></pre></td></tr><tr><td data-num="32"></td><td><pre>                    <span class="token function">exit</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="33"></td><td><pre>                <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="34"></td><td><pre>            <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="35"></td><td><pre>            con<span class="token punctuation">[</span>radix<span class="token punctuation">]</span><span class="token punctuation">[</span>count<span class="token punctuation">[</span>radix<span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token operator">=</span> arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="36"></td><td><pre>            count<span class="token punctuation">[</span>radix<span class="token punctuation">]</span><span class="token operator">++</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="37"></td><td><pre>        <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="38"></td><td><pre>        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">10</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="39"></td><td><pre>        <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="40"></td><td><pre>            <span class="token comment">// 判断是否已经遍历结束</span></pre></td></tr><tr><td data-num="41"></td><td><pre>            <span class="token keyword">if</span> <span class="token punctuation">(</span>count<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="42"></td><td><pre>            <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="43"></td><td><pre>                ended <span class="token operator">=</span> FALSE<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="44"></td><td><pre>                <span class="token keyword">break</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="45"></td><td><pre>            <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="46"></td><td><pre>        <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="47"></td><td><pre>        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> aIdx <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">10</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="48"></td><td><pre>        <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="49"></td><td><pre>            <span class="token comment">// 把桶中的元素按照放入顺序放回数组</span></pre></td></tr><tr><td data-num="50"></td><td><pre>            <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> cIdx <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> cIdx <span class="token operator">&lt;</span> count<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span> cIdx<span class="token operator">++</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="51"></td><td><pre>            <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="52"></td><td><pre>                arr<span class="token punctuation">[</span>aIdx<span class="token operator">++</span><span class="token punctuation">]</span> <span class="token operator">=</span> con<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>cIdx<span class="token punctuation">]</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="53"></td><td><pre>            <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="54"></td><td><pre>            count<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="55"></td><td><pre>        <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="56"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="57"></td><td><pre>    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">10</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="58"></td><td><pre>    <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="59"></td><td><pre>        <span class="token function">free</span><span class="token punctuation">(</span>con<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="60"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="61"></td><td><pre>    <span class="token function">free</span><span class="token punctuation">(</span>con<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="62"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure><h2 id="优点缺点-3"><a class="anchor" href="#优点缺点-3">#</a> 优点 &amp; 缺点</h2>
+<h4 id="优点-3"><a class="anchor" href="#优点-3">#</a> 优点</h4>
+<p>基于比较的算法有 O (N log N) 的时间复杂度下限，而这些不基于比较的排序可以突破这个下限，使时间复杂度降到线性，针对于特定的数据是最优解。</p>
+<h4 id="缺点-3"><a class="anchor" href="#缺点-3">#</a> 缺点</h4>
+<p>对数据类型的要求比较苛刻，只在一些特定的数据集时有效。</p>
+<hr>
+<p>参考文章:<br>
+<span class="exturl" data-url="aHR0cHM6Ly92aXN1YWxnby5uZXQvemgvc29ydGluZw==">VisuAlgo - 排序</span><br>
+<span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3poLWNuLyVFNiU4RSU5MiVFNSVCQSU4RiVFNyVBRSU5NyVFNiVCMyU5NQ=="> Wikipedia - 排序算法</span></p>
+
+      <div class="tags">
+          <a href="/tags/%E7%AE%97%E6%B3%95/" rel="tag"><i class="ic i-tag"></i> 算法</a>
+      </div>
+  </div>
+
+   <footer>
+
+    <div class="meta">
+  <span class="item">
+    <span class="icon">
+      <i class="ic i-calendar-check"></i>
+    </span>
+    <span class="text">更新于</span>
+    <time title="修改时间：2021-11-27 22:37:53" itemprop="dateModified" datetime="2021-11-27T22:37:53+08:00">2021-11-27</time>
+  </span>
+  <span id="2021/05/07/排序算法总结/" class="item leancloud_visitors" data-flag-title="排序算法总结" title="阅读次数">
+      <span class="icon">
+        <i class="ic i-eye"></i>
+      </span>
+      <span class="text">阅读次数</span>
+      <span class="leancloud-visitors-count"></span>
+      <span class="text">次</span>
+  </span>
+</div>
+
+      
+<div class="reward">
+  <button><i class="ic i-heartbeat"></i> 赞赏</button>
+  <p>请我喝[茶]~(￣▽￣)~*</p>
+  <div id="qr">
+      
+      <div>
+        <img data-src="/images/wechatpay.png" alt="TagBug 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/alipay.jpg" alt="TagBug 支付宝">
+        <p>支付宝</p>
+      </div>
+  </div>
+</div>
+
+      
+
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>本文作者： </strong>TagBug <i class="ic i-at"><em>@</em></i>🐟
+  </li>
+  <li class="link">
+    <strong>本文链接：</strong>
+    <a href="http://tagbug.gitlab.io/2021/05/07/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93/" title="排序算法总结">http://tagbug.gitlab.io/2021/05/07/排序算法总结/</a>
+  </li>
+  <li class="license">
+    <strong>版权声明： </strong>本站所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+  </footer>
+
+</article>
+
+  </div>
+  
+
+<div class="post-nav">
+  <div class="item left">
+      
+
+  <a href="/2021/02/23/Linux%E7%BB%88%E7%AB%AF%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%93/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;cdn.jsdelivr.net&#x2F;gh&#x2F;tagbug&#x2F;demo@latest&#x2F;img&#x2F;1614076358773.png" title="Linux终端使用总结">
+  <span class="type">上一篇</span>
+  <span class="category">
+    <i class="ic i-flag"></i>
+    Shell</span>
+  <h3>Linux终端使用总结</h3>
+  </a>
+
+  </div>
+  <div class="item right">
+      
+
+  <a href="/2021/08/15/Js%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A7/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;cdn.jsdelivr.net&#x2F;gh&#x2F;tagbug&#x2F;demo@latest&#x2F;img&#x2F;1628433389110.jpg" title="Js调试技巧">
+  <span class="type">下一篇</span>
+  <span class="category">
+    <i class="ic i-flag"></i>
+    Web</span>
+  <h3>Js调试技巧</h3>
+  </a>
+
+  </div>
+</div>
+  
+  <div class="wrap" id="comments"></div>
+
+
+          </div>
+          <div id="sidebar">
+            
+
+<div class="inner">
+
+  <div class="panels">
+    <div class="inner">
+      <div class="contents panel pjax" data-title="文章目录">
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%86%99%E5%9C%A8%E5%89%8D%E9%9D%A2"><span class="toc-number">1.</span> <span class="toc-text"> 写在前面</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9F%BA%E4%BA%8E%E6%AF%94%E8%BE%83%E7%9A%84%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95-on2"><span class="toc-number">2.</span> <span class="toc-text"> 基于比较的排序算法 - O (N^2)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F"><span class="toc-number">2.1.</span> <span class="toc-text"> 冒泡排序</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A0%B8%E5%BF%83%E5%8E%9F%E7%90%86"><span class="toc-number">2.1.0.1.</span> <span class="toc-text"> 核心原理</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%97%E6%B3%95%E5%AE%9E%E7%8E%B0"><span class="toc-number">2.1.1.</span> <span class="toc-text"> 算法实现</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F"><span class="toc-number">2.2.</span> <span class="toc-text"> 选择排序</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A0%B8%E5%BF%83%E5%8E%9F%E7%90%86-2"><span class="toc-number">2.2.0.1.</span> <span class="toc-text"> 核心原理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%AE%97%E6%B3%95%E5%AE%9E%E7%8E%B0-2"><span class="toc-number">2.2.0.2.</span> <span class="toc-text"> 算法实现</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F"><span class="toc-number">2.3.</span> <span class="toc-text"> 插入排序</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A0%B8%E5%BF%83%E5%8E%9F%E7%90%86-3"><span class="toc-number">2.3.0.1.</span> <span class="toc-text"> 核心原理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%AE%97%E6%B3%95%E5%AE%9E%E7%8E%B0-3"><span class="toc-number">2.3.0.2.</span> <span class="toc-text"> 算法实现</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BC%98%E7%82%B9%E7%BC%BA%E7%82%B9"><span class="toc-number">2.4.</span> <span class="toc-text"> 优点 &amp; 缺点</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BC%98%E7%82%B9"><span class="toc-number">2.4.0.1.</span> <span class="toc-text"> 优点</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BC%BA%E7%82%B9"><span class="toc-number">2.4.0.2.</span> <span class="toc-text"> 缺点</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9F%BA%E4%BA%8E%E6%AF%94%E8%BE%83%E7%9A%84%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95-on-log-n"><span class="toc-number">3.</span> <span class="toc-text"> 基于比较的排序算法 - O (N log N)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F"><span class="toc-number">3.1.</span> <span class="toc-text"> 归并排序</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A0%B8%E5%BF%83%E5%8E%9F%E7%90%86-4"><span class="toc-number">3.1.0.1.</span> <span class="toc-text"> 核心原理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%AE%97%E6%B3%95%E5%AE%9E%E7%8E%B0-4"><span class="toc-number">3.1.0.2.</span> <span class="toc-text"> 算法实现</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F-on2on-log-n"><span class="toc-number">3.2.</span> <span class="toc-text"> 快速排序 - O (N^2)&#x2F;O (N log N)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A0%B8%E5%BF%83%E5%8E%9F%E7%90%86-5"><span class="toc-number">3.2.0.1.</span> <span class="toc-text"> 核心原理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%AE%97%E6%B3%95%E5%AE%9E%E7%8E%B0-5"><span class="toc-number">3.2.0.2.</span> <span class="toc-text"> 算法实现</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BC%98%E7%82%B9%E7%BC%BA%E7%82%B9-2"><span class="toc-number">3.3.</span> <span class="toc-text"> 优点 &amp; 缺点</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BC%98%E7%82%B9-2"><span class="toc-number">3.3.0.1.</span> <span class="toc-text"> 优点</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BC%BA%E7%82%B9-2"><span class="toc-number">3.3.0.2.</span> <span class="toc-text"> 缺点</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%8D%E5%9F%BA%E4%BA%8E%E6%AF%94%E8%BE%83%E7%9A%84%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95"><span class="toc-number">4.</span> <span class="toc-text"> 不基于比较的排序算法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%A1%E6%95%B0%E6%8E%92%E5%BA%8F-onk"><span class="toc-number">4.1.</span> <span class="toc-text"> 计数排序 - O (n+k)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A0%B8%E5%BF%83%E5%8E%9F%E7%90%86-6"><span class="toc-number">4.1.0.1.</span> <span class="toc-text"> 核心原理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%AE%97%E6%B3%95%E5%AE%9E%E7%8E%B0-6"><span class="toc-number">4.1.0.2.</span> <span class="toc-text"> 算法实现</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E6%95%B0%E6%8E%92%E5%BA%8F-okn"><span class="toc-number">4.2.</span> <span class="toc-text"> 基数排序 - O (kN)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A0%B8%E5%BF%83%E5%8E%9F%E7%90%86-7"><span class="toc-number">4.2.0.1.</span> <span class="toc-text"> 核心原理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%AE%97%E6%B3%95%E5%AE%9E%E7%8E%B0-7"><span class="toc-number">4.2.0.2.</span> <span class="toc-text"> 算法实现</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BC%98%E7%82%B9%E7%BC%BA%E7%82%B9-3"><span class="toc-number">4.3.</span> <span class="toc-text"> 优点 &amp; 缺点</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BC%98%E7%82%B9-3"><span class="toc-number">4.3.0.1.</span> <span class="toc-text"> 优点</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BC%BA%E7%82%B9-3"><span class="toc-number">4.3.0.2.</span> <span class="toc-text"> 缺点</span></a></li></ol></li></ol></li></ol></li></ol>
+      </div>
+      <div class="related panel pjax" data-title="系列文章">
+        <ul>
+          <li><a href="/2021/01/28/C%E8%AF%AD%E8%A8%80%E5%9B%BE%E7%BB%93%E6%9E%84%E6%80%BB%E7%BB%93%EF%BC%88%E4%B8%80%EF%BC%89/" rel="bookmark" title="C语言图结构总结（一）">C语言图结构总结（一）</a></li><li class="active"><a href="/2021/05/07/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93/" rel="bookmark" title="排序算法总结">排序算法总结</a></li>
+        </ul>
+      </div>
+      <div class="overview panel" data-title="站点概览">
+        <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="image" itemprop="image" alt="TagBug"
+      data-src="/images/avatar.png">
+  <p class="name" itemprop="name">TagBug</p>
+  <div class="description" itemprop="description">所念皆星河</div>
+</div>
+
+<nav class="state">
+    <div class="item posts">
+      <a href="/archives/">
+        <span class="count">20</span>
+        <span class="name">文章</span>
+      </a>
+    </div>
+    <div class="item categories">
+      <a href="/categories/">
+        <span class="count">9</span>
+        <span class="name">分类</span>
+      </a>
+    </div>
+    <div class="item tags">
+      <a href="/tags/">
+        <span class="count">25</span>
+        <span class="name">标签</span>
+      </a>
+    </div>
+</nav>
+
+<div class="social">
+      <span class="exturl item github" data-url="aHR0cHM6Ly9naXRodWIuY29tL3RhZ2J1Zw==" title="https:&#x2F;&#x2F;github.com&#x2F;tagbug"><i class="ic i-github"></i></span>
+      <span class="exturl item email" data-url="bWFpbHRvOjEyNDIxMzUyOTVAcXEuY29t" title="mailto:1242135295@qq.com"><i class="ic i-envelope"></i></span>
+      <span class="exturl item bilibili" data-url="aHR0cHM6Ly9zcGFjZS5iaWxpYmlsaS5jb20vMjgyMjMzMg==" title="https:&#x2F;&#x2F;space.bilibili.com&#x2F;2822332"><i class="ic i-play"></i></span>
+      <span class="exturl item music" data-url="aHR0cHM6Ly9tdXNpYy4xNjMuY29tLyMvdXNlci9ob21lP2lkPTEzMzg4MTUwNw==" title="https:&#x2F;&#x2F;music.163.com&#x2F;#&#x2F;user&#x2F;home?id&#x3D;133881507"><i class="ic i-cloud-music"></i></span>
+      <span class="exturl item weibo" data-url="aHR0cHM6Ly93ZWliby5jb20vdS8yMTc5OTQ4OTM0" title="https:&#x2F;&#x2F;weibo.com&#x2F;u&#x2F;2179948934"><i class="ic i-weibo"></i></span>
+</div>
+
+<ul class="menu">
+  
+    
+  <li class="item">
+    <a href="/" rel="section"><i class="ic i-home"></i>首页</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/about/" rel="section"><i class="ic i-user"></i>关于</a>
+  </li>
+
+        
+  <li class="item dropdown">
+      <a href="javascript:void(0);"><i class="ic i-feather"></i>文章</a>
+    <ul class="submenu">
+
+        
+  <li class="item">
+    <a href="/archives/" rel="section"><i class="ic i-list-alt"></i>归档</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/categories/" rel="section"><i class="ic i-th"></i>分类</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/tags/" rel="section"><i class="ic i-tags"></i>标签</a>
+  </li>
+
+  </ul>
+    
+  <li class="item">
+    <a href="/friend/" rel="section"><i class="ic i-heart"></i>友链</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/music/" rel="section"><i class="ic i-music"></i>音乐</a>
+  </li>
+
+
+</ul>
+
+      </div>
+    </div>
+  </div>
+
+  <ul id="quick">
+    <li class="prev pjax">
+        <a href="/2021/02/23/Linux%E7%BB%88%E7%AB%AF%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%93/" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a>
+    </li>
+    <li class="up"><i class="ic i-arrow-up"></i></li>
+    <li class="down"><i class="ic i-arrow-down"></i></li>
+    <li class="next pjax">
+        <a href="/2021/08/15/Js%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A7/" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a>
+    </li>
+    <li class="percent"></li>
+  </ul>
+</div>
+
+
+          </div>
+          <div class="dimmer"></div>
+        </div>
+      </main>
+      <footer id="footer">
+        <div class="inner">
+          <div class="widgets">
+            
+<div class="rpost pjax">
+  <h2>随机文章</h2>
+  <ul>
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="分类于 学习笔记">学习笔记</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E5%89%8D%E7%AB%AF/" title="分类于 前端">前端</a>
+</div>
+
+    <span><a href="/2022/01/18/Web%E6%A0%87%E5%87%86%E4%B8%8E%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91-%E7%AC%94%E8%AE%B0/" title="Web标准与前端开发 - 笔记">Web标准与前端开发 - 笔记</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" title="分类于 算法与数据结构">算法与数据结构</a>
+</div>
+
+    <span><a href="/2021/05/07/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93/" title="排序算法总结">排序算法总结</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="分类于 学习笔记">学习笔记</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E5%89%8D%E7%AB%AF/" title="分类于 前端">前端</a>
+</div>
+
+    <span><a href="/2022/01/20/HTTP%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97-%E7%AC%94%E8%AE%B0/" title="HTTP实用指南 - 笔记">HTTP实用指南 - 笔记</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/works/" title="分类于 works">works</a>
+</div>
+
+    <span><a href="/2021/02/04/ujsAutoClock%E5%BC%80%E5%8F%91%E6%80%9D%E8%B7%AF%E5%8F%8A%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/" title="ujsAutoClock使用方法及开发思路">ujsAutoClock使用方法及开发思路</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="分类于 学习笔记">学习笔记</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E5%89%8D%E7%AB%AF/" title="分类于 前端">前端</a>
+</div>
+
+    <span><a href="/2021/09/23/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96-%E7%AC%94%E8%AE%B0/" title="前端工程化 - 笔记">前端工程化 - 笔记</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E5%AE%89%E5%85%A8/" title="分类于 安全">安全</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/%E5%AE%89%E5%85%A8/Web/" title="分类于 Web">Web</a>
+</div>
+
+    <span><a href="/2021/08/15/Js%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A7/" title="Js调试技巧">Js调试技巧</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="分类于 学习笔记">学习笔记</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E5%89%8D%E7%AB%AF/" title="分类于 前端">前端</a>
+</div>
+
+    <span><a href="/2022/01/21/WebGL%E5%9F%BA%E7%A1%80-%E7%AC%94%E8%AE%B0/" title="WebGL基础 - 笔记">WebGL基础 - 笔记</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Java/" title="分类于 Java">Java</a>
+</div>
+
+    <span><a href="/2021/11/30/Maven%E7%AE%80%E5%8D%95%E6%80%BB%E7%BB%93/" title="Maven简单总结">Maven简单总结</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="分类于 学习笔记">学习笔记</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E5%89%8D%E7%AB%AF/" title="分类于 前端">前端</a>
+</div>
+
+    <span><a href="/2022/01/20/%E5%89%8D%E7%AB%AF%E5%8A%A8%E7%94%BB%E5%AE%9E%E7%8E%B0-%E7%AC%94%E8%AE%B0/" title="前端动画实现 - 笔记">前端动画实现 - 笔记</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="分类于 学习笔记">学习笔记</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E5%89%8D%E7%AB%AF/" title="分类于 前端">前端</a>
+</div>
+
+    <span><a href="/2021/11/13/Web%E5%AE%89%E5%85%A8%E5%9F%BA%E7%A1%80-%E7%AC%94%E8%AE%B0/" title="Web安全基础 - 笔记">Web安全基础 - 笔记</a></span>
+  </li>
+
+  </ul>
+</div>
+<div>
+  <h2>最新评论</h2>
+  <ul class="leancloud-recent-comment"></ul>
+</div>
+
+          </div>
+          <div class="status">
+  <div class="copyright">
+    
+    &copy; 2021 – 
+    <span itemprop="copyrightYear">2022</span>
+    <span class="with-love">
+      <i class="ic i-sakura rotate"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">TagBug @ Tag Bug</span>
+  </div>
+  <div class="count">
+    <span class="post-meta-item-icon">
+      <i class="ic i-chart-area"></i>
+    </span>
+    <span title="站点总字数">82k 字</span>
+
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="ic i-coffee"></i>
+    </span>
+    <span title="站点阅读时长">1:15</span>
+  </div>
+
+  <div class="viewer">
+    <span>❤️感谢 <strong><span id="busuanzi_value_site_uv">282</span></strong> 小伙伴的 <strong><span id="busuanzi_value_site_pv">1685</span></strong> 次光临！❤️</span>
+  </div>
+  <script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" defer></script>
+  <div class="powered-by">
+    基于 <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
+  </div>
+</div>
+
+        </div>
+      </footer>
+    </div>
+    <script data-config="data-config" type="text/javascript">
+      var LOCAL = {
+        path: '2021/05/07/排序算法总结/',
+        favicon: {
+          show: "（●´3｀●）やれやれだぜ",
+          hide: "(´Д｀)大変だ！"
+        },
+        search: {
+          placeholder: "文章搜索",
+          empty: "关于 「 ${query} 」，什么也没搜到",
+          stats: "${time} ms 内找到 ${hits} 条结果"
+        },
+          valine: true,fancybox: true,
+            copyright: '复制成功，转载请遵守 <i class="ic i-creative-commons"></i>BY-NC-SA 协议。',
+        ignores: [
+          function (uri) {
+            return uri.includes('#');
+          },
+          function (uri) {
+            return new RegExp(LOCAL.path + "$").test(uri);
+          }
+        ]
+      };
+    </script>
+
+    <script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
+
+    <script src="//cdn.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
+
+    <script src="/js/app.js?v=0.2.5"></script>
+
+    
+
+
+  </body>
+</html>

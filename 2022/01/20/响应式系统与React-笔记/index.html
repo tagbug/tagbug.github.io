@@ -1,0 +1,763 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#FFF">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="icon" type="image/ico" sizes="32x32" href="/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+<link rel="alternate" type="application/rss+xml" title="🐟" href="http://tagbug.gitlab.io/rss.xml"/>
+<link rel="alternate" type="application/atom+xml" title="🐟" href="http://tagbug.gitlab.io/atom.xml"/>
+<link rel="alternate" type="application/json" title="🐟" href="http://tagbug.gitlab.io/feed.json"/>
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="/css/app.css?v=0.2.5">
+    
+  <meta name="keywords" content="Web,前端,笔记补完计划,React" />
+
+
+<link rel="canonical" href="http://tagbug.gitlab.io/2022/01/20/%E5%93%8D%E5%BA%94%E5%BC%8F%E7%B3%BB%E7%BB%9F%E4%B8%8EReact-%E7%AC%94%E8%AE%B0/">
+
+
+
+    <title>
+      
+响应式系统与React - 笔记 - 前端 - 学习笔记 |
+Tag Bug = 🐟</title>
+  <meta name="generator" content="Hexo 5.4.0"></head>
+  <body itemscope="itemscope" itemtype="http://schema.org/WebPage">
+    <div id="loading">
+      <div class="cat">
+        <div class="body"></div>
+        <div class="head">
+          <div class="face"></div>
+        </div>
+        <div class="foot">
+          <div class="tummy-end"></div>
+          <div class="bottom"></div>
+          <div class="legs left"></div>
+          <div class="legs right"></div>
+        </div>
+        <div class="paw">
+          <div class="hands left"></div>
+          <div class="hands right"></div>
+        </div>
+      </div>
+    </div>
+    <div id="container">
+      <header id="header" itemscope="itemscope" itemtype="http://schema.org/WPHeader">
+        <div class="inner">
+          <div id="brand">
+            <div class="pjax">
+              
+  <h1 itemprop="name headline">响应式系统与React - 笔记
+  </h1>
+  
+<div class="meta">
+  <span class="item" title="创建时间：2022-01-20 18:39:47">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">发表于</span>
+    <time itemprop="dateCreated datePublished" datetime="2022-01-20T18:39:47+08:00">2022-01-20</time>
+  </span>
+  <span class="item" title="本文字数">
+    <span class="icon">
+      <i class="ic i-pen"></i>
+    </span>
+    <span class="text">本文字数</span>
+    <span>3.1k</span>
+    <span class="text">字</span>
+  </span>
+  <span class="item" title="阅读时长">
+    <span class="icon">
+      <i class="ic i-clock"></i>
+    </span>
+    <span class="text">阅读时长</span>
+    <span>3 分钟</span>
+  </span>
+</div>
+
+
+            </div>
+          </div>
+          <nav id="nav">
+  <div class="inner">
+    <div class="toggle">
+      <div class="lines" aria-label="切换导航栏">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <ul class="menu">
+      <li class="item title"><a href="/" rel="start">Tag Bug</a></li>
+    </ul>
+    <ul class="right">
+      <li class="item theme">
+        <i class="ic i-sun"></i>
+      </li>
+      <li class="item search">
+        <i class="ic i-search"></i>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+        </div>
+        <div id="imgs" class="pjax">
+            <ul>
+                <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1giciryrr3rj20zk0m8nhk.jpg"></li>
+                <li class="item" data-background-image="https://tva1.sinaimg.cn/large/81ef6186ly8gwtzc2wf0gj20zk0k0gpt.jpg"></li>
+                <li class="item" data-background-image="https://tva1.sinaimg.cn/large/81ef6186ly8gwtysz7l4ej20u01hc0yc.jpg"></li>
+                <li class="item" data-background-image="https://tva1.sinaimg.cn/large/81ef6186ly8gwtyufb11vj20u0146ai3.jpg"></li>
+                <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1giph4lm9i7j20zk0m84qp.jpg"></li>
+                <li class="item" data-background-image="https://tva1.sinaimg.cn/large/81ef6186ly8gwtzmywo4jj211s0lctbi.jpg"></li>
+            </ul>
+        </div>
+      </header>
+      <div id="waves">
+        <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewbox="0 24 150 28" preserveaspectratio="none" shape-rendering="auto">
+          <defs>
+            <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"/>
+          </defs>
+          <g class="parallax">
+            <use xlink:href="#gentle-wave" x="48" y="0"/>
+            <use xlink:href="#gentle-wave" x="48" y="3"/>
+            <use xlink:href="#gentle-wave" x="48" y="5"/>
+            <use xlink:href="#gentle-wave" x="48" y="7"/>
+          </g>
+        </svg>
+      </div>
+      <main>
+        <div class="inner">
+          <div id="main" class="pjax">
+            
+  <div class="article wrap">
+    
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/">首页</a></span><i class="ic i-angle-right"></i>
+<span  itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" itemprop="item" rel="index" title="分类于 学习笔记"><span itemprop="name">学习笔记</span></a>
+<meta itemprop="position" content="1" /></span>
+<i class="ic i-angle-right"></i>
+<span  class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E5%89%8D%E7%AB%AF/" itemprop="item" rel="index" title="分类于 前端"><span itemprop="name">前端</span></a>
+<meta itemprop="position" content="2" /></span>
+</div>
+
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh-CN">
+  <link itemprop="mainEntityOfPage" href="http://tagbug.gitlab.io/2022/01/20/%E5%93%8D%E5%BA%94%E5%BC%8F%E7%B3%BB%E7%BB%9F%E4%B8%8EReact-%E7%AC%94%E8%AE%B0/">
+
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="/images/avatar.png">
+    <meta itemprop="name" content="TagBug">
+    <meta itemprop="description" content=", 所念皆星河">
+  </span>
+
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="🐟">
+  </span>
+
+  <div class="body md" itemprop="articleBody">
+    
+
+    <blockquote>
+<p>React 的历史与应用</p>
+<p>React 的设计思路：UI 编程痛点、响应式与转换式、组件化、生命周期</p>
+<p>React（hooks）的写法：useState、useEffect</p>
+<p>React 的实现：JSX 语法、Virtual DOM、Diff 算法</p>
+<p>React 状态管理库 &amp; 应用级框架介绍</p>
+</blockquote>
+<span id="more"></span>
+<h1 id="响应式系统与react"><a class="anchor" href="#响应式系统与react">#</a> 响应式系统与 React</h1>
+<h2 id="react的历史与应用"><a class="anchor" href="#react的历史与应用">#</a> React 的历史与应用</h2>
+<h3 id="历史"><a class="anchor" href="#历史">#</a> 历史</h3>
+<p>2010 年：Facebook 在其 ph 生态中，引入了 xhp 框架，首次引入了组合式组件的思想，启发了后来的 React 的设计。</p>
+<p>2011 年：Jordan Walke 创造了 FaxJS，也就是后来的 React 原型:</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/tagbug/demo@latest/img/image-20220119101018197.png" alt="image-20220119101018197"></p>
+<p>2012 年：在 Facebook 收购 Instagram 后，该 FaxJS 项目在内部得到使用，Jordan Walke 基于 FaxJS 的经验创造了 React</p>
+<p>2013 年：React 正式开源，在 2013 JSConf 上 Jordan Walke 介绍了这款全新的框架</p>
+<p>2014 年：生态大爆发，各种围绕 React 的新工具 / 新框架开始涌现：</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/tagbug/demo@latest/img/image-20220119101527508.png" alt="image-20220119101527508"></p>
+<h3 id="应用"><a class="anchor" href="#应用">#</a> 应用</h3>
+<ol>
+<li>前端应用开发：Facebook、Instagram、Netflix 网页版</li>
+<li>移动原生应用开发：Instagram、Discord、Oculus</li>
+<li>桌面应用开发：结合 Electron</li>
+<li>3D 开发：<em>react-thre-fiber</em></li>
+</ol>
+<h2 id="react的设计思路"><a class="anchor" href="#react的设计思路">#</a> React 的设计思路</h2>
+<h3 id="ui编程痛点"><a class="anchor" href="#ui编程痛点">#</a> UI 编程痛点</h3>
+<p><img data-src="https://cdn.jsdelivr.net/gh/tagbug/demo@latest/img/image-20220119101812462.png" alt="image-20220119101812462"></p>
+<ol>
+<li>状态更新时，UI 不会自动更新，需要手动调用 DOM 进行更新</li>
+<li>欠缺基本的代码层面的封装和隔离，代码层面没有组件化</li>
+<li>UI 之间的数据依赖关系，需要手动维护，如果依赖链路长，则会导致<strong> Callback Hell</strong></li>
+</ol>
+<h3 id="响应式与转换式"><a class="anchor" href="#响应式与转换式">#</a> 响应式与转换式</h3>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>特点</th>
+<th>应用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>转换式系统</strong></td>
+<td>给定输入求解输出</td>
+<td>编译器、数值计算</td>
+</tr>
+<tr>
+<td><strong>响应式系统</strong></td>
+<td>监听事件，消息驱动</td>
+<td>监控系统、UI 界面</td>
+</tr>
+</tbody>
+</table>
+<h3 id="响应式编程"><a class="anchor" href="#响应式编程">#</a> 响应式编程</h3>
+<p>响应式系统：</p>
+<pre>TimeoutError: Navigation timeout of 30000 ms exceeded</pre><p>前端响应式 UI：</p>
+<pre class="mermaid graph"><svg id="mermaid-1642777886267" width="100%" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" height="55" style="max-width: 500.828125px;" viewBox="0 0 500.828125 55"><g><g class="output"><g class="clusters"></g><g class="edgePaths"><g class="edgePath LS-事件 LE-执行既定的回调" id="L-事件-执行既定的回调" style="opacity: 1;"><path class="path" d="M60,27.5L85,27.5L110,27.5" marker-end="url(#arrowhead17)" style="fill:none"></path><defs><marker id="arrowhead17" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="strokeWidth" markerWidth="8" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowheadPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker></defs></g><g class="edgePath LS-执行既定的回调 LE-状态变更" id="L-执行既定的回调-状态变更" style="opacity: 1;"><path class="path" d="M242,27.5L267,27.5L292,27.5" marker-end="url(#arrowhead18)" style="fill:none"></path><defs><marker id="arrowhead18" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="strokeWidth" markerWidth="8" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowheadPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker></defs></g><g class="edgePath LS-状态变更 LE-UI更新" id="L-状态变更-UI更新" style="opacity: 1;"><path class="path" d="M376,27.5L401,27.5L426,27.5" marker-end="url(#arrowhead19)" style="fill:none"></path><defs><marker id="arrowhead19" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="strokeWidth" markerWidth="8" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowheadPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker></defs></g></g><g class="edgeLabels"><g class="edgeLabel" transform="" style="opacity: 1;"><g transform="translate(0,0)" class="label"><rect rx="0" ry="0" width="0" height="0"></rect><text><tspan xml:space="preserve" dy="1em" x="1"></tspan></text></g></g><g class="edgeLabel" transform="" style="opacity: 1;"><g transform="translate(0,0)" class="label"><rect rx="0" ry="0" width="0" height="0"></rect><text><tspan xml:space="preserve" dy="1em" x="1"></tspan></text></g></g><g class="edgeLabel" transform="" style="opacity: 1;"><g transform="translate(0,0)" class="label"><rect rx="0" ry="0" width="0" height="0"></rect><text><tspan xml:space="preserve" dy="1em" x="1"></tspan></text></g></g></g><g class="nodes"><g class="node default" id="flowchart-事件-4" transform="translate(34,27.5)" style="opacity: 1;"><rect rx="0" ry="0" x="-26" y="-19.5" width="52" height="39" class="label-container"></rect><g class="label" transform="translate(0,0)"><g transform="translate(-16,-9.5)"><text style=""><tspan xml:space="preserve" dy="1em" x="1">事件</tspan></text></g></g></g><g class="node default" id="flowchart-执行既定的回调-5" transform="translate(176,27.5)" style="opacity: 1;"><rect rx="0" ry="0" x="-66" y="-19.5" width="132" height="39" class="label-container"></rect><g class="label" transform="translate(0,0)"><g transform="translate(-56,-9.5)"><text style=""><tspan xml:space="preserve" dy="1em" x="1">执行既定的回调</tspan></text></g></g></g><g class="node default" id="flowchart-状态变更-6" transform="translate(334,27.5)" style="opacity: 1;"><rect rx="0" ry="0" x="-42" y="-19.5" width="84" height="39" class="label-container"></rect><g class="label" transform="translate(0,0)"><g transform="translate(-32,-9.5)"><text style=""><tspan xml:space="preserve" dy="1em" x="1">状态变更</tspan></text></g></g></g><g class="node default" id="flowchart-UI更新-7" transform="translate(459.4140625,27.5)" style="opacity: 1;"><rect rx="0" ry="0" x="-33.4140625" y="-19.5" width="66.828125" height="39" class="label-container"></rect><g class="label" transform="translate(0,0)"><g transform="translate(-23.4140625,-9.5)"><text style=""><tspan xml:space="preserve" dy="1em" x="1">UI更新</tspan></text></g></g></g></g></g></g></svg></pre><ol>
+<li>状态更新，UI<strong> 自动更新</strong>。</li>
+<li>前端代码<strong>组件化</strong>，可复用，可封装。</li>
+<li>状态之间的互相依赖关系，只需<strong>声明</strong>即可。</li>
+</ol>
+<h3 id="组件化"><a class="anchor" href="#组件化">#</a> 组件化</h3>
+<p><img data-src="https://cdn.jsdelivr.net/gh/tagbug/demo@latest/img/image-20220119102805079.png" alt="image-20220119102805079"></p>
+<ol>
+<li>组件要么是<strong>组件的组合</strong>，要么是<strong>原子组件</strong></li>
+<li>组件拥有<strong>内部状态</strong>，外部不可见</li>
+<li>父组件可将<strong>状态传入子组件</strong></li>
+</ol>
+<h3 id="状态归属"><a class="anchor" href="#状态归属">#</a> 状态归属</h3>
+<p>当两个组件都要使用同一个状态时，应该把状态上移到其公共父组件，即<strong>状态提升</strong></p>
+<p>但是如果这种状态提升过多，组件的复用性难免会降低，这个问题的解决则需要使用 Redux 这种状态管理框架</p>
+<p>React 其实是单向数据流，永远是父组件给子组件传递状态，子组件只能调用函数更改状态</p>
+<h3 id="组件设计"><a class="anchor" href="#组件设计">#</a> 组件设计</h3>
+<p>前提：</p>
+<ol>
+<li>组件声明了状态和 UI 的映射</li>
+<li>组件有 Props/State 两种状态</li>
+<li>“组件” 可由其他组件拼装而成</li>
+</ol>
+<p>设计：</p>
+<ol>
+<li>组件内部拥有私有状态 State</li>
+<li>组件接受外部的 Props 状态提供复用性</li>
+<li>根据当前的 State/Props，返回一个 UI</li>
+</ol>
+<p>想象一下，大概长这样（不一定对）：</p>
+<figure class="highlight jsx"><figcaption data-lang="React JSX"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">function</span> <span class="token function">Component</span><span class="token punctuation">(</span><span class="token parameter">props</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>    <span class="token comment">//props 是父组件传入的状态</span></pre></td></tr><tr><td data-num="3"></td><td><pre>    <span class="token keyword">const</span> <span class="token punctuation">&#123;</span> url <span class="token punctuation">&#125;</span> <span class="token operator">=</span> props<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="4"></td><td><pre>    <span class="token comment">// 这是组件的内部状态（State）</span></pre></td></tr><tr><td data-num="5"></td><td><pre>    <span class="token keyword">this</span><span class="token punctuation">.</span>text <span class="token operator">=</span> <span class="token string">'Click me'</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="6"></td><td><pre>    </pre></td></tr><tr><td data-num="7"></td><td><pre>    <span class="token comment">// 返回一个 “UI”</span></pre></td></tr><tr><td data-num="8"></td><td><pre>    <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span><span class="token plain-text"></pre></td></tr><tr><td data-num="9"></td><td><pre>        </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token class-name">SubComponent</span></span> <span class="token attr-name">props</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span>&lt;!--swig￼0--</span><span class="token punctuation">></span></span><span class="token plain-text">></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span><span class="token class-name">SubComponent</span></span><span class="token punctuation">></span></span><span class="token plain-text"></pre></td></tr><tr><td data-num="10"></td><td><pre>        </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>img</span> <span class="token attr-name">src</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">&#123;</span>url<span class="token punctuation">&#125;</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>img</span><span class="token punctuation">></span></span><span class="token plain-text"></pre></td></tr><tr><td data-num="11"></td><td><pre>        </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span><span class="token punctuation">></span></span><span class="token punctuation">&#123;</span><span class="token keyword">this</span><span class="token punctuation">.</span>text<span class="token punctuation">&#125;</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">></span></span><span class="token plain-text"></pre></td></tr><tr><td data-num="12"></td><td><pre>    </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="13"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure><h3 id="生命周期"><a class="anchor" href="#生命周期">#</a> 生命周期</h3>
+<p><img data-src="https://cdn.jsdelivr.net/gh/tagbug/demo@latest/img/16775500-102dbe772034e8fa.png" alt="16775500-102dbe772034e8fa"></p>
+<h2 id="reacthooks的写法"><a class="anchor" href="#reacthooks的写法">#</a> React（hooks）的写法</h2>
+<h4 id="usestate"><a class="anchor" href="#usestate">#</a> useState</h4>
+<p>传入一个初始值，返回一个状态，和 set 该状态的函数，用户可以通过调用该函数，来实现状态的修改。</p>
+<figure class="highlight jsx"><figcaption data-lang="React JSX"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">import</span> React<span class="token punctuation">,</span> <span class="token punctuation">&#123;</span> useState <span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">'react'</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="2"></td><td><pre></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token keyword">function</span> <span class="token function">Example</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="4"></td><td><pre>  <span class="token comment">// 声明一个新的叫做 “count” 的 state 变量</span></pre></td></tr><tr><td data-num="5"></td><td><pre>  <span class="token keyword">const</span> <span class="token punctuation">[</span>count<span class="token punctuation">,</span> setCount<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">useState</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="6"></td><td><pre></pre></td></tr><tr><td data-num="7"></td><td><pre>  <span class="token keyword">return</span> <span class="token punctuation">(</span></pre></td></tr><tr><td data-num="8"></td><td><pre>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span><span class="token plain-text"></pre></td></tr><tr><td data-num="9"></td><td><pre>      </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span><span class="token plain-text">You clicked </span><span class="token punctuation">&#123;</span>count<span class="token punctuation">&#125;</span><span class="token plain-text"> times</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span><span class="token plain-text"></pre></td></tr><tr><td data-num="10"></td><td><pre>      </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">onClick</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">&#123;</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token function">setCount</span><span class="token punctuation">(</span>count <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">&#125;</span></span><span class="token punctuation">></span></span><span class="token plain-text"></pre></td></tr><tr><td data-num="11"></td><td><pre>        Click me</pre></td></tr><tr><td data-num="12"></td><td><pre>      </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">></span></span><span class="token plain-text"></pre></td></tr><tr><td data-num="13"></td><td><pre>    </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="14"></td><td><pre>  <span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="15"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure><h4 id="useeffect"><a class="anchor" href="#useeffect">#</a> useEffect</h4>
+<p>传入一个函数，和一个数组，数组是状态的数组，称作依赖项，该函数在 mount 时，和依赖项被 set 的时候会执行。</p>
+<figure class="highlight jsx"><figcaption data-lang="React JSX"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">import</span> React<span class="token punctuation">,</span> <span class="token punctuation">&#123;</span> useState<span class="token punctuation">,</span> useEffect <span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">'react'</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="2"></td><td><pre></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token keyword">function</span> <span class="token function">Example</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="4"></td><td><pre>  <span class="token keyword">const</span> <span class="token punctuation">[</span>count<span class="token punctuation">,</span> setCount<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">useState</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="5"></td><td><pre></pre></td></tr><tr><td data-num="6"></td><td><pre>  <span class="token comment">// 使用一个副作用，传入的 [count] 数组使得此副作用只有当 count 变量改变时才会被调用</span></pre></td></tr><tr><td data-num="7"></td><td><pre>  <span class="token function">useEffect</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="8"></td><td><pre>    <span class="token comment">// 副作用：Update the document title using the browser API</span></pre></td></tr><tr><td data-num="9"></td><td><pre>    document<span class="token punctuation">.</span>title <span class="token operator">=</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">You clicked </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>count<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string"> times</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="10"></td><td><pre>  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span> <span class="token punctuation">[</span>count<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="11"></td><td><pre></pre></td></tr><tr><td data-num="12"></td><td><pre>  <span class="token keyword">return</span> <span class="token punctuation">(</span></pre></td></tr><tr><td data-num="13"></td><td><pre>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span><span class="token plain-text"></pre></td></tr><tr><td data-num="14"></td><td><pre>      </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span><span class="token plain-text">You clicked </span><span class="token punctuation">&#123;</span>count<span class="token punctuation">&#125;</span><span class="token plain-text"> times</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span><span class="token plain-text"></pre></td></tr><tr><td data-num="15"></td><td><pre>      </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">onClick</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">&#123;</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token function">setCount</span><span class="token punctuation">(</span>count <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">&#125;</span></span><span class="token punctuation">></span></span><span class="token plain-text"></pre></td></tr><tr><td data-num="16"></td><td><pre>        Click me</pre></td></tr><tr><td data-num="17"></td><td><pre>      </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">></span></span><span class="token plain-text"></pre></td></tr><tr><td data-num="18"></td><td><pre>    </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="19"></td><td><pre>  <span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="20"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure><h2 id="react的实现"><a class="anchor" href="#react的实现">#</a> React 的实现</h2>
+<h3 id="problems"><a class="anchor" href="#problems">#</a> Problems</h3>
+<ol>
+<li>
+<p>JSX 语法不符合 JS 标准语法：</p>
+<p><strong>需要将 JSX 文件转义为 JS 文件</strong></p>
+</li>
+<li>
+<p>返回的 JSX 发生改变时，如何更新 DOM：</p>
+<p><strong>Virtual DOM（虚拟 DOM 树）</strong></p>
+</li>
+<li>
+<p>State/Props 更新时，要重新触发 render 函数：</p>
+<p><strong>Diff 算法</strong></p>
+</li>
+</ol>
+<h3 id="virtual-dom虚拟dom"><a class="anchor" href="#virtual-dom虚拟dom">#</a> Virtual DOM（虚拟 DOM）</h3>
+<blockquote>
+<p>它赋予了 React 声明式的 API: 您告诉 React 希望让 UI 是什么状态，React 就确保 DOM 匹配该状态。这使您可以从属性操作、事件处理和手动 DOM 更新这些在构建应用程序时必要的操作中解放出来。</p>
+</blockquote>
+<p>Virtual DOM 使得状态更新<strong>先更新虚拟 DOM 树</strong>，而不是直接更新 DOM 树，通过虚拟 DOM 树的<strong> Diff 算法</strong>，求出最少要更新的节点，然后<strong>再去更新真正的 DOM 树</strong></p>
+<p>状态改变 &amp; 虚拟 DOM 更新：</p>
+<p><img data-src="https://calendar.perfplanet.com/wp-content/uploads/2013/12/vjeux/4.png" alt="img"></p>
+<p><img data-src="https://calendar.perfplanet.com/wp-content/uploads/2013/12/vjeux/5.png" alt="img"></p>
+<p>Diff 算法 &amp; 真正要更新的节点：</p>
+<p><img data-src="https://calendar.perfplanet.com/wp-content/uploads/2013/12/vjeux/6.png" alt="img"></p>
+<h4 id="如何实现diff算法"><a class="anchor" href="#如何实现diff算法">#</a> 如何实现 Diff 算法</h4>
+<p>完美的最小 Diff 算法，需要 O (n^3) 的复杂度。</p>
+<p>牺牲理论最小 Diff，换取时间，得到了 O (n) 复杂度的算法</p>
+<p><strong>Heuristic O(n) Algorithm</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">不同类型的元素</th>
+<th style="text-align:center">同类型的 DOM 元素</th>
+<th style="text-align:center">同类型的组件元素</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">替换</td>
+<td style="text-align:center">更新</td>
+<td style="text-align:center">递归</td>
+</tr>
+</tbody>
+</table>
+<h2 id="react状态管理库"><a class="anchor" href="#react状态管理库">#</a> React 状态管理库</h2>
+<p><code>Redux</code> 、 <code>xState</code> 、 <code>mobx</code> 、 <code>recoil</code>  等</p>
+<p>特点：<strong>将状态抽离到 UI 外部进行统一管理</strong></p>
+<h3 id="状态机"><a class="anchor" href="#状态机">#</a> 状态机</h3>
+<p><img data-src="https://cdn.jsdelivr.net/gh/tagbug/demo@latest/img/image-20220119113244551.png" alt="image-20220119113244551"></p>
+<h2 id="应用级框架"><a class="anchor" href="#应用级框架">#</a> 应用级框架</h2>
+<ol>
+<li>
+<p>NEXT.js</p>
+<p>硅谷明星创业公司 Vercel 的 React 开发框架，稳定，开发体验好，支持 Unbundled Dev、SWC 等，其同样有 Serverless 一键部署平台帮助开发者快速完成部署。口号是 &quot;Let’s Make Web Faster&quot;</p>
+</li>
+<li>
+<p>MODERN.js</p>
+<p>字节跳动 Web Infra 团队研发的全栈开发框架，内置了很多开箱即用的能力与最佳实践，可以减少很多调研选择工具的时间。</p>
+</li>
+<li>
+<p>Blitz</p>
+<p>无 API 思想的全栈开发框架，开发过程中无需写 API 调用与 CRUD 逻辑，适合前后端紧密结合的小团队项目。</p>
+</li>
+</ol>
+<h2 id="参考资料"><a class="anchor" href="#参考资料">#</a> 参考资料</h2>
+<ul>
+<li>字节<span class="exturl" data-url="aHR0cHM6Ly95b3V0aGNhbXAuYnl0ZWRhbmNlLmNvbS8=">青训营</span>课程</li>
+<li>React<span class="exturl" data-url="aHR0cHM6Ly96aC1oYW5zLnJlYWN0anMub3JnLw=="> 官网</span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9jYWxlbmRhci5wZXJmcGxhbmV0LmNvbS8yMDEzL2RpZmYv">React’s diff algorithm</span></li>
+</ul>
+
+      <div class="tags">
+          <a href="/tags/Web/" rel="tag"><i class="ic i-tag"></i> Web</a>
+          <a href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag"><i class="ic i-tag"></i> 前端</a>
+          <a href="/tags/%E7%AC%94%E8%AE%B0%E8%A1%A5%E5%AE%8C%E8%AE%A1%E5%88%92/" rel="tag"><i class="ic i-tag"></i> 笔记补完计划</a>
+          <a href="/tags/React/" rel="tag"><i class="ic i-tag"></i> React</a>
+      </div>
+  </div>
+
+   <footer>
+
+    <div class="meta">
+  <span class="item">
+    <span class="icon">
+      <i class="ic i-calendar-check"></i>
+    </span>
+    <span class="text">更新于</span>
+    <time title="修改时间：2022-01-20 19:37:36" itemprop="dateModified" datetime="2022-01-20T19:37:36+08:00">2022-01-20</time>
+  </span>
+  <span id="2022/01/20/响应式系统与React-笔记/" class="item leancloud_visitors" data-flag-title="响应式系统与React - 笔记" title="阅读次数">
+      <span class="icon">
+        <i class="ic i-eye"></i>
+      </span>
+      <span class="text">阅读次数</span>
+      <span class="leancloud-visitors-count"></span>
+      <span class="text">次</span>
+  </span>
+</div>
+
+      
+<div class="reward">
+  <button><i class="ic i-heartbeat"></i> 赞赏</button>
+  <p>请我喝[茶]~(￣▽￣)~*</p>
+  <div id="qr">
+      
+      <div>
+        <img data-src="/images/wechatpay.png" alt="TagBug 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/alipay.jpg" alt="TagBug 支付宝">
+        <p>支付宝</p>
+      </div>
+  </div>
+</div>
+
+      
+
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>本文作者： </strong>TagBug <i class="ic i-at"><em>@</em></i>🐟
+  </li>
+  <li class="link">
+    <strong>本文链接：</strong>
+    <a href="http://tagbug.gitlab.io/2022/01/20/%E5%93%8D%E5%BA%94%E5%BC%8F%E7%B3%BB%E7%BB%9F%E4%B8%8EReact-%E7%AC%94%E8%AE%B0/" title="响应式系统与React - 笔记">http://tagbug.gitlab.io/2022/01/20/响应式系统与React-笔记/</a>
+  </li>
+  <li class="license">
+    <strong>版权声明： </strong>本站所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+  </footer>
+
+</article>
+
+  </div>
+  
+
+<div class="post-nav">
+  <div class="item left">
+      
+
+  <a href="/2022/01/18/%E5%89%8D%E7%AB%AF%E5%BF%85%E9%A1%BB%E7%9F%A5%E9%81%93%E7%9A%84%E5%BC%80%E5%8F%91%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86-%E7%AC%94%E8%AE%B0/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;tva1.sinaimg.cn&#x2F;mw690&#x2F;81ef6186ly8gwtyufb11vj20u0146ai3.jpg" title="前端必须知道的开发调试知识 - 笔记">
+  <span class="type">上一篇</span>
+  <span class="category">
+    <i class="ic i-flag"></i>
+    前端</span>
+  <h3>前端必须知道的开发调试知识 - 笔记</h3>
+  </a>
+
+  </div>
+  <div class="item right">
+      
+
+  <a href="/2022/01/20/%E5%89%8D%E7%AB%AF%E5%8A%A8%E7%94%BB%E5%AE%9E%E7%8E%B0-%E7%AC%94%E8%AE%B0/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;tva1.sinaimg.cn&#x2F;mw690&#x2F;81ef6186ly8gwtysz7l4ej20u01hc0yc.jpg" title="前端动画实现 - 笔记">
+  <span class="type">下一篇</span>
+  <span class="category">
+    <i class="ic i-flag"></i>
+    前端</span>
+  <h3>前端动画实现 - 笔记</h3>
+  </a>
+
+  </div>
+</div>
+  
+  <div class="wrap" id="comments"></div>
+
+
+          </div>
+          <div id="sidebar">
+            
+
+<div class="inner">
+
+  <div class="panels">
+    <div class="inner">
+      <div class="contents panel pjax" data-title="文章目录">
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%93%8D%E5%BA%94%E5%BC%8F%E7%B3%BB%E7%BB%9F%E4%B8%8Ereact"><span class="toc-number">1.</span> <span class="toc-text"> 响应式系统与 React</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#react%E7%9A%84%E5%8E%86%E5%8F%B2%E4%B8%8E%E5%BA%94%E7%94%A8"><span class="toc-number">1.1.</span> <span class="toc-text"> React 的历史与应用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8E%86%E5%8F%B2"><span class="toc-number">1.1.1.</span> <span class="toc-text"> 历史</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BA%94%E7%94%A8"><span class="toc-number">1.1.2.</span> <span class="toc-text"> 应用</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#react%E7%9A%84%E8%AE%BE%E8%AE%A1%E6%80%9D%E8%B7%AF"><span class="toc-number">1.2.</span> <span class="toc-text"> React 的设计思路</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ui%E7%BC%96%E7%A8%8B%E7%97%9B%E7%82%B9"><span class="toc-number">1.2.1.</span> <span class="toc-text"> UI 编程痛点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%93%8D%E5%BA%94%E5%BC%8F%E4%B8%8E%E8%BD%AC%E6%8D%A2%E5%BC%8F"><span class="toc-number">1.2.2.</span> <span class="toc-text"> 响应式与转换式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%93%8D%E5%BA%94%E5%BC%8F%E7%BC%96%E7%A8%8B"><span class="toc-number">1.2.3.</span> <span class="toc-text"> 响应式编程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%84%E4%BB%B6%E5%8C%96"><span class="toc-number">1.2.4.</span> <span class="toc-text"> 组件化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%8A%B6%E6%80%81%E5%BD%92%E5%B1%9E"><span class="toc-number">1.2.5.</span> <span class="toc-text"> 状态归属</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%84%E4%BB%B6%E8%AE%BE%E8%AE%A1"><span class="toc-number">1.2.6.</span> <span class="toc-text"> 组件设计</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F"><span class="toc-number">1.2.7.</span> <span class="toc-text"> 生命周期</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#reacthooks%E7%9A%84%E5%86%99%E6%B3%95"><span class="toc-number">1.3.</span> <span class="toc-text"> React（hooks）的写法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#usestate"><span class="toc-number">1.3.0.1.</span> <span class="toc-text"> useState</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#useeffect"><span class="toc-number">1.3.0.2.</span> <span class="toc-text"> useEffect</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#react%E7%9A%84%E5%AE%9E%E7%8E%B0"><span class="toc-number">1.4.</span> <span class="toc-text"> React 的实现</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#problems"><span class="toc-number">1.4.1.</span> <span class="toc-text"> Problems</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#virtual-dom%E8%99%9A%E6%8B%9Fdom"><span class="toc-number">1.4.2.</span> <span class="toc-text"> Virtual DOM（虚拟 DOM）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0diff%E7%AE%97%E6%B3%95"><span class="toc-number">1.4.2.1.</span> <span class="toc-text"> 如何实现 Diff 算法</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#react%E7%8A%B6%E6%80%81%E7%AE%A1%E7%90%86%E5%BA%93"><span class="toc-number">1.5.</span> <span class="toc-text"> React 状态管理库</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%8A%B6%E6%80%81%E6%9C%BA"><span class="toc-number">1.5.1.</span> <span class="toc-text"> 状态机</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BA%94%E7%94%A8%E7%BA%A7%E6%A1%86%E6%9E%B6"><span class="toc-number">1.6.</span> <span class="toc-text"> 应用级框架</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="toc-number">1.7.</span> <span class="toc-text"> 参考资料</span></a></li></ol></li></ol>
+      </div>
+      <div class="related panel pjax" data-title="系列文章">
+        <ul>
+          <li><a href="/2021/09/23/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96-%E7%AC%94%E8%AE%B0/" rel="bookmark" title="前端工程化 - 笔记">前端工程化 - 笔记</a></li><li><a href="/2021/09/25/Node-js%E5%85%A5%E9%97%A8-%E7%AC%94%E8%AE%B0/" rel="bookmark" title="Node.js入门 - 笔记">Node.js入门 - 笔记</a></li><li><a href="/2021/11/13/Web%E5%AE%89%E5%85%A8%E5%9F%BA%E7%A1%80-%E7%AC%94%E8%AE%B0/" rel="bookmark" title="Web安全基础 - 笔记">Web安全基础 - 笔记</a></li><li><a href="/2021/11/15/JS%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E7%AC%94%E8%AE%B0/" rel="bookmark" title="JS设计模式 - 笔记">JS设计模式 - 笔记</a></li><li><a href="/2022/01/17/%E5%89%8D%E7%AB%AF%E4%B8%8EHTML-%E7%AC%94%E8%AE%B0/" rel="bookmark" title="前端与HTML - 笔记">前端与HTML - 笔记</a></li><li><a href="/2022/01/17/%E7%90%86%E8%A7%A3CSS-%E7%AC%94%E8%AE%B0/" rel="bookmark" title="理解CSS - 笔记">理解CSS - 笔记</a></li><li><a href="/2022/01/17/%E5%A6%82%E4%BD%95%E5%86%99%E5%A5%BDJavaScript-%E7%AC%94%E8%AE%B0/" rel="bookmark" title="如何写好JavaScript - 笔记">如何写好JavaScript - 笔记</a></li><li><a href="/2022/01/18/Web%E6%A0%87%E5%87%86%E4%B8%8E%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91-%E7%AC%94%E8%AE%B0/" rel="bookmark" title="Web标准与前端开发 - 笔记">Web标准与前端开发 - 笔记</a></li><li><a href="/2022/01/18/%E5%89%8D%E7%AB%AF%E5%BF%85%E9%A1%BB%E7%9F%A5%E9%81%93%E7%9A%84%E5%BC%80%E5%8F%91%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86-%E7%AC%94%E8%AE%B0/" rel="bookmark" title="前端必须知道的开发调试知识 - 笔记">前端必须知道的开发调试知识 - 笔记</a></li><li class="active"><a href="/2022/01/20/%E5%93%8D%E5%BA%94%E5%BC%8F%E7%B3%BB%E7%BB%9F%E4%B8%8EReact-%E7%AC%94%E8%AE%B0/" rel="bookmark" title="响应式系统与React - 笔记">响应式系统与React - 笔记</a></li><li><a href="/2022/01/20/%E5%89%8D%E7%AB%AF%E5%8A%A8%E7%94%BB%E5%AE%9E%E7%8E%B0-%E7%AC%94%E8%AE%B0/" rel="bookmark" title="前端动画实现 - 笔记">前端动画实现 - 笔记</a></li><li><a href="/2022/01/20/HTTP%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97-%E7%AC%94%E8%AE%B0/" rel="bookmark" title="HTTP实用指南 - 笔记">HTTP实用指南 - 笔记</a></li><li><a href="/2022/01/20/Node-js-%E4%B8%8E%E5%BC%80%E5%8F%91%E5%AE%9E%E6%88%98-%E7%AC%94%E8%AE%B0/" rel="bookmark" title="Node.js 与开发实战 - 笔记">Node.js 与开发实战 - 笔记</a></li><li><a href="/2022/01/21/WebGL%E5%9F%BA%E7%A1%80-%E7%AC%94%E8%AE%B0/" rel="bookmark" title="WebGL基础 - 笔记">WebGL基础 - 笔记</a></li>
+        </ul>
+      </div>
+      <div class="overview panel" data-title="站点概览">
+        <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="image" itemprop="image" alt="TagBug"
+      data-src="/images/avatar.png">
+  <p class="name" itemprop="name">TagBug</p>
+  <div class="description" itemprop="description">所念皆星河</div>
+</div>
+
+<nav class="state">
+    <div class="item posts">
+      <a href="/archives/">
+        <span class="count">20</span>
+        <span class="name">文章</span>
+      </a>
+    </div>
+    <div class="item categories">
+      <a href="/categories/">
+        <span class="count">9</span>
+        <span class="name">分类</span>
+      </a>
+    </div>
+    <div class="item tags">
+      <a href="/tags/">
+        <span class="count">25</span>
+        <span class="name">标签</span>
+      </a>
+    </div>
+</nav>
+
+<div class="social">
+      <span class="exturl item github" data-url="aHR0cHM6Ly9naXRodWIuY29tL3RhZ2J1Zw==" title="https:&#x2F;&#x2F;github.com&#x2F;tagbug"><i class="ic i-github"></i></span>
+      <span class="exturl item email" data-url="bWFpbHRvOjEyNDIxMzUyOTVAcXEuY29t" title="mailto:1242135295@qq.com"><i class="ic i-envelope"></i></span>
+      <span class="exturl item bilibili" data-url="aHR0cHM6Ly9zcGFjZS5iaWxpYmlsaS5jb20vMjgyMjMzMg==" title="https:&#x2F;&#x2F;space.bilibili.com&#x2F;2822332"><i class="ic i-play"></i></span>
+      <span class="exturl item music" data-url="aHR0cHM6Ly9tdXNpYy4xNjMuY29tLyMvdXNlci9ob21lP2lkPTEzMzg4MTUwNw==" title="https:&#x2F;&#x2F;music.163.com&#x2F;#&#x2F;user&#x2F;home?id&#x3D;133881507"><i class="ic i-cloud-music"></i></span>
+      <span class="exturl item weibo" data-url="aHR0cHM6Ly93ZWliby5jb20vdS8yMTc5OTQ4OTM0" title="https:&#x2F;&#x2F;weibo.com&#x2F;u&#x2F;2179948934"><i class="ic i-weibo"></i></span>
+</div>
+
+<ul class="menu">
+  
+    
+  <li class="item">
+    <a href="/" rel="section"><i class="ic i-home"></i>首页</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/about/" rel="section"><i class="ic i-user"></i>关于</a>
+  </li>
+
+        
+  <li class="item dropdown">
+      <a href="javascript:void(0);"><i class="ic i-feather"></i>文章</a>
+    <ul class="submenu">
+
+        
+  <li class="item">
+    <a href="/archives/" rel="section"><i class="ic i-list-alt"></i>归档</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/categories/" rel="section"><i class="ic i-th"></i>分类</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/tags/" rel="section"><i class="ic i-tags"></i>标签</a>
+  </li>
+
+  </ul>
+    
+  <li class="item">
+    <a href="/friend/" rel="section"><i class="ic i-heart"></i>友链</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/music/" rel="section"><i class="ic i-music"></i>音乐</a>
+  </li>
+
+
+</ul>
+
+      </div>
+    </div>
+  </div>
+
+  <ul id="quick">
+    <li class="prev pjax">
+        <a href="/2022/01/18/%E5%89%8D%E7%AB%AF%E5%BF%85%E9%A1%BB%E7%9F%A5%E9%81%93%E7%9A%84%E5%BC%80%E5%8F%91%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86-%E7%AC%94%E8%AE%B0/" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a>
+    </li>
+    <li class="up"><i class="ic i-arrow-up"></i></li>
+    <li class="down"><i class="ic i-arrow-down"></i></li>
+    <li class="next pjax">
+        <a href="/2022/01/20/%E5%89%8D%E7%AB%AF%E5%8A%A8%E7%94%BB%E5%AE%9E%E7%8E%B0-%E7%AC%94%E8%AE%B0/" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a>
+    </li>
+    <li class="percent"></li>
+  </ul>
+</div>
+
+
+          </div>
+          <div class="dimmer"></div>
+        </div>
+      </main>
+      <footer id="footer">
+        <div class="inner">
+          <div class="widgets">
+            
+<div class="rpost pjax">
+  <h2>随机文章</h2>
+  <ul>
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Linux/" title="分类于 Linux">Linux</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Linux/Shell/" title="分类于 Shell">Shell</a>
+</div>
+
+    <span><a href="/2021/02/23/Linux%E7%BB%88%E7%AB%AF%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%93/" title="Linux终端使用总结">Linux终端使用总结</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="分类于 学习笔记">学习笔记</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E5%89%8D%E7%AB%AF/" title="分类于 前端">前端</a>
+</div>
+
+    <span><a href="/2022/01/17/%E5%89%8D%E7%AB%AF%E4%B8%8EHTML-%E7%AC%94%E8%AE%B0/" title="前端与HTML - 笔记">前端与HTML - 笔记</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="分类于 学习笔记">学习笔记</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E5%89%8D%E7%AB%AF/" title="分类于 前端">前端</a>
+</div>
+
+    <span><a href="/2021/09/23/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96-%E7%AC%94%E8%AE%B0/" title="前端工程化 - 笔记">前端工程化 - 笔记</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="分类于 学习笔记">学习笔记</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E5%89%8D%E7%AB%AF/" title="分类于 前端">前端</a>
+</div>
+
+    <span><a href="/2022/01/20/Node-js-%E4%B8%8E%E5%BC%80%E5%8F%91%E5%AE%9E%E6%88%98-%E7%AC%94%E8%AE%B0/" title="Node.js 与开发实战 - 笔记">Node.js 与开发实战 - 笔记</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="分类于 学习笔记">学习笔记</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E5%89%8D%E7%AB%AF/" title="分类于 前端">前端</a>
+</div>
+
+    <span><a href="/2022/01/20/%E5%93%8D%E5%BA%94%E5%BC%8F%E7%B3%BB%E7%BB%9F%E4%B8%8EReact-%E7%AC%94%E8%AE%B0/" title="响应式系统与React - 笔记">响应式系统与React - 笔记</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="分类于 学习笔记">学习笔记</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E5%89%8D%E7%AB%AF/" title="分类于 前端">前端</a>
+</div>
+
+    <span><a href="/2021/09/25/Node-js%E5%85%A5%E9%97%A8-%E7%AC%94%E8%AE%B0/" title="Node.js入门 - 笔记">Node.js入门 - 笔记</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" title="分类于 算法与数据结构">算法与数据结构</a>
+</div>
+
+    <span><a href="/2021/05/07/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93/" title="排序算法总结">排序算法总结</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Java/" title="分类于 Java">Java</a>
+</div>
+
+    <span><a href="/2021/11/30/Maven%E7%AE%80%E5%8D%95%E6%80%BB%E7%BB%93/" title="Maven简单总结">Maven简单总结</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="分类于 学习笔记">学习笔记</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E5%89%8D%E7%AB%AF/" title="分类于 前端">前端</a>
+</div>
+
+    <span><a href="/2022/01/20/%E5%89%8D%E7%AB%AF%E5%8A%A8%E7%94%BB%E5%AE%9E%E7%8E%B0-%E7%AC%94%E8%AE%B0/" title="前端动画实现 - 笔记">前端动画实现 - 笔记</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E5%AE%89%E5%85%A8/" title="分类于 安全">安全</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/%E5%AE%89%E5%85%A8/Web/" title="分类于 Web">Web</a>
+</div>
+
+    <span><a href="/2021/08/15/Js%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A7/" title="Js调试技巧">Js调试技巧</a></span>
+  </li>
+
+  </ul>
+</div>
+<div>
+  <h2>最新评论</h2>
+  <ul class="leancloud-recent-comment"></ul>
+</div>
+
+          </div>
+          <div class="status">
+  <div class="copyright">
+    
+    &copy; 2021 – 
+    <span itemprop="copyrightYear">2022</span>
+    <span class="with-love">
+      <i class="ic i-sakura rotate"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">TagBug @ Tag Bug</span>
+  </div>
+  <div class="count">
+    <span class="post-meta-item-icon">
+      <i class="ic i-chart-area"></i>
+    </span>
+    <span title="站点总字数">82k 字</span>
+
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="ic i-coffee"></i>
+    </span>
+    <span title="站点阅读时长">1:15</span>
+  </div>
+
+  <div class="viewer">
+    <span>❤️感谢 <strong><span id="busuanzi_value_site_uv">282</span></strong> 小伙伴的 <strong><span id="busuanzi_value_site_pv">1685</span></strong> 次光临！❤️</span>
+  </div>
+  <script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" defer></script>
+  <div class="powered-by">
+    基于 <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
+  </div>
+</div>
+
+        </div>
+      </footer>
+    </div>
+    <script data-config="data-config" type="text/javascript">
+      var LOCAL = {
+        path: '2022/01/20/响应式系统与React-笔记/',
+        favicon: {
+          show: "（●´3｀●）やれやれだぜ",
+          hide: "(´Д｀)大変だ！"
+        },
+        search: {
+          placeholder: "文章搜索",
+          empty: "关于 「 ${query} 」，什么也没搜到",
+          stats: "${time} ms 内找到 ${hits} 条结果"
+        },
+          valine: true,mermaid: true,fancybox: true,
+            copyright: '复制成功，转载请遵守 <i class="ic i-creative-commons"></i>BY-NC-SA 协议。',
+        ignores: [
+          function (uri) {
+            return uri.includes('#');
+          },
+          function (uri) {
+            return new RegExp(LOCAL.path + "$").test(uri);
+          }
+        ]
+      };
+    </script>
+
+    <script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
+
+    <script src="//cdn.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
+
+    <script src="/js/app.js?v=0.2.5"></script>
+
+    
+
+
+  </body>
+</html>

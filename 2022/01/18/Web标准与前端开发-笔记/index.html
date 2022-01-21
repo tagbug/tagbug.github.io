@@ -1,0 +1,848 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#FFF">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="icon" type="image/ico" sizes="32x32" href="/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+<link rel="alternate" type="application/rss+xml" title="🐟" href="http://tagbug.gitlab.io/rss.xml"/>
+<link rel="alternate" type="application/atom+xml" title="🐟" href="http://tagbug.gitlab.io/atom.xml"/>
+<link rel="alternate" type="application/json" title="🐟" href="http://tagbug.gitlab.io/feed.json"/>
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="/css/app.css?v=0.2.5">
+    
+  <meta name="keywords" content="Web,前端,笔记补完计划" />
+
+
+<link rel="canonical" href="http://tagbug.gitlab.io/2022/01/18/Web%E6%A0%87%E5%87%86%E4%B8%8E%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91-%E7%AC%94%E8%AE%B0/">
+
+
+
+    <title>
+      
+Web标准与前端开发 - 笔记 - 前端 - 学习笔记 |
+Tag Bug = 🐟</title>
+  <meta name="generator" content="Hexo 5.4.0"></head>
+  <body itemscope="itemscope" itemtype="http://schema.org/WebPage">
+    <div id="loading">
+      <div class="cat">
+        <div class="body"></div>
+        <div class="head">
+          <div class="face"></div>
+        </div>
+        <div class="foot">
+          <div class="tummy-end"></div>
+          <div class="bottom"></div>
+          <div class="legs left"></div>
+          <div class="legs right"></div>
+        </div>
+        <div class="paw">
+          <div class="hands left"></div>
+          <div class="hands right"></div>
+        </div>
+      </div>
+    </div>
+    <div id="container">
+      <header id="header" itemscope="itemscope" itemtype="http://schema.org/WPHeader">
+        <div class="inner">
+          <div id="brand">
+            <div class="pjax">
+              
+  <h1 itemprop="name headline">Web标准与前端开发 - 笔记
+  </h1>
+  
+<div class="meta">
+  <span class="item" title="创建时间：2022-01-18 19:16:05">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">发表于</span>
+    <time itemprop="dateCreated datePublished" datetime="2022-01-18T19:16:05+08:00">2022-01-18</time>
+  </span>
+  <span class="item" title="本文字数">
+    <span class="icon">
+      <i class="ic i-pen"></i>
+    </span>
+    <span class="text">本文字数</span>
+    <span>4.9k</span>
+    <span class="text">字</span>
+  </span>
+  <span class="item" title="阅读时长">
+    <span class="icon">
+      <i class="ic i-clock"></i>
+    </span>
+    <span class="text">阅读时长</span>
+    <span>4 分钟</span>
+  </span>
+</div>
+
+
+            </div>
+          </div>
+          <nav id="nav">
+  <div class="inner">
+    <div class="toggle">
+      <div class="lines" aria-label="切换导航栏">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <ul class="menu">
+      <li class="item title"><a href="/" rel="start">Tag Bug</a></li>
+    </ul>
+    <ul class="right">
+      <li class="item theme">
+        <i class="ic i-sun"></i>
+      </li>
+      <li class="item search">
+        <i class="ic i-search"></i>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+        </div>
+        <div id="imgs" class="pjax">
+            <img src="https://cdn.jsdelivr.net/gh/tagbug/demo@latest/img/1629192438444.png">
+        </div>
+      </header>
+      <div id="waves">
+        <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewbox="0 24 150 28" preserveaspectratio="none" shape-rendering="auto">
+          <defs>
+            <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"/>
+          </defs>
+          <g class="parallax">
+            <use xlink:href="#gentle-wave" x="48" y="0"/>
+            <use xlink:href="#gentle-wave" x="48" y="3"/>
+            <use xlink:href="#gentle-wave" x="48" y="5"/>
+            <use xlink:href="#gentle-wave" x="48" y="7"/>
+          </g>
+        </svg>
+      </div>
+      <main>
+        <div class="inner">
+          <div id="main" class="pjax">
+            
+  <div class="article wrap">
+    
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/">首页</a></span><i class="ic i-angle-right"></i>
+<span  itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" itemprop="item" rel="index" title="分类于 学习笔记"><span itemprop="name">学习笔记</span></a>
+<meta itemprop="position" content="1" /></span>
+<i class="ic i-angle-right"></i>
+<span  class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E5%89%8D%E7%AB%AF/" itemprop="item" rel="index" title="分类于 前端"><span itemprop="name">前端</span></a>
+<meta itemprop="position" content="2" /></span>
+</div>
+
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh-CN">
+  <link itemprop="mainEntityOfPage" href="http://tagbug.gitlab.io/2022/01/18/Web%E6%A0%87%E5%87%86%E4%B8%8E%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91-%E7%AC%94%E8%AE%B0/">
+
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="/images/avatar.png">
+    <meta itemprop="name" content="TagBug">
+    <meta itemprop="description" content=", 所念皆星河">
+  </span>
+
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="🐟">
+  </span>
+
+  <div class="body md" itemprop="articleBody">
+    
+
+    <blockquote>
+<p>关于前端开发：起源、架构、变迁、前端应用领域、语言、框架、工具、前端学习路线</p>
+<p>关于 Web 标准：标准组织、W3C 及 Ecma 会员、W3C 规范制定流程、如何参与标准制定</p>
+<p>一些问题和回答</p>
+</blockquote>
+<span id="more"></span>
+<h1 id="web标准与前端开发-笔记"><a class="anchor" href="#web标准与前端开发-笔记">#</a> Web 标准与前端开发 - 笔记</h1>
+<h2 id="关于前端开发"><a class="anchor" href="#关于前端开发">#</a> 关于前端开发</h2>
+<h3 id="起源"><a class="anchor" href="#起源">#</a> 起源</h3>
+<p>在 1989 年，在 CERN 工作的<em> Tim Berners-Lee</em> 写了一个关于信息管理的建议<strong>《Informational Management: A Proposal》</strong>，提及基于超文本来构建文档网络的想法，这份文档被公认为 Web 的起源。</p>
+<h3 id="架构"><a class="anchor" href="#架构">#</a> 架构</h3>
+<p>直到现在，很多人也不是很清楚 “上网” 指的是上什么网。“上网” 实际上指的就是接入<strong> Internet</strong>，而我们平时使用搜索引擎、访问网页、使用网络聊天应用都是指使用<strong> Web</strong>。前者相当于一个高速公路，提供各种底层的数据传输协议、架构等，后者相当于是一个非常大的物流公司，提供具体服务，比如说：在浏览器中输入网址、访问网页，实际上就是访问远程服务器的<strong> 80</strong>(<em>HTTP</em>)/<strong>443</strong>(<em>HTPPS</em>) 端口，而还有其他的服务（比如收发邮件）则使用的是另外的对应端口。</p>
+<p>1989 年诞生时，Web 由三种技术构成：<strong>HTML、HTTP、URL</strong>，而 CSS 和 JavaScript 是几年之后（1995 年前后）才出现的。</p>
+<p><strong>HTML</strong> 是超文本标记语言，用来做 Document；</p>
+<p><strong>HTTP</strong> 是超文本传输协议，用来传输 Document，在 TCP/IP 之上，封装的是 HTTP 这个资源的数据包；</p>
+<p><strong>URL</strong> 是统一资源定位符，在 HTTP 的上下文中，一般也被称为网址，在浏览器的地址栏中显示，例如 <code>https://developer.mozilla.org</code> 。</p>
+<p>客户端（浏览器）因为是直接面向用户，所以就是前端，而服务器因为用户不能直接接触到，所以就成了后端。</p>
+<h3 id="变迁"><a class="anchor" href="#变迁">#</a> 变迁</h3>
+<ol>
+<li>
+<p>1989-2004（只读时代）：</p>
+<p><strong>HTML/CSS/JavaScript</strong></p>
+<ul>
+<li>单项发布</li>
+<li>静态只读</li>
+<li>链接跳转</li>
+<li>刷新页面</li>
+<li>表格对齐元素</li>
+<li>CGI</li>
+</ul>
+<p>在这个时代中，浏览器更像是一个阅读器，页面的更新必须依靠浏览器的刷新（重新向服务器发送一次请求，获取 HTML）进行页面的整体替换。</p>
+</li>
+<li>
+<p>2005-2010（体验时代）：</p>
+<p><strong>Ajax/Web API/jQuery</strong></p>
+<ul>
+<li>动态交互</li>
+<li>社交媒体</li>
+<li>用户生成内容（UGC）</li>
+<li>单页应用（SPA）</li>
+<li>jQuery</li>
+<li>YUI</li>
+</ul>
+<p>这个时代的标志就是 Ajax，浏览器可以不用刷新网页，通过 JS 的对象在后台就能向服务器发送请求，局部更新页面，实现了 Web 从一个简单的页面到 Web App 的跨越。</p>
+</li>
+<li>
+<p>2010-2021（敏捷时代）：</p>
+<p><strong>Fetch/Node.js/Webpack</strong></p>
+<ul>
+<li>模块化</li>
+<li>组件化</li>
+<li>转译（transpiling）</li>
+<li>打包（bundling）</li>
+<li>React&amp;Vue</li>
+</ul>
+<p>这个时代是从 iPhone 的发布开始的，Web 逐渐开始跨向移动领域，用户体验越来越被重视，前端开始真正变成一个独立的工种（职业），得益于 Node.js 的问世，前端工程师也能够处理后端的工作了，为前端的规模化、敏捷化打下了基础</p>
+</li>
+</ol>
+<h3 id="前端应用领域"><a class="anchor" href="#前端应用领域">#</a> 前端应用领域</h3>
+<ol>
+<li>ToB（To Business）：面向企业、大型组织 &amp; 机构
+<ul>
+<li>包括商业引擎、CRM、中后台管理面板等</li>
+</ul>
+</li>
+<li>ToC（To Customer）：面向终端客户 &amp; 消费者
+<ul>
+<li>包括门户网站、电商平台、在线教育、新闻资讯、生活娱乐平台等</li>
+</ul>
+</li>
+<li>ToD（To Developer）：面向开发者
+<ul>
+<li>包括面向开发者的平台、框架、工具、VSCode 等</li>
+</ul>
+</li>
+</ol>
+<p>Web 浏览器主要分为：</p>
+<ol>
+<li>桌面端：Chrome 内核（Chrome、Edge、Opera）、Firefox、Safari</li>
+<li>移动端：Android（WebView）、IOS（Safari）</li>
+</ol>
+<p>服务器技术主要有：</p>
+<ul>
+<li>Node.js</li>
+<li>Express.js</li>
+<li>koa</li>
+<li>Deno（基于 Rust 语言的新一代 js&amp;ts 运行时）</li>
+</ul>
+<p>终端和跨端技术主要有：</p>
+<ol>
+<li>命令行 / 终端（脚手架）：
+<ul>
+<li>Webpack CLI</li>
+<li>Bacel CLI</li>
+<li>React/Vue CLI</li>
+</ul>
+</li>
+<li>桌面跨端：
+<ul>
+<li>Electron</li>
+<li>NW.js</li>
+</ul>
+</li>
+<li>移动跨端：
+<ul>
+<li>React Native</li>
+<li>Flutter</li>
+</ul>
+</li>
+</ol>
+<h3 id="语言-框架-工具"><a class="anchor" href="#语言-框架-工具">#</a> 语言、框架、工具</h3>
+<p>浏览器语言有：</p>
+<ol>
+<li>HTML、CSS、JavaScript：在很长时间都是浏览器中只能使用的语言</li>
+<li>WebAssembly：2019 年成为标准，是一种类汇编的语言，可以由 C/C++/Rust/Kotlin 等语言编译而成，可以与 JavaScript 互操作、传递消息、共享内存，速度接近平台的<strong>原生</strong>速度</li>
+</ol>
+<p>常用框架和工具有：Node.js、koa、React、Vue、TypeScript、git、Babel、webpack、esbuild 等 *（在学习一个框架 / 工具时，可以去了解一下其作者，写这个框架 / 工具的初衷是什么，这样可以帮助更好的理解和学习）*</p>
+<h3 id="浏览器-网络-服务器"><a class="anchor" href="#浏览器-网络-服务器">#</a> 浏览器、网络、服务器</h3>
+<p>推荐两篇文章：</p>
+<ul>
+<li><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tLzc1dGVhbS93M2MvYmxvYi9tYXN0ZXIvYXJ0aWNsZXMvMjAxOTA2MDNfY25jdWNrb29fJUU2JUI3JUIxJUU1JTg1JUE1JUU3JTkwJTg2JUU4JUE3JUEzJUU3JThFJUIwJUU0JUJCJUEzJUU2JUI1JThGJUU4JUE3JTg4JUU1JTk5JUE4Lm1k">深入理解现代浏览器</span>：告诉你在浏览器输入网址按回车之后，真正发生的事情</li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9XZWIvSFRUUC9PdmVydmlldw==">HTTP 概述 - MDN</span>：帮助你理解 HTTP 协议</li>
+</ul>
+<h3 id="前端学习路线"><a class="anchor" href="#前端学习路线">#</a> 前端学习路线</h3>
+<p>路线图推荐：</p>
+<ul>
+<li>
+<p>中文：<span class="exturl" data-url="aHR0cHM6Ly9vYmp0dWJlLmdpdGh1Yi5pby9mcm9udC1lbmQtcm9hZG1hcC8jLw==">ObjTube</span></p>
+</li>
+<li>
+<p>英文：<span class="exturl" data-url="aHR0cHM6Ly9yb2FkbWFwLnNoL2Zyb250ZW5k">RoadMap.sh</span></p>
+</li>
+</ul>
+<p><strong>学习永无止境，翻滚吧后浪！</strong></p>
+<h2 id="关于web标准"><a class="anchor" href="#关于web标准">#</a> 关于 Web 标准</h2>
+<h3 id="标准组织"><a class="anchor" href="#标准组织">#</a> 标准组织</h3>
+<ol>
+<li>
+<p><strong>W3C</strong>: <em>World Wide Web Consortium</em>（万维网联盟）</p>
+<p>制定了 HTML、CSS、DOM 相关标准</p>
+</li>
+<li>
+<p><strong>Ecma</strong>: <em>Ecma International</em>（Ecam 国际）</p>
+<p>制定了 JavaScript 相关的语言标准，如：ES5、ES6、ES2015、ES2016、ES2017、ES2018、ES2019、ES2020、ES2021</p>
+</li>
+<li>
+<p><strong>WHATWG</strong>: <em>Web Hypertext Application Technology Working Group</em>（Web 超文本应用技术工作组）</p>
+<p>制定了 DOM、Web API 相关标准</p>
+</li>
+<li>
+<p><strong>IETF</strong>: <em>Internet Engineering Task Force</em>（互联网工程任务组）</p>
+<p>制定了 HTTP 等基础通信协议标准</p>
+</li>
+</ol>
+<h3 id="w3c及ecma会员"><a class="anchor" href="#w3c及ecma会员">#</a> W3C 及 Ecma 会员</h3>
+<ul>
+<li>
+<p>W3C 目前在全球有<span class="exturl" data-url="aHR0cHM6Ly93d3cudzMub3JnL0NvbnNvcnRpdW0vTWVtYmVyL0xpc3Q="> 457 家</span>会员，其中北航总部（中国区）会员<span class="exturl" data-url="aHR0cHM6Ly93d3cuY2hpbmF3M2Mub3JnL2NoaW5hLW1lbWJlcnMuaHRtbA=="> 47 家</span></p>
+<p>全球很多著名互联网公司（特别是浏览器厂商）都是 W3C 会员，根据加入组织的年营业额来缴纳会费</p>
+</li>
+<li>
+<p>Ecma 的 AM（Associate Member）会员目前有 18 家，中国公司有字节跳动、360、阿里、华为、腾讯等<span class="exturl" data-url="aHR0cHM6Ly93d3cuZWNtYS1pbnRlcm5hdGlvbmFsLm9yZy9hYm91dC1lY21hL21lbWJlcnMv"> 5 家</span></p>
+<p>Ecma 的会员分为 AM 和 OM，OM 比 AM 多了一项投票权，可以决定一些 Ecma 的重大事务（包括是否批准新会员的加入），AM 的会费一年大概 250,000RMB 左右</p>
+</li>
+</ul>
+<h3 id="w3c规范制定流程"><a class="anchor" href="#w3c规范制定流程">#</a> W3C 规范<span class="exturl" data-url="aHR0cHM6Ly93d3cudzMub3JnLzIwMjAvUHJvY2Vzcy0yMDIwMDkxNS8=">制定流程</span></h3>
+<ol>
+<li>WD（Worker Draft）</li>
+<li>CR（Candidate Recommendation）</li>
+<li>PR（Proposed Recommendation）</li>
+<li>REC（Recommendation）</li>
+</ol>
+<h4 id="contribute"><a class="anchor" href="#contribute">#</a> Contribute</h4>
+<p>Explainer demo</p>
+<p>Find the right community/group</p>
+<p>Web IDL for APIs link</p>
+<p>Step-by-step algorithms</p>
+<p>GitHub, Markdown, respec, bikeshed, etc.</p>
+<p>Get an early review w3ctag/design-reviews</p>
+<p>Write web-platform-tests (WPT) tests</p>
+<h3 id="ecma-tc39规范制定流程"><a class="anchor" href="#ecma-tc39规范制定流程">#</a> Ecma TC39 规范<span class="exturl" data-url="aHR0cHM6Ly93d3cuZWNtYS1pbnRlcm5hdGlvbmFsLm9yZy9wdWJsaWNhdGlvbnMtYW5kLXN0YW5kYXJkcy9zdGFuZGFyZHMvZWNtYS0yNjIv">制定流程</span></h3>
+<ol>
+<li>STAGE 0（strawman）：以任何形式提交的想法</li>
+<li>STAGE 1（proposal）：正式的建议 &amp; 文档</li>
+<li>STAGE 2（draft）：有语法 &amp; 语义相关的描述</li>
+<li>STAGE 3（candidate）：规范文本完备且至少有两个实现</li>
+<li>STAGE 4（finished）：成为标准</li>
+</ol>
+<h4 id="contribute-2"><a class="anchor" href="#contribute-2">#</a> Contribute</h4>
+<p>Championing a proposal at TC39</p>
+<p>How to write a good explainer</p>
+<p>Presenting a Proposal to TC39</p>
+<p>Reading a proposal draft</p>
+<p>Stage 3 Proposal Reviews</p>
+<p>How to experiment with a proposal before Stage 4</p>
+<p>Implementing and shipping TC39 proposals</p>
+<h3 id="如何参与标准制定"><a class="anchor" href="#如何参与标准制定">#</a> 如何参与标准制定</h3>
+<h4 id="w3c会议"><a class="anchor" href="#w3c会议">#</a> W3C 会议</h4>
+<p>W3C Technical Plenary / Advisory Committee Meetings Week（简称 TPAC) 是 W3C 一年一度的全球技术大会，汇集 W3C 各工作小组成员 (工作组、兴趣组、社区组等)、咨询委员会 (AB)、技术架构组 (TAG)、会员单位代表 (AC)、公众特邀专家以及全球社区成员，通过为期 1-2 周的集中互动交流，深入探讨未来开放 Web 平台技术方向。</p>
+<h4 id="参加w3c会议"><a class="anchor" href="#参加w3c会议">#</a> 参加 W3C 会议</h4>
+<ol>
+<li>年度大会
+<ul>
+<li>AC（Advisory Committee）：每个会员出一个代表，每年定期开会，主要是事务性的会议，持续 2-3 天</li>
+<li>TPAC（Technical Plenary and Advisory Committee）：技术大会，对所有会员开放，持续一周</li>
+</ul>
+</li>
+<li>工作组会议
+<ul>
+<li>每月会议</li>
+<li>各种研讨会</li>
+</ul>
+</li>
+</ol>
+<h4 id="参加emca会议"><a class="anchor" href="#参加emca会议">#</a> 参加 Emca 会议</h4>
+<ol>
+<li>年度大会：GA（General Assembly），讨论重大事宜，投票通过每年的新会员申请</li>
+<li>TC39 会议：每 1-2 个月</li>
+</ol>
+<h2 id="一些问题"><a class="anchor" href="#一些问题">#</a> 一些问题</h2>
+<h3 id="加入会员对公司有什么好处"><a class="anchor" href="#加入会员对公司有什么好处">#</a> 加入会员对公司有什么好处？</h3>
+<p>加入会员对公司来说，有几个方面的好处：</p>
+<ol>
+<li>这些标准决定未来行业发展趋势，很多公司在做基础设施建设的时候，也会产出一些类似标准的方案，如果作为会员，就能够深入得到参与到工作组的讨论，进行对前景早期的交流，获取行业内部第一手的资料，对公司的发展 &amp; 部署都有帮助</li>
+<li>作为会员公司的员工，能够代表公司参加会议，接触到标准前沿，认识到行业内的大佬，对整个学习氛围都是很有帮助的</li>
+</ol>
+<h3 id="现在还要学jquery吗"><a class="anchor" href="#现在还要学jquery吗">#</a> 现在还要学 jQuery 吗？</h3>
+<p>在大公司的项目里，基本见不到用 jQuery 的了</p>
+<p>对于技术发展不是那么快的公司，项目代码里可能还会用到 jQuery</p>
+<p>之前流行的原因是：早期很多浏览器的实现不一致，jQuery 解决了跨浏览器的兼容问题</p>
+<p>但是现在浏览器的发展趋同化，浏览器的多样性实际上在减少，兼容性的问题越来越少，jQuery 就没那么重要了；相反，组件式开发框架 React、Vue 和函数式实用工具库变得比较受欢迎</p>
+<p>所以 jQuery 没有必要花太多时间去学，如果感兴趣可以学一学</p>
+<h3 id="nodejs现在在大公司的应用方向"><a class="anchor" href="#nodejs现在在大公司的应用方向">#</a> Node.js 现在在大公司的应用方向？</h3>
+<p>由于前端工程师学习 Node.js 比较简单，所以应用还是比较广泛的，比如 ToB 和 ToD：</p>
+<ul>
+<li>BFF（Backend For Frontend）：在后端与前端之间的一个中间层，根据前端不断变化的应用，对后端接口进行进一步封装</li>
+<li>npm：大公司内部一般都有自己的 npm 仓库，npm 包（自研组件库等）都是用 Node.js 来写的</li>
+</ul>
+<h3 id="要先搞透js再学框架还是同时深入"><a class="anchor" href="#要先搞透js再学框架还是同时深入">#</a> 要先搞透 js 再学框架还是同时深入？</h3>
+<p>框架和 js 的学习是相辅相成的，框架实际上是一种更高层次的抽象，对框架的实践 &amp; 运用也能使你对 js 架构、设计模式层面有更深入的理解</p>
+<h3 id="元宇宙跟前端有关系吗"><a class="anchor" href="#元宇宙跟前端有关系吗">#</a> 元宇宙跟前端有关系吗？</h3>
+<p>有，元宇宙平台可以给前端提供 API 接口，从而使开发者可以在元宇宙平台中开发丰富多样的应用</p>
+<h3 id="webassembly是前端人员去做吗是否意味着前端要学习crustgo"><a class="anchor" href="#webassembly是前端人员去做吗是否意味着前端要学习crustgo">#</a> WebAssembly 是前端人员去做吗？是否意味着前端要学习 c++/rust/go？</h3>
+<p>WebAssembly 实际上是两种开发生态的融合，为了解决前端的计算量 &amp; 性能问题，JavaScript 的性能是毫秒级的，Rust/Go 等原生语言的性能是纳秒级的</p>
+<p>任务层面：前端开发者可以了解怎么把原生的应用转换成 WebAssembly，以及其完善、扩展</p>
+<p>提高层面：作为前端开发者也应该了解底层的系统编程语言，Rust/Go 都是很值得去学习的，以便了解系统底层原理</p>
+<h3 id="怎么看待低代码平台"><a class="anchor" href="#怎么看待低代码平台">#</a> 怎么看待低代码平台？</h3>
+<p>低代码平台对前端来说是种机遇，可以为前端提供很多工作岗位，但同时也是一种挑战，需要很多新的算法、技术解决方案</p>
+<h3 id="webassembly用的多吗在字节跳动应用如何"><a class="anchor" href="#webassembly用的多吗在字节跳动应用如何">#</a> WebAssembly 用的多吗？在字节跳动应用如何？</h3>
+<p>WebAssembly 在大公司应用的还是很多的，大公司对于解决应用性能的需求是十分迫切的，且也有相应的资源进行人才扩招和项目落地</p>
+<p>在规模不是太大的公司，对性能的需求不是特别高，就不会优先考虑</p>
+<h3 id="使用类似nest的nodejs后端框架在性能上会和spring-go写的后端差距很大吗"><a class="anchor" href="#使用类似nest的nodejs后端框架在性能上会和spring-go写的后端差距很大吗">#</a> 使用类似 nest 的 Node.js 后端框架在性能上会和 spring、go 写的后端差距很大吗？</h3>
+<p>很大。建议看一下<span class="exturl" data-url="aHR0cHM6Ly9lc2J1aWxkLmdpdGh1Yi5pby8="> esbuild</span> 的官网，esbuild 使用 go 语言编写，而 webpack 使用 Node.js 编写，其性能差异可达百倍。</p>
+<h2 id="参考资料"><a class="anchor" href="#参考资料">#</a> 参考资料</h2>
+<ul>
+<li>
+<p>字节<span class="exturl" data-url="aHR0cHM6Ly95b3V0aGNhbXAuYnl0ZWRhbmNlLmNvbS8=">青训营</span>课程</p>
+</li>
+<li>
+<p><span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9XZWI=">MDN</span> 中文文档</p>
+</li>
+</ul>
+
+      <div class="tags">
+          <a href="/tags/Web/" rel="tag"><i class="ic i-tag"></i> Web</a>
+          <a href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag"><i class="ic i-tag"></i> 前端</a>
+          <a href="/tags/%E7%AC%94%E8%AE%B0%E8%A1%A5%E5%AE%8C%E8%AE%A1%E5%88%92/" rel="tag"><i class="ic i-tag"></i> 笔记补完计划</a>
+      </div>
+  </div>
+
+   <footer>
+
+    <div class="meta">
+  <span class="item">
+    <span class="icon">
+      <i class="ic i-calendar-check"></i>
+    </span>
+    <span class="text">更新于</span>
+    <time title="修改时间：2022-01-18 19:20:18" itemprop="dateModified" datetime="2022-01-18T19:20:18+08:00">2022-01-18</time>
+  </span>
+  <span id="2022/01/18/Web标准与前端开发-笔记/" class="item leancloud_visitors" data-flag-title="Web标准与前端开发 - 笔记" title="阅读次数">
+      <span class="icon">
+        <i class="ic i-eye"></i>
+      </span>
+      <span class="text">阅读次数</span>
+      <span class="leancloud-visitors-count"></span>
+      <span class="text">次</span>
+  </span>
+</div>
+
+      
+<div class="reward">
+  <button><i class="ic i-heartbeat"></i> 赞赏</button>
+  <p>请我喝[茶]~(￣▽￣)~*</p>
+  <div id="qr">
+      
+      <div>
+        <img data-src="/images/wechatpay.png" alt="TagBug 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/alipay.jpg" alt="TagBug 支付宝">
+        <p>支付宝</p>
+      </div>
+  </div>
+</div>
+
+      
+
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>本文作者： </strong>TagBug <i class="ic i-at"><em>@</em></i>🐟
+  </li>
+  <li class="link">
+    <strong>本文链接：</strong>
+    <a href="http://tagbug.gitlab.io/2022/01/18/Web%E6%A0%87%E5%87%86%E4%B8%8E%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91-%E7%AC%94%E8%AE%B0/" title="Web标准与前端开发 - 笔记">http://tagbug.gitlab.io/2022/01/18/Web标准与前端开发-笔记/</a>
+  </li>
+  <li class="license">
+    <strong>版权声明： </strong>本站所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+  </footer>
+
+</article>
+
+  </div>
+  
+
+<div class="post-nav">
+  <div class="item left">
+      
+
+  <a href="/2022/01/17/%E5%A6%82%E4%BD%95%E5%86%99%E5%A5%BDJavaScript-%E7%AC%94%E8%AE%B0/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;tva1.sinaimg.cn&#x2F;mw690&#x2F;81ef6186ly8gwtywskqd3j20u016jwli.jpg" title="如何写好JavaScript - 笔记">
+  <span class="type">上一篇</span>
+  <span class="category">
+    <i class="ic i-flag"></i>
+    前端</span>
+  <h3>如何写好JavaScript - 笔记</h3>
+  </a>
+
+  </div>
+  <div class="item right">
+      
+
+  <a href="/2022/01/18/%E5%89%8D%E7%AB%AF%E5%BF%85%E9%A1%BB%E7%9F%A5%E9%81%93%E7%9A%84%E5%BC%80%E5%8F%91%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86-%E7%AC%94%E8%AE%B0/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;tva1.sinaimg.cn&#x2F;mw690&#x2F;81ef6186ly8gwtzl7xi5lj20zk0k0400.jpg" title="前端必须知道的开发调试知识 - 笔记">
+  <span class="type">下一篇</span>
+  <span class="category">
+    <i class="ic i-flag"></i>
+    前端</span>
+  <h3>前端必须知道的开发调试知识 - 笔记</h3>
+  </a>
+
+  </div>
+</div>
+  
+  <div class="wrap" id="comments"></div>
+
+
+          </div>
+          <div id="sidebar">
+            
+
+<div class="inner">
+
+  <div class="panels">
+    <div class="inner">
+      <div class="contents panel pjax" data-title="文章目录">
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#web%E6%A0%87%E5%87%86%E4%B8%8E%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91-%E7%AC%94%E8%AE%B0"><span class="toc-number">1.</span> <span class="toc-text"> Web 标准与前端开发 - 笔记</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B3%E4%BA%8E%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91"><span class="toc-number">1.1.</span> <span class="toc-text"> 关于前端开发</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B5%B7%E6%BA%90"><span class="toc-number">1.1.1.</span> <span class="toc-text"> 起源</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9E%B6%E6%9E%84"><span class="toc-number">1.1.2.</span> <span class="toc-text"> 架构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%98%E8%BF%81"><span class="toc-number">1.1.3.</span> <span class="toc-text"> 变迁</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%89%8D%E7%AB%AF%E5%BA%94%E7%94%A8%E9%A2%86%E5%9F%9F"><span class="toc-number">1.1.4.</span> <span class="toc-text"> 前端应用领域</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%AD%E8%A8%80-%E6%A1%86%E6%9E%B6-%E5%B7%A5%E5%85%B7"><span class="toc-number">1.1.5.</span> <span class="toc-text"> 语言、框架、工具</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B5%8F%E8%A7%88%E5%99%A8-%E7%BD%91%E7%BB%9C-%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="toc-number">1.1.6.</span> <span class="toc-text"> 浏览器、网络、服务器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF"><span class="toc-number">1.1.7.</span> <span class="toc-text"> 前端学习路线</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B3%E4%BA%8Eweb%E6%A0%87%E5%87%86"><span class="toc-number">1.2.</span> <span class="toc-text"> 关于 Web 标准</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%87%E5%87%86%E7%BB%84%E7%BB%87"><span class="toc-number">1.2.1.</span> <span class="toc-text"> 标准组织</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#w3c%E5%8F%8Aecma%E4%BC%9A%E5%91%98"><span class="toc-number">1.2.2.</span> <span class="toc-text"> W3C 及 Ecma 会员</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#w3c%E8%A7%84%E8%8C%83%E5%88%B6%E5%AE%9A%E6%B5%81%E7%A8%8B"><span class="toc-number">1.2.3.</span> <span class="toc-text"> W3C 规范制定流程</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#contribute"><span class="toc-number">1.2.3.1.</span> <span class="toc-text"> Contribute</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ecma-tc39%E8%A7%84%E8%8C%83%E5%88%B6%E5%AE%9A%E6%B5%81%E7%A8%8B"><span class="toc-number">1.2.4.</span> <span class="toc-text"> Ecma TC39 规范制定流程</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#contribute-2"><span class="toc-number">1.2.4.1.</span> <span class="toc-text"> Contribute</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E5%8F%82%E4%B8%8E%E6%A0%87%E5%87%86%E5%88%B6%E5%AE%9A"><span class="toc-number">1.2.5.</span> <span class="toc-text"> 如何参与标准制定</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#w3c%E4%BC%9A%E8%AE%AE"><span class="toc-number">1.2.5.1.</span> <span class="toc-text"> W3C 会议</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%82%E5%8A%A0w3c%E4%BC%9A%E8%AE%AE"><span class="toc-number">1.2.5.2.</span> <span class="toc-text"> 参加 W3C 会议</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%82%E5%8A%A0emca%E4%BC%9A%E8%AE%AE"><span class="toc-number">1.2.5.3.</span> <span class="toc-text"> 参加 Emca 会议</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98"><span class="toc-number">1.3.</span> <span class="toc-text"> 一些问题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8A%A0%E5%85%A5%E4%BC%9A%E5%91%98%E5%AF%B9%E5%85%AC%E5%8F%B8%E6%9C%89%E4%BB%80%E4%B9%88%E5%A5%BD%E5%A4%84"><span class="toc-number">1.3.1.</span> <span class="toc-text"> 加入会员对公司有什么好处？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%8E%B0%E5%9C%A8%E8%BF%98%E8%A6%81%E5%AD%A6jquery%E5%90%97"><span class="toc-number">1.3.2.</span> <span class="toc-text"> 现在还要学 jQuery 吗？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#nodejs%E7%8E%B0%E5%9C%A8%E5%9C%A8%E5%A4%A7%E5%85%AC%E5%8F%B8%E7%9A%84%E5%BA%94%E7%94%A8%E6%96%B9%E5%90%91"><span class="toc-number">1.3.3.</span> <span class="toc-text"> Node.js 现在在大公司的应用方向？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A6%81%E5%85%88%E6%90%9E%E9%80%8Fjs%E5%86%8D%E5%AD%A6%E6%A1%86%E6%9E%B6%E8%BF%98%E6%98%AF%E5%90%8C%E6%97%B6%E6%B7%B1%E5%85%A5"><span class="toc-number">1.3.4.</span> <span class="toc-text"> 要先搞透 js 再学框架还是同时深入？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%83%E5%AE%87%E5%AE%99%E8%B7%9F%E5%89%8D%E7%AB%AF%E6%9C%89%E5%85%B3%E7%B3%BB%E5%90%97"><span class="toc-number">1.3.5.</span> <span class="toc-text"> 元宇宙跟前端有关系吗？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#webassembly%E6%98%AF%E5%89%8D%E7%AB%AF%E4%BA%BA%E5%91%98%E5%8E%BB%E5%81%9A%E5%90%97%E6%98%AF%E5%90%A6%E6%84%8F%E5%91%B3%E7%9D%80%E5%89%8D%E7%AB%AF%E8%A6%81%E5%AD%A6%E4%B9%A0crustgo"><span class="toc-number">1.3.6.</span> <span class="toc-text"> WebAssembly 是前端人员去做吗？是否意味着前端要学习 c++&#x2F;rust&#x2F;go？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%8E%E4%B9%88%E7%9C%8B%E5%BE%85%E4%BD%8E%E4%BB%A3%E7%A0%81%E5%B9%B3%E5%8F%B0"><span class="toc-number">1.3.7.</span> <span class="toc-text"> 怎么看待低代码平台？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#webassembly%E7%94%A8%E7%9A%84%E5%A4%9A%E5%90%97%E5%9C%A8%E5%AD%97%E8%8A%82%E8%B7%B3%E5%8A%A8%E5%BA%94%E7%94%A8%E5%A6%82%E4%BD%95"><span class="toc-number">1.3.8.</span> <span class="toc-text"> WebAssembly 用的多吗？在字节跳动应用如何？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E7%B1%BB%E4%BC%BCnest%E7%9A%84nodejs%E5%90%8E%E7%AB%AF%E6%A1%86%E6%9E%B6%E5%9C%A8%E6%80%A7%E8%83%BD%E4%B8%8A%E4%BC%9A%E5%92%8Cspring-go%E5%86%99%E7%9A%84%E5%90%8E%E7%AB%AF%E5%B7%AE%E8%B7%9D%E5%BE%88%E5%A4%A7%E5%90%97"><span class="toc-number">1.3.9.</span> <span class="toc-text"> 使用类似 nest 的 Node.js 后端框架在性能上会和 spring、go 写的后端差距很大吗？</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="toc-number">1.4.</span> <span class="toc-text"> 参考资料</span></a></li></ol></li></ol>
+      </div>
+      <div class="related panel pjax" data-title="系列文章">
+        <ul>
+          <li><a href="/2021/09/23/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96-%E7%AC%94%E8%AE%B0/" rel="bookmark" title="前端工程化 - 笔记">前端工程化 - 笔记</a></li><li><a href="/2021/09/25/Node-js%E5%85%A5%E9%97%A8-%E7%AC%94%E8%AE%B0/" rel="bookmark" title="Node.js入门 - 笔记">Node.js入门 - 笔记</a></li><li><a href="/2021/11/13/Web%E5%AE%89%E5%85%A8%E5%9F%BA%E7%A1%80-%E7%AC%94%E8%AE%B0/" rel="bookmark" title="Web安全基础 - 笔记">Web安全基础 - 笔记</a></li><li><a href="/2021/11/15/JS%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E7%AC%94%E8%AE%B0/" rel="bookmark" title="JS设计模式 - 笔记">JS设计模式 - 笔记</a></li><li><a href="/2022/01/17/%E5%89%8D%E7%AB%AF%E4%B8%8EHTML-%E7%AC%94%E8%AE%B0/" rel="bookmark" title="前端与HTML - 笔记">前端与HTML - 笔记</a></li><li><a href="/2022/01/17/%E7%90%86%E8%A7%A3CSS-%E7%AC%94%E8%AE%B0/" rel="bookmark" title="理解CSS - 笔记">理解CSS - 笔记</a></li><li><a href="/2022/01/17/%E5%A6%82%E4%BD%95%E5%86%99%E5%A5%BDJavaScript-%E7%AC%94%E8%AE%B0/" rel="bookmark" title="如何写好JavaScript - 笔记">如何写好JavaScript - 笔记</a></li><li class="active"><a href="/2022/01/18/Web%E6%A0%87%E5%87%86%E4%B8%8E%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91-%E7%AC%94%E8%AE%B0/" rel="bookmark" title="Web标准与前端开发 - 笔记">Web标准与前端开发 - 笔记</a></li><li><a href="/2022/01/18/%E5%89%8D%E7%AB%AF%E5%BF%85%E9%A1%BB%E7%9F%A5%E9%81%93%E7%9A%84%E5%BC%80%E5%8F%91%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86-%E7%AC%94%E8%AE%B0/" rel="bookmark" title="前端必须知道的开发调试知识 - 笔记">前端必须知道的开发调试知识 - 笔记</a></li><li><a href="/2022/01/20/%E5%93%8D%E5%BA%94%E5%BC%8F%E7%B3%BB%E7%BB%9F%E4%B8%8EReact-%E7%AC%94%E8%AE%B0/" rel="bookmark" title="响应式系统与React - 笔记">响应式系统与React - 笔记</a></li><li><a href="/2022/01/20/%E5%89%8D%E7%AB%AF%E5%8A%A8%E7%94%BB%E5%AE%9E%E7%8E%B0-%E7%AC%94%E8%AE%B0/" rel="bookmark" title="前端动画实现 - 笔记">前端动画实现 - 笔记</a></li><li><a href="/2022/01/20/HTTP%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97-%E7%AC%94%E8%AE%B0/" rel="bookmark" title="HTTP实用指南 - 笔记">HTTP实用指南 - 笔记</a></li><li><a href="/2022/01/20/Node-js-%E4%B8%8E%E5%BC%80%E5%8F%91%E5%AE%9E%E6%88%98-%E7%AC%94%E8%AE%B0/" rel="bookmark" title="Node.js 与开发实战 - 笔记">Node.js 与开发实战 - 笔记</a></li><li><a href="/2022/01/21/WebGL%E5%9F%BA%E7%A1%80-%E7%AC%94%E8%AE%B0/" rel="bookmark" title="WebGL基础 - 笔记">WebGL基础 - 笔记</a></li>
+        </ul>
+      </div>
+      <div class="overview panel" data-title="站点概览">
+        <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="image" itemprop="image" alt="TagBug"
+      data-src="/images/avatar.png">
+  <p class="name" itemprop="name">TagBug</p>
+  <div class="description" itemprop="description">所念皆星河</div>
+</div>
+
+<nav class="state">
+    <div class="item posts">
+      <a href="/archives/">
+        <span class="count">20</span>
+        <span class="name">文章</span>
+      </a>
+    </div>
+    <div class="item categories">
+      <a href="/categories/">
+        <span class="count">9</span>
+        <span class="name">分类</span>
+      </a>
+    </div>
+    <div class="item tags">
+      <a href="/tags/">
+        <span class="count">25</span>
+        <span class="name">标签</span>
+      </a>
+    </div>
+</nav>
+
+<div class="social">
+      <span class="exturl item github" data-url="aHR0cHM6Ly9naXRodWIuY29tL3RhZ2J1Zw==" title="https:&#x2F;&#x2F;github.com&#x2F;tagbug"><i class="ic i-github"></i></span>
+      <span class="exturl item email" data-url="bWFpbHRvOjEyNDIxMzUyOTVAcXEuY29t" title="mailto:1242135295@qq.com"><i class="ic i-envelope"></i></span>
+      <span class="exturl item bilibili" data-url="aHR0cHM6Ly9zcGFjZS5iaWxpYmlsaS5jb20vMjgyMjMzMg==" title="https:&#x2F;&#x2F;space.bilibili.com&#x2F;2822332"><i class="ic i-play"></i></span>
+      <span class="exturl item music" data-url="aHR0cHM6Ly9tdXNpYy4xNjMuY29tLyMvdXNlci9ob21lP2lkPTEzMzg4MTUwNw==" title="https:&#x2F;&#x2F;music.163.com&#x2F;#&#x2F;user&#x2F;home?id&#x3D;133881507"><i class="ic i-cloud-music"></i></span>
+      <span class="exturl item weibo" data-url="aHR0cHM6Ly93ZWliby5jb20vdS8yMTc5OTQ4OTM0" title="https:&#x2F;&#x2F;weibo.com&#x2F;u&#x2F;2179948934"><i class="ic i-weibo"></i></span>
+</div>
+
+<ul class="menu">
+  
+    
+  <li class="item">
+    <a href="/" rel="section"><i class="ic i-home"></i>首页</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/about/" rel="section"><i class="ic i-user"></i>关于</a>
+  </li>
+
+        
+  <li class="item dropdown">
+      <a href="javascript:void(0);"><i class="ic i-feather"></i>文章</a>
+    <ul class="submenu">
+
+        
+  <li class="item">
+    <a href="/archives/" rel="section"><i class="ic i-list-alt"></i>归档</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/categories/" rel="section"><i class="ic i-th"></i>分类</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/tags/" rel="section"><i class="ic i-tags"></i>标签</a>
+  </li>
+
+  </ul>
+    
+  <li class="item">
+    <a href="/friend/" rel="section"><i class="ic i-heart"></i>友链</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/music/" rel="section"><i class="ic i-music"></i>音乐</a>
+  </li>
+
+
+</ul>
+
+      </div>
+    </div>
+  </div>
+
+  <ul id="quick">
+    <li class="prev pjax">
+        <a href="/2022/01/17/%E5%A6%82%E4%BD%95%E5%86%99%E5%A5%BDJavaScript-%E7%AC%94%E8%AE%B0/" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a>
+    </li>
+    <li class="up"><i class="ic i-arrow-up"></i></li>
+    <li class="down"><i class="ic i-arrow-down"></i></li>
+    <li class="next pjax">
+        <a href="/2022/01/18/%E5%89%8D%E7%AB%AF%E5%BF%85%E9%A1%BB%E7%9F%A5%E9%81%93%E7%9A%84%E5%BC%80%E5%8F%91%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86-%E7%AC%94%E8%AE%B0/" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a>
+    </li>
+    <li class="percent"></li>
+  </ul>
+</div>
+
+
+          </div>
+          <div class="dimmer"></div>
+        </div>
+      </main>
+      <footer id="footer">
+        <div class="inner">
+          <div class="widgets">
+            
+<div class="rpost pjax">
+  <h2>随机文章</h2>
+  <ul>
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="分类于 学习笔记">学习笔记</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E5%89%8D%E7%AB%AF/" title="分类于 前端">前端</a>
+</div>
+
+    <span><a href="/2022/01/20/%E5%93%8D%E5%BA%94%E5%BC%8F%E7%B3%BB%E7%BB%9F%E4%B8%8EReact-%E7%AC%94%E8%AE%B0/" title="响应式系统与React - 笔记">响应式系统与React - 笔记</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Java/" title="分类于 Java">Java</a>
+</div>
+
+    <span><a href="/2021/11/30/Maven%E7%AE%80%E5%8D%95%E6%80%BB%E7%BB%93/" title="Maven简单总结">Maven简单总结</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" title="分类于 算法与数据结构">算法与数据结构</a>
+</div>
+
+    <span><a href="/2021/05/07/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93/" title="排序算法总结">排序算法总结</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="分类于 学习笔记">学习笔记</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E5%89%8D%E7%AB%AF/" title="分类于 前端">前端</a>
+</div>
+
+    <span><a href="/2021/11/15/JS%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E7%AC%94%E8%AE%B0/" title="JS设计模式 - 笔记">JS设计模式 - 笔记</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="分类于 学习笔记">学习笔记</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E5%89%8D%E7%AB%AF/" title="分类于 前端">前端</a>
+</div>
+
+    <span><a href="/2022/01/18/%E5%89%8D%E7%AB%AF%E5%BF%85%E9%A1%BB%E7%9F%A5%E9%81%93%E7%9A%84%E5%BC%80%E5%8F%91%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86-%E7%AC%94%E8%AE%B0/" title="前端必须知道的开发调试知识 - 笔记">前端必须知道的开发调试知识 - 笔记</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="分类于 学习笔记">学习笔记</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E5%89%8D%E7%AB%AF/" title="分类于 前端">前端</a>
+</div>
+
+    <span><a href="/2021/09/23/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96-%E7%AC%94%E8%AE%B0/" title="前端工程化 - 笔记">前端工程化 - 笔记</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Linux/" title="分类于 Linux">Linux</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Linux/Shell/" title="分类于 Shell">Shell</a>
+</div>
+
+    <span><a href="/2021/02/23/Linux%E7%BB%88%E7%AB%AF%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%93/" title="Linux终端使用总结">Linux终端使用总结</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" title="分类于 算法与数据结构">算法与数据结构</a>
+</div>
+
+    <span><a href="/2021/01/28/C%E8%AF%AD%E8%A8%80%E5%9B%BE%E7%BB%93%E6%9E%84%E6%80%BB%E7%BB%93%EF%BC%88%E4%B8%80%EF%BC%89/" title="C语言图结构总结（一）">C语言图结构总结（一）</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="分类于 学习笔记">学习笔记</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E5%89%8D%E7%AB%AF/" title="分类于 前端">前端</a>
+</div>
+
+    <span><a href="/2021/09/25/Node-js%E5%85%A5%E9%97%A8-%E7%AC%94%E8%AE%B0/" title="Node.js入门 - 笔记">Node.js入门 - 笔记</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="分类于 学习笔记">学习笔记</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E5%89%8D%E7%AB%AF/" title="分类于 前端">前端</a>
+</div>
+
+    <span><a href="/2022/01/17/%E5%A6%82%E4%BD%95%E5%86%99%E5%A5%BDJavaScript-%E7%AC%94%E8%AE%B0/" title="如何写好JavaScript - 笔记">如何写好JavaScript - 笔记</a></span>
+  </li>
+
+  </ul>
+</div>
+<div>
+  <h2>最新评论</h2>
+  <ul class="leancloud-recent-comment"></ul>
+</div>
+
+          </div>
+          <div class="status">
+  <div class="copyright">
+    
+    &copy; 2021 – 
+    <span itemprop="copyrightYear">2022</span>
+    <span class="with-love">
+      <i class="ic i-sakura rotate"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">TagBug @ Tag Bug</span>
+  </div>
+  <div class="count">
+    <span class="post-meta-item-icon">
+      <i class="ic i-chart-area"></i>
+    </span>
+    <span title="站点总字数">82k 字</span>
+
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="ic i-coffee"></i>
+    </span>
+    <span title="站点阅读时长">1:15</span>
+  </div>
+
+  <div class="viewer">
+    <span>❤️感谢 <strong><span id="busuanzi_value_site_uv">282</span></strong> 小伙伴的 <strong><span id="busuanzi_value_site_pv">1685</span></strong> 次光临！❤️</span>
+  </div>
+  <script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" defer></script>
+  <div class="powered-by">
+    基于 <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
+  </div>
+</div>
+
+        </div>
+      </footer>
+    </div>
+    <script data-config="data-config" type="text/javascript">
+      var LOCAL = {
+        path: '2022/01/18/Web标准与前端开发-笔记/',
+        favicon: {
+          show: "（●´3｀●）やれやれだぜ",
+          hide: "(´Д｀)大変だ！"
+        },
+        search: {
+          placeholder: "文章搜索",
+          empty: "关于 「 ${query} 」，什么也没搜到",
+          stats: "${time} ms 内找到 ${hits} 条结果"
+        },
+          valine: true,fancybox: true,
+            copyright: '复制成功，转载请遵守 <i class="ic i-creative-commons"></i>BY-NC-SA 协议。',
+        ignores: [
+          function (uri) {
+            return uri.includes('#');
+          },
+          function (uri) {
+            return new RegExp(LOCAL.path + "$").test(uri);
+          }
+        ]
+      };
+    </script>
+
+    <script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
+
+    <script src="//cdn.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
+
+    <script src="/js/app.js?v=0.2.5"></script>
+
+    
+
+
+  </body>
+</html>

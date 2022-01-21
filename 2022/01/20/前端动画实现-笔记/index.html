@@ -1,0 +1,879 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#FFF">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="icon" type="image/ico" sizes="32x32" href="/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+<link rel="alternate" type="application/rss+xml" title="🐟" href="http://tagbug.gitlab.io/rss.xml"/>
+<link rel="alternate" type="application/atom+xml" title="🐟" href="http://tagbug.gitlab.io/atom.xml"/>
+<link rel="alternate" type="application/json" title="🐟" href="http://tagbug.gitlab.io/feed.json"/>
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="/css/app.css?v=0.2.5">
+    
+  <meta name="keywords" content="Web,前端,笔记补完计划" />
+
+
+<link rel="canonical" href="http://tagbug.gitlab.io/2022/01/20/%E5%89%8D%E7%AB%AF%E5%8A%A8%E7%94%BB%E5%AE%9E%E7%8E%B0-%E7%AC%94%E8%AE%B0/">
+
+
+
+    <title>
+      
+前端动画实现 - 笔记 - 前端 - 学习笔记 |
+Tag Bug = 🐟</title>
+  <meta name="generator" content="Hexo 5.4.0"></head>
+  <body itemscope="itemscope" itemtype="http://schema.org/WebPage">
+    <div id="loading">
+      <div class="cat">
+        <div class="body"></div>
+        <div class="head">
+          <div class="face"></div>
+        </div>
+        <div class="foot">
+          <div class="tummy-end"></div>
+          <div class="bottom"></div>
+          <div class="legs left"></div>
+          <div class="legs right"></div>
+        </div>
+        <div class="paw">
+          <div class="hands left"></div>
+          <div class="hands right"></div>
+        </div>
+      </div>
+    </div>
+    <div id="container">
+      <header id="header" itemscope="itemscope" itemtype="http://schema.org/WPHeader">
+        <div class="inner">
+          <div id="brand">
+            <div class="pjax">
+              
+  <h1 itemprop="name headline">前端动画实现 - 笔记
+  </h1>
+  
+<div class="meta">
+  <span class="item" title="创建时间：2022-01-20 18:49:22">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">发表于</span>
+    <time itemprop="dateCreated datePublished" datetime="2022-01-20T18:49:22+08:00">2022-01-20</time>
+  </span>
+  <span class="item" title="本文字数">
+    <span class="icon">
+      <i class="ic i-pen"></i>
+    </span>
+    <span class="text">本文字数</span>
+    <span>9.1k</span>
+    <span class="text">字</span>
+  </span>
+  <span class="item" title="阅读时长">
+    <span class="icon">
+      <i class="ic i-clock"></i>
+    </span>
+    <span class="text">阅读时长</span>
+    <span>8 分钟</span>
+  </span>
+</div>
+
+
+            </div>
+          </div>
+          <nav id="nav">
+  <div class="inner">
+    <div class="toggle">
+      <div class="lines" aria-label="切换导航栏">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <ul class="menu">
+      <li class="item title"><a href="/" rel="start">Tag Bug</a></li>
+    </ul>
+    <ul class="right">
+      <li class="item theme">
+        <i class="ic i-sun"></i>
+      </li>
+      <li class="item search">
+        <i class="ic i-search"></i>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+        </div>
+        <div id="imgs" class="pjax">
+            <ul>
+                <li class="item" data-background-image="https://tva1.sinaimg.cn/large/81ef6186ly8gwtyt4fb1tj20u013b0xd.jpg"></li>
+                <li class="item" data-background-image="https://tva1.sinaimg.cn/large/81ef6186ly8gwtyteb1msj20u010ln4u.jpg"></li>
+                <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1giciryrr3rj20zk0m8nhk.jpg"></li>
+                <li class="item" data-background-image="https://tva1.sinaimg.cn/large/81ef6186ly8gwtzc2wf0gj20zk0k0gpt.jpg"></li>
+                <li class="item" data-background-image="https://tva1.sinaimg.cn/large/81ef6186ly8gwtzcaega9j21hb0etgqc.jpg"></li>
+                <li class="item" data-background-image="https://tva1.sinaimg.cn/large/81ef6186ly8gwtyufb11vj20u0146ai3.jpg"></li>
+            </ul>
+        </div>
+      </header>
+      <div id="waves">
+        <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewbox="0 24 150 28" preserveaspectratio="none" shape-rendering="auto">
+          <defs>
+            <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"/>
+          </defs>
+          <g class="parallax">
+            <use xlink:href="#gentle-wave" x="48" y="0"/>
+            <use xlink:href="#gentle-wave" x="48" y="3"/>
+            <use xlink:href="#gentle-wave" x="48" y="5"/>
+            <use xlink:href="#gentle-wave" x="48" y="7"/>
+          </g>
+        </svg>
+      </div>
+      <main>
+        <div class="inner">
+          <div id="main" class="pjax">
+            
+  <div class="article wrap">
+    
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/">首页</a></span><i class="ic i-angle-right"></i>
+<span  itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" itemprop="item" rel="index" title="分类于 学习笔记"><span itemprop="name">学习笔记</span></a>
+<meta itemprop="position" content="1" /></span>
+<i class="ic i-angle-right"></i>
+<span  class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E5%89%8D%E7%AB%AF/" itemprop="item" rel="index" title="分类于 前端"><span itemprop="name">前端</span></a>
+<meta itemprop="position" content="2" /></span>
+</div>
+
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh-CN">
+  <link itemprop="mainEntityOfPage" href="http://tagbug.gitlab.io/2022/01/20/%E5%89%8D%E7%AB%AF%E5%8A%A8%E7%94%BB%E5%AE%9E%E7%8E%B0-%E7%AC%94%E8%AE%B0/">
+
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="/images/avatar.png">
+    <meta itemprop="name" content="TagBug">
+    <meta itemprop="description" content=", 所念皆星河">
+  </span>
+
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="🐟">
+  </span>
+
+  <div class="body md" itemprop="articleBody">
+    
+
+    <blockquote>
+<p>动画的基本原理：什么是动画、动画的历史、计算机动画原理</p>
+<p>前端动画的分类：CSS 动画、SVG 动画、JS 动画、如何选择</p>
+<p>前端动画如何实现（主要是 JS）：JS 动画的函数封装、简单动画、复杂动画</p>
+<p>相关实践：动画资源、工作实践、动画的优化</p>
+</blockquote>
+<span id="more"></span>
+<h1 id="前端动画实现-笔记"><a class="anchor" href="#前端动画实现-笔记">#</a> 前端动画实现 - 笔记</h1>
+<h2 id="动画的基本原理"><a class="anchor" href="#动画的基本原理">#</a> 动画的基本原理</h2>
+<h3 id="什么是动画"><a class="anchor" href="#什么是动画">#</a> 什么是动画</h3>
+<blockquote>
+<p>动画是通过快速连续排列彼此差异极小的连续图像来制造运动错觉和变化错觉的过程。</p>
+</blockquote>
+<ul>
+<li><strong>快速</strong>、<strong>连续排列</strong>、<strong>彼此差异极小</strong>、<strong>制造错觉</strong></li>
+</ul>
+<h3 id="动画的历史"><a class="anchor" href="#动画的历史">#</a> 动画的历史</h3>
+<p>如今前端动画技术已经普及</p>
+<ol>
+<li>
+<p>常见的前端动画技术<br>
+ Sprite 动画、CSS 动画、JS 动画、SVG 动画和 WebGL 动画</p>
+</li>
+<li>
+<p>按应用分类<br>
+ UI 动画、基于 Web 的游戏动画和动画数据可视化</p>
+</li>
+</ol>
+<p>最早的技术是 GIF，然后是 Flash，如今是 HTML/CSS/JS</p>
+<h3 id="计算机动画原理"><a class="anchor" href="#计算机动画原理">#</a> 计算机动画原理</h3>
+<p>计算机图形学:</p>
+<p>计算机视觉的基础，涵盖点、线、面、体、场的数学构造方法。</p>
+<ol>
+<li>几何和图形数据的输入、存储和压缩。</li>
+<li>描述纹理、曲线、光影等算法。</li>
+<li>物体图形的数据输出 (图形接口、动画技术)，硬件和图形的交互技术。</li>
+<li>图形开发软件的相关技术标准。</li>
+</ol>
+<p>计算机动画:</p>
+<p>计算机图形学的分支，主要包含 2D、3D 动画。</p>
+<p>无论动画多么简单，始终需要定义两个基本状态，即<strong>开始状态和结束状态</strong>。没有它们，我们将无法定义插值状态，从而填补了两者之间的空白。</p>
+<p>帧：连续变换的多张画面，其中的每一幅画面都是一帧。</p>
+<p>帧率：用于度量一定时间段内的帧数，通常的测量单位是 FPS (frame per second) 。</p>
+<p>帧率与人眼：一般每秒<strong> 10-12 帧</strong>人会认为画面是连贯的，这个现象称为视觉暂留。对于一些电脑动画和游戏来说<strong>低于 30FPS 会感受到明显卡顿</strong>，目前主流的屏幕、显卡输出为 60FPS，效果会明显更流畅。</p>
+<p>空白的补全方式有以下两种</p>
+<p>补间动画:<br>
+ 传统动画，主画师绘制关键帧，交给清稿部门，清稿部门的补间动画师补充关键帧进行交付。(类比到这里，补间动画师由浏览器来担任，如 <code>keyframe</code> ， <code>transition</code> )</p>
+<p>逐帧动画 (Frame By Frame) :<br>
+ 从词语来说意味着全片每一帧逐帧都是纯手绘。(如 CSS 的 <code>steps</code>  实现精灵动画)</p>
+<h2 id="前端动画分类"><a class="anchor" href="#前端动画分类">#</a> 前端动画分类</h2>
+<h3 id="css动画"><a class="anchor" href="#css动画">#</a> CSS 动画</h3>
+<p>CSS <a href="">animation</a> 是常见的 CSS 动画实现方式：</p>
+<p>CSS  <code>animation</code>  属性是 <code>animation-name</code> ， <code>animation-</code> <br>
+ <code>duration</code> ， <code>animation-timing-function</code> ， <code>animation-delay</code> ， <code>animation-iteration-count</code> ， <code>animation-direction</code> ， <code>animation-fill-mode</code>  和 <code>animation-play-state</code>  属性的一个简写属性形式。</p>
+<p>CSS 补间动画使用 <code>Transition API</code>  和 <code>Keyframe</code>  实现</p>
+<p>CSS 逐帧动画使用 <code>Animation API</code>  中的 <code>steps</code>  实现</p>
+<p><strong>优点</strong>：简单、高效声明式的不依赖于主线程，采用硬件加速 (GPU) 简单的控制 keyframe animation 播放和暂停。</p>
+<p><strong>缺点</strong>：不能动态修改或定义动画内容不同的动画无法实现同步多个动画彼此无法堆叠。</p>
+<p><strong>适用场景</strong>：简单的 h5 活动 / 宣传页。</p>
+<p><strong>推荐库</strong>：animation.css、shake.css 等。</p>
+<h3 id="svg动画"><a class="anchor" href="#svg动画">#</a> SVG 动画</h3>
+<p>svg 是基于 XML 的矢量图形描述语言，它可以与 CSS 和 S 较好的配合，实现 svg 动画通常有三种方式：SMIL、JS、CSS</p>
+<p>我们经常使用 animation, transform, transition 来实现 svg 动画，它比 JS 更加简单方便。</p>
+<p><strong>优点</strong>：通过矢量元素实现动画，不同的屏幕下均可获得较好的清晰度。可以实现一些特殊的效果，如：描字，形变，墨水扩散等。</p>
+<p><strong>缺点</strong>：使用方式较为复杂，过多使用可能会带来性能问题。</p>
+<h4 id="smil"><a class="anchor" href="#smil">#</a> SMIL</h4>
+<p>SMIL： Synchronized Multimedia Integration Language (同步多媒体集成语言)</p>
+<p>可以使用 svg 标签进行动画的描述，但是兼容性不是很理想</p>
+<h4 id="js-css"><a class="anchor" href="#js-css">#</a> JS、CSS</h4>
+<p>使用 JS 来操作 SVG 动画自不必多说，目前也有很多现成的类库。例如老牌的 Snap.svg 以及 anime.js ，都能让我们快速制作 SVG 动画。当然，除了这些类库，HTML 本身也有原生的 Web Animation 实现。使用 Web Animation 也能让我们方便快捷地制作动画。</p>
+<p>文字形变（基于 CSS 中的 filter 属性）：<span class="exturl" data-url="aHR0cHM6Ly9jb2RlcGVuLmlvL2ppYW5neGlhbmcvcGVuL01XbWRqZVk=">https://codepen.io/jiangxiang/pen/MWmdjeY</span></p>
+<p>Path 实现写字动画：<span class="exturl" data-url="aHR0cHM6Ly9jb2RlcGVuLmlvL2ppYW5neGlhbmcvcGVuL3JObWdqcVg=">https://codepen.io/jiangxiang/pen/rNmgjqX</span></p>
+<h4 id="js笔画的原理"><a class="anchor" href="#js笔画的原理">#</a> JS 笔画的原理</h4>
+<p>stroke-dashoffset、stroke-dasharray 配合使用实现笔画效果。</p>
+<p>属性 stroke-dasharray 可控制用来描边的点划线的图案范式。</p>
+<p>它是一个数列，数与数之间用逗号或者空白隔开，指定短划线和缺口的长度。如果提供了奇数个值，则这个值的数列重复一次，从而变成偶数个值。因此，5,3,2 等同于 5,3,2,5,3,2。</p>
+<p>stroke-dashoffset 属性指定了 dash 模式到路径开始的距离。</p>
+<p>参考：<span class="exturl" data-url="aHR0cHM6Ly9jb2RlcGVuLmlvL2ppYW5neGlhbmcvcGVuL0xZenZ2eGQ=">https://codepen.io/jiangxiang/pen/LYzvvxd</span></p>
+<p>path 路径–d 属性 (路径描述)  <code>&lt;path d=&quot;....&quot; /&gt;</code></p>
+<p>* 大写字母跟随的是绝对坐标 x,y，小写为相对坐标 dx,dy</p>
+<ul>
+<li>
+<p>M/m 绘制起始点。</p>
+</li>
+<li>
+<p>L/I 绘制一条线段。</p>
+</li>
+<li>
+<p>C/c 为绘制贝塞尔曲线。</p>
+</li>
+<li>
+<p>Z/z 将当前点与起始点用直线连接。</p>
+</li>
+</ul>
+<p>计算 path 的长度： <code>path.getTotalLength();</code></p>
+<p>计算 path 上某个点的坐标： <code>path.getPointAtLength(lengthNumber);</code></p>
+<p>例子:<span class="exturl" data-url="aHR0cHM6Ly9jb2RlcGVuLmlvL2ppYW5neGlhbmcvcGVuL2VZV2FneHE=">https://codepen.io/jiangxiang/pen/eYWagxq</span></p>
+<h3 id="js动画"><a class="anchor" href="#js动画">#</a> JS 动画</h3>
+<p>JS 可以实现复杂的动画，也可以操作 canvas 动画 API 上进行绘制。</p>
+<h3 id="如何做选择"><a class="anchor" href="#如何做选择">#</a> 如何做选择</h3>
+<p>CSS 优点:</p>
+<ul>
+<li>
+<p>浏览器会对 CSS3 动画做一些优化，使得 CSS3 动画性能上稍有优势（新建一个图层来跑动画）。</p>
+</li>
+<li>
+<p>CSS3 动画的代码相对简单。</p>
+</li>
+</ul>
+<p>CSS 缺点:</p>
+<ul>
+<li>动画控制上不够灵活。</li>
+<li>兼容性不佳。</li>
+<li>部分动画无法实现（视差效果、滚动动画）。</li>
+</ul>
+<p>JS 优点:</p>
+<ul>
+<li>
+<p>使用灵活，同样在定义一个动画的 keyframe 序列时，可以根据不同的条件调节若干参数（JS 动画函数）改变动画方式。（CSS 会有非常多的代码冗余）</p>
+</li>
+<li>
+<p>对比与 CSS 的 keyframe 粒度更粗，css 本身的时间函数是有限的，这块 JS 都可做弥补。</p>
+</li>
+<li>
+<p>CSS 很难做到两个以上的状态转化（要么使用关键帧，要么需要多个动画延时触发，再想到要对动画循环播放或暂停倒序等，复杂度极高）。</p>
+</li>
+</ul>
+<p>JS 缺点:</p>
+<ul>
+<li>使用到 JS 运行时，调优方面不如 CSS 简单，CSS 调优方式固定。</li>
+<li>对于性能和兼容性较差的浏览器，CSS 可以做到优雅降级，而 JS 需要额外代码兼容。</li>
+</ul>
+<p>结论：</p>
+<ul>
+<li>当 UI 元素采用较小的独立状态时，使用 CSS。</li>
+<li>在需要对动画进行大量控制时，使用 JavaScript。</li>
+<li>在特定的场景下可以使用 SVG，可以使用 CSS 或 JS 去操作 SVG 变化。</li>
+</ul>
+<h2 id="前端动画实现"><a class="anchor" href="#前端动画实现">#</a> 前端动画实现</h2>
+<h3 id="js动画函数封装"><a class="anchor" href="#js动画函数封装">#</a> JS 动画函数封装</h3>
+<p>先来一个基础的 <code>animate</code>  函数：</p>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token comment">/**</pre></td></tr><tr><td data-num="2"></td><td><pre> * 入参说明：</pre></td></tr><tr><td data-num="3"></td><td><pre> * draw 动画绘制函数（例如：() => &#123; ctx.draw ()... &#125;）</pre></td></tr><tr><td data-num="4"></td><td><pre> * easing 缓动函数（数学）（例如：(x) => y）</pre></td></tr><tr><td data-num="5"></td><td><pre> * duration 动画持续时间（例如：2000）</pre></td></tr><tr><td data-num="6"></td><td><pre> * @returns 一个可以表示动画是否完成的 Promise 对象，同时，由于动画可以是连续的，所以 Promise.then 就能让动画按顺序被调用</pre></td></tr><tr><td data-num="7"></td><td><pre> */</span></pre></td></tr><tr><td data-num="8"></td><td><pre><span class="token keyword">function</span> <span class="token function">animate</span> <span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">&#123;</span>easing<span class="token punctuation">,</span> draw<span class="token punctuation">,</span> duration<span class="token punctuation">&#125;</span></span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="9"></td><td><pre>    <span class="token comment">// 动画开始的时间戳</span></pre></td></tr><tr><td data-num="10"></td><td><pre>    <span class="token comment">// Q：为什么使用 performance.now () 而非 Date.now ()？</span></pre></td></tr><tr><td data-num="11"></td><td><pre>    <span class="token comment">// A：因为 performance.now () 会以恒定速度自增，精确到微秒级别，不易被篡改。</span></pre></td></tr><tr><td data-num="12"></td><td><pre>    <span class="token keyword">let</span> start <span class="token operator">=</span> performance<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="13"></td><td><pre>    <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token parameter">resolve</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="14"></td><td><pre>        <span class="token function">requestAnimationFrame</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token function">animate</span><span class="token punctuation">(</span><span class="token parameter">time</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="15"></td><td><pre>            <span class="token comment">// (time - start) 算出距离动画开始，时间已经过去了多少，然后根据过去了多少时间 ÷ 规定的动画持续时间，算出目前动画进度（百分比）</span></pre></td></tr><tr><td data-num="16"></td><td><pre>            <span class="token comment">// 注意：这是不算上缓动函数修正的百分比（原始百分比）</span></pre></td></tr><tr><td data-num="17"></td><td><pre>            <span class="token comment">// 例如：动画开始时间为 start = 1666，现在的时间为 time = 2666，想让动画持续的时间为 duration = 2000，那么 timeFraction 就是 0.5，即 50%</span></pre></td></tr><tr><td data-num="18"></td><td><pre>            <span class="token keyword">let</span> timeFraction <span class="token operator">=</span> <span class="token punctuation">(</span>time <span class="token operator">-</span> start<span class="token punctuation">)</span> <span class="token operator">/</span> duration<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="19"></td><td><pre>            <span class="token comment">// 如果 timeFraction > 1，即原始百分比已经大于 100%，即动画照理来说应该是已经结束了的，那么就将原始百分比设为 100%，即 timeFraction = 1</span></pre></td></tr><tr><td data-num="20"></td><td><pre>            <span class="token keyword">if</span> <span class="token punctuation">(</span>timeFraction <span class="token operator">></span> <span class="token number">1</span><span class="token punctuation">)</span> timeFraction <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="21"></td><td><pre>            <span class="token comment">//progress 是动画的实际进程（通过缓动函数计算后的真实百分比），这个值应该也是要小于 100% 的，你可以把 easing 函数理解为一个纯数学函数，接受 [0, 1]-> 输出 [0, 1]，建立真实时间到动画百分比的映射关系</span></pre></td></tr><tr><td data-num="22"></td><td><pre>            <span class="token keyword">let</span> progress <span class="token operator">=</span> <span class="token function">easing</span><span class="token punctuation">(</span>timeFraction<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="23"></td><td><pre>            <span class="token comment">// 给 draw 函数传入 progress（动画目前应该到达的进度），那么 draw 函数就可以根据这个进度指示，来绘制相应的图像（可以类比 CSS animation 中的 keyframe 百分比）</span></pre></td></tr><tr><td data-num="24"></td><td><pre>            <span class="token function">draw</span><span class="token punctuation">(</span>progress<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="25"></td><td><pre>            <span class="token comment">// 如上所述，当 timeFrction（原始百分比）&lt; 1 时，说明动画还为完成，则继续调用 rAF，否则说明动画已结束，将此 Promise 解决 (resolve) 掉</span></pre></td></tr><tr><td data-num="26"></td><td><pre>            <span class="token keyword">if</span> <span class="token punctuation">(</span>timeFraction <span class="token operator">&lt;</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="27"></td><td><pre>                <span class="token function">requestAnimationFrame</span><span class="token punctuation">(</span>animate<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="28"></td><td><pre>            <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="29"></td><td><pre>                <span class="token function">resolve</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="30"></td><td><pre>            <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="31"></td><td><pre>        <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="32"></td><td><pre>    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="33"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure><p>注意： <code>easing</code>  函数也<strong>不一定只能</strong>返回 [0, 1] 的数值，根据实际使用情况可以与 <code>draw</code>  函数协调</p>
+<h4 id="js执行动画的核心思想"><a class="anchor" href="#js执行动画的核心思想">#</a> JS 执行动画的核心思想</h4>
+<p>基本公式：</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi mathvariant="normal">△</mi><mi>r</mi><mo>=</mo><mi mathvariant="normal">△</mi><mi>v</mi><mi mathvariant="normal">△</mi><mi>t</mi></mrow><annotation encoding="application/x-tex">\triangle r = \triangle v \triangle t
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord">△</span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord">△</span><span class="mord mathnormal" style="margin-right:0.03588em;">v</span><span class="mord">△</span><span class="mord mathnormal">t</span></span></span></span></span></p>
+<p>简单理解：r 是距离，v 是速度，t 是时间</p>
+<p>比例尺 / 距离系数：通过比例尺将实际的大小、长度等比例缩放 / 增加到屏幕上显示的大小、长度</p>
+<h3 id="简单动画"><a class="anchor" href="#简单动画">#</a> 简单动画</h3>
+<h4 id="匀速运动"><a class="anchor" href="#匀速运动">#</a> 匀速运动</h4>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">const</span> ball <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span> <span class="token string">'.ball'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="2"></td><td><pre></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token keyword">const</span> <span class="token function-variable function">draw</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">progress</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="4"></td><td><pre>    ball<span class="token punctuation">.</span>style<span class="token punctuation">.</span>transform <span class="token operator">=</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">translate(</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>progress <span class="token operator">*</span> <span class="token number">100</span><span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">px, 0)</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="5"></td><td><pre>    <span class="token comment">// 这里的 * 100 实际上就是一个比例尺，将 [0, 1] 映射到 [0, 100] px</span></pre></td></tr><tr><td data-num="6"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="7"></td><td><pre></pre></td></tr><tr><td data-num="8"></td><td><pre><span class="token comment">// 沿着 x 轴匀速运动</span></pre></td></tr><tr><td data-num="9"></td><td><pre><span class="token function">animate</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="10"></td><td><pre>    duration<span class="token operator">:</span> <span class="token number">1000</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="11"></td><td><pre>    <span class="token function">easing</span><span class="token punctuation">(</span><span class="token parameter">timeFraction</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="12"></td><td><pre>        <span class="token comment">// 这就是一个匀速运动函数，相当于 (x) => x</span></pre></td></tr><tr><td data-num="13"></td><td><pre>        <span class="token keyword">return</span> timeFraction<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="14"></td><td><pre>    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="15"></td><td><pre>    draw</pre></td></tr><tr><td data-num="16"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr></table></figure><h4 id="重力效果"><a class="anchor" href="#重力效果">#</a> 重力效果</h4>
+<p>从这个动画开始，就需要考虑数学公式了，即：怎么把 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>v</mi><mo>=</mo><mi>g</mi><mo separator="true">⋅</mo><mi>t</mi><mtext>，即</mtext><mi>x</mi><mo>=</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mi>g</mi><msup><mi>t</mi><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">v = g·t，即x = \frac{1}{2} gt^{2}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">v</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8777699999999999em;vertical-align:-0.19444em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mpunct">⋅</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal">t</span><span class="mord cjk_fallback">，</span><span class="mord cjk_fallback">即</span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.190108em;vertical-align:-0.345em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.845108em;"><span style="top:-2.6550000000000002em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mord"><span class="mord mathnormal">t</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span></span> 套用到 <code>animate</code>  这个模板里面</p>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">const</span> <span class="token function-variable function">draw</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">progress</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>    ball<span class="token punctuation">.</span>style<span class="token punctuation">.</span>transform <span class="token operator">=</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">translate(0, </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span><span class="token punctuation">(</span>progress <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token number">500</span><span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">px)</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="3"></td><td><pre>    <span class="token comment">// 这里的 500 就是比例尺</span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="5"></td><td><pre></pre></td></tr><tr><td data-num="6"></td><td><pre><span class="token comment">// 沿着 x 轴匀速运动</span></pre></td></tr><tr><td data-num="7"></td><td><pre><span class="token function">animate</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="8"></td><td><pre>    duration<span class="token operator">:</span> <span class="token number">1000</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="9"></td><td><pre>    <span class="token function">easing</span><span class="token punctuation">(</span><span class="token parameter">timeFraction</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="10"></td><td><pre>        <span class="token comment">// 这个函数通过 t^2，模拟了重力的最显著特点</span></pre></td></tr><tr><td data-num="11"></td><td><pre>        <span class="token keyword">return</span> timeFraction <span class="token operator">**</span> <span class="token number">2</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="12"></td><td><pre>        <span class="token comment">// 也可以模拟的真实一点：0.5 * 9.8 * (timeFraction ** 2)，当然，这样的话 draw 函数内部就也要做相应的调整了</span></pre></td></tr><tr><td data-num="13"></td><td><pre>    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="14"></td><td><pre>    draw</pre></td></tr><tr><td data-num="15"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr></table></figure><h4 id="摩擦力匀速减速运动"><a class="anchor" href="#摩擦力匀速减速运动">#</a> 摩擦力（匀速减速运动）</h4>
+<p>同样的，根据摩擦力数学公式写出缓动函数：</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>v</mi><mo>=</mo><msub><mi>v</mi><mn>0</mn></msub><mo>−</mo><mi>a</mi><mo separator="true">⋅</mo><mi>t</mi></mrow><annotation encoding="application/x-tex">v = v_{0} - a·t
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">v</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.73333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">v</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.03588em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">0</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.61508em;vertical-align:0em;"></span><span class="mord mathnormal">a</span><span class="mpunct">⋅</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal">t</span></span></span></span></span></p>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>x</mi><mo>=</mo><mo>∫</mo><mi>v</mi><mo separator="true">⋅</mo><mi>d</mi><mi>t</mi><mo>=</mo><msub><mi>v</mi><mn>0</mn></msub><mi>t</mi><mo>−</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mi>a</mi><msup><mi>t</mi><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">x = \int v·dt = v_{0}t - \frac{1}{2}at^{2}
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:2.22225em;vertical-align:-0.86225em;"></span><span class="mop op-symbol large-op" style="margin-right:0.44445em;position:relative;top:-0.0011249999999999316em;">∫</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">v</span><span class="mpunct">⋅</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal">d</span><span class="mord mathnormal">t</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.76508em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">v</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.03588em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">0</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord mathnormal">t</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:2.00744em;vertical-align:-0.686em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.32144em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">2</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mord mathnormal">a</span><span class="mord"><span class="mord mathnormal">t</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8641079999999999em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span></span></span></p>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token comment">// 初始高度 500px</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">const</span> <span class="token function-variable function">draw</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">progress</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="3"></td><td><pre>    ball<span class="token punctuation">.</span>style<span class="token punctuation">.</span>transform <span class="token operator">=</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">translate(</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span><span class="token number">500</span> <span class="token operator">*</span> progress<span class="token punctuation">.</span>x<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">px),</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span><span class="token number">500</span> <span class="token operator">*</span> <span class="token punctuation">(</span>progress<span class="token punctuation">.</span>y <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">px)</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="5"></td><td><pre></pre></td></tr><tr><td data-num="6"></td><td><pre><span class="token comment">// 匀减速运动</span></pre></td></tr><tr><td data-num="7"></td><td><pre><span class="token function">animate</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="8"></td><td><pre>    duration<span class="token operator">:</span> <span class="token number">1000</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="9"></td><td><pre>    <span class="token function">easing</span><span class="token punctuation">(</span><span class="token parameter">t</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="10"></td><td><pre>        <span class="token comment">// v0 = 2，a = 2</span></pre></td></tr><tr><td data-num="11"></td><td><pre>        <span class="token keyword">return</span> <span class="token number">2</span> <span class="token operator">*</span> t <span class="token operator">-</span> <span class="token punctuation">(</span>t <span class="token operator">**</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="12"></td><td><pre>    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="13"></td><td><pre>    draw</pre></td></tr><tr><td data-num="14"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr></table></figure><h4 id="平抛运动x轴匀速y轴加速"><a class="anchor" href="#平抛运动x轴匀速y轴加速">#</a> 平抛运动（x 轴匀速，y 轴加速）</h4>
+<p>平抛运动实际上就是<a href="#%E5%8C%80%E9%80%9F%E8%BF%90%E5%8A%A8">匀速运动</a>与<a href="#%E9%87%8D%E5%8A%9B%E6%95%88%E6%9E%9C">重力效果</a>的结合</p>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">const</span> <span class="token function-variable function">draw</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">progress</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>    ball<span class="token punctuation">.</span>style<span class="token punctuation">.</span>transform <span class="token operator">=</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">translate(translate(</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span><span class="token number">500</span> <span class="token operator">*</span> progress<span class="token punctuation">.</span>x<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">px), </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span><span class="token number">500</span> <span class="token operator">*</span> <span class="token punctuation">(</span>progress <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">px)</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="4"></td><td><pre></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token comment">// 有两个方向，沿着 x 轴匀速运动，沿着 y 轴加速运动</span></pre></td></tr><tr><td data-num="6"></td><td><pre><span class="token function">animate</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="7"></td><td><pre>    duration<span class="token operator">:</span> <span class="token number">1000</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="8"></td><td><pre>    <span class="token function">easing</span><span class="token punctuation">(</span><span class="token parameter">t</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="9"></td><td><pre>        <span class="token keyword">return</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="10"></td><td><pre>            x<span class="token operator">:</span> t<span class="token punctuation">,</span></pre></td></tr><tr><td data-num="11"></td><td><pre>            y<span class="token operator">:</span> t <span class="token operator">**</span> <span class="token number">2</span></pre></td></tr><tr><td data-num="12"></td><td><pre>        <span class="token punctuation">&#125;</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="13"></td><td><pre>    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="14"></td><td><pre>    draw</pre></td></tr><tr><td data-num="15"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr></table></figure><h4 id="旋转-平抛"><a class="anchor" href="#旋转-平抛">#</a> 旋转 + 平抛</h4>
+<p>其实就是在<a href="#%E5%B9%B3%E6%8A%9B%E8%BF%90%E5%8A%A8%EF%BC%88x%E8%BD%B4%E5%8C%80%E9%80%9F%EF%BC%8Cy%E8%BD%B4%E5%8A%A0%E9%80%9F%EF%BC%89">平抛</a>的基础上加一个旋转效果而已</p>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">const</span> <span class="token function-variable function">draw</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">progress</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>    ball<span class="token punctuation">.</span>style<span class="token punctuation">.</span>transform <span class="token operator">=</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">translate(o,</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span><span class="token number">500</span> <span class="token operator">*</span> <span class="token punctuation">(</span>progress <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">px rotate(</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span><span class="token number">2000</span> <span class="token operator">*</span> progress<span class="token punctuation">.</span>rorate<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">deg))</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="4"></td><td><pre></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token comment">// 有两个方向，沿着 x 轴匀速运动，沿着 y 轴加速运动</span></pre></td></tr><tr><td data-num="6"></td><td><pre><span class="token function">animate</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="7"></td><td><pre>    duration<span class="token operator">:</span> <span class="token number">1000</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="8"></td><td><pre>    <span class="token function">easing</span><span class="token punctuation">(</span><span class="token parameter">t</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="9"></td><td><pre>        <span class="token keyword">return</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="10"></td><td><pre>            x<span class="token operator">:</span> t<span class="token punctuation">,</span></pre></td></tr><tr><td data-num="11"></td><td><pre>            y<span class="token operator">:</span> t <span class="token operator">**</span> <span class="token number">2</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="12"></td><td><pre>            rotate<span class="token operator">:</span> t <span class="token comment">// 匀速旋转</span></pre></td></tr><tr><td data-num="13"></td><td><pre>        <span class="token punctuation">&#125;</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="14"></td><td><pre>    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="15"></td><td><pre>    draw</pre></td></tr><tr><td data-num="16"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr></table></figure><h4 id="拉弓效果"><a class="anchor" href="#拉弓效果">#</a> 拉弓效果</h4>
+<p>拉弓效果的本质就是：x 轴匀速运动；y 轴为初始速度为负的匀加速</p>
+<p>知道这两点后，就不难通过数学表达式写出缓动函数</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>v</mi><mo>=</mo><mo>−</mo><msub><mi>v</mi><mn>0</mn></msub><mo>+</mo><mi>a</mi><mo separator="true">⋅</mo><mi>t</mi></mrow><annotation encoding="application/x-tex">v = - v_{0} + a·t
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">v</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.73333em;vertical-align:-0.15em;"></span><span class="mord">−</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">v</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.03588em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">0</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.61508em;vertical-align:0em;"></span><span class="mord mathnormal">a</span><span class="mpunct">⋅</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal">t</span></span></span></span></span></p>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>x</mi><mo>=</mo><mo>∫</mo><mi>v</mi><mo separator="true">⋅</mo><mi>d</mi><mi>t</mi><mo>=</mo><mo>−</mo><msub><mi>v</mi><mn>0</mn></msub><mi>t</mi><mo>+</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mi>a</mi><msup><mi>t</mi><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">x = \int v·dt = - v_{0}t + \frac{1}{2}at^{2}
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:2.22225em;vertical-align:-0.86225em;"></span><span class="mop op-symbol large-op" style="margin-right:0.44445em;position:relative;top:-0.0011249999999999316em;">∫</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">v</span><span class="mpunct">⋅</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal">d</span><span class="mord mathnormal">t</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.76508em;vertical-align:-0.15em;"></span><span class="mord">−</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">v</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.03588em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">0</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord mathnormal">t</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:2.00744em;vertical-align:-0.686em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.32144em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">2</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mord mathnormal">a</span><span class="mord"><span class="mord mathnormal">t</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8641079999999999em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span></span></span></p>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">const</span> <span class="token function-variable function">draw</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">progress</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>    ball<span class="token punctuation">.</span>style<span class="token punctuation">.</span>transform <span class="token operator">=</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">translate(translate(</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span><span class="token number">500</span> <span class="token operator">*</span> progress<span class="token punctuation">.</span>x<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">px), </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span><span class="token number">500</span> <span class="token operator">*</span> <span class="token punctuation">(</span>progress <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">px)</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="4"></td><td><pre></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token comment">// 有两个方向，沿着 x 轴匀速运动，沿着 y 轴加速运动</span></pre></td></tr><tr><td data-num="6"></td><td><pre><span class="token function">animate</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="7"></td><td><pre>    duration<span class="token operator">:</span> <span class="token number">1000</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="8"></td><td><pre>    <span class="token function">easing</span><span class="token punctuation">(</span><span class="token parameter">t</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="9"></td><td><pre>        <span class="token keyword">return</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="10"></td><td><pre>            x<span class="token operator">:</span> t<span class="token punctuation">,</span></pre></td></tr><tr><td data-num="11"></td><td><pre>            y<span class="token operator">:</span> <span class="token operator">-</span><span class="token number">2</span> <span class="token operator">*</span> t <span class="token operator">-</span> <span class="token punctuation">(</span>t <span class="token operator">**</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token comment">// v0 = 2，a = 2</span></pre></td></tr><tr><td data-num="12"></td><td><pre>        <span class="token punctuation">&#125;</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="13"></td><td><pre>    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="14"></td><td><pre>    draw</pre></td></tr><tr><td data-num="15"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr></table></figure><h4 id="贝塞尔曲线"><a class="anchor" href="#贝塞尔曲线">#</a> 贝塞尔曲线</h4>
+<p>贝塞尔曲线的详细描述和公式见<span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kvJUU4JUIyJTlEJUU1JUExJTlFJUU3JTg4JUJFJUU2JTlCJUIyJUU3JUI3JTlB"> Wikipedia</span>，这里给出三次贝塞尔曲线的数学表达式：</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>B</mi><mo stretchy="false">(</mo><mi>t</mi><mo stretchy="false">)</mo><mo>=</mo><mo stretchy="false">(</mo><mn>1</mn><mtext>−</mtext><mi>t</mi><msup><mo stretchy="false">)</mo><mn>3</mn></msup><msub><mi>P</mi><mn>0</mn></msub><mo>+</mo><mn>3</mn><mi>t</mi><mo stretchy="false">(</mo><mn>1</mn><mtext>−</mtext><mi>t</mi><msup><mo stretchy="false">)</mo><mn>2</mn></msup><msub><mi>P</mi><mn>1</mn></msub><mo>+</mo><mn>3</mn><msup><mi>t</mi><mn>2</mn></msup><mo stretchy="false">(</mo><mn>1</mn><mtext>−</mtext><mi>t</mi><mo stretchy="false">)</mo><msub><mi>P</mi><mn>2</mn></msub><mo>+</mo><msup><mi>t</mi><mn>3</mn></msup><msub><mi>P</mi><mn>3</mn></msub><mo separator="true">,</mo><mi>t</mi><mo>∈</mo><mo stretchy="false">[</mo><mn>0</mn><mo separator="true">,</mo><mn>1</mn><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">B(t)=(1−t)^{3}P_{0}+3t(1−t) ^2P_{1}+3t^2(1−t)P _{2}+t^3P_{3}, t∈[0,1]
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="mopen">(</span><span class="mord mathnormal">t</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.1141079999999999em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord">1</span><span class="mord">−</span><span class="mord mathnormal">t</span><span class="mclose"><span class="mclose">)</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8641079999999999em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">3</span></span></span></span></span></span></span></span></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.13889em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">0</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1.1141079999999999em;vertical-align:-0.25em;"></span><span class="mord">3</span><span class="mord mathnormal">t</span><span class="mopen">(</span><span class="mord">1</span><span class="mord">−</span><span class="mord mathnormal">t</span><span class="mclose"><span class="mclose">)</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8641079999999999em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.13889em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1.1141079999999999em;vertical-align:-0.25em;"></span><span class="mord">3</span><span class="mord"><span class="mord mathnormal">t</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8641079999999999em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord">1</span><span class="mord">−</span><span class="mord mathnormal">t</span><span class="mclose">)</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.13889em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1.0585479999999998em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathnormal">t</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8641079999999999em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">3</span></span></span></span></span></span></span></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.13889em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">3</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal">t</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">∈</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">[</span><span class="mord">0</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">1</span><span class="mclose">]</span></span></span></span></span></p>
+<p>由于 P<sub>0</sub>和 P<sub>3</sub>的位置是确定的（(0,0) 和 (1,1)），所以实际上只需要给出 P<sub>1</sub>和 P<sub>2</sub>的坐标即可：</p>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">const</span> <span class="token function-variable function">bezierPath</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">x1<span class="token punctuation">,</span> y1<span class="token punctuation">,</span> x2<span class="token punctuation">,</span> y2<span class="token punctuation">,</span> t</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>    <span class="token keyword">const</span> x <span class="token operator">=</span> <span class="token number">3</span> <span class="token operator">*</span> t <span class="token operator">*</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token number">1</span> <span class="token operator">-</span> t<span class="token punctuation">)</span> <span class="token operator">**</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token operator">*</span> x1 <span class="token operator">+</span> <span class="token number">3</span> <span class="token operator">*</span> <span class="token punctuation">(</span>t <span class="token operator">**</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token punctuation">(</span><span class="token number">1</span> <span class="token operator">-</span> t<span class="token punctuation">)</span> <span class="token operator">*</span> x2 <span class="token operator">+</span> <span class="token punctuation">(</span>t <span class="token operator">**</span> <span class="token number">3</span><span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token number">1</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="3"></td><td><pre>    <span class="token keyword">const</span> y <span class="token operator">=</span> <span class="token number">3</span> <span class="token operator">*</span> t <span class="token operator">*</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token number">1</span> <span class="token operator">-</span> t<span class="token punctuation">)</span> <span class="token operator">**</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token operator">*</span> y1 <span class="token operator">+</span> <span class="token number">3</span> <span class="token operator">*</span> <span class="token punctuation">(</span>t <span class="token operator">**</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token punctuation">(</span><span class="token number">1</span> <span class="token operator">-</span> t<span class="token punctuation">)</span> <span class="token operator">*</span> y2 <span class="token operator">+</span> <span class="token punctuation">(</span>t <span class="token operator">**</span> <span class="token number">3</span><span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token number">1</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="4"></td><td><pre>    <span class="token keyword">return</span> <span class="token punctuation">[</span>x<span class="token punctuation">,</span> y<span class="token punctuation">]</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure><h3 id="复杂动画"><a class="anchor" href="#复杂动画">#</a> 复杂动画</h3>
+<h4 id="弹跳小球"><a class="anchor" href="#弹跳小球">#</a> 弹跳小球</h4>
+<p>实质上就是到达终点后的反弹和衰减，是<a href="#%E9%87%8D%E5%8A%9B%E6%95%88%E6%9E%9C">重力效果</a>的延伸</p>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">autoDamping</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>    <span class="token keyword">let</span> damping <span class="token operator">=</span> <span class="token number">0.7</span><span class="token punctuation">,</span> <span class="token comment">// 衰减系数</span></pre></td></tr><tr><td data-num="3"></td><td><pre>        duration <span class="token operator">=</span> <span class="token number">1000</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="4"></td><td><pre>        height <span class="token operator">=</span> <span class="token number">300</span><span class="token punctuation">;</span> </pre></td></tr><tr><td data-num="5"></td><td><pre>    </pre></td></tr><tr><td data-num="6"></td><td><pre>    <span class="token comment">// 当衰减到一定边界值时停止动画</span></pre></td></tr><tr><td data-num="7"></td><td><pre>    <span class="token keyword">while</span><span class="token punctuation">(</span>height <span class="token operator">></span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="8"></td><td><pre>        <span class="token keyword">const</span> <span class="token function-variable function">down</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">progress</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="9"></td><td><pre>        	ball<span class="token punctuation">.</span>style<span class="token punctuation">.</span>transform <span class="token operator">=</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">translate(0, </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>height <span class="token operator">*</span> <span class="token punctuation">(</span>progress <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">px)</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="10"></td><td><pre>      	<span class="token punctuation">&#125;</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="11"></td><td><pre>        <span class="token keyword">await</span> <span class="token function">animate</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="12"></td><td><pre>        	duration<span class="token operator">:</span> duration<span class="token punctuation">,</span></pre></td></tr><tr><td data-num="13"></td><td><pre>        	<span class="token function">easing</span><span class="token punctuation">(</span><span class="token parameter">t</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="14"></td><td><pre>          		<span class="token keyword">return</span> t <span class="token operator">**</span> <span class="token number">2</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="15"></td><td><pre>        	<span class="token punctuation">&#125;</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="16"></td><td><pre>        	draw<span class="token operator">:</span> down<span class="token punctuation">,</span></pre></td></tr><tr><td data-num="17"></td><td><pre>      	<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="18"></td><td><pre>        height <span class="token operator">*=</span> damping <span class="token operator">**</span> <span class="token number">2</span><span class="token punctuation">;</span> <span class="token comment">// ** 2 可以使动画效果更加柔和</span></pre></td></tr><tr><td data-num="19"></td><td><pre>      	duration <span class="token operator">*=</span> damping<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="20"></td><td><pre>		<span class="token keyword">const</span> <span class="token function-variable function">up</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">progress</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="21"></td><td><pre>        	ball<span class="token punctuation">.</span>style<span class="token punctuation">.</span>transform <span class="token operator">=</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">translate(0, </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span><span class="token operator">-</span>height <span class="token operator">*</span> progress<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">px)</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="22"></td><td><pre>      	<span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="23"></td><td><pre>        <span class="token keyword">await</span> <span class="token function">animate</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="24"></td><td><pre>        	duration<span class="token operator">:</span> duration<span class="token punctuation">,</span></pre></td></tr><tr><td data-num="25"></td><td><pre>        	<span class="token function">easing</span><span class="token punctuation">(</span><span class="token parameter">t</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="26"></td><td><pre>          		<span class="token keyword">return</span> <span class="token number">2</span> <span class="token operator">*</span> t <span class="token operator">-</span> <span class="token punctuation">(</span>t <span class="token operator">**</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="27"></td><td><pre>        	<span class="token punctuation">&#125;</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="28"></td><td><pre>        	draw<span class="token operator">:</span> down<span class="token punctuation">,</span></pre></td></tr><tr><td data-num="29"></td><td><pre>      	<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="30"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="31"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure><h4 id="椭圆运动"><a class="anchor" href="#椭圆运动">#</a> 椭圆运动</h4>
+<p>也是套用公式：</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mfrac><msup><mi>x</mi><mn>2</mn></msup><msup><mi>a</mi><mn>2</mn></msup></mfrac><mo>+</mo><mfrac><msup><mi>y</mi><mn>2</mn></msup><msup><mi>b</mi><mn>2</mn></msup></mfrac><mo>=</mo><mn>1</mn><mtext>，</mtext><mi>x</mi><mo>=</mo><mi>a</mi><mo separator="true">⋅</mo><mi>c</mi><mi>o</mi><mi>s</mi><mo stretchy="false">(</mo><mi>a</mi><mo stretchy="false">)</mo><mtext>，</mtext><mi>y</mi><mo>=</mo><mi>b</mi><mo separator="true">⋅</mo><mi>s</mi><mi>i</mi><mi>n</mi><mo stretchy="false">(</mo><mi>a</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\frac{x^2}{a^2}+\frac{y^2}{b^2}=1，x=a·cos(a)，y=b·sin(a)
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:2.177108em;vertical-align:-0.686em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.491108em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mord mathnormal">a</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.740108em;"><span style="top:-2.9890000000000003em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:2.177108em;vertical-align:-0.686em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.491108em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mord mathnormal">b</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.740108em;"><span style="top:-2.9890000000000003em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord cjk_fallback">，</span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">a</span><span class="mpunct">⋅</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal">c</span><span class="mord mathnormal">o</span><span class="mord mathnormal">s</span><span class="mopen">(</span><span class="mord mathnormal">a</span><span class="mclose">)</span><span class="mord cjk_fallback">，</span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">b</span><span class="mpunct">⋅</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal">s</span><span class="mord mathnormal">i</span><span class="mord mathnormal">n</span><span class="mopen">(</span><span class="mord mathnormal">a</span><span class="mclose">)</span></span></span></span></span></p>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">const</span> <span class="token function-variable function">draw</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">progress</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>    <span class="token keyword">const</span> x <span class="token operator">=</span> <span class="token number">150</span> <span class="token operator">*</span> Math<span class="token punctuation">.</span><span class="token function">cos</span><span class="token punctuation">(</span>Math<span class="token punctuation">.</span><span class="token constant">PI</span> <span class="token operator">*</span> <span class="token number">2</span> <span class="token operator">*</span> progress<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="3"></td><td><pre>    <span class="token keyword">const</span> y <span class="token operator">=</span> <span class="token number">100</span> <span class="token operator">*</span> Math<span class="token punctuation">.</span><span class="token function">sin</span><span class="token punctuation">(</span>Math<span class="token punctuation">.</span><span class="token constant">PI</span> <span class="token operator">*</span> <span class="token number">2</span> <span class="token operator">*</span> progress<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="4"></td><td><pre>    ball<span class="token punctuation">.</span>style<span class="token punctuation">.</span>transform <span class="token operator">=</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">translate(</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>x<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">px, </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>y<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">px)</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="6"></td><td><pre></pre></td></tr><tr><td data-num="7"></td><td><pre><span class="token function">animate</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="8"></td><td><pre>	duration<span class="token operator">:</span> <span class="token number">2000</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="9"></td><td><pre>    <span class="token function">easing</span><span class="token punctuation">(</span><span class="token parameter">t</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="10"></td><td><pre>  		<span class="token keyword">return</span> <span class="token number">2</span> <span class="token operator">*</span> t <span class="token operator">-</span> <span class="token punctuation">(</span>t <span class="token operator">**</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="11"></td><td><pre>  	<span class="token punctuation">&#125;</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="12"></td><td><pre>  	draw<span class="token punctuation">,</span></pre></td></tr><tr><td data-num="13"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr></table></figure><h2 id="相关实践"><a class="anchor" href="#相关实践">#</a> 相关实践</h2>
+<h3 id="动画资源"><a class="anchor" href="#动画资源">#</a> 动画资源</h3>
+<p><strong>动画代码示例</strong>：</p>
+<ul>
+<li><span class="exturl" data-url="aHR0cDovL2NvZGVwZW4uY29t">codepen.com</span></li>
+<li><span class="exturl" data-url="aHR0cDovL2NvZGVzYW5kYm94LmNvbQ==">codesandbox.com</span></li>
+</ul>
+<p><strong>设计网站</strong>：</p>
+<ul>
+<li><span class="exturl" data-url="aHR0cDovL2RyaWJiYmxlLmNvbQ==">dribbble.com</span></li>
+</ul>
+<p><strong>动画制作工具</strong>（一般都是 UE、UI 同学使用)：</p>
+<ul>
+<li>2D：Animate CC、After Effects</li>
+<li>3D：Cinema 4D、Blender、Autodesk Maya</li>
+</ul>
+<p><strong>svg</strong> :</p>
+<ul>
+<li>
+<p>Snap.svg - 现代 SVG 图形的 JavaScript 库。</p>
+</li>
+<li>
+<p>Svg.js - 用于操作和动画 SVG 的轻量级库。</p>
+</li>
+</ul>
+<p><strong>js</strong> :</p>
+<ul>
+<li>GSAP - JavaScript 动画库。</li>
+<li>TweenJs  - 一个简单但功能强大的 JavaScript 补间 / 动画库。CreateJS 库套件的一部分。</li>
+<li>Velocity - 加速的 JavaScript 动画。</li>
+</ul>
+<p><strong>css</strong> :</p>
+<ul>
+<li>Animate.css - CSS 动画的跨浏览器库。像一件简单的事情一样容易使用。</li>
+</ul>
+<p><strong>canvas</strong> :</p>
+<ul>
+<li>EaselJs - EaselJS 是一个用于在 HTML5 中构建高性能交互式 2D 内容的库</li>
+<li>Fabric.js - 支持动画的 JavaScript 画布库。</li>
+<li>Paper.js - 矢量图形脚本的瑞士军刀 - Scriptographer 使用 HTML5Canvas 移植到 JavaScript 和浏览器。</li>
+<li>Pixijs - 使用最快、最灵活的 2D WebGL 渲染器创建精美的数字内容。</li>
+</ul>
+<h3 id="工作实践"><a class="anchor" href="#工作实践">#</a> 工作实践</h3>
+<pre class="mermaid graph"><svg id="mermaid-1642678561444" width="100%" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" height="55" style="max-width: 363.296875px;" viewBox="0 0 363.296875 55"><g><g class="output"><g class="clusters"></g><g class="edgePaths"><g class="edgePath LS-动画帧 LE-代码&amp;设计文件" id="L-动画帧-代码&amp;设计文件" style="opacity: 1;"><path class="path" d="M76,27.5L101,27.5L126,27.5" marker-end="url(#arrowhead12)" style="fill:none"></path><defs><marker id="arrowhead12" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="strokeWidth" markerWidth="8" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowheadPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker></defs></g><g class="edgePath LS-代码&amp;设计文件 LE-代码" id="L-代码&amp;设计文件-代码" style="opacity: 1;"><path class="path" d="M253.296875,27.5L278.296875,27.5L303.296875,27.5" marker-end="url(#arrowhead13)" style="fill:none"></path><defs><marker id="arrowhead13" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="strokeWidth" markerWidth="8" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowheadPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker></defs></g></g><g class="edgeLabels"><g class="edgeLabel" transform="" style="opacity: 1;"><g transform="translate(0,0)" class="label"><rect rx="0" ry="0" width="0" height="0"></rect><text><tspan xml:space="preserve" dy="1em" x="1"></tspan></text></g></g><g class="edgeLabel" transform="" style="opacity: 1;"><g transform="translate(0,0)" class="label"><rect rx="0" ry="0" width="0" height="0"></rect><text><tspan xml:space="preserve" dy="1em" x="1"></tspan></text></g></g></g><g class="nodes"><g class="node default" id="flowchart-动画帧-3" transform="translate(42,27.5)" style="opacity: 1;"><rect rx="0" ry="0" x="-34" y="-19.5" width="68" height="39" class="label-container"></rect><g class="label" transform="translate(0,0)"><g transform="translate(-24,-9.5)"><text style=""><tspan xml:space="preserve" dy="1em" x="1">动画帧</tspan></text></g></g></g><g class="node default" id="flowchart-代码&amp;设计文件-4" transform="translate(189.6484375,27.5)" style="opacity: 1;"><rect rx="0" ry="0" x="-63.6484375" y="-19.5" width="127.296875" height="39" class="label-container"></rect><g class="label" transform="translate(0,0)"><g transform="translate(-53.6484375,-9.5)"><text style=""><tspan xml:space="preserve" dy="1em" x="1">代码&amp;设计文件</tspan></text></g></g></g><g class="node default" id="flowchart-代码-5" transform="translate(329.296875,27.5)" style="opacity: 1;"><rect rx="0" ry="0" x="-26" y="-19.5" width="52" height="39" class="label-container"></rect><g class="label" transform="translate(0,0)"><g transform="translate(-16,-9.5)"><text style=""><tspan xml:space="preserve" dy="1em" x="1">代码</tspan></text></g></g></g></g></g></g></svg></pre><ul>
+<li>
+<p>需要完全前端自己开发</p>
+<p>使用已经封装好的动画库，从开发成本和体验角度出发进行取舍。</p>
+</li>
+<li>
+<p>设计不是很有空</p>
+<p>清晰度，图片格式可以指定，动画尽量给出示意或者相似案例参考。索要精灵资源、资源等需要帮忙压缩。</p>
+</li>
+<li>
+<p>设计资源充足</p>
+<p>要求设计导出 lottie 格式文件。</p>
+<p>（Lottie 是可应用于 Android, iOS, Web 和 Windows 的库，通过 Bodymovin 解析 AE 动画，并导出可在移动端和 web 端渲染动画的 json 文件）</p>
+</li>
+</ul>
+<h3 id="动画的优化"><a class="anchor" href="#动画的优化">#</a> 动画的优化</h3>
+<h4 id="用户体验"><a class="anchor" href="#用户体验">#</a> 用户体验</h4>
+<ul>
+<li>
+<p><span class="exturl" data-url="aHR0cHM6Ly93d3cuc21hc2hpbmdtYWdhemluZS5jb20vMjAxMS8wOS90aGUtZ3VpZGUtdG8tY3NzLWFuaW1hdGlvbi1wcmluY2lwbGVzLWFuZC1leGFtcGxlcy8=">《The Guide To CSS Animation: Principles and Examples》</span></p>
+</li>
+<li>
+<p><span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kvJUU1JThCJTk1JUU3JTk1JUFCJUU3JTlBJTg0MTIlRTklQTAlODUlRTUlOUYlQkElRTYlOUMlQUMlRTYlQjMlOTUlRTUlODklODc=">动画的 12 项基本法则 - Wikipedia</span></p>
+</li>
+</ul>
+<h4 id="性能"><a class="anchor" href="#性能">#</a> 性能</h4>
+<p>在实际的应用里，最为简单的一个注意点就是，触发动画的开始不要用 <code>display: none</code>  属性值，因为它会引起<em> Layout</em>、<em>Paint</em> 环节，通过切换类名就已经是一种很好的办法。</p>
+<p><code>translate</code>  属性值来替换 <code>top/left/right/bottom</code>  的切换， <code>scale</code>  属性值替换 <code>width/height</code> ， <code>opacity</code>  属性替换 <code>display/visibility</code>  等等。</p>
+<p>CSS3 硬件加速又叫做 GPU 加速，是利用 GPU 进行渲染，减少 CPU 操作的一种优化方案。由于 GPU 中的 transform 等 CSS 属性不会触发 repaint，所以能大大提高网页的性能。</p>
+<p>CSS 中的以下几个属性能触发硬件加速∶</p>
+<ol>
+<li>
+<p>transform</p>
+</li>
+<li>
+<p>opacity</p>
+</li>
+<li>
+<p>filter</p>
+</li>
+<li>
+<p>Will-change</p>
+</li>
+</ol>
+<p>如果有一些元素不需要用到上述属性，但是需要触发硬件加速效果，可以使用一些小技巧来诱导浏览器开启硬件加速。</p>
+<h4 id="其他"><a class="anchor" href="#其他">#</a> 其他</h4>
+<p>算法优化：</p>
+<ul>
+<li>线性函数代替真实计算</li>
+<li>几何模型优化</li>
+<li>碰撞检测优化</li>
+</ul>
+<p>内存 / 缓存优化</p>
+<p>离屏绘制</p>
+<h2 id="参考资料"><a class="anchor" href="#参考资料">#</a> 参考资料</h2>
+<ul>
+<li>字节<span class="exturl" data-url="aHR0cHM6Ly95b3V0aGNhbXAuYnl0ZWRhbmNlLmNvbS8=">青训营</span>课程</li>
+<li>Wikipedia</li>
+</ul>
+
+      <div class="tags">
+          <a href="/tags/Web/" rel="tag"><i class="ic i-tag"></i> Web</a>
+          <a href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag"><i class="ic i-tag"></i> 前端</a>
+          <a href="/tags/%E7%AC%94%E8%AE%B0%E8%A1%A5%E5%AE%8C%E8%AE%A1%E5%88%92/" rel="tag"><i class="ic i-tag"></i> 笔记补完计划</a>
+      </div>
+  </div>
+
+   <footer>
+
+    <div class="meta">
+  <span class="item">
+    <span class="icon">
+      <i class="ic i-calendar-check"></i>
+    </span>
+    <span class="text">更新于</span>
+    <time title="修改时间：2022-01-20 19:33:26" itemprop="dateModified" datetime="2022-01-20T19:33:26+08:00">2022-01-20</time>
+  </span>
+  <span id="2022/01/20/前端动画实现-笔记/" class="item leancloud_visitors" data-flag-title="前端动画实现 - 笔记" title="阅读次数">
+      <span class="icon">
+        <i class="ic i-eye"></i>
+      </span>
+      <span class="text">阅读次数</span>
+      <span class="leancloud-visitors-count"></span>
+      <span class="text">次</span>
+  </span>
+</div>
+
+      
+<div class="reward">
+  <button><i class="ic i-heartbeat"></i> 赞赏</button>
+  <p>请我喝[茶]~(￣▽￣)~*</p>
+  <div id="qr">
+      
+      <div>
+        <img data-src="/images/wechatpay.png" alt="TagBug 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/alipay.jpg" alt="TagBug 支付宝">
+        <p>支付宝</p>
+      </div>
+  </div>
+</div>
+
+      
+
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>本文作者： </strong>TagBug <i class="ic i-at"><em>@</em></i>🐟
+  </li>
+  <li class="link">
+    <strong>本文链接：</strong>
+    <a href="http://tagbug.gitlab.io/2022/01/20/%E5%89%8D%E7%AB%AF%E5%8A%A8%E7%94%BB%E5%AE%9E%E7%8E%B0-%E7%AC%94%E8%AE%B0/" title="前端动画实现 - 笔记">http://tagbug.gitlab.io/2022/01/20/前端动画实现-笔记/</a>
+  </li>
+  <li class="license">
+    <strong>版权声明： </strong>本站所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+  </footer>
+
+</article>
+
+  </div>
+  
+
+<div class="post-nav">
+  <div class="item left">
+      
+
+  <a href="/2022/01/20/%E5%93%8D%E5%BA%94%E5%BC%8F%E7%B3%BB%E7%BB%9F%E4%B8%8EReact-%E7%AC%94%E8%AE%B0/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;tva1.sinaimg.cn&#x2F;mw690&#x2F;81ef6186ly8gwtzl7xi5lj20zk0k0400.jpg" title="响应式系统与React - 笔记">
+  <span class="type">上一篇</span>
+  <span class="category">
+    <i class="ic i-flag"></i>
+    前端</span>
+  <h3>响应式系统与React - 笔记</h3>
+  </a>
+
+  </div>
+  <div class="item right">
+      
+
+  <a href="/2022/01/20/HTTP%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97-%E7%AC%94%E8%AE%B0/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;tva1.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1giciszlczyj20zk0m816d.jpg" title="HTTP实用指南 - 笔记">
+  <span class="type">下一篇</span>
+  <span class="category">
+    <i class="ic i-flag"></i>
+    前端</span>
+  <h3>HTTP实用指南 - 笔记</h3>
+  </a>
+
+  </div>
+</div>
+  
+  <div class="wrap" id="comments"></div>
+
+
+          </div>
+          <div id="sidebar">
+            
+
+<div class="inner">
+
+  <div class="panels">
+    <div class="inner">
+      <div class="contents panel pjax" data-title="文章目录">
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%8D%E7%AB%AF%E5%8A%A8%E7%94%BB%E5%AE%9E%E7%8E%B0-%E7%AC%94%E8%AE%B0"><span class="toc-number">1.</span> <span class="toc-text"> 前端动画实现 - 笔记</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%A8%E7%94%BB%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86"><span class="toc-number">1.1.</span> <span class="toc-text"> 动画的基本原理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E5%8A%A8%E7%94%BB"><span class="toc-number">1.1.1.</span> <span class="toc-text"> 什么是动画</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8A%A8%E7%94%BB%E7%9A%84%E5%8E%86%E5%8F%B2"><span class="toc-number">1.1.2.</span> <span class="toc-text"> 动画的历史</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%8A%A8%E7%94%BB%E5%8E%9F%E7%90%86"><span class="toc-number">1.1.3.</span> <span class="toc-text"> 计算机动画原理</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E7%AB%AF%E5%8A%A8%E7%94%BB%E5%88%86%E7%B1%BB"><span class="toc-number">1.2.</span> <span class="toc-text"> 前端动画分类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#css%E5%8A%A8%E7%94%BB"><span class="toc-number">1.2.1.</span> <span class="toc-text"> CSS 动画</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#svg%E5%8A%A8%E7%94%BB"><span class="toc-number">1.2.2.</span> <span class="toc-text"> SVG 动画</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#smil"><span class="toc-number">1.2.2.1.</span> <span class="toc-text"> SMIL</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#js-css"><span class="toc-number">1.2.2.2.</span> <span class="toc-text"> JS、CSS</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#js%E7%AC%94%E7%94%BB%E7%9A%84%E5%8E%9F%E7%90%86"><span class="toc-number">1.2.2.3.</span> <span class="toc-text"> JS 笔画的原理</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#js%E5%8A%A8%E7%94%BB"><span class="toc-number">1.2.3.</span> <span class="toc-text"> JS 动画</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E5%81%9A%E9%80%89%E6%8B%A9"><span class="toc-number">1.2.4.</span> <span class="toc-text"> 如何做选择</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E7%AB%AF%E5%8A%A8%E7%94%BB%E5%AE%9E%E7%8E%B0"><span class="toc-number">1.3.</span> <span class="toc-text"> 前端动画实现</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#js%E5%8A%A8%E7%94%BB%E5%87%BD%E6%95%B0%E5%B0%81%E8%A3%85"><span class="toc-number">1.3.1.</span> <span class="toc-text"> JS 动画函数封装</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#js%E6%89%A7%E8%A1%8C%E5%8A%A8%E7%94%BB%E7%9A%84%E6%A0%B8%E5%BF%83%E6%80%9D%E6%83%B3"><span class="toc-number">1.3.1.1.</span> <span class="toc-text"> JS 执行动画的核心思想</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%80%E5%8D%95%E5%8A%A8%E7%94%BB"><span class="toc-number">1.3.2.</span> <span class="toc-text"> 简单动画</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8C%80%E9%80%9F%E8%BF%90%E5%8A%A8"><span class="toc-number">1.3.2.1.</span> <span class="toc-text"> 匀速运动</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%87%8D%E5%8A%9B%E6%95%88%E6%9E%9C"><span class="toc-number">1.3.2.2.</span> <span class="toc-text"> 重力效果</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%91%A9%E6%93%A6%E5%8A%9B%E5%8C%80%E9%80%9F%E5%87%8F%E9%80%9F%E8%BF%90%E5%8A%A8"><span class="toc-number">1.3.2.3.</span> <span class="toc-text"> 摩擦力（匀速减速运动）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B9%B3%E6%8A%9B%E8%BF%90%E5%8A%A8x%E8%BD%B4%E5%8C%80%E9%80%9Fy%E8%BD%B4%E5%8A%A0%E9%80%9F"><span class="toc-number">1.3.2.4.</span> <span class="toc-text"> 平抛运动（x 轴匀速，y 轴加速）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%97%8B%E8%BD%AC-%E5%B9%B3%E6%8A%9B"><span class="toc-number">1.3.2.5.</span> <span class="toc-text"> 旋转 + 平抛</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8B%89%E5%BC%93%E6%95%88%E6%9E%9C"><span class="toc-number">1.3.2.6.</span> <span class="toc-text"> 拉弓效果</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%B4%9D%E5%A1%9E%E5%B0%94%E6%9B%B2%E7%BA%BF"><span class="toc-number">1.3.2.7.</span> <span class="toc-text"> 贝塞尔曲线</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%8D%E6%9D%82%E5%8A%A8%E7%94%BB"><span class="toc-number">1.3.3.</span> <span class="toc-text"> 复杂动画</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BC%B9%E8%B7%B3%E5%B0%8F%E7%90%83"><span class="toc-number">1.3.3.1.</span> <span class="toc-text"> 弹跳小球</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A4%AD%E5%9C%86%E8%BF%90%E5%8A%A8"><span class="toc-number">1.3.3.2.</span> <span class="toc-text"> 椭圆运动</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%B8%E5%85%B3%E5%AE%9E%E8%B7%B5"><span class="toc-number">1.4.</span> <span class="toc-text"> 相关实践</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8A%A8%E7%94%BB%E8%B5%84%E6%BA%90"><span class="toc-number">1.4.1.</span> <span class="toc-text"> 动画资源</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B7%A5%E4%BD%9C%E5%AE%9E%E8%B7%B5"><span class="toc-number">1.4.2.</span> <span class="toc-text"> 工作实践</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8A%A8%E7%94%BB%E7%9A%84%E4%BC%98%E5%8C%96"><span class="toc-number">1.4.3.</span> <span class="toc-text"> 动画的优化</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%94%A8%E6%88%B7%E4%BD%93%E9%AA%8C"><span class="toc-number">1.4.3.1.</span> <span class="toc-text"> 用户体验</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%80%A7%E8%83%BD"><span class="toc-number">1.4.3.2.</span> <span class="toc-text"> 性能</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%B6%E4%BB%96"><span class="toc-number">1.4.3.3.</span> <span class="toc-text"> 其他</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="toc-number">1.5.</span> <span class="toc-text"> 参考资料</span></a></li></ol></li></ol>
+      </div>
+      <div class="related panel pjax" data-title="系列文章">
+        <ul>
+          <li><a href="/2021/09/23/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96-%E7%AC%94%E8%AE%B0/" rel="bookmark" title="前端工程化 - 笔记">前端工程化 - 笔记</a></li><li><a href="/2021/09/25/Node-js%E5%85%A5%E9%97%A8-%E7%AC%94%E8%AE%B0/" rel="bookmark" title="Node.js入门 - 笔记">Node.js入门 - 笔记</a></li><li><a href="/2021/11/13/Web%E5%AE%89%E5%85%A8%E5%9F%BA%E7%A1%80-%E7%AC%94%E8%AE%B0/" rel="bookmark" title="Web安全基础 - 笔记">Web安全基础 - 笔记</a></li><li><a href="/2021/11/15/JS%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E7%AC%94%E8%AE%B0/" rel="bookmark" title="JS设计模式 - 笔记">JS设计模式 - 笔记</a></li><li><a href="/2022/01/17/%E5%89%8D%E7%AB%AF%E4%B8%8EHTML-%E7%AC%94%E8%AE%B0/" rel="bookmark" title="前端与HTML - 笔记">前端与HTML - 笔记</a></li><li><a href="/2022/01/17/%E7%90%86%E8%A7%A3CSS-%E7%AC%94%E8%AE%B0/" rel="bookmark" title="理解CSS - 笔记">理解CSS - 笔记</a></li><li><a href="/2022/01/17/%E5%A6%82%E4%BD%95%E5%86%99%E5%A5%BDJavaScript-%E7%AC%94%E8%AE%B0/" rel="bookmark" title="如何写好JavaScript - 笔记">如何写好JavaScript - 笔记</a></li><li><a href="/2022/01/18/Web%E6%A0%87%E5%87%86%E4%B8%8E%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91-%E7%AC%94%E8%AE%B0/" rel="bookmark" title="Web标准与前端开发 - 笔记">Web标准与前端开发 - 笔记</a></li><li><a href="/2022/01/18/%E5%89%8D%E7%AB%AF%E5%BF%85%E9%A1%BB%E7%9F%A5%E9%81%93%E7%9A%84%E5%BC%80%E5%8F%91%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86-%E7%AC%94%E8%AE%B0/" rel="bookmark" title="前端必须知道的开发调试知识 - 笔记">前端必须知道的开发调试知识 - 笔记</a></li><li><a href="/2022/01/20/%E5%93%8D%E5%BA%94%E5%BC%8F%E7%B3%BB%E7%BB%9F%E4%B8%8EReact-%E7%AC%94%E8%AE%B0/" rel="bookmark" title="响应式系统与React - 笔记">响应式系统与React - 笔记</a></li><li class="active"><a href="/2022/01/20/%E5%89%8D%E7%AB%AF%E5%8A%A8%E7%94%BB%E5%AE%9E%E7%8E%B0-%E7%AC%94%E8%AE%B0/" rel="bookmark" title="前端动画实现 - 笔记">前端动画实现 - 笔记</a></li><li><a href="/2022/01/20/HTTP%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97-%E7%AC%94%E8%AE%B0/" rel="bookmark" title="HTTP实用指南 - 笔记">HTTP实用指南 - 笔记</a></li><li><a href="/2022/01/20/Node-js-%E4%B8%8E%E5%BC%80%E5%8F%91%E5%AE%9E%E6%88%98-%E7%AC%94%E8%AE%B0/" rel="bookmark" title="Node.js 与开发实战 - 笔记">Node.js 与开发实战 - 笔记</a></li><li><a href="/2022/01/21/WebGL%E5%9F%BA%E7%A1%80-%E7%AC%94%E8%AE%B0/" rel="bookmark" title="WebGL基础 - 笔记">WebGL基础 - 笔记</a></li>
+        </ul>
+      </div>
+      <div class="overview panel" data-title="站点概览">
+        <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="image" itemprop="image" alt="TagBug"
+      data-src="/images/avatar.png">
+  <p class="name" itemprop="name">TagBug</p>
+  <div class="description" itemprop="description">所念皆星河</div>
+</div>
+
+<nav class="state">
+    <div class="item posts">
+      <a href="/archives/">
+        <span class="count">20</span>
+        <span class="name">文章</span>
+      </a>
+    </div>
+    <div class="item categories">
+      <a href="/categories/">
+        <span class="count">9</span>
+        <span class="name">分类</span>
+      </a>
+    </div>
+    <div class="item tags">
+      <a href="/tags/">
+        <span class="count">25</span>
+        <span class="name">标签</span>
+      </a>
+    </div>
+</nav>
+
+<div class="social">
+      <span class="exturl item github" data-url="aHR0cHM6Ly9naXRodWIuY29tL3RhZ2J1Zw==" title="https:&#x2F;&#x2F;github.com&#x2F;tagbug"><i class="ic i-github"></i></span>
+      <span class="exturl item email" data-url="bWFpbHRvOjEyNDIxMzUyOTVAcXEuY29t" title="mailto:1242135295@qq.com"><i class="ic i-envelope"></i></span>
+      <span class="exturl item bilibili" data-url="aHR0cHM6Ly9zcGFjZS5iaWxpYmlsaS5jb20vMjgyMjMzMg==" title="https:&#x2F;&#x2F;space.bilibili.com&#x2F;2822332"><i class="ic i-play"></i></span>
+      <span class="exturl item music" data-url="aHR0cHM6Ly9tdXNpYy4xNjMuY29tLyMvdXNlci9ob21lP2lkPTEzMzg4MTUwNw==" title="https:&#x2F;&#x2F;music.163.com&#x2F;#&#x2F;user&#x2F;home?id&#x3D;133881507"><i class="ic i-cloud-music"></i></span>
+      <span class="exturl item weibo" data-url="aHR0cHM6Ly93ZWliby5jb20vdS8yMTc5OTQ4OTM0" title="https:&#x2F;&#x2F;weibo.com&#x2F;u&#x2F;2179948934"><i class="ic i-weibo"></i></span>
+</div>
+
+<ul class="menu">
+  
+    
+  <li class="item">
+    <a href="/" rel="section"><i class="ic i-home"></i>首页</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/about/" rel="section"><i class="ic i-user"></i>关于</a>
+  </li>
+
+        
+  <li class="item dropdown">
+      <a href="javascript:void(0);"><i class="ic i-feather"></i>文章</a>
+    <ul class="submenu">
+
+        
+  <li class="item">
+    <a href="/archives/" rel="section"><i class="ic i-list-alt"></i>归档</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/categories/" rel="section"><i class="ic i-th"></i>分类</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/tags/" rel="section"><i class="ic i-tags"></i>标签</a>
+  </li>
+
+  </ul>
+    
+  <li class="item">
+    <a href="/friend/" rel="section"><i class="ic i-heart"></i>友链</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/music/" rel="section"><i class="ic i-music"></i>音乐</a>
+  </li>
+
+
+</ul>
+
+      </div>
+    </div>
+  </div>
+
+  <ul id="quick">
+    <li class="prev pjax">
+        <a href="/2022/01/20/%E5%93%8D%E5%BA%94%E5%BC%8F%E7%B3%BB%E7%BB%9F%E4%B8%8EReact-%E7%AC%94%E8%AE%B0/" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a>
+    </li>
+    <li class="up"><i class="ic i-arrow-up"></i></li>
+    <li class="down"><i class="ic i-arrow-down"></i></li>
+    <li class="next pjax">
+        <a href="/2022/01/20/HTTP%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97-%E7%AC%94%E8%AE%B0/" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a>
+    </li>
+    <li class="percent"></li>
+  </ul>
+</div>
+
+
+          </div>
+          <div class="dimmer"></div>
+        </div>
+      </main>
+      <footer id="footer">
+        <div class="inner">
+          <div class="widgets">
+            
+<div class="rpost pjax">
+  <h2>随机文章</h2>
+  <ul>
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="分类于 学习笔记">学习笔记</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E5%89%8D%E7%AB%AF/" title="分类于 前端">前端</a>
+</div>
+
+    <span><a href="/2021/11/15/JS%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E7%AC%94%E8%AE%B0/" title="JS设计模式 - 笔记">JS设计模式 - 笔记</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Linux/" title="分类于 Linux">Linux</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Linux/Shell/" title="分类于 Shell">Shell</a>
+</div>
+
+    <span><a href="/2021/02/23/Linux%E7%BB%88%E7%AB%AF%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%93/" title="Linux终端使用总结">Linux终端使用总结</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="分类于 学习笔记">学习笔记</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E5%89%8D%E7%AB%AF/" title="分类于 前端">前端</a>
+</div>
+
+    <span><a href="/2022/01/20/%E5%89%8D%E7%AB%AF%E5%8A%A8%E7%94%BB%E5%AE%9E%E7%8E%B0-%E7%AC%94%E8%AE%B0/" title="前端动画实现 - 笔记">前端动画实现 - 笔记</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="分类于 学习笔记">学习笔记</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E5%89%8D%E7%AB%AF/" title="分类于 前端">前端</a>
+</div>
+
+    <span><a href="/2022/01/20/HTTP%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97-%E7%AC%94%E8%AE%B0/" title="HTTP实用指南 - 笔记">HTTP实用指南 - 笔记</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/works/" title="分类于 works">works</a>
+</div>
+
+    <span><a href="/2021/02/04/ujsAutoClock%E5%BC%80%E5%8F%91%E6%80%9D%E8%B7%AF%E5%8F%8A%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/" title="ujsAutoClock使用方法及开发思路">ujsAutoClock使用方法及开发思路</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="分类于 学习笔记">学习笔记</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E5%89%8D%E7%AB%AF/" title="分类于 前端">前端</a>
+</div>
+
+    <span><a href="/2022/01/18/%E5%89%8D%E7%AB%AF%E5%BF%85%E9%A1%BB%E7%9F%A5%E9%81%93%E7%9A%84%E5%BC%80%E5%8F%91%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86-%E7%AC%94%E8%AE%B0/" title="前端必须知道的开发调试知识 - 笔记">前端必须知道的开发调试知识 - 笔记</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="分类于 学习笔记">学习笔记</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E5%89%8D%E7%AB%AF/" title="分类于 前端">前端</a>
+</div>
+
+    <span><a href="/2022/01/21/WebGL%E5%9F%BA%E7%A1%80-%E7%AC%94%E8%AE%B0/" title="WebGL基础 - 笔记">WebGL基础 - 笔记</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="分类于 学习笔记">学习笔记</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E5%89%8D%E7%AB%AF/" title="分类于 前端">前端</a>
+</div>
+
+    <span><a href="/2021/11/13/Web%E5%AE%89%E5%85%A8%E5%9F%BA%E7%A1%80-%E7%AC%94%E8%AE%B0/" title="Web安全基础 - 笔记">Web安全基础 - 笔记</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" title="分类于 算法与数据结构">算法与数据结构</a>
+</div>
+
+    <span><a href="/2021/05/07/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93/" title="排序算法总结">排序算法总结</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="分类于 学习笔记">学习笔记</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E5%89%8D%E7%AB%AF/" title="分类于 前端">前端</a>
+</div>
+
+    <span><a href="/2021/09/25/Node-js%E5%85%A5%E9%97%A8-%E7%AC%94%E8%AE%B0/" title="Node.js入门 - 笔记">Node.js入门 - 笔记</a></span>
+  </li>
+
+  </ul>
+</div>
+<div>
+  <h2>最新评论</h2>
+  <ul class="leancloud-recent-comment"></ul>
+</div>
+
+          </div>
+          <div class="status">
+  <div class="copyright">
+    
+    &copy; 2021 – 
+    <span itemprop="copyrightYear">2022</span>
+    <span class="with-love">
+      <i class="ic i-sakura rotate"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">TagBug @ Tag Bug</span>
+  </div>
+  <div class="count">
+    <span class="post-meta-item-icon">
+      <i class="ic i-chart-area"></i>
+    </span>
+    <span title="站点总字数">82k 字</span>
+
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="ic i-coffee"></i>
+    </span>
+    <span title="站点阅读时长">1:15</span>
+  </div>
+
+  <div class="viewer">
+    <span>❤️感谢 <strong><span id="busuanzi_value_site_uv">282</span></strong> 小伙伴的 <strong><span id="busuanzi_value_site_pv">1685</span></strong> 次光临！❤️</span>
+  </div>
+  <script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" defer></script>
+  <div class="powered-by">
+    基于 <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
+  </div>
+</div>
+
+        </div>
+      </footer>
+    </div>
+    <script data-config="data-config" type="text/javascript">
+      var LOCAL = {
+        path: '2022/01/20/前端动画实现-笔记/',
+        favicon: {
+          show: "（●´3｀●）やれやれだぜ",
+          hide: "(´Д｀)大変だ！"
+        },
+        search: {
+          placeholder: "文章搜索",
+          empty: "关于 「 ${query} 」，什么也没搜到",
+          stats: "${time} ms 内找到 ${hits} 条结果"
+        },
+          valine: true,copy_tex: true,
+          katex: true,mermaid: true,fancybox: true,
+            copyright: '复制成功，转载请遵守 <i class="ic i-creative-commons"></i>BY-NC-SA 协议。',
+        ignores: [
+          function (uri) {
+            return uri.includes('#');
+          },
+          function (uri) {
+            return new RegExp(LOCAL.path + "$").test(uri);
+          }
+        ]
+      };
+    </script>
+
+    <script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
+
+    <script src="//cdn.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
+
+    <script src="/js/app.js?v=0.2.5"></script>
+
+    
+
+
+  </body>
+</html>
