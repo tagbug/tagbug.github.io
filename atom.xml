@@ -1,18 +1,18 @@
 <?xml version="1.0"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>http://tagbug.gitlab.io</id>
+    <id>http://tagbug.github.io</id>
     <title>🐟</title>
     <subtitle></subtitle>
-    <icon>http://tagbug.gitlab.io/images/favicon.ico</icon>
-    <link href="http://tagbug.gitlab.io" />
+    <icon>http://tagbug.github.io/images/favicon.ico</icon>
+    <link href="http://tagbug.github.io" />
     <author>
       <name>TagBug</name>
     </author>
     <updated>2022-01-21T15:40:47.000Z</updated>
     <entry>
-        <id>http://tagbug.gitlab.io/2022/01/21/Web%E5%AE%89%E5%85%A8%E5%9F%BA%E7%A1%80-%E7%AC%94%E8%AE%B0/</id>
+        <id>http://tagbug.github.io/2022/01/21/Web%E5%AE%89%E5%85%A8%E5%9F%BA%E7%A1%80-%E7%AC%94%E8%AE%B0/</id>
         <title>Web安全基础 - 笔记</title>
-        <link rel="alternate" href="http://tagbug.gitlab.io/2022/01/21/Web%E5%AE%89%E5%85%A8%E5%9F%BA%E7%A1%80-%E7%AC%94%E8%AE%B0/"/>
+        <link rel="alternate" href="http://tagbug.github.io/2022/01/21/Web%E5%AE%89%E5%85%A8%E5%9F%BA%E7%A1%80-%E7%AC%94%E8%AE%B0/"/>
         <content type="html">&lt;blockquote&gt;
 &lt;p&gt;从攻击角度和防御角度看 Web 安全：XSS、CSRF、Injection、Dos、DDos、中间人攻击&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -269,18 +269,18 @@
 &lt;li&gt;字节&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly95b3V0aGNhbXAuYnl0ZWRhbmNlLmNvbS8=&#34;&gt;青训营&lt;/span&gt;课程&lt;/li&gt;
 &lt;/ul&gt;
 </content>
-        <category term="学习笔记" scheme="http://tagbug.gitlab.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" />
-        <category term="前端" scheme="http://tagbug.gitlab.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E5%89%8D%E7%AB%AF/" />
-        <category term="Web" scheme="http://tagbug.gitlab.io/tags/Web/" />
-        <category term="前端" scheme="http://tagbug.gitlab.io/tags/%E5%89%8D%E7%AB%AF/" />
-        <category term="Web安全" scheme="http://tagbug.gitlab.io/tags/Web%E5%AE%89%E5%85%A8/" />
-        <category term="笔记补完计划" scheme="http://tagbug.gitlab.io/tags/%E7%AC%94%E8%AE%B0%E8%A1%A5%E5%AE%8C%E8%AE%A1%E5%88%92/" />
+        <category term="学习笔记" scheme="http://tagbug.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" />
+        <category term="前端" scheme="http://tagbug.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E5%89%8D%E7%AB%AF/" />
+        <category term="Web" scheme="http://tagbug.github.io/tags/Web/" />
+        <category term="前端" scheme="http://tagbug.github.io/tags/%E5%89%8D%E7%AB%AF/" />
+        <category term="Web安全" scheme="http://tagbug.github.io/tags/Web%E5%AE%89%E5%85%A8/" />
+        <category term="笔记补完计划" scheme="http://tagbug.github.io/tags/%E7%AC%94%E8%AE%B0%E8%A1%A5%E5%AE%8C%E8%AE%A1%E5%88%92/" />
         <updated>2022-01-21T15:40:47.000Z</updated>
     </entry>
     <entry>
-        <id>http://tagbug.gitlab.io/2022/01/21/WebGL%E5%9F%BA%E7%A1%80-%E7%AC%94%E8%AE%B0/</id>
+        <id>http://tagbug.github.io/2022/01/21/WebGL%E5%9F%BA%E7%A1%80-%E7%AC%94%E8%AE%B0/</id>
         <title>WebGL基础 - 笔记</title>
-        <link rel="alternate" href="http://tagbug.gitlab.io/2022/01/21/WebGL%E5%9F%BA%E7%A1%80-%E7%AC%94%E8%AE%B0/"/>
+        <link rel="alternate" href="http://tagbug.github.io/2022/01/21/WebGL%E5%9F%BA%E7%A1%80-%E7%AC%94%E8%AE%B0/"/>
         <content type="html">&lt;blockquote&gt;
 &lt;p&gt;为什么要使用 WebGL/GPU&lt;/p&gt;
 &lt;p&gt;怎样使用 WebGL（WebGL 入门第一步）&lt;/p&gt;
@@ -414,18 +414,18 @@
 &lt;li&gt;字节&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly95b3V0aGNhbXAuYnl0ZWRhbmNlLmNvbS8=&#34;&gt;青训营&lt;/span&gt;课程&lt;/li&gt;
 &lt;/ul&gt;
 </content>
-        <category term="学习笔记" scheme="http://tagbug.gitlab.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" />
-        <category term="前端" scheme="http://tagbug.gitlab.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E5%89%8D%E7%AB%AF/" />
-        <category term="Web" scheme="http://tagbug.gitlab.io/tags/Web/" />
-        <category term="前端" scheme="http://tagbug.gitlab.io/tags/%E5%89%8D%E7%AB%AF/" />
-        <category term="笔记补完计划" scheme="http://tagbug.gitlab.io/tags/%E7%AC%94%E8%AE%B0%E8%A1%A5%E5%AE%8C%E8%AE%A1%E5%88%92/" />
-        <category term="WebGL" scheme="http://tagbug.gitlab.io/tags/WebGL/" />
+        <category term="学习笔记" scheme="http://tagbug.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" />
+        <category term="前端" scheme="http://tagbug.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E5%89%8D%E7%AB%AF/" />
+        <category term="Web" scheme="http://tagbug.github.io/tags/Web/" />
+        <category term="前端" scheme="http://tagbug.github.io/tags/%E5%89%8D%E7%AB%AF/" />
+        <category term="笔记补完计划" scheme="http://tagbug.github.io/tags/%E7%AC%94%E8%AE%B0%E8%A1%A5%E5%AE%8C%E8%AE%A1%E5%88%92/" />
+        <category term="WebGL" scheme="http://tagbug.github.io/tags/WebGL/" />
         <updated>2022-01-21T14:40:47.000Z</updated>
     </entry>
     <entry>
-        <id>http://tagbug.gitlab.io/2022/01/20/Node-js-%E4%B8%8E%E5%BC%80%E5%8F%91%E5%AE%9E%E6%88%98-%E7%AC%94%E8%AE%B0/</id>
+        <id>http://tagbug.github.io/2022/01/20/Node-js-%E4%B8%8E%E5%BC%80%E5%8F%91%E5%AE%9E%E6%88%98-%E7%AC%94%E8%AE%B0/</id>
         <title>Node.js 与开发实战 - 笔记</title>
-        <link rel="alternate" href="http://tagbug.gitlab.io/2022/01/20/Node-js-%E4%B8%8E%E5%BC%80%E5%8F%91%E5%AE%9E%E6%88%98-%E7%AC%94%E8%AE%B0/"/>
+        <link rel="alternate" href="http://tagbug.github.io/2022/01/20/Node-js-%E4%B8%8E%E5%BC%80%E5%8F%91%E5%AE%9E%E6%88%98-%E7%AC%94%E8%AE%B0/"/>
         <content type="html">&lt;blockquote&gt;
 &lt;p&gt;Why：为什么要学 Node.js - Node.js 的应用场景&lt;/p&gt;
 &lt;p&gt;What：Node.js 是什么 - Node.js 运行时结构&lt;/p&gt;
@@ -656,18 +656,18 @@
 &lt;li&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL2pveWVlY2hldW5nL3RhbGtzL2Jsb2IvbWFzdGVyL2NvZGVfYW5kX2xlYXJuXzIwMTlfYmVpamluZy9jb250cmlidXRpbmctdG8tbm9kZS1jb3JlLnBkZg==&#34;&gt;Node.js Core 贡献入门&lt;/span&gt;&lt;/li&gt;
 &lt;/ul&gt;
 </content>
-        <category term="学习笔记" scheme="http://tagbug.gitlab.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" />
-        <category term="前端" scheme="http://tagbug.gitlab.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E5%89%8D%E7%AB%AF/" />
-        <category term="Web" scheme="http://tagbug.gitlab.io/tags/Web/" />
-        <category term="前端" scheme="http://tagbug.gitlab.io/tags/%E5%89%8D%E7%AB%AF/" />
-        <category term="笔记补完计划" scheme="http://tagbug.gitlab.io/tags/%E7%AC%94%E8%AE%B0%E8%A1%A5%E5%AE%8C%E8%AE%A1%E5%88%92/" />
-        <category term="Node.js" scheme="http://tagbug.gitlab.io/tags/Node-js/" />
+        <category term="学习笔记" scheme="http://tagbug.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" />
+        <category term="前端" scheme="http://tagbug.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E5%89%8D%E7%AB%AF/" />
+        <category term="Web" scheme="http://tagbug.github.io/tags/Web/" />
+        <category term="前端" scheme="http://tagbug.github.io/tags/%E5%89%8D%E7%AB%AF/" />
+        <category term="笔记补完计划" scheme="http://tagbug.github.io/tags/%E7%AC%94%E8%AE%B0%E8%A1%A5%E5%AE%8C%E8%AE%A1%E5%88%92/" />
+        <category term="Node.js" scheme="http://tagbug.github.io/tags/Node-js/" />
         <updated>2022-01-20T10:59:40.000Z</updated>
     </entry>
     <entry>
-        <id>http://tagbug.gitlab.io/2022/01/20/HTTP%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97-%E7%AC%94%E8%AE%B0/</id>
+        <id>http://tagbug.github.io/2022/01/20/HTTP%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97-%E7%AC%94%E8%AE%B0/</id>
         <title>HTTP实用指南 - 笔记</title>
-        <link rel="alternate" href="http://tagbug.gitlab.io/2022/01/20/HTTP%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97-%E7%AC%94%E8%AE%B0/"/>
+        <link rel="alternate" href="http://tagbug.github.io/2022/01/20/HTTP%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97-%E7%AC%94%E8%AE%B0/"/>
         <content type="html">&lt;blockquote&gt;
 &lt;p&gt;初识 HTTP：网络通讯模型、HTTP 模型&lt;/p&gt;
 &lt;p&gt;协议分析：发展历史、HTTP/1.1 报文分析&lt;/p&gt;
@@ -1165,18 +1165,18 @@
 &lt;li&gt;HTTP 权威指南&lt;/li&gt;
 &lt;/ul&gt;
 </content>
-        <category term="学习笔记" scheme="http://tagbug.gitlab.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" />
-        <category term="前端" scheme="http://tagbug.gitlab.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E5%89%8D%E7%AB%AF/" />
-        <category term="Web" scheme="http://tagbug.gitlab.io/tags/Web/" />
-        <category term="前端" scheme="http://tagbug.gitlab.io/tags/%E5%89%8D%E7%AB%AF/" />
-        <category term="HTTP协议" scheme="http://tagbug.gitlab.io/tags/HTTP%E5%8D%8F%E8%AE%AE/" />
-        <category term="笔记补完计划" scheme="http://tagbug.gitlab.io/tags/%E7%AC%94%E8%AE%B0%E8%A1%A5%E5%AE%8C%E8%AE%A1%E5%88%92/" />
+        <category term="学习笔记" scheme="http://tagbug.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" />
+        <category term="前端" scheme="http://tagbug.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E5%89%8D%E7%AB%AF/" />
+        <category term="Web" scheme="http://tagbug.github.io/tags/Web/" />
+        <category term="前端" scheme="http://tagbug.github.io/tags/%E5%89%8D%E7%AB%AF/" />
+        <category term="HTTP协议" scheme="http://tagbug.github.io/tags/HTTP%E5%8D%8F%E8%AE%AE/" />
+        <category term="笔记补完计划" scheme="http://tagbug.github.io/tags/%E7%AC%94%E8%AE%B0%E8%A1%A5%E5%AE%8C%E8%AE%A1%E5%88%92/" />
         <updated>2022-01-20T10:51:19.000Z</updated>
     </entry>
     <entry>
-        <id>http://tagbug.gitlab.io/2022/01/20/%E5%89%8D%E7%AB%AF%E5%8A%A8%E7%94%BB%E5%AE%9E%E7%8E%B0-%E7%AC%94%E8%AE%B0/</id>
+        <id>http://tagbug.github.io/2022/01/20/%E5%89%8D%E7%AB%AF%E5%8A%A8%E7%94%BB%E5%AE%9E%E7%8E%B0-%E7%AC%94%E8%AE%B0/</id>
         <title>前端动画实现 - 笔记</title>
-        <link rel="alternate" href="http://tagbug.gitlab.io/2022/01/20/%E5%89%8D%E7%AB%AF%E5%8A%A8%E7%94%BB%E5%AE%9E%E7%8E%B0-%E7%AC%94%E8%AE%B0/"/>
+        <link rel="alternate" href="http://tagbug.github.io/2022/01/20/%E5%89%8D%E7%AB%AF%E5%8A%A8%E7%94%BB%E5%AE%9E%E7%8E%B0-%E7%AC%94%E8%AE%B0/"/>
         <content type="html">&lt;blockquote&gt;
 &lt;p&gt;动画的基本原理：什么是动画、动画的历史、计算机动画原理&lt;/p&gt;
 &lt;p&gt;前端动画的分类：CSS 动画、SVG 动画、JS 动画、如何选择&lt;/p&gt;
@@ -1461,17 +1461,17 @@
 &lt;li&gt;Wikipedia&lt;/li&gt;
 &lt;/ul&gt;
 </content>
-        <category term="学习笔记" scheme="http://tagbug.gitlab.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" />
-        <category term="前端" scheme="http://tagbug.gitlab.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E5%89%8D%E7%AB%AF/" />
-        <category term="Web" scheme="http://tagbug.gitlab.io/tags/Web/" />
-        <category term="前端" scheme="http://tagbug.gitlab.io/tags/%E5%89%8D%E7%AB%AF/" />
-        <category term="笔记补完计划" scheme="http://tagbug.gitlab.io/tags/%E7%AC%94%E8%AE%B0%E8%A1%A5%E5%AE%8C%E8%AE%A1%E5%88%92/" />
+        <category term="学习笔记" scheme="http://tagbug.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" />
+        <category term="前端" scheme="http://tagbug.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E5%89%8D%E7%AB%AF/" />
+        <category term="Web" scheme="http://tagbug.github.io/tags/Web/" />
+        <category term="前端" scheme="http://tagbug.github.io/tags/%E5%89%8D%E7%AB%AF/" />
+        <category term="笔记补完计划" scheme="http://tagbug.github.io/tags/%E7%AC%94%E8%AE%B0%E8%A1%A5%E5%AE%8C%E8%AE%A1%E5%88%92/" />
         <updated>2022-01-20T10:49:22.000Z</updated>
     </entry>
     <entry>
-        <id>http://tagbug.gitlab.io/2022/01/20/%E5%93%8D%E5%BA%94%E5%BC%8F%E7%B3%BB%E7%BB%9F%E4%B8%8EReact-%E7%AC%94%E8%AE%B0/</id>
+        <id>http://tagbug.github.io/2022/01/20/%E5%93%8D%E5%BA%94%E5%BC%8F%E7%B3%BB%E7%BB%9F%E4%B8%8EReact-%E7%AC%94%E8%AE%B0/</id>
         <title>响应式系统与React - 笔记</title>
-        <link rel="alternate" href="http://tagbug.gitlab.io/2022/01/20/%E5%93%8D%E5%BA%94%E5%BC%8F%E7%B3%BB%E7%BB%9F%E4%B8%8EReact-%E7%AC%94%E8%AE%B0/"/>
+        <link rel="alternate" href="http://tagbug.github.io/2022/01/20/%E5%93%8D%E5%BA%94%E5%BC%8F%E7%B3%BB%E7%BB%9F%E4%B8%8EReact-%E7%AC%94%E8%AE%B0/"/>
         <content type="html">&lt;blockquote&gt;
 &lt;p&gt;React 的历史与应用&lt;/p&gt;
 &lt;p&gt;React 的设计思路：UI 编程痛点、响应式与转换式、组件化、生命周期&lt;/p&gt;
@@ -1529,8 +1529,8 @@
 &lt;/table&gt;
 &lt;h3 id=&#34;响应式编程&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#响应式编程&#34;&gt;#&lt;/a&gt; 响应式编程&lt;/h3&gt;
 &lt;p&gt;响应式系统：&lt;/p&gt;
-&lt;pre&gt;TimeoutError: Navigation timeout of 30000 ms exceeded&lt;/pre&gt;&lt;p&gt;前端响应式 UI：&lt;/p&gt;
-&lt;pre class=&#34;mermaid graph&#34;&gt;&lt;svg id=&#34;mermaid-1642777886267&#34; width=&#34;100%&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34; xmlns:xlink=&#34;http://www.w3.org/1999/xlink&#34; height=&#34;55&#34; style=&#34;max-width: 500.828125px;&#34; viewBox=&#34;0 0 500.828125 55&#34;&gt;&lt;g&gt;&lt;g class=&#34;output&#34;&gt;&lt;g class=&#34;clusters&#34;&gt;&lt;/g&gt;&lt;g class=&#34;edgePaths&#34;&gt;&lt;g class=&#34;edgePath LS-事件 LE-执行既定的回调&#34; id=&#34;L-事件-执行既定的回调&#34; style=&#34;opacity: 1;&#34;&gt;&lt;path class=&#34;path&#34; d=&#34;M60,27.5L85,27.5L110,27.5&#34; marker-end=&#34;url(#arrowhead17)&#34; style=&#34;fill:none&#34;&gt;&lt;/path&gt;&lt;defs&gt;&lt;marker id=&#34;arrowhead17&#34; viewBox=&#34;0 0 10 10&#34; refX=&#34;9&#34; refY=&#34;5&#34; markerUnits=&#34;strokeWidth&#34; markerWidth=&#34;8&#34; markerHeight=&#34;6&#34; orient=&#34;auto&#34;&gt;&lt;path d=&#34;M 0 0 L 10 5 L 0 10 z&#34; class=&#34;arrowheadPath&#34; style=&#34;stroke-width: 1; stroke-dasharray: 1, 0;&#34;&gt;&lt;/path&gt;&lt;/marker&gt;&lt;/defs&gt;&lt;/g&gt;&lt;g class=&#34;edgePath LS-执行既定的回调 LE-状态变更&#34; id=&#34;L-执行既定的回调-状态变更&#34; style=&#34;opacity: 1;&#34;&gt;&lt;path class=&#34;path&#34; d=&#34;M242,27.5L267,27.5L292,27.5&#34; marker-end=&#34;url(#arrowhead18)&#34; style=&#34;fill:none&#34;&gt;&lt;/path&gt;&lt;defs&gt;&lt;marker id=&#34;arrowhead18&#34; viewBox=&#34;0 0 10 10&#34; refX=&#34;9&#34; refY=&#34;5&#34; markerUnits=&#34;strokeWidth&#34; markerWidth=&#34;8&#34; markerHeight=&#34;6&#34; orient=&#34;auto&#34;&gt;&lt;path d=&#34;M 0 0 L 10 5 L 0 10 z&#34; class=&#34;arrowheadPath&#34; style=&#34;stroke-width: 1; stroke-dasharray: 1, 0;&#34;&gt;&lt;/path&gt;&lt;/marker&gt;&lt;/defs&gt;&lt;/g&gt;&lt;g class=&#34;edgePath LS-状态变更 LE-UI更新&#34; id=&#34;L-状态变更-UI更新&#34; style=&#34;opacity: 1;&#34;&gt;&lt;path class=&#34;path&#34; d=&#34;M376,27.5L401,27.5L426,27.5&#34; marker-end=&#34;url(#arrowhead19)&#34; style=&#34;fill:none&#34;&gt;&lt;/path&gt;&lt;defs&gt;&lt;marker id=&#34;arrowhead19&#34; viewBox=&#34;0 0 10 10&#34; refX=&#34;9&#34; refY=&#34;5&#34; markerUnits=&#34;strokeWidth&#34; markerWidth=&#34;8&#34; markerHeight=&#34;6&#34; orient=&#34;auto&#34;&gt;&lt;path d=&#34;M 0 0 L 10 5 L 0 10 z&#34; class=&#34;arrowheadPath&#34; style=&#34;stroke-width: 1; stroke-dasharray: 1, 0;&#34;&gt;&lt;/path&gt;&lt;/marker&gt;&lt;/defs&gt;&lt;/g&gt;&lt;/g&gt;&lt;g class=&#34;edgeLabels&#34;&gt;&lt;g class=&#34;edgeLabel&#34; transform=&#34;&#34; style=&#34;opacity: 1;&#34;&gt;&lt;g transform=&#34;translate(0,0)&#34; class=&#34;label&#34;&gt;&lt;rect rx=&#34;0&#34; ry=&#34;0&#34; width=&#34;0&#34; height=&#34;0&#34;&gt;&lt;/rect&gt;&lt;text&gt;&lt;tspan xml:space=&#34;preserve&#34; dy=&#34;1em&#34; x=&#34;1&#34;&gt;&lt;/tspan&gt;&lt;/text&gt;&lt;/g&gt;&lt;/g&gt;&lt;g class=&#34;edgeLabel&#34; transform=&#34;&#34; style=&#34;opacity: 1;&#34;&gt;&lt;g transform=&#34;translate(0,0)&#34; class=&#34;label&#34;&gt;&lt;rect rx=&#34;0&#34; ry=&#34;0&#34; width=&#34;0&#34; height=&#34;0&#34;&gt;&lt;/rect&gt;&lt;text&gt;&lt;tspan xml:space=&#34;preserve&#34; dy=&#34;1em&#34; x=&#34;1&#34;&gt;&lt;/tspan&gt;&lt;/text&gt;&lt;/g&gt;&lt;/g&gt;&lt;g class=&#34;edgeLabel&#34; transform=&#34;&#34; style=&#34;opacity: 1;&#34;&gt;&lt;g transform=&#34;translate(0,0)&#34; class=&#34;label&#34;&gt;&lt;rect rx=&#34;0&#34; ry=&#34;0&#34; width=&#34;0&#34; height=&#34;0&#34;&gt;&lt;/rect&gt;&lt;text&gt;&lt;tspan xml:space=&#34;preserve&#34; dy=&#34;1em&#34; x=&#34;1&#34;&gt;&lt;/tspan&gt;&lt;/text&gt;&lt;/g&gt;&lt;/g&gt;&lt;/g&gt;&lt;g class=&#34;nodes&#34;&gt;&lt;g class=&#34;node default&#34; id=&#34;flowchart-事件-4&#34; transform=&#34;translate(34,27.5)&#34; style=&#34;opacity: 1;&#34;&gt;&lt;rect rx=&#34;0&#34; ry=&#34;0&#34; x=&#34;-26&#34; y=&#34;-19.5&#34; width=&#34;52&#34; height=&#34;39&#34; class=&#34;label-container&#34;&gt;&lt;/rect&gt;&lt;g class=&#34;label&#34; transform=&#34;translate(0,0)&#34;&gt;&lt;g transform=&#34;translate(-16,-9.5)&#34;&gt;&lt;text style=&#34;&#34;&gt;&lt;tspan xml:space=&#34;preserve&#34; dy=&#34;1em&#34; x=&#34;1&#34;&gt;事件&lt;/tspan&gt;&lt;/text&gt;&lt;/g&gt;&lt;/g&gt;&lt;/g&gt;&lt;g class=&#34;node default&#34; id=&#34;flowchart-执行既定的回调-5&#34; transform=&#34;translate(176,27.5)&#34; style=&#34;opacity: 1;&#34;&gt;&lt;rect rx=&#34;0&#34; ry=&#34;0&#34; x=&#34;-66&#34; y=&#34;-19.5&#34; width=&#34;132&#34; height=&#34;39&#34; class=&#34;label-container&#34;&gt;&lt;/rect&gt;&lt;g class=&#34;label&#34; transform=&#34;translate(0,0)&#34;&gt;&lt;g transform=&#34;translate(-56,-9.5)&#34;&gt;&lt;text style=&#34;&#34;&gt;&lt;tspan xml:space=&#34;preserve&#34; dy=&#34;1em&#34; x=&#34;1&#34;&gt;执行既定的回调&lt;/tspan&gt;&lt;/text&gt;&lt;/g&gt;&lt;/g&gt;&lt;/g&gt;&lt;g class=&#34;node default&#34; id=&#34;flowchart-状态变更-6&#34; transform=&#34;translate(334,27.5)&#34; style=&#34;opacity: 1;&#34;&gt;&lt;rect rx=&#34;0&#34; ry=&#34;0&#34; x=&#34;-42&#34; y=&#34;-19.5&#34; width=&#34;84&#34; height=&#34;39&#34; class=&#34;label-container&#34;&gt;&lt;/rect&gt;&lt;g class=&#34;label&#34; transform=&#34;translate(0,0)&#34;&gt;&lt;g transform=&#34;translate(-32,-9.5)&#34;&gt;&lt;text style=&#34;&#34;&gt;&lt;tspan xml:space=&#34;preserve&#34; dy=&#34;1em&#34; x=&#34;1&#34;&gt;状态变更&lt;/tspan&gt;&lt;/text&gt;&lt;/g&gt;&lt;/g&gt;&lt;/g&gt;&lt;g class=&#34;node default&#34; id=&#34;flowchart-UI更新-7&#34; transform=&#34;translate(459.4140625,27.5)&#34; style=&#34;opacity: 1;&#34;&gt;&lt;rect rx=&#34;0&#34; ry=&#34;0&#34; x=&#34;-33.4140625&#34; y=&#34;-19.5&#34; width=&#34;66.828125&#34; height=&#34;39&#34; class=&#34;label-container&#34;&gt;&lt;/rect&gt;&lt;g class=&#34;label&#34; transform=&#34;translate(0,0)&#34;&gt;&lt;g transform=&#34;translate(-23.4140625,-9.5)&#34;&gt;&lt;text style=&#34;&#34;&gt;&lt;tspan xml:space=&#34;preserve&#34; dy=&#34;1em&#34; x=&#34;1&#34;&gt;UI更新&lt;/tspan&gt;&lt;/text&gt;&lt;/g&gt;&lt;/g&gt;&lt;/g&gt;&lt;/g&gt;&lt;/g&gt;&lt;/g&gt;&lt;/svg&gt;&lt;/pre&gt;&lt;ol&gt;
+&lt;pre class=&#34;mermaid graph&#34;&gt;&lt;svg id=&#34;mermaid-1645096648244&#34; width=&#34;100%&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34; xmlns:xlink=&#34;http://www.w3.org/1999/xlink&#34; height=&#34;55&#34; style=&#34;max-width: 384px;&#34; viewBox=&#34;0 0 384 55&#34;&gt;&lt;g&gt;&lt;g class=&#34;output&#34;&gt;&lt;g class=&#34;clusters&#34;&gt;&lt;/g&gt;&lt;g class=&#34;edgePaths&#34;&gt;&lt;g class=&#34;edgePath LS-事件 LE-执行既定的回调&#34; id=&#34;L-事件-执行既定的回调&#34; style=&#34;opacity: 1;&#34;&gt;&lt;path class=&#34;path&#34; d=&#34;M324,27.5L299,27.5L274,27.5&#34; marker-end=&#34;url(#arrowhead12)&#34; style=&#34;fill:none&#34;&gt;&lt;/path&gt;&lt;defs&gt;&lt;marker id=&#34;arrowhead12&#34; viewBox=&#34;0 0 10 10&#34; refX=&#34;9&#34; refY=&#34;5&#34; markerUnits=&#34;strokeWidth&#34; markerWidth=&#34;8&#34; markerHeight=&#34;6&#34; orient=&#34;auto&#34;&gt;&lt;path d=&#34;M 0 0 L 10 5 L 0 10 z&#34; class=&#34;arrowheadPath&#34; style=&#34;stroke-width: 1; stroke-dasharray: 1, 0;&#34;&gt;&lt;/path&gt;&lt;/marker&gt;&lt;/defs&gt;&lt;/g&gt;&lt;g class=&#34;edgePath LS-执行既定的回调 LE-状态变更&#34; id=&#34;L-执行既定的回调-状态变更&#34; style=&#34;opacity: 1;&#34;&gt;&lt;path class=&#34;path&#34; d=&#34;M142,27.5L117,27.5L92,27.5&#34; marker-end=&#34;url(#arrowhead13)&#34; style=&#34;fill:none&#34;&gt;&lt;/path&gt;&lt;defs&gt;&lt;marker id=&#34;arrowhead13&#34; viewBox=&#34;0 0 10 10&#34; refX=&#34;9&#34; refY=&#34;5&#34; markerUnits=&#34;strokeWidth&#34; markerWidth=&#34;8&#34; markerHeight=&#34;6&#34; orient=&#34;auto&#34;&gt;&lt;path d=&#34;M 0 0 L 10 5 L 0 10 z&#34; class=&#34;arrowheadPath&#34; style=&#34;stroke-width: 1; stroke-dasharray: 1, 0;&#34;&gt;&lt;/path&gt;&lt;/marker&gt;&lt;/defs&gt;&lt;/g&gt;&lt;/g&gt;&lt;g class=&#34;edgeLabels&#34;&gt;&lt;g class=&#34;edgeLabel&#34; transform=&#34;&#34; style=&#34;opacity: 1;&#34;&gt;&lt;g transform=&#34;translate(0,0)&#34; class=&#34;label&#34;&gt;&lt;rect rx=&#34;0&#34; ry=&#34;0&#34; width=&#34;0&#34; height=&#34;0&#34;&gt;&lt;/rect&gt;&lt;text&gt;&lt;tspan xml:space=&#34;preserve&#34; dy=&#34;1em&#34; x=&#34;1&#34;&gt;&lt;/tspan&gt;&lt;/text&gt;&lt;/g&gt;&lt;/g&gt;&lt;g class=&#34;edgeLabel&#34; transform=&#34;&#34; style=&#34;opacity: 1;&#34;&gt;&lt;g transform=&#34;translate(0,0)&#34; class=&#34;label&#34;&gt;&lt;rect rx=&#34;0&#34; ry=&#34;0&#34; width=&#34;0&#34; height=&#34;0&#34;&gt;&lt;/rect&gt;&lt;text&gt;&lt;tspan xml:space=&#34;preserve&#34; dy=&#34;1em&#34; x=&#34;1&#34;&gt;&lt;/tspan&gt;&lt;/text&gt;&lt;/g&gt;&lt;/g&gt;&lt;/g&gt;&lt;g class=&#34;nodes&#34;&gt;&lt;g class=&#34;node default&#34; id=&#34;flowchart-事件-3&#34; transform=&#34;translate(350,27.5)&#34; style=&#34;opacity: 1;&#34;&gt;&lt;rect rx=&#34;0&#34; ry=&#34;0&#34; x=&#34;-26&#34; y=&#34;-19.5&#34; width=&#34;52&#34; height=&#34;39&#34; class=&#34;label-container&#34;&gt;&lt;/rect&gt;&lt;g class=&#34;label&#34; transform=&#34;translate(0,0)&#34;&gt;&lt;g transform=&#34;translate(-16,-9.5)&#34;&gt;&lt;text style=&#34;&#34;&gt;&lt;tspan xml:space=&#34;preserve&#34; dy=&#34;1em&#34; x=&#34;1&#34;&gt;事件&lt;/tspan&gt;&lt;/text&gt;&lt;/g&gt;&lt;/g&gt;&lt;/g&gt;&lt;g class=&#34;node default&#34; id=&#34;flowchart-执行既定的回调-4&#34; transform=&#34;translate(208,27.5)&#34; style=&#34;opacity: 1;&#34;&gt;&lt;rect rx=&#34;0&#34; ry=&#34;0&#34; x=&#34;-66&#34; y=&#34;-19.5&#34; width=&#34;132&#34; height=&#34;39&#34; class=&#34;label-container&#34;&gt;&lt;/rect&gt;&lt;g class=&#34;label&#34; transform=&#34;translate(0,0)&#34;&gt;&lt;g transform=&#34;translate(-56,-9.5)&#34;&gt;&lt;text style=&#34;&#34;&gt;&lt;tspan xml:space=&#34;preserve&#34; dy=&#34;1em&#34; x=&#34;1&#34;&gt;执行既定的回调&lt;/tspan&gt;&lt;/text&gt;&lt;/g&gt;&lt;/g&gt;&lt;/g&gt;&lt;g class=&#34;node default&#34; id=&#34;flowchart-状态变更-5&#34; transform=&#34;translate(50,27.5)&#34; style=&#34;opacity: 1;&#34;&gt;&lt;rect rx=&#34;0&#34; ry=&#34;0&#34; x=&#34;-42&#34; y=&#34;-19.5&#34; width=&#34;84&#34; height=&#34;39&#34; class=&#34;label-container&#34;&gt;&lt;/rect&gt;&lt;g class=&#34;label&#34; transform=&#34;translate(0,0)&#34;&gt;&lt;g transform=&#34;translate(-32,-9.5)&#34;&gt;&lt;text style=&#34;&#34;&gt;&lt;tspan xml:space=&#34;preserve&#34; dy=&#34;1em&#34; x=&#34;1&#34;&gt;状态变更&lt;/tspan&gt;&lt;/text&gt;&lt;/g&gt;&lt;/g&gt;&lt;/g&gt;&lt;/g&gt;&lt;/g&gt;&lt;/g&gt;&lt;/svg&gt;&lt;/pre&gt;&lt;p&gt;前端响应式 UI：&lt;/p&gt;
+&lt;pre class=&#34;mermaid graph&#34;&gt;&lt;svg id=&#34;mermaid-1645096659439&#34; width=&#34;100%&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34; xmlns:xlink=&#34;http://www.w3.org/1999/xlink&#34; height=&#34;55&#34; style=&#34;max-width: 500.828125px;&#34; viewBox=&#34;0 0 500.828125 55&#34;&gt;&lt;g&gt;&lt;g class=&#34;output&#34;&gt;&lt;g class=&#34;clusters&#34;&gt;&lt;/g&gt;&lt;g class=&#34;edgePaths&#34;&gt;&lt;g class=&#34;edgePath LS-事件 LE-执行既定的回调&#34; id=&#34;L-事件-执行既定的回调&#34; style=&#34;opacity: 1;&#34;&gt;&lt;path class=&#34;path&#34; d=&#34;M60,27.5L85,27.5L110,27.5&#34; marker-end=&#34;url(#arrowhead17)&#34; style=&#34;fill:none&#34;&gt;&lt;/path&gt;&lt;defs&gt;&lt;marker id=&#34;arrowhead17&#34; viewBox=&#34;0 0 10 10&#34; refX=&#34;9&#34; refY=&#34;5&#34; markerUnits=&#34;strokeWidth&#34; markerWidth=&#34;8&#34; markerHeight=&#34;6&#34; orient=&#34;auto&#34;&gt;&lt;path d=&#34;M 0 0 L 10 5 L 0 10 z&#34; class=&#34;arrowheadPath&#34; style=&#34;stroke-width: 1; stroke-dasharray: 1, 0;&#34;&gt;&lt;/path&gt;&lt;/marker&gt;&lt;/defs&gt;&lt;/g&gt;&lt;g class=&#34;edgePath LS-执行既定的回调 LE-状态变更&#34; id=&#34;L-执行既定的回调-状态变更&#34; style=&#34;opacity: 1;&#34;&gt;&lt;path class=&#34;path&#34; d=&#34;M242,27.5L267,27.5L292,27.5&#34; marker-end=&#34;url(#arrowhead18)&#34; style=&#34;fill:none&#34;&gt;&lt;/path&gt;&lt;defs&gt;&lt;marker id=&#34;arrowhead18&#34; viewBox=&#34;0 0 10 10&#34; refX=&#34;9&#34; refY=&#34;5&#34; markerUnits=&#34;strokeWidth&#34; markerWidth=&#34;8&#34; markerHeight=&#34;6&#34; orient=&#34;auto&#34;&gt;&lt;path d=&#34;M 0 0 L 10 5 L 0 10 z&#34; class=&#34;arrowheadPath&#34; style=&#34;stroke-width: 1; stroke-dasharray: 1, 0;&#34;&gt;&lt;/path&gt;&lt;/marker&gt;&lt;/defs&gt;&lt;/g&gt;&lt;g class=&#34;edgePath LS-状态变更 LE-UI更新&#34; id=&#34;L-状态变更-UI更新&#34; style=&#34;opacity: 1;&#34;&gt;&lt;path class=&#34;path&#34; d=&#34;M376,27.5L401,27.5L426,27.5&#34; marker-end=&#34;url(#arrowhead19)&#34; style=&#34;fill:none&#34;&gt;&lt;/path&gt;&lt;defs&gt;&lt;marker id=&#34;arrowhead19&#34; viewBox=&#34;0 0 10 10&#34; refX=&#34;9&#34; refY=&#34;5&#34; markerUnits=&#34;strokeWidth&#34; markerWidth=&#34;8&#34; markerHeight=&#34;6&#34; orient=&#34;auto&#34;&gt;&lt;path d=&#34;M 0 0 L 10 5 L 0 10 z&#34; class=&#34;arrowheadPath&#34; style=&#34;stroke-width: 1; stroke-dasharray: 1, 0;&#34;&gt;&lt;/path&gt;&lt;/marker&gt;&lt;/defs&gt;&lt;/g&gt;&lt;/g&gt;&lt;g class=&#34;edgeLabels&#34;&gt;&lt;g class=&#34;edgeLabel&#34; transform=&#34;&#34; style=&#34;opacity: 1;&#34;&gt;&lt;g transform=&#34;translate(0,0)&#34; class=&#34;label&#34;&gt;&lt;rect rx=&#34;0&#34; ry=&#34;0&#34; width=&#34;0&#34; height=&#34;0&#34;&gt;&lt;/rect&gt;&lt;text&gt;&lt;tspan xml:space=&#34;preserve&#34; dy=&#34;1em&#34; x=&#34;1&#34;&gt;&lt;/tspan&gt;&lt;/text&gt;&lt;/g&gt;&lt;/g&gt;&lt;g class=&#34;edgeLabel&#34; transform=&#34;&#34; style=&#34;opacity: 1;&#34;&gt;&lt;g transform=&#34;translate(0,0)&#34; class=&#34;label&#34;&gt;&lt;rect rx=&#34;0&#34; ry=&#34;0&#34; width=&#34;0&#34; height=&#34;0&#34;&gt;&lt;/rect&gt;&lt;text&gt;&lt;tspan xml:space=&#34;preserve&#34; dy=&#34;1em&#34; x=&#34;1&#34;&gt;&lt;/tspan&gt;&lt;/text&gt;&lt;/g&gt;&lt;/g&gt;&lt;g class=&#34;edgeLabel&#34; transform=&#34;&#34; style=&#34;opacity: 1;&#34;&gt;&lt;g transform=&#34;translate(0,0)&#34; class=&#34;label&#34;&gt;&lt;rect rx=&#34;0&#34; ry=&#34;0&#34; width=&#34;0&#34; height=&#34;0&#34;&gt;&lt;/rect&gt;&lt;text&gt;&lt;tspan xml:space=&#34;preserve&#34; dy=&#34;1em&#34; x=&#34;1&#34;&gt;&lt;/tspan&gt;&lt;/text&gt;&lt;/g&gt;&lt;/g&gt;&lt;/g&gt;&lt;g class=&#34;nodes&#34;&gt;&lt;g class=&#34;node default&#34; id=&#34;flowchart-事件-4&#34; transform=&#34;translate(34,27.5)&#34; style=&#34;opacity: 1;&#34;&gt;&lt;rect rx=&#34;0&#34; ry=&#34;0&#34; x=&#34;-26&#34; y=&#34;-19.5&#34; width=&#34;52&#34; height=&#34;39&#34; class=&#34;label-container&#34;&gt;&lt;/rect&gt;&lt;g class=&#34;label&#34; transform=&#34;translate(0,0)&#34;&gt;&lt;g transform=&#34;translate(-16,-9.5)&#34;&gt;&lt;text style=&#34;&#34;&gt;&lt;tspan xml:space=&#34;preserve&#34; dy=&#34;1em&#34; x=&#34;1&#34;&gt;事件&lt;/tspan&gt;&lt;/text&gt;&lt;/g&gt;&lt;/g&gt;&lt;/g&gt;&lt;g class=&#34;node default&#34; id=&#34;flowchart-执行既定的回调-5&#34; transform=&#34;translate(176,27.5)&#34; style=&#34;opacity: 1;&#34;&gt;&lt;rect rx=&#34;0&#34; ry=&#34;0&#34; x=&#34;-66&#34; y=&#34;-19.5&#34; width=&#34;132&#34; height=&#34;39&#34; class=&#34;label-container&#34;&gt;&lt;/rect&gt;&lt;g class=&#34;label&#34; transform=&#34;translate(0,0)&#34;&gt;&lt;g transform=&#34;translate(-56,-9.5)&#34;&gt;&lt;text style=&#34;&#34;&gt;&lt;tspan xml:space=&#34;preserve&#34; dy=&#34;1em&#34; x=&#34;1&#34;&gt;执行既定的回调&lt;/tspan&gt;&lt;/text&gt;&lt;/g&gt;&lt;/g&gt;&lt;/g&gt;&lt;g class=&#34;node default&#34; id=&#34;flowchart-状态变更-6&#34; transform=&#34;translate(334,27.5)&#34; style=&#34;opacity: 1;&#34;&gt;&lt;rect rx=&#34;0&#34; ry=&#34;0&#34; x=&#34;-42&#34; y=&#34;-19.5&#34; width=&#34;84&#34; height=&#34;39&#34; class=&#34;label-container&#34;&gt;&lt;/rect&gt;&lt;g class=&#34;label&#34; transform=&#34;translate(0,0)&#34;&gt;&lt;g transform=&#34;translate(-32,-9.5)&#34;&gt;&lt;text style=&#34;&#34;&gt;&lt;tspan xml:space=&#34;preserve&#34; dy=&#34;1em&#34; x=&#34;1&#34;&gt;状态变更&lt;/tspan&gt;&lt;/text&gt;&lt;/g&gt;&lt;/g&gt;&lt;/g&gt;&lt;g class=&#34;node default&#34; id=&#34;flowchart-UI更新-7&#34; transform=&#34;translate(459.4140625,27.5)&#34; style=&#34;opacity: 1;&#34;&gt;&lt;rect rx=&#34;0&#34; ry=&#34;0&#34; x=&#34;-33.4140625&#34; y=&#34;-19.5&#34; width=&#34;66.828125&#34; height=&#34;39&#34; class=&#34;label-container&#34;&gt;&lt;/rect&gt;&lt;g class=&#34;label&#34; transform=&#34;translate(0,0)&#34;&gt;&lt;g transform=&#34;translate(-23.4140625,-9.5)&#34;&gt;&lt;text style=&#34;&#34;&gt;&lt;tspan xml:space=&#34;preserve&#34; dy=&#34;1em&#34; x=&#34;1&#34;&gt;UI更新&lt;/tspan&gt;&lt;/text&gt;&lt;/g&gt;&lt;/g&gt;&lt;/g&gt;&lt;/g&gt;&lt;/g&gt;&lt;/g&gt;&lt;/svg&gt;&lt;/pre&gt;&lt;ol&gt;
 &lt;li&gt;状态更新，UI&lt;strong&gt; 自动更新&lt;/strong&gt;。&lt;/li&gt;
 &lt;li&gt;前端代码&lt;strong&gt;组件化&lt;/strong&gt;，可复用，可封装。&lt;/li&gt;
 &lt;li&gt;状态之间的互相依赖关系，只需&lt;strong&gt;声明&lt;/strong&gt;即可。&lt;/li&gt;
@@ -1640,18 +1640,18 @@
 &lt;li&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9jYWxlbmRhci5wZXJmcGxhbmV0LmNvbS8yMDEzL2RpZmYv&#34;&gt;React’s diff algorithm&lt;/span&gt;&lt;/li&gt;
 &lt;/ul&gt;
 </content>
-        <category term="学习笔记" scheme="http://tagbug.gitlab.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" />
-        <category term="前端" scheme="http://tagbug.gitlab.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E5%89%8D%E7%AB%AF/" />
-        <category term="Web" scheme="http://tagbug.gitlab.io/tags/Web/" />
-        <category term="前端" scheme="http://tagbug.gitlab.io/tags/%E5%89%8D%E7%AB%AF/" />
-        <category term="笔记补完计划" scheme="http://tagbug.gitlab.io/tags/%E7%AC%94%E8%AE%B0%E8%A1%A5%E5%AE%8C%E8%AE%A1%E5%88%92/" />
-        <category term="React" scheme="http://tagbug.gitlab.io/tags/React/" />
+        <category term="学习笔记" scheme="http://tagbug.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" />
+        <category term="前端" scheme="http://tagbug.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E5%89%8D%E7%AB%AF/" />
+        <category term="Web" scheme="http://tagbug.github.io/tags/Web/" />
+        <category term="前端" scheme="http://tagbug.github.io/tags/%E5%89%8D%E7%AB%AF/" />
+        <category term="笔记补完计划" scheme="http://tagbug.github.io/tags/%E7%AC%94%E8%AE%B0%E8%A1%A5%E5%AE%8C%E8%AE%A1%E5%88%92/" />
+        <category term="React" scheme="http://tagbug.github.io/tags/React/" />
         <updated>2022-01-20T10:39:47.000Z</updated>
     </entry>
     <entry>
-        <id>http://tagbug.gitlab.io/2022/01/18/%E5%89%8D%E7%AB%AF%E5%BF%85%E9%A1%BB%E7%9F%A5%E9%81%93%E7%9A%84%E5%BC%80%E5%8F%91%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86-%E7%AC%94%E8%AE%B0/</id>
+        <id>http://tagbug.github.io/2022/01/18/%E5%89%8D%E7%AB%AF%E5%BF%85%E9%A1%BB%E7%9F%A5%E9%81%93%E7%9A%84%E5%BC%80%E5%8F%91%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86-%E7%AC%94%E8%AE%B0/</id>
         <title>前端必须知道的开发调试知识 - 笔记</title>
-        <link rel="alternate" href="http://tagbug.gitlab.io/2022/01/18/%E5%89%8D%E7%AB%AF%E5%BF%85%E9%A1%BB%E7%9F%A5%E9%81%93%E7%9A%84%E5%BC%80%E5%8F%91%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86-%E7%AC%94%E8%AE%B0/"/>
+        <link rel="alternate" href="http://tagbug.github.io/2022/01/18/%E5%89%8D%E7%AB%AF%E5%BF%85%E9%A1%BB%E7%9F%A5%E9%81%93%E7%9A%84%E5%BC%80%E5%8F%91%E8%B0%83%E8%AF%95%E7%9F%A5%E8%AF%86-%E7%AC%94%E8%AE%B0/"/>
         <content type="html">&lt;blockquote&gt;
 &lt;p&gt;Bug 与 Debug：Bug 的产生、前端 Debug 特点&lt;/p&gt;
 &lt;p&gt;Chrome 的 DevTools&lt;/p&gt;
@@ -1836,17 +1836,17 @@
 &lt;/li&gt;
 &lt;/ul&gt;
 </content>
-        <category term="学习笔记" scheme="http://tagbug.gitlab.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" />
-        <category term="前端" scheme="http://tagbug.gitlab.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E5%89%8D%E7%AB%AF/" />
-        <category term="Web" scheme="http://tagbug.gitlab.io/tags/Web/" />
-        <category term="前端" scheme="http://tagbug.gitlab.io/tags/%E5%89%8D%E7%AB%AF/" />
-        <category term="笔记补完计划" scheme="http://tagbug.gitlab.io/tags/%E7%AC%94%E8%AE%B0%E8%A1%A5%E5%AE%8C%E8%AE%A1%E5%88%92/" />
+        <category term="学习笔记" scheme="http://tagbug.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" />
+        <category term="前端" scheme="http://tagbug.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E5%89%8D%E7%AB%AF/" />
+        <category term="Web" scheme="http://tagbug.github.io/tags/Web/" />
+        <category term="前端" scheme="http://tagbug.github.io/tags/%E5%89%8D%E7%AB%AF/" />
+        <category term="笔记补完计划" scheme="http://tagbug.github.io/tags/%E7%AC%94%E8%AE%B0%E8%A1%A5%E5%AE%8C%E8%AE%A1%E5%88%92/" />
         <updated>2022-01-18T12:02:44.000Z</updated>
     </entry>
     <entry>
-        <id>http://tagbug.gitlab.io/2022/01/18/Web%E6%A0%87%E5%87%86%E4%B8%8E%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91-%E7%AC%94%E8%AE%B0/</id>
+        <id>http://tagbug.github.io/2022/01/18/Web%E6%A0%87%E5%87%86%E4%B8%8E%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91-%E7%AC%94%E8%AE%B0/</id>
         <title>Web标准与前端开发 - 笔记</title>
-        <link rel="alternate" href="http://tagbug.gitlab.io/2022/01/18/Web%E6%A0%87%E5%87%86%E4%B8%8E%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91-%E7%AC%94%E8%AE%B0/"/>
+        <link rel="alternate" href="http://tagbug.github.io/2022/01/18/Web%E6%A0%87%E5%87%86%E4%B8%8E%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91-%E7%AC%94%E8%AE%B0/"/>
         <content type="html">&lt;blockquote&gt;
 &lt;p&gt;关于前端开发：起源、架构、变迁、前端应用领域、语言、框架、工具、前端学习路线&lt;/p&gt;
 &lt;p&gt;关于 Web 标准：标准组织、W3C 及 Ecma 会员、W3C 规范制定流程、如何参与标准制定&lt;/p&gt;
@@ -2110,17 +2110,17 @@
 &lt;/li&gt;
 &lt;/ul&gt;
 </content>
-        <category term="学习笔记" scheme="http://tagbug.gitlab.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" />
-        <category term="前端" scheme="http://tagbug.gitlab.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E5%89%8D%E7%AB%AF/" />
-        <category term="Web" scheme="http://tagbug.gitlab.io/tags/Web/" />
-        <category term="前端" scheme="http://tagbug.gitlab.io/tags/%E5%89%8D%E7%AB%AF/" />
-        <category term="笔记补完计划" scheme="http://tagbug.gitlab.io/tags/%E7%AC%94%E8%AE%B0%E8%A1%A5%E5%AE%8C%E8%AE%A1%E5%88%92/" />
+        <category term="学习笔记" scheme="http://tagbug.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" />
+        <category term="前端" scheme="http://tagbug.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E5%89%8D%E7%AB%AF/" />
+        <category term="Web" scheme="http://tagbug.github.io/tags/Web/" />
+        <category term="前端" scheme="http://tagbug.github.io/tags/%E5%89%8D%E7%AB%AF/" />
+        <category term="笔记补完计划" scheme="http://tagbug.github.io/tags/%E7%AC%94%E8%AE%B0%E8%A1%A5%E5%AE%8C%E8%AE%A1%E5%88%92/" />
         <updated>2022-01-18T11:16:05.000Z</updated>
     </entry>
     <entry>
-        <id>http://tagbug.gitlab.io/2022/01/17/%E5%A6%82%E4%BD%95%E5%86%99%E5%A5%BDJavaScript-%E7%AC%94%E8%AE%B0/</id>
+        <id>http://tagbug.github.io/2022/01/17/%E5%A6%82%E4%BD%95%E5%86%99%E5%A5%BDJavaScript-%E7%AC%94%E8%AE%B0/</id>
         <title>如何写好JavaScript - 笔记</title>
-        <link rel="alternate" href="http://tagbug.gitlab.io/2022/01/17/%E5%A6%82%E4%BD%95%E5%86%99%E5%A5%BDJavaScript-%E7%AC%94%E8%AE%B0/"/>
+        <link rel="alternate" href="http://tagbug.github.io/2022/01/17/%E5%A6%82%E4%BD%95%E5%86%99%E5%A5%BDJavaScript-%E7%AC%94%E8%AE%B0/"/>
         <content type="html">&lt;blockquote&gt;
 &lt;p&gt;什么是好的 JS 代码：各司其职、组件封装、过程抽象&lt;/p&gt;
 &lt;p&gt;使用 JS 解决实际问题：如何评价一段代码的好坏、写代码最应关注什么&lt;/p&gt;
@@ -2262,18 +2262,18 @@
 &lt;/li&gt;
 &lt;/ul&gt;
 </content>
-        <category term="学习笔记" scheme="http://tagbug.gitlab.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" />
-        <category term="前端" scheme="http://tagbug.gitlab.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E5%89%8D%E7%AB%AF/" />
-        <category term="Web" scheme="http://tagbug.gitlab.io/tags/Web/" />
-        <category term="前端" scheme="http://tagbug.gitlab.io/tags/%E5%89%8D%E7%AB%AF/" />
-        <category term="笔记补完计划" scheme="http://tagbug.gitlab.io/tags/%E7%AC%94%E8%AE%B0%E8%A1%A5%E5%AE%8C%E8%AE%A1%E5%88%92/" />
-        <category term="JavaScript" scheme="http://tagbug.gitlab.io/tags/JavaScript/" />
+        <category term="学习笔记" scheme="http://tagbug.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" />
+        <category term="前端" scheme="http://tagbug.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E5%89%8D%E7%AB%AF/" />
+        <category term="Web" scheme="http://tagbug.github.io/tags/Web/" />
+        <category term="前端" scheme="http://tagbug.github.io/tags/%E5%89%8D%E7%AB%AF/" />
+        <category term="笔记补完计划" scheme="http://tagbug.github.io/tags/%E7%AC%94%E8%AE%B0%E8%A1%A5%E5%AE%8C%E8%AE%A1%E5%88%92/" />
+        <category term="JavaScript" scheme="http://tagbug.github.io/tags/JavaScript/" />
         <updated>2022-01-17T12:31:19.000Z</updated>
     </entry>
     <entry>
-        <id>http://tagbug.gitlab.io/2022/01/17/%E7%90%86%E8%A7%A3CSS-%E7%AC%94%E8%AE%B0/</id>
+        <id>http://tagbug.github.io/2022/01/17/%E7%90%86%E8%A7%A3CSS-%E7%AC%94%E8%AE%B0/</id>
         <title>理解CSS - 笔记</title>
-        <link rel="alternate" href="http://tagbug.gitlab.io/2022/01/17/%E7%90%86%E8%A7%A3CSS-%E7%AC%94%E8%AE%B0/"/>
+        <link rel="alternate" href="http://tagbug.github.io/2022/01/17/%E7%90%86%E8%A7%A3CSS-%E7%AC%94%E8%AE%B0/"/>
         <content type="html">&lt;blockquote&gt;
 &lt;p&gt;CSS 是什么、CSS 如何工作、CSS 的简单使用、CSS 的调试、CSS 盒模型、CSS 布局、学习 CSS 的方法等&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -2689,18 +2689,18 @@
 &lt;/li&gt;
 &lt;/ul&gt;
 </content>
-        <category term="学习笔记" scheme="http://tagbug.gitlab.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" />
-        <category term="前端" scheme="http://tagbug.gitlab.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E5%89%8D%E7%AB%AF/" />
-        <category term="Web" scheme="http://tagbug.gitlab.io/tags/Web/" />
-        <category term="前端" scheme="http://tagbug.gitlab.io/tags/%E5%89%8D%E7%AB%AF/" />
-        <category term="笔记补完计划" scheme="http://tagbug.gitlab.io/tags/%E7%AC%94%E8%AE%B0%E8%A1%A5%E5%AE%8C%E8%AE%A1%E5%88%92/" />
-        <category term="CSS" scheme="http://tagbug.gitlab.io/tags/CSS/" />
+        <category term="学习笔记" scheme="http://tagbug.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" />
+        <category term="前端" scheme="http://tagbug.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E5%89%8D%E7%AB%AF/" />
+        <category term="Web" scheme="http://tagbug.github.io/tags/Web/" />
+        <category term="前端" scheme="http://tagbug.github.io/tags/%E5%89%8D%E7%AB%AF/" />
+        <category term="笔记补完计划" scheme="http://tagbug.github.io/tags/%E7%AC%94%E8%AE%B0%E8%A1%A5%E5%AE%8C%E8%AE%A1%E5%88%92/" />
+        <category term="CSS" scheme="http://tagbug.github.io/tags/CSS/" />
         <updated>2022-01-16T19:31:45.000Z</updated>
     </entry>
     <entry>
-        <id>http://tagbug.gitlab.io/2022/01/17/%E5%89%8D%E7%AB%AF%E4%B8%8EHTML-%E7%AC%94%E8%AE%B0/</id>
+        <id>http://tagbug.github.io/2022/01/17/%E5%89%8D%E7%AB%AF%E4%B8%8EHTML-%E7%AC%94%E8%AE%B0/</id>
         <title>前端与HTML - 笔记</title>
-        <link rel="alternate" href="http://tagbug.gitlab.io/2022/01/17/%E5%89%8D%E7%AB%AF%E4%B8%8EHTML-%E7%AC%94%E8%AE%B0/"/>
+        <link rel="alternate" href="http://tagbug.github.io/2022/01/17/%E5%89%8D%E7%AB%AF%E4%B8%8EHTML-%E7%AC%94%E8%AE%B0/"/>
         <content type="html">&lt;blockquote&gt;
 &lt;p&gt;前端：什么是前端、技术栈、关注点、边界、开发环境&lt;br&gt;
  HTML：DOM 树的概念、基本语法、常用标签、内容划分、语义化&lt;/p&gt;
@@ -2879,18 +2879,18 @@
 &lt;/li&gt;
 &lt;/ul&gt;
 </content>
-        <category term="学习笔记" scheme="http://tagbug.gitlab.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" />
-        <category term="前端" scheme="http://tagbug.gitlab.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E5%89%8D%E7%AB%AF/" />
-        <category term="Web" scheme="http://tagbug.gitlab.io/tags/Web/" />
-        <category term="前端" scheme="http://tagbug.gitlab.io/tags/%E5%89%8D%E7%AB%AF/" />
-        <category term="笔记补完计划" scheme="http://tagbug.gitlab.io/tags/%E7%AC%94%E8%AE%B0%E8%A1%A5%E5%AE%8C%E8%AE%A1%E5%88%92/" />
-        <category term="HTML" scheme="http://tagbug.gitlab.io/tags/HTML/" />
+        <category term="学习笔记" scheme="http://tagbug.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" />
+        <category term="前端" scheme="http://tagbug.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E5%89%8D%E7%AB%AF/" />
+        <category term="Web" scheme="http://tagbug.github.io/tags/Web/" />
+        <category term="前端" scheme="http://tagbug.github.io/tags/%E5%89%8D%E7%AB%AF/" />
+        <category term="笔记补完计划" scheme="http://tagbug.github.io/tags/%E7%AC%94%E8%AE%B0%E8%A1%A5%E5%AE%8C%E8%AE%A1%E5%88%92/" />
+        <category term="HTML" scheme="http://tagbug.github.io/tags/HTML/" />
         <updated>2022-01-16T19:27:16.000Z</updated>
     </entry>
     <entry>
-        <id>http://tagbug.gitlab.io/2021/11/30/Maven%E7%AE%80%E5%8D%95%E6%80%BB%E7%BB%93/</id>
+        <id>http://tagbug.github.io/2021/11/30/Maven%E7%AE%80%E5%8D%95%E6%80%BB%E7%BB%93/</id>
         <title>Maven简单总结</title>
-        <link rel="alternate" href="http://tagbug.gitlab.io/2021/11/30/Maven%E7%AE%80%E5%8D%95%E6%80%BB%E7%BB%93/"/>
+        <link rel="alternate" href="http://tagbug.github.io/2021/11/30/Maven%E7%AE%80%E5%8D%95%E6%80%BB%E7%BB%93/"/>
         <content type="html">&lt;blockquote&gt;
 &lt;p&gt;Maven 是什么、安装 Maven、Maven 的配置 &amp;amp; 使用等&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -2947,16 +2947,16 @@
 &lt;li&gt;等等…&lt;/li&gt;
 &lt;/ul&gt;
 </content>
-        <category term="Java" scheme="http://tagbug.gitlab.io/categories/Java/" />
-        <category term="Java" scheme="http://tagbug.gitlab.io/tags/Java/" />
-        <category term="后端" scheme="http://tagbug.gitlab.io/tags/%E5%90%8E%E7%AB%AF/" />
-        <category term="构建工具" scheme="http://tagbug.gitlab.io/tags/%E6%9E%84%E5%BB%BA%E5%B7%A5%E5%85%B7/" />
+        <category term="Java" scheme="http://tagbug.github.io/categories/Java/" />
+        <category term="Java" scheme="http://tagbug.github.io/tags/Java/" />
+        <category term="后端" scheme="http://tagbug.github.io/tags/%E5%90%8E%E7%AB%AF/" />
+        <category term="构建工具" scheme="http://tagbug.github.io/tags/%E6%9E%84%E5%BB%BA%E5%B7%A5%E5%85%B7/" />
         <updated>2021-11-30T07:25:02.000Z</updated>
     </entry>
     <entry>
-        <id>http://tagbug.gitlab.io/2021/11/15/JS%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E7%AC%94%E8%AE%B0/</id>
+        <id>http://tagbug.github.io/2021/11/15/JS%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E7%AC%94%E8%AE%B0/</id>
         <title>JS设计模式 - 笔记</title>
-        <link rel="alternate" href="http://tagbug.gitlab.io/2021/11/15/JS%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E7%AC%94%E8%AE%B0/"/>
+        <link rel="alternate" href="http://tagbug.github.io/2021/11/15/JS%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E7%AC%94%E8%AE%B0/"/>
         <content type="html">&lt;blockquote&gt;
 &lt;p&gt;设计模式概略 + 常用设计模式&lt;br&gt;
 包括单例模式、策略模式、代理模式、发布订阅模式、命令模式、组合模式、装饰器模式、适配器模式&lt;/p&gt;
@@ -3053,17 +3053,17 @@
 &lt;figure class=&#34;highlight js&#34;&gt;&lt;figcaption data-lang=&#34;JavaScript&#34;&gt;&lt;span&gt;使用前&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;const&lt;/span&gt; aMap &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token function-variable function&#34;&gt;show&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;=&gt;&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        console&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;log&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token string&#34;&gt;&#39;开始渲染地图A&#39;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;const&lt;/span&gt; bMap &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;8&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token function-variable function&#34;&gt;display&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;=&gt;&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;9&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        console&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;log&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token string&#34;&gt;&#39;开始渲染地图B&#39;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;10&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;11&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;12&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;13&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;const&lt;/span&gt; &lt;span class=&#34;token function-variable function&#34;&gt;renderMap&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token parameter&#34;&gt;type&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;=&gt;&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;14&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token keyword&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;type &lt;span class=&#34;token operator&#34;&gt;===&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&#39;a&#39;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;15&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        aMap&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;show&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;16&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;else&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;type &lt;span class=&#34;token operator&#34;&gt;===&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&#39;b&#39;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;17&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        bMap&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;display&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;18&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;19&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;figure class=&#34;highlight js&#34;&gt;&lt;figcaption data-lang=&#34;JavaScript&#34;&gt;&lt;span&gt;使用后&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;const&lt;/span&gt; aMap &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token function-variable function&#34;&gt;show&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;=&gt;&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        console&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;log&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token string&#34;&gt;&#39;开始渲染地图A&#39;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;const&lt;/span&gt; bMap &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;8&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token function-variable function&#34;&gt;display&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;=&gt;&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;9&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        console&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;log&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token string&#34;&gt;&#39;开始渲染地图B&#39;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;10&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;11&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;12&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;13&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;// 适配层&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;14&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;const&lt;/span&gt; bMapAdapter &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;15&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token function-variable function&#34;&gt;show&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;=&gt;&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;16&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        &lt;span class=&#34;token keyword&#34;&gt;return&lt;/span&gt; bMap&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;display&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;17&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;18&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;19&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;20&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;const&lt;/span&gt; &lt;span class=&#34;token function-variable function&#34;&gt;renderMap&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token parameter&#34;&gt;map&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;=&gt;&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;21&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token keyword&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;map&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;show &lt;span class=&#34;token keyword&#34;&gt;instanceof&lt;/span&gt; &lt;span class=&#34;token class-name&#34;&gt;Function&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;22&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        map&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;show&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;23&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;24&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;25&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;26&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;renderMap&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;aMap&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;27&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;renderMap&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;bAdapter&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;参考:&lt;br&gt;
  字节青训营课程&lt;/p&gt;
 </content>
-        <category term="学习笔记" scheme="http://tagbug.gitlab.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" />
-        <category term="前端" scheme="http://tagbug.gitlab.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E5%89%8D%E7%AB%AF/" />
-        <category term="前端" scheme="http://tagbug.gitlab.io/tags/%E5%89%8D%E7%AB%AF/" />
-        <category term="设计模式" scheme="http://tagbug.gitlab.io/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" />
-        <category term="JavaScript" scheme="http://tagbug.gitlab.io/tags/JavaScript/" />
+        <category term="学习笔记" scheme="http://tagbug.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" />
+        <category term="前端" scheme="http://tagbug.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E5%89%8D%E7%AB%AF/" />
+        <category term="前端" scheme="http://tagbug.github.io/tags/%E5%89%8D%E7%AB%AF/" />
+        <category term="设计模式" scheme="http://tagbug.github.io/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" />
+        <category term="JavaScript" scheme="http://tagbug.github.io/tags/JavaScript/" />
         <updated>2021-11-15T05:07:30.000Z</updated>
     </entry>
     <entry>
-        <id>http://tagbug.gitlab.io/2021/09/25/Node-js%E5%85%A5%E9%97%A8-%E7%AC%94%E8%AE%B0/</id>
+        <id>http://tagbug.github.io/2021/09/25/Node-js%E5%85%A5%E9%97%A8-%E7%AC%94%E8%AE%B0/</id>
         <title>Node.js入门 - 笔记</title>
-        <link rel="alternate" href="http://tagbug.gitlab.io/2021/09/25/Node-js%E5%85%A5%E9%97%A8-%E7%AC%94%E8%AE%B0/"/>
+        <link rel="alternate" href="http://tagbug.github.io/2021/09/25/Node-js%E5%85%A5%E9%97%A8-%E7%AC%94%E8%AE%B0/"/>
         <content type="html">&lt;blockquote&gt;
 &lt;p&gt;Node.js 简介、模块化机制和包管理机制&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -3136,17 +3136,17 @@
 &lt;p&gt;参考:&lt;br&gt;
  字节青训营课程&lt;/p&gt;
 </content>
-        <category term="学习笔记" scheme="http://tagbug.gitlab.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" />
-        <category term="前端" scheme="http://tagbug.gitlab.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E5%89%8D%E7%AB%AF/" />
-        <category term="Web" scheme="http://tagbug.gitlab.io/tags/Web/" />
-        <category term="前端" scheme="http://tagbug.gitlab.io/tags/%E5%89%8D%E7%AB%AF/" />
-        <category term="Node.js" scheme="http://tagbug.gitlab.io/tags/Node-js/" />
+        <category term="学习笔记" scheme="http://tagbug.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" />
+        <category term="前端" scheme="http://tagbug.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E5%89%8D%E7%AB%AF/" />
+        <category term="Web" scheme="http://tagbug.github.io/tags/Web/" />
+        <category term="前端" scheme="http://tagbug.github.io/tags/%E5%89%8D%E7%AB%AF/" />
+        <category term="Node.js" scheme="http://tagbug.github.io/tags/Node-js/" />
         <updated>2021-09-25T07:43:07.000Z</updated>
     </entry>
     <entry>
-        <id>http://tagbug.gitlab.io/2021/09/23/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96-%E7%AC%94%E8%AE%B0/</id>
+        <id>http://tagbug.github.io/2021/09/23/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96-%E7%AC%94%E8%AE%B0/</id>
         <title>前端工程化 - 笔记</title>
-        <link rel="alternate" href="http://tagbug.gitlab.io/2021/09/23/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96-%E7%AC%94%E8%AE%B0/"/>
+        <link rel="alternate" href="http://tagbug.github.io/2021/09/23/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96-%E7%AC%94%E8%AE%B0/"/>
         <content type="html">&lt;blockquote&gt;
 &lt;p&gt;主要是前端工程化理论&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -3173,17 +3173,17 @@
 &lt;p&gt;参考:&lt;br&gt;
  字节青训营课程&lt;/p&gt;
 </content>
-        <category term="学习笔记" scheme="http://tagbug.gitlab.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" />
-        <category term="前端" scheme="http://tagbug.gitlab.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E5%89%8D%E7%AB%AF/" />
-        <category term="Web" scheme="http://tagbug.gitlab.io/tags/Web/" />
-        <category term="前端" scheme="http://tagbug.gitlab.io/tags/%E5%89%8D%E7%AB%AF/" />
-        <category term="前端工程化" scheme="http://tagbug.gitlab.io/tags/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96/" />
+        <category term="学习笔记" scheme="http://tagbug.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" />
+        <category term="前端" scheme="http://tagbug.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E5%89%8D%E7%AB%AF/" />
+        <category term="Web" scheme="http://tagbug.github.io/tags/Web/" />
+        <category term="前端" scheme="http://tagbug.github.io/tags/%E5%89%8D%E7%AB%AF/" />
+        <category term="前端工程化" scheme="http://tagbug.github.io/tags/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96/" />
         <updated>2021-09-23T07:24:25.000Z</updated>
     </entry>
     <entry>
-        <id>http://tagbug.gitlab.io/2021/08/15/Js%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A7/</id>
+        <id>http://tagbug.github.io/2021/08/15/Js%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A7/</id>
         <title>Js调试技巧</title>
-        <link rel="alternate" href="http://tagbug.gitlab.io/2021/08/15/Js%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A7/"/>
+        <link rel="alternate" href="http://tagbug.github.io/2021/08/15/Js%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A7/"/>
         <content type="html">&lt;blockquote&gt;
 &lt;p&gt;开发人员工具、断点技巧、搜索技巧等&lt;/p&gt;
 &lt;p&gt;视频版本：【JavaScript 代码调试方法】How To Debug In Chrome -&amp;gt; &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cuYmlsaWJpbGkuY29tL3ZpZGVvL0JWMW00NHkxWTdtZA==&#34;&gt;link&lt;/span&gt;&lt;/p&gt;
@@ -3267,17 +3267,17 @@ password、.password、password=、[‘password’]、[“password”]&lt;/li&gt
 &lt;/ol&gt;
 &lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cuYmlsaWJpbGkuY29tL3ZpZGVvL0JWMUtoNDExcjd1Ug==&#34;&gt;参考链接&lt;/span&gt;&lt;/p&gt;
 </content>
-        <category term="安全" scheme="http://tagbug.gitlab.io/categories/%E5%AE%89%E5%85%A8/" />
-        <category term="Web" scheme="http://tagbug.gitlab.io/categories/%E5%AE%89%E5%85%A8/Web/" />
-        <category term="JS逆向" scheme="http://tagbug.gitlab.io/tags/JS%E9%80%86%E5%90%91/" />
-        <category term="Web安全" scheme="http://tagbug.gitlab.io/tags/Web%E5%AE%89%E5%85%A8/" />
-        <category term="JavaScript" scheme="http://tagbug.gitlab.io/tags/JavaScript/" />
+        <category term="安全" scheme="http://tagbug.github.io/categories/%E5%AE%89%E5%85%A8/" />
+        <category term="Web" scheme="http://tagbug.github.io/categories/%E5%AE%89%E5%85%A8/Web/" />
+        <category term="JS逆向" scheme="http://tagbug.github.io/tags/JS%E9%80%86%E5%90%91/" />
+        <category term="Web安全" scheme="http://tagbug.github.io/tags/Web%E5%AE%89%E5%85%A8/" />
+        <category term="JavaScript" scheme="http://tagbug.github.io/tags/JavaScript/" />
         <updated>2021-08-15T07:57:06.000Z</updated>
     </entry>
     <entry>
-        <id>http://tagbug.gitlab.io/2021/05/07/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93/</id>
+        <id>http://tagbug.github.io/2021/05/07/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93/</id>
         <title>排序算法总结</title>
-        <link rel="alternate" href="http://tagbug.gitlab.io/2021/05/07/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93/"/>
+        <link rel="alternate" href="http://tagbug.github.io/2021/05/07/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93/"/>
         <content type="html">&lt;blockquote&gt;
 &lt;p&gt;这里总结如下算法：&lt;/p&gt;
 &lt;ul&gt;
@@ -3415,14 +3415,14 @@ password、.password、password=、[‘password’]、[“password”]&lt;/li&gt
 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly92aXN1YWxnby5uZXQvemgvc29ydGluZw==&#34;&gt;VisuAlgo - 排序&lt;/span&gt;&lt;br&gt;
 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3poLWNuLyVFNiU4RSU5MiVFNSVCQSU4RiVFNyVBRSU5NyVFNiVCMyU5NQ==&#34;&gt; Wikipedia - 排序算法&lt;/span&gt;&lt;/p&gt;
 </content>
-        <category term="算法与数据结构" scheme="http://tagbug.gitlab.io/categories/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" />
-        <category term="算法" scheme="http://tagbug.gitlab.io/tags/%E7%AE%97%E6%B3%95/" />
+        <category term="算法与数据结构" scheme="http://tagbug.github.io/categories/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" />
+        <category term="算法" scheme="http://tagbug.github.io/tags/%E7%AE%97%E6%B3%95/" />
         <updated>2021-05-07T09:53:57.000Z</updated>
     </entry>
     <entry>
-        <id>http://tagbug.gitlab.io/2021/02/23/Linux%E7%BB%88%E7%AB%AF%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%93/</id>
+        <id>http://tagbug.github.io/2021/02/23/Linux%E7%BB%88%E7%AB%AF%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%93/</id>
         <title>Linux终端使用总结</title>
-        <link rel="alternate" href="http://tagbug.gitlab.io/2021/02/23/Linux%E7%BB%88%E7%AB%AF%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%93/"/>
+        <link rel="alternate" href="http://tagbug.github.io/2021/02/23/Linux%E7%BB%88%E7%AB%AF%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%93/"/>
         <content type="html">&lt;blockquote&gt;
 &lt;p&gt;总结归纳一下 Linux 的 Shell 的快捷键和常用命令&lt;br&gt;
 （环境基于 ubuntu-20.04.2.0）&lt;/p&gt;
@@ -3760,15 +3760,15 @@ Ctrl + Alt + F2~F6 切换终端&lt;br&gt;
 &lt;p&gt;参考文章:&lt;br&gt;
 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cuYmlsaWJpbGkuY29tL3ZpZGVvL0JWMWR0NDExZjdUWg==&#34;&gt;linux 全套教程【黑马】&lt;/span&gt;&lt;/p&gt;
 </content>
-        <category term="Linux" scheme="http://tagbug.gitlab.io/categories/Linux/" />
-        <category term="Shell" scheme="http://tagbug.gitlab.io/categories/Linux/Shell/" />
-        <category term="Linux终端使用" scheme="http://tagbug.gitlab.io/tags/Linux%E7%BB%88%E7%AB%AF%E4%BD%BF%E7%94%A8/" />
+        <category term="Linux" scheme="http://tagbug.github.io/categories/Linux/" />
+        <category term="Shell" scheme="http://tagbug.github.io/categories/Linux/Shell/" />
+        <category term="Linux终端使用" scheme="http://tagbug.github.io/tags/Linux%E7%BB%88%E7%AB%AF%E4%BD%BF%E7%94%A8/" />
         <updated>2021-02-23T08:32:18.000Z</updated>
     </entry>
     <entry>
-        <id>http://tagbug.gitlab.io/2021/02/04/ujsAutoClock%E5%BC%80%E5%8F%91%E6%80%9D%E8%B7%AF%E5%8F%8A%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/</id>
+        <id>http://tagbug.github.io/2021/02/04/ujsAutoClock%E5%BC%80%E5%8F%91%E6%80%9D%E8%B7%AF%E5%8F%8A%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/</id>
         <title>ujsAutoClock使用方法及开发思路</title>
-        <link rel="alternate" href="http://tagbug.gitlab.io/2021/02/04/ujsAutoClock%E5%BC%80%E5%8F%91%E6%80%9D%E8%B7%AF%E5%8F%8A%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/"/>
+        <link rel="alternate" href="http://tagbug.github.io/2021/02/04/ujsAutoClock%E5%BC%80%E5%8F%91%E6%80%9D%E8%B7%AF%E5%8F%8A%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/"/>
         <content type="html">&lt;p&gt;ujsAutoClock 江苏大学自动健康打卡项目（Chrome 扩展 &amp;amp; Android APP）&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;设置简单，通知推送，QQ 接龙，熄屏运行（不同系统环境、Chrome 版本可能不一定有效）&lt;del&gt;（妈妈再也不用担心没打卡啦&lt;/del&gt;&lt;/li&gt;
@@ -3871,16 +3871,16 @@ Ctrl + Alt + F2~F6 切换终端&lt;br&gt;
 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cuY25ibG9ncy5jb20vbGl1eGlhbmFuL3AvY2hyb21lLXBsdWdpbi1kZXZlbG9wLmh0bWw=&#34;&gt;Chrome 插件 (扩展) 开发全攻略&lt;/span&gt;&lt;br&gt;
 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9kZXZlbG9wZXIuYW5kcm9pZC5nb29nbGUuY24vZG9jcw==&#34;&gt; Android 开发者&lt;/span&gt;&lt;/p&gt;
 </content>
-        <category term="works" scheme="http://tagbug.gitlab.io/categories/works/" />
-        <category term="Chrome扩展应用" scheme="http://tagbug.gitlab.io/tags/Chrome%E6%89%A9%E5%B1%95%E5%BA%94%E7%94%A8/" />
-        <category term="Android应用" scheme="http://tagbug.gitlab.io/tags/Android%E5%BA%94%E7%94%A8/" />
-        <category term="works" scheme="http://tagbug.gitlab.io/tags/works/" />
+        <category term="works" scheme="http://tagbug.github.io/categories/works/" />
+        <category term="Chrome扩展应用" scheme="http://tagbug.github.io/tags/Chrome%E6%89%A9%E5%B1%95%E5%BA%94%E7%94%A8/" />
+        <category term="Android应用" scheme="http://tagbug.github.io/tags/Android%E5%BA%94%E7%94%A8/" />
+        <category term="works" scheme="http://tagbug.github.io/tags/works/" />
         <updated>2021-02-03T22:55:55.000Z</updated>
     </entry>
     <entry>
-        <id>http://tagbug.gitlab.io/2021/01/28/C%E8%AF%AD%E8%A8%80%E5%9B%BE%E7%BB%93%E6%9E%84%E6%80%BB%E7%BB%93%EF%BC%88%E4%B8%80%EF%BC%89/</id>
+        <id>http://tagbug.github.io/2021/01/28/C%E8%AF%AD%E8%A8%80%E5%9B%BE%E7%BB%93%E6%9E%84%E6%80%BB%E7%BB%93%EF%BC%88%E4%B8%80%EF%BC%89/</id>
         <title>C语言图结构总结（一）</title>
-        <link rel="alternate" href="http://tagbug.gitlab.io/2021/01/28/C%E8%AF%AD%E8%A8%80%E5%9B%BE%E7%BB%93%E6%9E%84%E6%80%BB%E7%BB%93%EF%BC%88%E4%B8%80%EF%BC%89/"/>
+        <link rel="alternate" href="http://tagbug.github.io/2021/01/28/C%E8%AF%AD%E8%A8%80%E5%9B%BE%E7%BB%93%E6%9E%84%E6%80%BB%E7%BB%93%EF%BC%88%E4%B8%80%EF%BC%89/"/>
         <content type="html">&lt;blockquote&gt;
 &lt;p&gt;不同于线性表的一对一和树型结构的一对多的简单结构，图结构是一种元素多对多的复杂结构。&lt;br&gt;
 &lt;img data-src=&#34;https://cdn.jsdelivr.net/gh/tagbug/demo@latest/img/%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84.png&#34; alt=&#34;&#34;&gt;&lt;br&gt;
@@ -4033,10 +4033,10 @@ MathJax = {
 &lt;script id=&#34;MathJax-script&#34; async
   src=&#34;https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js&#34;&gt;
 &lt;/script&gt;</content>
-        <category term="算法与数据结构" scheme="http://tagbug.gitlab.io/categories/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" />
-        <category term="数据结构" scheme="http://tagbug.gitlab.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" />
-        <category term="C语言" scheme="http://tagbug.gitlab.io/tags/C%E8%AF%AD%E8%A8%80/" />
-        <category term="图结构" scheme="http://tagbug.gitlab.io/tags/%E5%9B%BE%E7%BB%93%E6%9E%84/" />
+        <category term="算法与数据结构" scheme="http://tagbug.github.io/categories/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" />
+        <category term="数据结构" scheme="http://tagbug.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" />
+        <category term="C语言" scheme="http://tagbug.github.io/tags/C%E8%AF%AD%E8%A8%80/" />
+        <category term="图结构" scheme="http://tagbug.github.io/tags/%E5%9B%BE%E7%BB%93%E6%9E%84/" />
         <updated>2021-01-28T12:41:01.000Z</updated>
     </entry>
 </feed>
