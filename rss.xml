@@ -10,8 +10,40 @@
         </author>
         <description>所念皆星河</description>
         <language>zh-CN</language>
-        <pubDate>Fri, 25 Mar 2022 21:27:08 +0800</pubDate>
-        <lastBuildDate>Fri, 25 Mar 2022 21:27:08 +0800</lastBuildDate>
+        <pubDate>Sat, 26 Mar 2022 19:17:10 +0800</pubDate>
+        <lastBuildDate>Sat, 26 Mar 2022 19:17:10 +0800</lastBuildDate>
+        <item>
+            <guid isPermalink="true">http://tagbug.github.io/2022/03/26/%E5%85%B3%E4%BA%8EVSCode%E6%8E%A8%E9%80%81GitHub%E5%9B%A2%E9%98%9F%E9%A1%B9%E7%9B%AE403%E7%9A%84%E9%97%AE%E9%A2%98/</guid>
+            <title>关于VSCode推送GitHub团队项目403的问题</title>
+            <link>http://tagbug.github.io/2022/03/26/%E5%85%B3%E4%BA%8EVSCode%E6%8E%A8%E9%80%81GitHub%E5%9B%A2%E9%98%9F%E9%A1%B9%E7%9B%AE403%E7%9A%84%E9%97%AE%E9%A2%98/</link>
+            <category term="VSCode" scheme="http://tagbug.github.io/categories/VSCode/" />
+            <category term="VSCode" scheme="http://tagbug.github.io/tags/VSCode/" />
+            <pubDate>Sat, 26 Mar 2022 19:17:10 +0800</pubDate>
+            <description><![CDATA[ &lt;blockquote&gt;
+&lt;p&gt;403 原因、解决方案&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;span id=&#34;more&#34;&gt;&lt;/span&gt;
+&lt;h1 id=&#34;403原因&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#403原因&#34;&gt;#&lt;/a&gt; 403 原因&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;前置条件：不是网络问题（SSL Connection Reset）、使用 idea 可以推送但用 vscode 就会 403&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;推测 403（Permission Denied）是由于 VSCode 自带的扩展 &amp;quot;GitHub&amp;quot; 登录 GitHub 账号时请求的权限不足导致。&lt;/p&gt;
+&lt;p&gt;当使用 &amp;quot;GitHub&amp;quot; 扩展登录账号时，请求的权限可能只有 &lt;code&gt;private repo&lt;/code&gt; ，所以其他你拥有权限但不是你独有的仓库，当使用 &lt;code&gt;Git: 克隆&lt;/code&gt; 查找 GitHub 项目时，这些仓库也不会显示在列表中，并且搜索也不会起作用，当你从本地推送云端时，也会出现权限不足的问题。&lt;/p&gt;
+&lt;p&gt;终端输出大致如下：&lt;/p&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;figcaption data-lang=&#34;Bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token operator&#34;&gt;&gt;&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;git&lt;/span&gt; push origin main:main&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;remote: Permission to xxx/xxx denied to xxx.&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;fatal: unable to access &lt;span class=&#34;token string&#34;&gt;&#39;https://github.com/xxx/xxx.git/&#39;&lt;/span&gt;&lt;span class=&#34;token builtin class-name&#34;&gt;:&lt;/span&gt; The requested URL returned error: &lt;span class=&#34;token number&#34;&gt;403&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;h1 id=&#34;解决方案&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#解决方案&#34;&gt;#&lt;/a&gt; 解决方案&lt;/h1&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;对权限不足的项目更改 origin.url，使用独立认证&lt;/p&gt;
+&lt;p&gt;更改 remote 地址如：  &lt;code&gt;https://&amp;#123;token&amp;#125;@github.com/xxx/xxx.git&lt;/code&gt; （token 指的是 Personal access tokens）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;使用 git 全局配置&lt;/p&gt;
+&lt;p&gt;执行如下命令： &lt;code&gt;git config --global url.&amp;quot;https://&amp;#123;token&amp;#125;@github.com&amp;quot;.insteadOf &amp;quot;https://github.com&amp;quot;&lt;/code&gt; &lt;br&gt;
+ 或者&lt;/p&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;figcaption data-lang=&#34;Bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token operator&#34;&gt;&gt;&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;git&lt;/span&gt; config --global github.token &lt;span class=&#34;token operator&#34;&gt;&amp;lt;&lt;/span&gt;你的GitHub token&lt;span class=&#34;token operator&#34;&gt;&gt;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token operator&#34;&gt;&gt;&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;git&lt;/span&gt; config --global github.user &lt;span class=&#34;token operator&#34;&gt;&amp;lt;&lt;/span&gt;github上的用户名&lt;span class=&#34;token operator&#34;&gt;&gt;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/li&gt;
+&lt;/ol&gt;
+ ]]></description>
+        </item>
         <item>
             <guid isPermalink="true">http://tagbug.github.io/2022/03/25/MySQL%E5%9F%BA%E7%A1%80/</guid>
             <title>MySQL基础</title>
@@ -3926,118 +3958,6 @@ Ctrl + Alt + F2~F6 切换终端&lt;br&gt;
 &lt;p&gt;&lt;strong&gt;未完待续…&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;参考文章:&lt;br&gt;
 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cuYmlsaWJpbGkuY29tL3ZpZGVvL0JWMWR0NDExZjdUWg==&#34;&gt;linux 全套教程【黑马】&lt;/span&gt;&lt;/p&gt;
- ]]></description>
-        </item>
-        <item>
-            <guid isPermalink="true">http://tagbug.github.io/2021/02/04/ujsAutoClock%E5%BC%80%E5%8F%91%E6%80%9D%E8%B7%AF%E5%8F%8A%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/</guid>
-            <title>ujsAutoClock使用方法及开发思路</title>
-            <link>http://tagbug.github.io/2021/02/04/ujsAutoClock%E5%BC%80%E5%8F%91%E6%80%9D%E8%B7%AF%E5%8F%8A%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/</link>
-            <category term="works" scheme="http://tagbug.github.io/categories/works/" />
-            <category term="Chrome扩展应用" scheme="http://tagbug.github.io/tags/Chrome%E6%89%A9%E5%B1%95%E5%BA%94%E7%94%A8/" />
-            <category term="Android应用" scheme="http://tagbug.github.io/tags/Android%E5%BA%94%E7%94%A8/" />
-            <category term="works" scheme="http://tagbug.github.io/tags/works/" />
-            <pubDate>Thu, 04 Feb 2021 06:55:55 +0800</pubDate>
-            <description><![CDATA[ &lt;p&gt;ujsAutoClock 江苏大学自动健康打卡项目（Chrome 扩展 &amp;amp; Android APP）&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;设置简单，通知推送，QQ 接龙，熄屏运行（不同系统环境、Chrome 版本可能不一定有效）&lt;del&gt;（妈妈再也不用担心没打卡啦&lt;/del&gt;&lt;/li&gt;
-&lt;li&gt;Chrome 扩展项目地址：&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL3RhZ2J1Zy91anNBdXRvQ2xvY2s=&#34;&gt;https://github.com/tagbug/ujsAutoClock&lt;/span&gt;&lt;/li&gt;
-&lt;li&gt;Android 项目地址：&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL3RhZ2J1Zy91anNBdXRvQ2xvY2suYXBr&#34;&gt;https://github.com/tagbug/ujsAutoClock.apk&lt;/span&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;span id=&#34;more&#34;&gt;&lt;/span&gt;
-&lt;h2 id=&#34;食用方法&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#食用方法&#34;&gt;#&lt;/a&gt; 食用方法&lt;/h2&gt;
-&lt;hr&gt;
-&lt;blockquote&gt;
-&lt;p&gt;下面是 Chrome 扩展的使用说明，Android 版本直接下载就行了，应该不用说明了&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;1. 在 Github 上下载扩展&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;2. 打开 Chrome 扩展程序的开发者模式&lt;br&gt;
-&lt;img data-src=&#34;https://cdn.jsdelivr.net/gh/tagbug/demo@latest/img/caozuo1.png&#34; alt=&#34;在最右上角&#34; title=&#34;在最右上角&#34;&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;3. 选择 &lt;code&gt;加载已解压的扩展程序&lt;/code&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;4. 选择 ujsAutoClock 文件夹&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;5. 允许 Chrome 在后台运行（占用系统资源很小）&lt;br&gt;
-&lt;img data-src=&#34;https://cdn.jsdelivr.net/gh/tagbug/demo@latest/img/caozuo2.png&#34; alt=&#34;在设置-&amp;gt;高级-&amp;gt;系统里可以找到&#34; title=&#34;在设置-&amp;gt;高级-&amp;gt;系统里可以找到&#34;&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;6. 首次安装会自动弹出设置页，填写好配置后保存，就可以自动运行了&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;7. 如果想测试打卡效果直接在 Chrome 地址栏旁边的扩展程序里点击扩展图标&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class=&#34;img-x&#34;&gt;
-&lt;p&gt;&lt;img data-src=&#34;https://cdn.jsdelivr.net/gh/tagbug/demo@latest/img/caozuo3.png&#34; alt=&#34;也可以在这里快速更改信息&#34; title=&#34;也可以在这里快速更改信息&#34;&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;ul&gt;
-&lt;li&gt;8. 最新版增加 QQ 群自动接龙功能，接龙是接群的第一个，因为有 QQ 密码这种敏感信息，需要右键扩展，在选项中配置&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class=&#34;img-x&#34;&gt;
-&lt;p&gt;&lt;img data-src=&#34;https://cdn.jsdelivr.net/gh/tagbug/demo@latest/img/caozuo4.png&#34; alt=&#34;就是这里&#34; title=&#34;就是这里&#34;&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;ul&gt;
-&lt;li&gt;附。在 Chrome 扩展程序页选择选择 &lt;code&gt;ujs自动健康打卡&lt;/code&gt;  -&amp;gt; 查看视图 &lt;code&gt;背景页&lt;/code&gt; 可以在 &lt;code&gt;Console&lt;/code&gt;  里看到自动打卡记录。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;使用截图：&lt;br&gt;
-&lt;img data-src=&#34;https://cdn.jsdelivr.net/gh/tagbug/demo@latest/img/use1.png&#34;&gt;&lt;br&gt;
-&lt;img data-src=&#34;https://cdn.jsdelivr.net/gh/tagbug/demo@latest/img/use2.png&#34;&gt;&lt;/p&gt;
-&lt;h2 id=&#34;开发思路&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#开发思路&#34;&gt;#&lt;/a&gt; 开发思路&lt;/h2&gt;
-&lt;hr&gt;
-&lt;h3 id=&#34;chrome扩展&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#chrome扩展&#34;&gt;#&lt;/a&gt; Chrome 扩展&lt;/h3&gt;
-&lt;p&gt;其实一开始，我是拒绝的，一是因为写代码麻烦，二是因为觉得不重要，每天手动打卡就顺手的事，然而我错了，对于尤其像我这种昼夜时差颠倒的人，一不小心就会忘记，然后被打电话，所以…╮(￣▽￣&amp;quot;)╭&lt;/p&gt;
-&lt;h4 id=&#34;登录认证&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#登录认证&#34;&gt;#&lt;/a&gt; &lt;strong&gt;登录认证&lt;/strong&gt;&lt;/h4&gt;
-&lt;ol&gt;
-&lt;li&gt;打卡界面本来是在微信上的，选择 &lt;code&gt;在浏览器打开&lt;/code&gt; 会得到一个打卡网址 &lt;code&gt;serviceUrl=&amp;quot;http://yun.ujs.edu.cn/xxhgl/yqsb/index&amp;quot;&lt;/code&gt; ，很显然需要用户认证，通过 &lt;code&gt;&amp;quot;https://pass.ujs.edu.cn/cas/login?service=&amp;quot;+serviceUrl&lt;/code&gt;  进行统一身份认证，浏览器会自动保存 Cookie（或者直接 &lt;code&gt;&amp;quot;https://pass.ujs.edu.cn/cas/login&amp;quot;&lt;/code&gt;  好像也可以，这个参数的作用好像不是很明显，我没深究)&lt;/li&gt;
-&lt;li&gt;对登陆页的 form.submit 进行分析，可知 POST 有以下参数： &lt;code&gt;username&lt;/code&gt; | &lt;code&gt;password&lt;/code&gt; | &lt;code&gt;captchaResponse&lt;/code&gt; | &lt;code&gt;lt&lt;/code&gt; | &lt;code&gt;dllt&lt;/code&gt; | &lt;code&gt;execution&lt;/code&gt; | &lt;code&gt;_eventId&lt;/code&gt; | &lt;code&gt;rmShown&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;后面五个参数都是隐藏在 form 表单中，每次请求内容好像都没变过，前三个参数都是需要用户填写的，其中 password 字段在 POST 提交时还会被用 AES 加密（AES 用到的密钥也放在了表单中，每次请求都会改变）&lt;/li&gt;
-&lt;li&gt;知道了这些后，就可以写登录认证方法了，前面两个参数用户提供，每次不变，后面五个参数直接从 document 中提取，唯一比较棘手的就是验证码的处理，验证码每次从 &lt;code&gt;&#39;https://pass.ujs.edu.cn/cas/captcha.html?ts=&#39; + new Date().getMilliseconds()&lt;/code&gt;  中随机生成&lt;/li&gt;
-&lt;li&gt;想到可以用 OCR 识别，在网上找了很多 OCR 的 API，要么是要钱，要么是效果不好，还好知道一个效果不错的免费 OCR，但是却没有开放的 API 接口，无奈只好自己扒&lt;/li&gt;
-&lt;li&gt;其实扒这个 OCR 的接口才是最耗时间精力的，中间踩了不少坑，反复用浏览器 F12 下断点调试 + BurpSuite 抓包，最后总算也是解决了，太过冗长也就不细讲了（其实这里用图像处理来对付验证码也可以，但是对于 JS 来说显然调 API 更省力）&lt;/li&gt;
-&lt;li&gt;到这里终于是可以写自动化脚本把这个流程串联起来了（访问 &lt;code&gt;https://pass.ujs.edu.cn/cas/login&lt;/code&gt;  获取表单参数 -&amp;gt; 访问 &lt;code&gt;&#39;https://pass.ujs.edu.cn/cas/captcha.html?ts=&#39; + new Date().getMilliseconds()&lt;/code&gt;  获取验证码图片信息 -&amp;gt; 丢给 OCR 处理 -&amp;gt; 返回验证码后把表单参数接起来 -&amp;gt;POST 获取返回数据 -&amp;gt; 检查登录状态是否成功（因为 OCR 有一定几率识别有误差，如果是验证码错误就重试，如果用户名密码错误直接结束，其他错误抛出异常））&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h4 id=&#34;定时打卡任务&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#定时打卡任务&#34;&gt;#&lt;/a&gt; &lt;strong&gt;定时打卡任务&lt;/strong&gt;&lt;/h4&gt;
-&lt;ol&gt;
-&lt;li&gt;在登录认证后直接访问 &lt;code&gt;&#39;http://yun.ujs.edu.cn/xxhgl/yqsb/grmrsb?v=&#39; + parseInt(Math.random() * 10000)&lt;/code&gt;  就可以看到保存的打卡表单信息，注意到只有 &lt;code&gt;下午温度&lt;/code&gt; 、 &lt;code&gt;上午温度&lt;/code&gt; 和 &lt;code&gt;其他异常&lt;/code&gt; 三个字段每天刷新，需要填写，这里用 Chrome 扩展强大的脚本插入功能，在页面加载完成后自动填写空缺字段提交，并返回提交结果&lt;/li&gt;
-&lt;li&gt;最后实现每天定时执行，用 Chrome 扩展的消息通信功能协调各个子模块的运行，用 &lt;code&gt;chrome.storage.local&lt;/code&gt;  储存 &lt;code&gt;用户名&lt;/code&gt; 、 &lt;code&gt;密码&lt;/code&gt; 和 &lt;code&gt;每日自动执行时间&lt;/code&gt; ，用 &lt;code&gt;chrome.notifications&lt;/code&gt;  实现桌面通知， &lt;code&gt;popup.html&lt;/code&gt;  和 &lt;code&gt;options.html&lt;/code&gt;  实现设置的读取和保存，方便用户操作&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h3 id=&#34;android应用&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#android应用&#34;&gt;#&lt;/a&gt; Android 应用&lt;/h3&gt;
-&lt;p&gt;这个是后来开发的，因为吧，虽然 Chrome 扩展开发起来简单，但最大的不足之处就在于无法同步通知到手机上，本来是想用发邮件的方式，找了很久也没发现什么用 JS 实现起来较为简单的方案，然后呢，我想着干脆直接在手机上开发一个应用，这样不就方便多了，而且实现原理都差不多… 嗯，原理是差不多，细节就差远了，本来以为一两天就能写完，最后边学边写写了四五天…&lt;/p&gt;
-&lt;h4 id=&#34;基本逻辑&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#基本逻辑&#34;&gt;#&lt;/a&gt; &lt;strong&gt;基本逻辑&lt;/strong&gt;&lt;/h4&gt;
-&lt;ol&gt;
-&lt;li&gt;Get 登录页 -&amp;gt; 拿到一部分 Post 表单数据 -&amp;gt;Get 验证码 -&amp;gt; 用 OCR 读取 -&amp;gt; 整合表单 Post 登录 -&amp;gt;Get 打卡表单 -&amp;gt; 填补空缺项后 Post 打卡&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h4 id=&#34;细节&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#细节&#34;&gt;#&lt;/a&gt; &lt;strong&gt;细节&lt;/strong&gt;&lt;/h4&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;整个流程都是需要 HTTP 协议来进行数据交换的，原生的 Java HTTP API 效率太低了，用了开源软件 OkHttp，而且还需要实现 Cookie 的存储、更新和提交，Chrome 中浏览器就已经做好了这些，而在 Java 中只能自己来处理&lt;br&gt;
-解决方法：实现 OkHttp 中的 CookieJar 接口来自动处理 Cookie（缓存、读取、过期更新、本地化）&lt;br&gt;
-这里参考了：&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9zcXVhcmUuZ2l0aHViLmlvL29raHR0cC8=&#34;&gt;OkHttp 官方文档&lt;/span&gt;和&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cuY25ibG9ncy5jb20vc2hlbmNoYW5naHVpL3AvNjQwOTY5OS5odG1s&#34;&gt; OkHttp3 实现 Cookies 管理及持久化&lt;/span&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;然后第二个就是 Android 应用运行机制，包括应用组件：Activity、Service、BroadcastReceiver 和 ContentProvider（虽然我只用到了第一个和第三个…），清单文件，应用资源（布局、图标等），Intent、Context、Bundle…&lt;br&gt;
- 不得不说，相当复杂…&lt;del&gt;（关键是官方 API 文档还全是英文，看都看不懂）&lt;/del&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;第三个是用闹钟 AlarmManager 实现定时执行任务&lt;del&gt;（这个东西是真迷幻，不知道为什么定时总会有几分钟偏差）&lt;/del&gt;（用 setExactAndAllowWhileIdle 方法即可准时广播）&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;最后用 Notification 推送通知（这个东西也是，不同的 API 所要求的实现方法有细微区别，不注意就会导致通知推送不出来，找半天都不知道是哪的问题…）&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Android 系统的开放性、既要兼顾不同的 Android 系统版本（从高到低的 SDK 版本）、又因为各种厂商对自家手机系统的魔改，导致 Android 开发是个相当不容易的工作… 很佩服&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;参考:&lt;br&gt;
-&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cuY25ibG9ncy5jb20vbGl1eGlhbmFuL3AvY2hyb21lLXBsdWdpbi1kZXZlbG9wLmh0bWw=&#34;&gt;Chrome 插件 (扩展) 开发全攻略&lt;/span&gt;&lt;br&gt;
-&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9kZXZlbG9wZXIuYW5kcm9pZC5nb29nbGUuY24vZG9jcw==&#34;&gt; Android 开发者&lt;/span&gt;&lt;/p&gt;
  ]]></description>
         </item>
     </channel>
