@@ -1,0 +1,823 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#FFF">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="icon" type="image/ico" sizes="32x32" href="/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+<link rel="alternate" type="application/rss+xml" title="🐟" href="http://tagbug.github.io/rss.xml"/>
+<link rel="alternate" type="application/atom+xml" title="🐟" href="http://tagbug.github.io/atom.xml"/>
+<link rel="alternate" type="application/json" title="🐟" href="http://tagbug.github.io/feed.json"/>
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="/css/app.css?v=0.2.5">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+  <meta name="keywords" content="Web,前端,React" />
+
+
+<link rel="canonical" href="http://tagbug.github.io/2022/04/11/React%E8%BF%9B%E9%98%B6/">
+
+
+
+    <title>
+      
+React进阶 - React - 前端 |
+Tag Bug = 🐟</title>
+  <meta name="generator" content="Hexo 5.4.0"></head>
+  <body itemscope="itemscope" itemtype="http://schema.org/WebPage">
+    <div id="loading">
+      <div class="cat">
+        <div class="body"></div>
+        <div class="head">
+          <div class="face"></div>
+        </div>
+        <div class="foot">
+          <div class="tummy-end"></div>
+          <div class="bottom"></div>
+          <div class="legs left"></div>
+          <div class="legs right"></div>
+        </div>
+        <div class="paw">
+          <div class="hands left"></div>
+          <div class="hands right"></div>
+        </div>
+      </div>
+    </div>
+    <div id="container">
+      <header id="header" itemscope="itemscope" itemtype="http://schema.org/WPHeader">
+        <div class="inner">
+          <div id="brand">
+            <div class="pjax">
+              
+  <h1 itemprop="name headline">React进阶
+  </h1>
+  
+<div class="meta">
+  <span class="item" title="创建时间：2022-04-11 15:45:58">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">发表于</span>
+    <time itemprop="dateCreated datePublished" datetime="2022-04-11T15:45:58+08:00">2022-04-11</time>
+  </span>
+  <span class="item" title="本文字数">
+    <span class="icon">
+      <i class="ic i-pen"></i>
+    </span>
+    <span class="text">本文字数</span>
+    <span>7.6k</span>
+    <span class="text">字</span>
+  </span>
+  <span class="item" title="阅读时长">
+    <span class="icon">
+      <i class="ic i-clock"></i>
+    </span>
+    <span class="text">阅读时长</span>
+    <span>7 分钟</span>
+  </span>
+</div>
+
+
+            </div>
+          </div>
+          <nav id="nav">
+  <div class="inner">
+    <div class="toggle">
+      <div class="lines" aria-label="切换导航栏">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <ul class="menu">
+      <li class="item title"><a href="/" rel="start">Tag Bug</a></li>
+    </ul>
+    <ul class="right">
+      <li class="item theme">
+        <i class="ic i-sun"></i>
+      </li>
+      <li class="item search">
+        <i class="ic i-search"></i>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+        </div>
+        <div id="imgs" class="pjax">
+            <ul>
+                <li class="item" data-background-image="https://tva3.sinaimg.cn/large/81ef6186ly8gwtyt18akhj20qk1b8dq0.jpg"></li>
+                <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giph4lm9i7j20zk0m84qp.jpg"></li>
+                <li class="item" data-background-image="https://tva3.sinaimg.cn/large/81ef6186ly8gwtz8fhnmbj20zk0k0n0g.jpg"></li>
+                <li class="item" data-background-image="https://tva3.sinaimg.cn/large/81ef6186ly8gwtysz7l4ej20u01hc0yc.jpg"></li>
+                <li class="item" data-background-image="https://tva3.sinaimg.cn/large/81ef6186ly8gwtzl7xi5lj20zk0k0400.jpg"></li>
+                <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gicitzannuj20zk0m8b29.jpg"></li>
+            </ul>
+        </div>
+      </header>
+      <div id="waves">
+        <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewbox="0 24 150 28" preserveaspectratio="none" shape-rendering="auto">
+          <defs>
+            <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"/>
+          </defs>
+          <g class="parallax">
+            <use xlink:href="#gentle-wave" x="48" y="0"/>
+            <use xlink:href="#gentle-wave" x="48" y="3"/>
+            <use xlink:href="#gentle-wave" x="48" y="5"/>
+            <use xlink:href="#gentle-wave" x="48" y="7"/>
+          </g>
+        </svg>
+      </div>
+      <main>
+        <div class="inner">
+          <div id="main" class="pjax">
+            
+  <div class="article wrap">
+    
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/">首页</a></span><i class="ic i-angle-right"></i>
+<span  itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="item" rel="index" title="分类于 前端"><span itemprop="name">前端</span></a>
+<meta itemprop="position" content="1" /></span>
+<i class="ic i-angle-right"></i>
+<span  class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/%E5%89%8D%E7%AB%AF/React/" itemprop="item" rel="index" title="分类于 React"><span itemprop="name">React</span></a>
+<meta itemprop="position" content="2" /></span>
+</div>
+
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh-CN">
+  <link itemprop="mainEntityOfPage" href="http://tagbug.github.io/2022/04/11/React%E8%BF%9B%E9%98%B6/">
+
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="/images/avatar.png">
+    <meta itemprop="name" content="TagBug">
+    <meta itemprop="description" content=", 所念皆星河">
+  </span>
+
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="🐟">
+  </span>
+
+  <div class="body md" itemprop="articleBody">
+    
+
+    <blockquote>
+<p>JSX、数据流通、虚拟 DOM、调和与 Diff、setState、Fiber 架构、React 合成事件、性能优化、设计模式等</p>
+</blockquote>
+<span id="more"></span>
+<h1 id="react进阶"><a class="anchor" href="#react进阶">#</a> React 进阶</h1>
+<h2 id="jsx"><a class="anchor" href="#jsx">#</a> JSX</h2>
+<p>三个问题：</p>
+<ol>
+<li>JSX 的本质是什么，他和 JS 之间到底是什么关系？</li>
+<li>为什么要用 JSX？不用会有什么后果？</li>
+<li>JSX 背后的功能模块是什么，这个功能模块都做了哪些事情？</li>
+</ol>
+<p>JSX 是 JS 的一种<strong>语法扩展</strong>，他和模板语言很接近，但充分具备 JS 的能力。</p>
+<p>JSX 本质上是一种<strong>语法糖</strong>，允许开发者使用类 HTML 标签语法来创建<strong>虚拟 DOM</strong></p>
+<p>通过 Babel：JSX — 编译 —&gt; React.createElement ()，如果不用 JSX，也可以使用 React.createElement ()</p>
+<p>JSX 的编译执行流程大致如下：</p>
+<pre class="mermaid graph"><svg id="mermaid-1649668105005" width="100%" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" height="55" style="max-width: 1334.125px;" viewBox="0 0 1334.125 55"><g><g class="output"><g class="clusters"></g><g class="edgePaths"><g class="edgePath LS-JSX语法 LE-Bebel" id="L-JSX语法-Bebel" style="opacity: 1;"><path class="path" d="M93.984375,27.5L118.984375,27.5L143.984375,27.5" marker-end="url(#arrowhead35)" style="fill:none"></path><defs><marker id="arrowhead35" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="strokeWidth" markerWidth="8" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowheadPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker></defs></g><g class="edgePath LS-Bebel LE-React.createElement调用" id="L-Bebel-React.createElement调用" style="opacity: 1;"><path class="path" d="M204.40625,27.5L245.40625,27.5L286.40625,27.5" marker-end="url(#arrowhead36)" style="fill:none"></path><defs><marker id="arrowhead36" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="strokeWidth" markerWidth="8" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowheadPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker></defs></g><g class="edgePath LS-React.createElement调用 LE-ReactElement调用" id="L-React.createElement调用-ReactElement调用" style="opacity: 1;"><path class="path" d="M489.796875,27.5L514.796875,27.5L539.796875,27.5" marker-end="url(#arrowhead37)" style="fill:none"></path><defs><marker id="arrowhead37" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="strokeWidth" markerWidth="8" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowheadPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker></defs></g><g class="edgePath LS-ReactElement调用 LE-虚拟DOM" id="L-ReactElement调用-虚拟DOM" style="opacity: 1;"><path class="path" d="M690.96875,27.5L715.96875,27.5L740.96875,27.5" marker-end="url(#arrowhead38)" style="fill:none"></path><defs><marker id="arrowhead38" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="strokeWidth" markerWidth="8" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowheadPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker></defs></g><g class="edgePath LS-虚拟DOM LE-ReactDOM.render" id="L-虚拟DOM-ReactDOM.render" style="opacity: 1;"><path class="path" d="M825.5625,27.5L898.5625,27.5L971.5625,27.5" marker-end="url(#arrowhead39)" style="fill:none"></path><defs><marker id="arrowhead39" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="strokeWidth" markerWidth="8" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowheadPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker></defs></g><g class="edgePath LS-ReactDOM.render LE-真实DOM" id="L-ReactDOM.render-真实DOM" style="opacity: 1;"><path class="path" d="M1117.78125,27.5L1174.78125,27.5L1231.78125,27.5" marker-end="url(#arrowhead40)" style="fill:none"></path><defs><marker id="arrowhead40" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="strokeWidth" markerWidth="8" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowheadPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker></defs></g></g><g class="edgeLabels"><g class="edgeLabel" transform="" style="opacity: 1;"><g transform="translate(0,0)" class="label"><rect rx="0" ry="0" width="0" height="0"></rect><text><tspan xml:space="preserve" dy="1em" x="1"></tspan></text></g></g><g class="edgeLabel" transform="translate(245.40625,27.5)" style="opacity: 1;"><g transform="translate(-16,-9.5)" class="label"><rect rx="0" ry="0" width="32" height="18.734375"></rect><text><tspan xml:space="preserve" dy="1em" x="1">编译</tspan></text></g></g><g class="edgeLabel" transform="" style="opacity: 1;"><g transform="translate(0,0)" class="label"><rect rx="0" ry="0" width="0" height="0"></rect><text><tspan xml:space="preserve" dy="1em" x="1"></tspan></text></g></g><g class="edgeLabel" transform="" style="opacity: 1;"><g transform="translate(0,0)" class="label"><rect rx="0" ry="0" width="0" height="0"></rect><text><tspan xml:space="preserve" dy="1em" x="1"></tspan></text></g></g><g class="edgeLabel" transform="translate(898.5625,27.5)" style="opacity: 1;"><g transform="translate(-48,-9.5)" class="label"><rect rx="0" ry="0" width="95.984375" height="18.734375"></rect><text><tspan xml:space="preserve" dy="1em" x="1">作为参数传入</tspan></text></g></g><g class="edgeLabel" transform="translate(1174.78125,27.5)" style="opacity: 1;"><g transform="translate(-32,-9.5)" class="label"><rect rx="0" ry="0" width="63.984375" height="18.734375"></rect><text><tspan xml:space="preserve" dy="1em" x="1">渲染处理</tspan></text></g></g></g><g class="nodes"><g class="node default" id="flowchart-JSX语法-7" transform="translate(50.9921875,27.5)" style="opacity: 1;"><rect rx="19.5" ry="19.5" x="-42.9921875" y="-19.5" width="85.984375" height="39" class="label-container"></rect><g class="label" transform="translate(0,0)"><g transform="translate(-28.1171875,-9.5)"><text style=""><tspan xml:space="preserve" dy="1em" x="1">JSX语法</tspan></text></g></g></g><g class="node default" id="flowchart-Bebel-8" transform="translate(174.1953125,27.5)" style="opacity: 1;"><rect rx="0" ry="0" x="-30.2109375" y="-19.5" width="60.421875" height="39" class="label-container"></rect><g class="label" transform="translate(0,0)"><g transform="translate(-20.2109375,-9.5)"><text style=""><tspan xml:space="preserve" dy="1em" x="1">Bebel</tspan></text></g></g></g><g class="node default" id="flowchart-React.createElement调用-9" transform="translate(388.1015625,27.5)" style="opacity: 1;"><rect rx="0" ry="0" x="-101.6953125" y="-19.5" width="203.390625" height="39" class="label-container"></rect><g class="label" transform="translate(0,0)"><g transform="translate(-91.6953125,-9.5)"><text style=""><tspan xml:space="preserve" dy="1em" x="1">React.createElement调用</tspan></text></g></g></g><g class="node default" id="flowchart-ReactElement调用-10" transform="translate(615.3828125,27.5)" style="opacity: 1;"><rect rx="0" ry="0" x="-75.5859375" y="-19.5" width="151.171875" height="39" class="label-container"></rect><g class="label" transform="translate(0,0)"><g transform="translate(-65.5859375,-9.5)"><text style=""><tspan xml:space="preserve" dy="1em" x="1">ReactElement调用</tspan></text></g></g></g><g class="node default" id="flowchart-虚拟DOM-11" transform="translate(783.265625,27.5)" style="opacity: 1;"><rect rx="0" ry="0" x="-42.296875" y="-19.5" width="84.59375" height="39" class="label-container"></rect><g class="label" transform="translate(0,0)"><g transform="translate(-32.296875,-9.5)"><text style=""><tspan xml:space="preserve" dy="1em" x="1">虚拟DOM</tspan></text></g></g></g><g class="node default" id="flowchart-ReactDOM.render-12" transform="translate(1044.671875,27.5)" style="opacity: 1;"><rect rx="0" ry="0" x="-73.109375" y="-19.5" width="146.21875" height="39" class="label-container"></rect><g class="label" transform="translate(0,0)"><g transform="translate(-63.109375,-9.5)"><text style=""><tspan xml:space="preserve" dy="1em" x="1">ReactDOM.render</tspan></text></g></g></g><g class="node default" id="flowchart-真实DOM-13" transform="translate(1278.953125,27.5)" style="opacity: 1;"><rect rx="19.5" ry="19.5" x="-47.171875" y="-19.5" width="94.34375" height="39" class="label-container"></rect><g class="label" transform="translate(0,0)"><g transform="translate(-32.296875,-9.5)"><text style=""><tspan xml:space="preserve" dy="1em" x="1">真实DOM</tspan></text></g></g></g></g></g></g></svg></pre><h2 id="从react15到react16的生命周期变化"><a class="anchor" href="#从react15到react16的生命周期变化">#</a> 从 React15 到 React16 + 的生命周期变化</h2>
+<p>组件的初始化渲染流程：</p>
+<pre class="mermaid graph"><svg id="mermaid-1649668106262" width="100%" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" height="500" style="max-width: 434.90625px;" viewBox="0 0 434.90625 500"><g><g class="output"><g class="clusters"></g><g class="edgePaths"><g class="edgePath LS-React15 LE-组件挂载" id="L-React15-组件挂载" style="opacity: 1;"><path class="path" d="M100.7265625,47.5L100.2265625,72L100.2265625,97" marker-end="url(#arrowhead32)" style="fill:none"></path><defs><marker id="arrowhead32" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="strokeWidth" markerWidth="8" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowheadPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker></defs></g><g class="edgePath LS-组件挂载 LE-construct" id="L-组件挂载-construct" style="opacity: 1;"><path class="path" d="M100.2265625,136L100.2265625,161L100.2265625,186" marker-end="url(#arrowhead33)" style="fill:none"></path><defs><marker id="arrowhead33" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="strokeWidth" markerWidth="8" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowheadPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker></defs></g><g class="edgePath LS-construct LE-componentWillMount" id="L-construct-componentWillMount" style="opacity: 1;"><path class="path" d="M100.2265625,225L100.2265625,250L100.2265625,275" marker-end="url(#arrowhead34)" style="fill:none"></path><defs><marker id="arrowhead34" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="strokeWidth" markerWidth="8" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowheadPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker></defs></g><g class="edgePath LS-componentWillMount LE-render" id="L-componentWillMount-render" style="opacity: 1;"><path class="path" d="M100.2265625,314L100.2265625,339L100.2265625,364" marker-end="url(#arrowhead35)" style="fill:none"></path><defs><marker id="arrowhead35" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="strokeWidth" markerWidth="8" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowheadPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker></defs></g><g class="edgePath LS-render LE-componentDidMount" id="L-render-componentDidMount" style="opacity: 1;"><path class="path" d="M100.2265625,403L100.2265625,428L100.2265625,453" marker-end="url(#arrowhead36)" style="fill:none"></path><defs><marker id="arrowhead36" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="strokeWidth" markerWidth="8" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowheadPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker></defs></g><g class="edgePath LS-React16 LE-组件挂载2" id="L-React16-组件挂载2" style="opacity: 1;"><path class="path" d="M335.1796875,47.5L334.6796875,72L334.6796875,97" marker-end="url(#arrowhead37)" style="fill:none"></path><defs><marker id="arrowhead37" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="strokeWidth" markerWidth="8" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowheadPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker></defs></g><g class="edgePath LS-组件挂载2 LE-construct2" id="L-组件挂载2-construct2" style="opacity: 1;"><path class="path" d="M334.6796875,136L334.6796875,161L334.6796875,186" marker-end="url(#arrowhead38)" style="fill:none"></path><defs><marker id="arrowhead38" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="strokeWidth" markerWidth="8" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowheadPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker></defs></g><g class="edgePath LS-construct2 LE-getDerivedFromProps" id="L-construct2-getDerivedFromProps" style="opacity: 1;"><path class="path" d="M334.6796875,225L334.6796875,250L334.6796875,275" marker-end="url(#arrowhead39)" style="fill:none"></path><defs><marker id="arrowhead39" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="strokeWidth" markerWidth="8" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowheadPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker></defs></g><g class="edgePath LS-getDerivedFromProps LE-render2" id="L-getDerivedFromProps-render2" style="opacity: 1;"><path class="path" d="M334.6796875,314L334.6796875,339L334.6796875,364" marker-end="url(#arrowhead40)" style="fill:none"></path><defs><marker id="arrowhead40" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="strokeWidth" markerWidth="8" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowheadPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker></defs></g><g class="edgePath LS-render2 LE-componentDidMount2" id="L-render2-componentDidMount2" style="opacity: 1;"><path class="path" d="M334.6796875,403L334.6796875,428L334.6796875,453" marker-end="url(#arrowhead41)" style="fill:none"></path><defs><marker id="arrowhead41" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="strokeWidth" markerWidth="8" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowheadPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker></defs></g></g><g class="edgeLabels"><g class="edgeLabel" transform="" style="opacity: 1;"><g transform="translate(0,0)" class="label"><rect rx="0" ry="0" width="0" height="0"></rect><text><tspan xml:space="preserve" dy="1em" x="1"></tspan></text></g></g><g class="edgeLabel" transform="" style="opacity: 1;"><g transform="translate(0,0)" class="label"><rect rx="0" ry="0" width="0" height="0"></rect><text><tspan xml:space="preserve" dy="1em" x="1"></tspan></text></g></g><g class="edgeLabel" transform="" style="opacity: 1;"><g transform="translate(0,0)" class="label"><rect rx="0" ry="0" width="0" height="0"></rect><text><tspan xml:space="preserve" dy="1em" x="1"></tspan></text></g></g><g class="edgeLabel" transform="" style="opacity: 1;"><g transform="translate(0,0)" class="label"><rect rx="0" ry="0" width="0" height="0"></rect><text><tspan xml:space="preserve" dy="1em" x="1"></tspan></text></g></g><g class="edgeLabel" transform="" style="opacity: 1;"><g transform="translate(0,0)" class="label"><rect rx="0" ry="0" width="0" height="0"></rect><text><tspan xml:space="preserve" dy="1em" x="1"></tspan></text></g></g><g class="edgeLabel" transform="" style="opacity: 1;"><g transform="translate(0,0)" class="label"><rect rx="0" ry="0" width="0" height="0"></rect><text><tspan xml:space="preserve" dy="1em" x="1"></tspan></text></g></g><g class="edgeLabel" transform="" style="opacity: 1;"><g transform="translate(0,0)" class="label"><rect rx="0" ry="0" width="0" height="0"></rect><text><tspan xml:space="preserve" dy="1em" x="1"></tspan></text></g></g><g class="edgeLabel" transform="" style="opacity: 1;"><g transform="translate(0,0)" class="label"><rect rx="0" ry="0" width="0" height="0"></rect><text><tspan xml:space="preserve" dy="1em" x="1"></tspan></text></g></g><g class="edgeLabel" transform="" style="opacity: 1;"><g transform="translate(0,0)" class="label"><rect rx="0" ry="0" width="0" height="0"></rect><text><tspan xml:space="preserve" dy="1em" x="1"></tspan></text></g></g><g class="edgeLabel" transform="" style="opacity: 1;"><g transform="translate(0,0)" class="label"><rect rx="0" ry="0" width="0" height="0"></rect><text><tspan xml:space="preserve" dy="1em" x="1"></tspan></text></g></g></g><g class="nodes"><g class="node default" id="flowchart-React15-12" transform="translate(100.2265625,27.5)" style="opacity: 1;"><polygon points="0,0 76.84375,0 76.84375,-39 0,-39 0,0 -8,0 84.84375,0 84.84375,-39 -8,-39 -8,0" transform="translate(-38.421875,19.5)" class="label-container"></polygon><g class="label" transform="translate(0,0)"><g transform="translate(-28.421875,-9.5)"><text style=""><tspan xml:space="preserve" dy="1em" x="1">React15</tspan></text></g></g></g><g class="node default" id="flowchart-组件挂载-13" transform="translate(100.2265625,116.5)" style="opacity: 1;"><rect rx="19.5" ry="19.5" x="-92.2265625" y="-19.5" width="184.453125" height="39" class="label-container"></rect><g class="label" transform="translate(0,0)"><g transform="translate(-77.3515625,-9.5)"><text style=""><tspan xml:space="preserve" dy="1em" x="1">组件挂载: 初始化渲染</tspan></text></g></g></g><g class="node default" id="flowchart-construct-14" transform="translate(100.2265625,205.5)" style="opacity: 1;"><rect rx="5" ry="5" x="-51.4453125" y="-19.5" width="102.890625" height="39" class="label-container"></rect><g class="label" transform="translate(0,0)"><g transform="translate(-41.4453125,-9.5)"><text style=""><tspan xml:space="preserve" dy="1em" x="1">constructor</tspan></text></g></g></g><g class="node default" id="flowchart-componentWillMount-15" transform="translate(100.2265625,294.5)" style="opacity: 1;"><rect rx="0" ry="0" x="-85.84375" y="-19.5" width="171.6875" height="39" class="label-container"></rect><g class="label" transform="translate(0,0)"><g transform="translate(-75.84375,-9.5)"><text style=""><tspan xml:space="preserve" dy="1em" x="1">componentWillMount</tspan></text></g></g></g><g class="node default" id="flowchart-render-16" transform="translate(100.2265625,383.5)" style="opacity: 1;"><rect rx="5" ry="5" x="-34.1640625" y="-19.5" width="68.328125" height="39" class="label-container"></rect><g class="label" transform="translate(0,0)"><g transform="translate(-24.1640625,-9.5)"><text style=""><tspan xml:space="preserve" dy="1em" x="1">render</tspan></text></g></g></g><g class="node default" id="flowchart-componentDidMount-17" transform="translate(100.2265625,472.5)" style="opacity: 1;"><rect rx="0" ry="0" x="-83.78125" y="-19.5" width="167.5625" height="39" class="label-container"></rect><g class="label" transform="translate(0,0)"><g transform="translate(-73.78125,-9.5)"><text style=""><tspan xml:space="preserve" dy="1em" x="1">componentDidMount</tspan></text></g></g></g><g class="node default" id="flowchart-React16-18" transform="translate(334.6796875,27.5)" style="opacity: 1;"><polygon points="0,0 85.234375,0 85.234375,-39 0,-39 0,0 -8,0 93.234375,0 93.234375,-39 -8,-39 -8,0" transform="translate(-42.6171875,19.5)" class="label-container"></polygon><g class="label" transform="translate(0,0)"><g transform="translate(-32.6171875,-9.5)"><text style=""><tspan xml:space="preserve" dy="1em" x="1">React16+</tspan></text></g></g></g><g class="node default" id="flowchart-组件挂载2-19" transform="translate(334.6796875,116.5)" style="opacity: 1;"><rect rx="19.5" ry="19.5" x="-92.2265625" y="-19.5" width="184.453125" height="39" class="label-container"></rect><g class="label" transform="translate(0,0)"><g transform="translate(-77.3515625,-9.5)"><text style=""><tspan xml:space="preserve" dy="1em" x="1">组件挂载: 初始化渲染</tspan></text></g></g></g><g class="node default" id="flowchart-construct2-20" transform="translate(334.6796875,205.5)" style="opacity: 1;"><rect rx="5" ry="5" x="-51.4453125" y="-19.5" width="102.890625" height="39" class="label-container"></rect><g class="label" transform="translate(0,0)"><g transform="translate(-41.4453125,-9.5)"><text style=""><tspan xml:space="preserve" dy="1em" x="1">constructor</tspan></text></g></g></g><g class="node default" id="flowchart-getDerivedFromProps-21" transform="translate(334.6796875,294.5)" style="opacity: 1;"><rect rx="0" ry="0" x="-86.375" y="-19.5" width="172.75" height="39" class="label-container"></rect><g class="label" transform="translate(0,0)"><g transform="translate(-76.375,-9.5)"><text style=""><tspan xml:space="preserve" dy="1em" x="1">getDerivedFromProps</tspan></text></g></g></g><g class="node default" id="flowchart-render2-22" transform="translate(334.6796875,383.5)" style="opacity: 1;"><rect rx="5" ry="5" x="-34.1640625" y="-19.5" width="68.328125" height="39" class="label-container"></rect><g class="label" transform="translate(0,0)"><g transform="translate(-24.1640625,-9.5)"><text style=""><tspan xml:space="preserve" dy="1em" x="1">render</tspan></text></g></g></g><g class="node default" id="flowchart-componentDidMount2-23" transform="translate(334.6796875,472.5)" style="opacity: 1;"><rect rx="0" ry="0" x="-87.6484375" y="-19.5" width="175.296875" height="39" class="label-container"></rect><g class="label" transform="translate(0,0)"><g transform="translate(-77.6484375,-9.5)"><text style=""><tspan xml:space="preserve" dy="1em" x="1">componentDidMount2</tspan></text></g></g></g></g></g></g></svg></pre><p>组件的更新流程：</p>
+<pre class="mermaid graph"><svg id="mermaid-1649668107523" width="100%" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" height="589" style="max-width: 1029.96875px;" viewBox="0 0 1029.96875 589"><g><g class="output"><g class="clusters"></g><g class="edgePaths"><g class="edgePath LS-React15 LE-组件更新" id="L-React15-组件更新" style="opacity: 1;"><path class="path" d="M118.8984375,47.5L118.3984375,72L118.3984375,97" marker-end="url(#arrowhead40)" style="fill:none"></path><defs><marker id="arrowhead40" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="strokeWidth" markerWidth="8" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowheadPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker></defs></g><g class="edgePath LS-组件更新 LE-componentWillReceiveProps" id="L-组件更新-componentWillReceiveProps" style="opacity: 1;"><path class="path" d="M118.3984375,136L118.3984375,161L118.3984375,186" marker-end="url(#arrowhead41)" style="fill:none"></path><defs><marker id="arrowhead41" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="strokeWidth" markerWidth="8" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowheadPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker></defs></g><g class="edgePath LS-componentWillReceiveProps LE-shouldComponentUpdate" id="L-componentWillReceiveProps-shouldComponentUpdate" style="opacity: 1;"><path class="path" d="M118.3984375,225L118.3984375,250L193.8548981741573,275" marker-end="url(#arrowhead42)" style="fill:none"></path><defs><marker id="arrowhead42" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="strokeWidth" markerWidth="8" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowheadPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker></defs></g><g class="edgePath LS-shouldComponentUpdate LE-componentWillUpdate" id="L-shouldComponentUpdate-componentWillUpdate" style="opacity: 1;"><path class="path" d="M252.7109375,314L252.7109375,339L252.7109375,364" marker-end="url(#arrowhead43)" style="fill:none"></path><defs><marker id="arrowhead43" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="strokeWidth" markerWidth="8" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowheadPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker></defs></g><g class="edgePath LS-componentWillUpdate LE-render" id="L-componentWillUpdate-render" style="opacity: 1;"><path class="path" d="M252.7109375,403L252.7109375,428L252.7109375,453" marker-end="url(#arrowhead44)" style="fill:none"></path><defs><marker id="arrowhead44" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="strokeWidth" markerWidth="8" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowheadPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker></defs></g><g class="edgePath LS-render LE-componentDidUpdate" id="L-render-componentDidUpdate" style="opacity: 1;"><path class="path" d="M252.7109375,492L252.7109375,517L252.7109375,542" marker-end="url(#arrowhead45)" style="fill:none"></path><defs><marker id="arrowhead45" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="strokeWidth" markerWidth="8" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowheadPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker></defs></g><g class="edgePath LS-组件更新3 LE-shouldComponentUpdate" id="L-组件更新3-shouldComponentUpdate" style="opacity: 1;"><path class="path" d="M387.0234375,225L387.0234375,250L311.5669768258427,275" marker-end="url(#arrowhead46)" style="fill:none"></path><defs><marker id="arrowhead46" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="strokeWidth" markerWidth="8" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowheadPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker></defs></g><g class="edgePath LS-React16 LE-组件更新2" id="L-React16-组件更新2" style="opacity: 1;"><path class="path" d="M650.8828125,47.5L650.3828125,72L650.3828125,97" marker-end="url(#arrowhead47)" style="fill:none"></path><defs><marker id="arrowhead47" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="strokeWidth" markerWidth="8" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowheadPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker></defs></g><g class="edgePath LS-组件更新2 LE-getDerivedStateFromProps" id="L-组件更新2-getDerivedStateFromProps" style="opacity: 1;"><path class="path" d="M650.3828125,136L650.3828125,161L650.3828125,186" marker-end="url(#arrowhead48)" style="fill:none"></path><defs><marker id="arrowhead48" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="strokeWidth" markerWidth="8" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowheadPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker></defs></g><g class="edgePath LS-getDerivedStateFromProps LE-shouldComponentUpdate2" id="L-getDerivedStateFromProps-shouldComponentUpdate2" style="opacity: 1;"><path class="path" d="M650.3828125,225L650.3828125,250L724.3601650280899,275" marker-end="url(#arrowhead49)" style="fill:none"></path><defs><marker id="arrowhead49" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="strokeWidth" markerWidth="8" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowheadPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker></defs></g><g class="edgePath LS-shouldComponentUpdate2 LE-render2" id="L-shouldComponentUpdate2-render2" style="opacity: 1;"><path class="path" d="M782.0625,314L782.0625,339L782.0625,364" marker-end="url(#arrowhead50)" style="fill:none"></path><defs><marker id="arrowhead50" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="strokeWidth" markerWidth="8" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowheadPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker></defs></g><g class="edgePath LS-render2 LE-getSnapshotBeforeUpdate" id="L-render2-getSnapshotBeforeUpdate" style="opacity: 1;"><path class="path" d="M782.0625,403L782.0625,428L782.0625,453" marker-end="url(#arrowhead51)" style="fill:none"></path><defs><marker id="arrowhead51" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="strokeWidth" markerWidth="8" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowheadPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker></defs></g><g class="edgePath LS-getSnapshotBeforeUpdate LE-componentDidUpdate2" id="L-getSnapshotBeforeUpdate-componentDidUpdate2" style="opacity: 1;"><path class="path" d="M782.0625,492L782.0625,517L782.0625,542" marker-end="url(#arrowhead52)" style="fill:none"></path><defs><marker id="arrowhead52" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="strokeWidth" markerWidth="8" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowheadPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker></defs></g><g class="edgePath LS-组件更新4 LE-shouldComponentUpdate2" id="L-组件更新4-shouldComponentUpdate2" style="opacity: 1;"><path class="path" d="M913.7421875,225L913.7421875,250L839.7648349719101,275" marker-end="url(#arrowhead53)" style="fill:none"></path><defs><marker id="arrowhead53" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="strokeWidth" markerWidth="8" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowheadPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker></defs></g></g><g class="edgeLabels"><g class="edgeLabel" transform="" style="opacity: 1;"><g transform="translate(0,0)" class="label"><rect rx="0" ry="0" width="0" height="0"></rect><text><tspan xml:space="preserve" dy="1em" x="1"></tspan></text></g></g><g class="edgeLabel" transform="" style="opacity: 1;"><g transform="translate(0,0)" class="label"><rect rx="0" ry="0" width="0" height="0"></rect><text><tspan xml:space="preserve" dy="1em" x="1"></tspan></text></g></g><g class="edgeLabel" transform="" style="opacity: 1;"><g transform="translate(0,0)" class="label"><rect rx="0" ry="0" width="0" height="0"></rect><text><tspan xml:space="preserve" dy="1em" x="1"></tspan></text></g></g><g class="edgeLabel" transform="" style="opacity: 1;"><g transform="translate(0,0)" class="label"><rect rx="0" ry="0" width="0" height="0"></rect><text><tspan xml:space="preserve" dy="1em" x="1"></tspan></text></g></g><g class="edgeLabel" transform="" style="opacity: 1;"><g transform="translate(0,0)" class="label"><rect rx="0" ry="0" width="0" height="0"></rect><text><tspan xml:space="preserve" dy="1em" x="1"></tspan></text></g></g><g class="edgeLabel" transform="" style="opacity: 1;"><g transform="translate(0,0)" class="label"><rect rx="0" ry="0" width="0" height="0"></rect><text><tspan xml:space="preserve" dy="1em" x="1"></tspan></text></g></g><g class="edgeLabel" transform="" style="opacity: 1;"><g transform="translate(0,0)" class="label"><rect rx="0" ry="0" width="0" height="0"></rect><text><tspan xml:space="preserve" dy="1em" x="1"></tspan></text></g></g><g class="edgeLabel" transform="" style="opacity: 1;"><g transform="translate(0,0)" class="label"><rect rx="0" ry="0" width="0" height="0"></rect><text><tspan xml:space="preserve" dy="1em" x="1"></tspan></text></g></g><g class="edgeLabel" transform="" style="opacity: 1;"><g transform="translate(0,0)" class="label"><rect rx="0" ry="0" width="0" height="0"></rect><text><tspan xml:space="preserve" dy="1em" x="1"></tspan></text></g></g><g class="edgeLabel" transform="" style="opacity: 1;"><g transform="translate(0,0)" class="label"><rect rx="0" ry="0" width="0" height="0"></rect><text><tspan xml:space="preserve" dy="1em" x="1"></tspan></text></g></g><g class="edgeLabel" transform="" style="opacity: 1;"><g transform="translate(0,0)" class="label"><rect rx="0" ry="0" width="0" height="0"></rect><text><tspan xml:space="preserve" dy="1em" x="1"></tspan></text></g></g><g class="edgeLabel" transform="" style="opacity: 1;"><g transform="translate(0,0)" class="label"><rect rx="0" ry="0" width="0" height="0"></rect><text><tspan xml:space="preserve" dy="1em" x="1"></tspan></text></g></g><g class="edgeLabel" transform="" style="opacity: 1;"><g transform="translate(0,0)" class="label"><rect rx="0" ry="0" width="0" height="0"></rect><text><tspan xml:space="preserve" dy="1em" x="1"></tspan></text></g></g><g class="edgeLabel" transform="" style="opacity: 1;"><g transform="translate(0,0)" class="label"><rect rx="0" ry="0" width="0" height="0"></rect><text><tspan xml:space="preserve" dy="1em" x="1"></tspan></text></g></g></g><g class="nodes"><g class="node default" id="flowchart-React15-18" transform="translate(118.3984375,27.5)" style="opacity: 1;"><polygon points="0,0 76.84375,0 76.84375,-39 0,-39 0,0 -8,0 84.84375,0 84.84375,-39 -8,-39 -8,0" transform="translate(-38.421875,19.5)" class="label-container"></polygon><g class="label" transform="translate(0,0)"><g transform="translate(-28.421875,-9.5)"><text style=""><tspan xml:space="preserve" dy="1em" x="1">React15</tspan></text></g></g></g><g class="node default" id="flowchart-组件更新-19" transform="translate(118.3984375,116.5)" style="opacity: 1;"><rect rx="19.5" ry="19.5" x="-100.2265625" y="-19.5" width="200.453125" height="39" class="label-container"></rect><g class="label" transform="translate(0,0)"><g transform="translate(-85.3515625,-9.5)"><text style=""><tspan xml:space="preserve" dy="1em" x="1">组件更新: 由父组件触发</tspan></text></g></g></g><g class="node default" id="flowchart-componentWillReceiveProps-20" transform="translate(118.3984375,205.5)" style="opacity: 1;"><rect rx="0" ry="0" x="-110.3984375" y="-19.5" width="220.796875" height="39" class="label-container"></rect><g class="label" transform="translate(0,0)"><g transform="translate(-100.3984375,-9.5)"><text style=""><tspan xml:space="preserve" dy="1em" x="1">componentWillReceiveProps</tspan></text></g></g></g><g class="node default" id="flowchart-shouldComponentUpdate-21" transform="translate(252.7109375,294.5)" style="opacity: 1;"><rect rx="0" ry="0" x="-99.8125" y="-19.5" width="199.625" height="39" class="label-container"></rect><g class="label" transform="translate(0,0)"><g transform="translate(-89.8125,-9.5)"><text style=""><tspan xml:space="preserve" dy="1em" x="1">shouldComponentUpdate</tspan></text></g></g></g><g class="node default" id="flowchart-componentWillUpdate-22" transform="translate(252.7109375,383.5)" style="opacity: 1;"><rect rx="0" ry="0" x="-89.609375" y="-19.5" width="179.21875" height="39" class="label-container"></rect><g class="label" transform="translate(0,0)"><g transform="translate(-79.609375,-9.5)"><text style=""><tspan xml:space="preserve" dy="1em" x="1">componentWillUpdate</tspan></text></g></g></g><g class="node default" id="flowchart-render-23" transform="translate(252.7109375,472.5)" style="opacity: 1;"><rect rx="5" ry="5" x="-34.1640625" y="-19.5" width="68.328125" height="39" class="label-container"></rect><g class="label" transform="translate(0,0)"><g transform="translate(-24.1640625,-9.5)"><text style=""><tspan xml:space="preserve" dy="1em" x="1">render</tspan></text></g></g></g><g class="node default" id="flowchart-componentDidUpdate-24" transform="translate(252.7109375,561.5)" style="opacity: 1;"><rect rx="0" ry="0" x="-87.546875" y="-19.5" width="175.09375" height="39" class="label-container"></rect><g class="label" transform="translate(0,0)"><g transform="translate(-77.546875,-9.5)"><text style=""><tspan xml:space="preserve" dy="1em" x="1">componentDidUpdate</tspan></text></g></g></g><g class="node default" id="flowchart-组件更新3-25" transform="translate(387.0234375,205.5)" style="opacity: 1;"><rect rx="19.5" ry="19.5" x="-108.2265625" y="-19.5" width="216.453125" height="39" class="label-container"></rect><g class="label" transform="translate(0,0)"><g transform="translate(-93.3515625,-9.5)"><text style=""><tspan xml:space="preserve" dy="1em" x="1">组件更新: 由组件自身触发</tspan></text></g></g></g><g class="node default" id="flowchart-React16-27" transform="translate(650.3828125,27.5)" style="opacity: 1;"><polygon points="0,0 85.234375,0 85.234375,-39 0,-39 0,0 -8,0 93.234375,0 93.234375,-39 -8,-39 -8,0" transform="translate(-42.6171875,19.5)" class="label-container"></polygon><g class="label" transform="translate(0,0)"><g transform="translate(-32.6171875,-9.5)"><text style=""><tspan xml:space="preserve" dy="1em" x="1">React16+</tspan></text></g></g></g><g class="node default" id="flowchart-组件更新2-28" transform="translate(650.3828125,116.5)" style="opacity: 1;"><rect rx="19.5" ry="19.5" x="-100.2265625" y="-19.5" width="200.453125" height="39" class="label-container"></rect><g class="label" transform="translate(0,0)"><g transform="translate(-85.3515625,-9.5)"><text style=""><tspan xml:space="preserve" dy="1em" x="1">组件更新: 由父组件触发</tspan></text></g></g></g><g class="node default" id="flowchart-getDerivedStateFromProps-29" transform="translate(650.3828125,205.5)" style="opacity: 1;"><rect rx="0" ry="0" x="-105.1328125" y="-19.5" width="210.265625" height="39" class="label-container"></rect><g class="label" transform="translate(0,0)"><g transform="translate(-95.1328125,-9.5)"><text style=""><tspan xml:space="preserve" dy="1em" x="1">getDerivedStateFromProps</tspan></text></g></g></g><g class="node default" id="flowchart-shouldComponentUpdate2-30" transform="translate(782.0625,294.5)" style="opacity: 1;"><rect rx="0" ry="0" x="-103.875" y="-19.5" width="207.75" height="39" class="label-container"></rect><g class="label" transform="translate(0,0)"><g transform="translate(-93.875,-9.5)"><text style=""><tspan xml:space="preserve" dy="1em" x="1">shouldComponentUpdate2</tspan></text></g></g></g><g class="node default" id="flowchart-render2-31" transform="translate(782.0625,383.5)" style="opacity: 1;"><rect rx="5" ry="5" x="-34.1640625" y="-19.5" width="68.328125" height="39" class="label-container"></rect><g class="label" transform="translate(0,0)"><g transform="translate(-24.1640625,-9.5)"><text style=""><tspan xml:space="preserve" dy="1em" x="1">render</tspan></text></g></g></g><g class="node default" id="flowchart-getSnapshotBeforeUpdate-32" transform="translate(782.0625,472.5)" style="opacity: 1;"><rect rx="0" ry="0" x="-103.09375" y="-19.5" width="206.1875" height="39" class="label-container"></rect><g class="label" transform="translate(0,0)"><g transform="translate(-93.09375,-9.5)"><text style=""><tspan xml:space="preserve" dy="1em" x="1">getSnapshotBeforeUpdate</tspan></text></g></g></g><g class="node default" id="flowchart-componentDidUpdate2-33" transform="translate(782.0625,561.5)" style="opacity: 1;"><rect rx="0" ry="0" x="-91.6015625" y="-19.5" width="183.203125" height="39" class="label-container"></rect><g class="label" transform="translate(0,0)"><g transform="translate(-81.6015625,-9.5)"><text style=""><tspan xml:space="preserve" dy="1em" x="1">componentDidUpdate2</tspan></text></g></g></g><g class="node default" id="flowchart-组件更新4-34" transform="translate(913.7421875,205.5)" style="opacity: 1;"><rect rx="19.5" ry="19.5" x="-108.2265625" y="-19.5" width="216.453125" height="39" class="label-container"></rect><g class="label" transform="translate(0,0)"><g transform="translate(-93.3515625,-9.5)"><text style=""><tspan xml:space="preserve" dy="1em" x="1">组件更新: 由组件自身触发</tspan></text></g></g></g></g></g></g></svg></pre><p>Question：</p>
+<ol>
+<li>为什么要用 getDerivedStateFromProps 代替 componentWillReceiveProps？</li>
+<li>消失的 componentWillUpdate 与新增的 getSnapshotBeforeUpdate</li>
+</ol>
+<p>在 getDerivedStateFromProps 内，能且仅能做一件事：<strong>实现基于 props 派生 state</strong></p>
+<p>React16 实际上是在强制推行：<strong>只用 getDerivedStateFromProps 来完成 props 到 state 的映射</strong>这一最佳实践</p>
+<p>getSnapshotBeforeUpdate 的返回值会作为第三个参数给到 componentDidUpdate，它的执行时机是在 render 方法之后，真实 DOM 更新之前，同时获取到更新前的真实 DOM 和更新前后的 state＆props 信息</p>
+<p>getSnapshotBeforeUpdate 与 componentDidUpdate 一起涵盖过时的 componentWillUpdate 的所有用例，本质上还是 componentWillUpdate 阻碍了 Fiber 架构</p>
+<h3 id="fiber架构"><a class="anchor" href="#fiber架构">#</a> Fiber 架构</h3>
+<blockquote>
+<p>为什么要更换为 Fiber 架构：我认为主要是因为原本的同步渲染过程可能会有大计算量的工作导致渲染阻塞，从而造成不好的用户体验</p>
+<p>为什么异步能提高用户体验：其实无论是同步还是异步，总计算量是不变的，关键在于<span class="exturl" data-url="aHR0cHM6Ly96aC5qYXZhc2NyaXB0LmluZm8vZXZlbnQtbG9vcA==">宏任务、微任务、事件循环</span>的相关概念</p>
+</blockquote>
+<p>Fiber 是 React16 对 React 核心算法的一次重写，使得原本<strong>同步</strong>的渲染过程变为<strong>异步</strong>的。</p>
+<p>Fiber 会将一个大的更新任务拆解为许多小任务，使得渲染过程<strong>可以被打断</strong>，执行优先级更高的任务。</p>
+<p>生命周期在 Render 阶段是可以被打断的，而在 Commit 阶段则总是同步执行的，详见<span class="exturl" data-url="aHR0cHM6Ly9wcm9qZWN0cy53b2p0ZWttYWoucGwvcmVhY3QtbGlmZWN5Y2xlLW1ldGhvZHMtZGlhZ3JhbS8=">下图</span>：</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/tagbug/demo@latest/img/image-20220408144619496.png" alt="image-20220408144619496"></p>
+<p>从 React15 到 React16，废弃了如下 API：</p>
+<ul>
+<li>componentWillMount</li>
+<li>componentWilUpdate</li>
+<li>componentWillReceiveProps</li>
+</ul>
+<p>因为这些 API 都处于 Render 阶段，可能会被重复执行，而且很多情况下会被滥用，做一些<strong>副作用</strong>操作（setState、异步 Fetch 请求、操作 DOM 等），而这些操作都有一些共同特点：</p>
+<ol>
+<li>完全可以转移到其他生命周期（尤其是 componentDidXXX）中做</li>
+<li>在 Fiber 带来的异步渲染机制下，可能会导致非常严重的 Bug</li>
+</ol>
+<h2 id="数据流通"><a class="anchor" href="#数据流通">#</a> 数据流通</h2>
+<p>基本数据通信：</p>
+<ol>
+<li>
+<p>父 - 子组件通信：父组件通过 props 将数据传递给子组件</p>
+</li>
+<li>
+<p>子 - 父组件通信：子组件调用父组件传递的回调函数，通过函数入参将数据传递给父组件</p>
+</li>
+<li>
+<p>兄弟组件通信：化简为子父组件通信 + 父子组件通信</p>
+</li>
+</ol>
+<p>基本数据通信方式虽然可以解决绝大多数问题，但遇到多层嵌套组件的通信时，就显得不那么优雅。</p>
+<p>进阶数据通信：</p>
+<ol>
+<li>
+<p>“发布 - 订阅模式”：添加订阅 on ()，发布事件 emit ()，删除订阅 off ()</p>
+<figure class="highlight typescript"><figcaption data-lang="typescript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token comment">// 简单实例</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">class</span> <span class="token class-name">PubSub</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="3"></td><td><pre>    <span class="token keyword">private</span> listeners<span class="token operator">:</span> <span class="token punctuation">&#123;</span> <span class="token punctuation">[</span><span class="token keyword">type</span><span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">]</span><span class="token operator">:</span> <span class="token builtin">Function</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token punctuation">&#125;</span> <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="4"></td><td><pre></pre></td></tr><tr><td data-num="5"></td><td><pre>    <span class="token function">on</span><span class="token punctuation">(</span><span class="token keyword">type</span><span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">,</span> listener<span class="token operator">:</span> <span class="token builtin">Function</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="6"></td><td><pre>        <span class="token keyword">let</span> list<span class="token operator">:</span> <span class="token builtin">Function</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>listeners<span class="token punctuation">[</span><span class="token keyword">type</span><span class="token punctuation">]</span> <span class="token operator">&amp;&amp;</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="7"></td><td><pre>        list<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>listener<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="8"></td><td><pre>        <span class="token keyword">this</span><span class="token punctuation">.</span>listeners<span class="token punctuation">[</span><span class="token keyword">type</span><span class="token punctuation">]</span> <span class="token operator">=</span> list<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="9"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="10"></td><td><pre></pre></td></tr><tr><td data-num="11"></td><td><pre>    <span class="token function">emit</span><span class="token punctuation">(</span><span class="token keyword">type</span><span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">,</span> <span class="token operator">...</span>message<span class="token operator">:</span> <span class="token builtin">unknown</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="12"></td><td><pre>        <span class="token keyword">let</span> list<span class="token operator">:</span> <span class="token builtin">Function</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>listeners<span class="token punctuation">[</span><span class="token keyword">type</span><span class="token punctuation">]</span> <span class="token operator">&amp;&amp;</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="13"></td><td><pre>        list<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span>fun <span class="token operator">=></span> <span class="token function">fun</span><span class="token punctuation">(</span><span class="token operator">...</span>message<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="14"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="15"></td><td><pre></pre></td></tr><tr><td data-num="16"></td><td><pre>    <span class="token function">off</span><span class="token punctuation">(</span><span class="token keyword">type</span><span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">,</span> listener<span class="token operator">:</span> <span class="token builtin">Function</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="17"></td><td><pre>        <span class="token keyword">let</span> list<span class="token operator">:</span> <span class="token builtin">Function</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>listeners<span class="token punctuation">[</span><span class="token keyword">type</span><span class="token punctuation">]</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="18"></td><td><pre>        <span class="token keyword">this</span><span class="token punctuation">.</span>listeners<span class="token punctuation">[</span><span class="token keyword">type</span><span class="token punctuation">]</span> <span class="token operator">=</span> list<span class="token operator">?.</span><span class="token function">filter</span><span class="token punctuation">(</span>fun <span class="token operator">=></span> fun <span class="token operator">!==</span> listener<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="19"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="20"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure></li>
+<li>
+<p>React Context API：通过 Context.Provider 和 Context.Consumer，数据可以穿透多层组件，让所有包裹在 Context 下的组件都能同步生产者和消费者之间的数据</p>
+</li>
+<li>
+<p>第三方数据流框架 Redux：解决应用复杂度越来越高、需要维护的状态越来越多、组件间的关系越来越难处理的问题。Redux 是 JavaScript<strong> 状态容器</strong>，提供可预测的状态管理。在 Redux 中，store 是一个单一的数据源，而且是只读的，action 是对变化的描述，reducer 负责接收 action，对变化处理并更新 &amp; 分发新的状态。<strong>✨在 Redux 的整个工作流程中，数据流是严格单向的。</strong></p>
+</li>
+</ol>
+<h2 id="react-hooks"><a class="anchor" href="#react-hooks">#</a> React-Hooks</h2>
+<p>Why React-Hooks：</p>
+<ol>
+<li>告别难以理解的 ES6 Class 语法（主要是 this 的问题）</li>
+<li>解决业务逻辑难以拆分的问题（类组件中逻辑会与生命周期耦合，难以复用，逻辑像是被打散了一样融进生命周期中）</li>
+<li>使状态逻辑复用变得简单可行</li>
+<li>函数组件从设计思想上来看更加契合 React 的理念</li>
+</ol>
+<p>Hooks 能够帮助实现业务逻辑的聚合，避免复杂的组件和冗余的代码（HOC 和 Render Props 也可以解决，但却会造成简单问题复杂化，嵌套地狱等问题）</p>
+<p>要注意的是，Hooks 也有其局限性，例如：</p>
+<ol>
+<li>Hooks 暂时还不能完全为函数组件补齐类组件的能力</li>
+<li>函数组件轻量，但这可能使它不能很好消化复杂</li>
+<li>Hooks 在使用层面有着严格的规则约束（不能嵌套在条件判断、循环中等）</li>
+</ol>
+<h3 id="为什么不能将hooks嵌套在条件判断等逻辑中"><a class="anchor" href="#为什么不能将hooks嵌套在条件判断等逻辑中">#</a> 为什么不能将 Hooks 嵌套在条件判断等逻辑中？</h3>
+<p>以 useState 为例，Hooks 的底层实现为<strong>链表</strong>，在组件初始化时，调用的 Hooks 会形成一个单向链表，之后的更新渲染时，底层 api 会根据 useState 的<strong>调用顺序</strong>来确定应该返回哪个对应的 state，所以当初始化调用的 state 顺序和更新渲染时调用顺序不一致，useState 就会返回错误的 state，产生严重 bug</p>
+<h2 id="虚拟dom"><a class="anchor" href="#虚拟dom">#</a> 虚拟 DOM</h2>
+<p>虚拟 DOM 本质上是 JS 和 DOM 之间的一个映射缓存，在形态上表现为：一个能够描述 DOM 结构及其属性信息的<strong> JS 对象</strong></p>
+<p>为什么会有虚拟 DOM：主要源于对 DOM 操作的解决方案</p>
+<ol>
+<li>因为原生 API 难用，所以最早期使用 jQuery 来操作 DOM，降低研发成本</li>
+<li>但因为 jQuery 本质上还是一个工具，并不能从根本上解决 DOM 操作量过大情况下前端侧的压力，所以进一步的，出现了早期模板引擎，让开发者不用关心 DOM 操作，而只需关系数据和数据的变化</li>
+<li>而早期模板引擎却有一个致命的问题：不能做太复杂的事情，性能表现不尽人意，数据变化时，单纯是全部销毁之前的 DOM 节点然后生成新的，而最后出现的虚拟 DOM 可以完美解决这个问题（JS 算法的计算量和 DOM 操作的计算量不在一个层级上）</li>
+</ol>
+<p>选用虚拟 DOM 技术，本质上还是在于<strong>研发体验 / 研发效率</strong>上，虚拟 DOM 不一定会带来更高的性能，但它能够在提供更爽、更高效的研发模式的同时仍然保持一个还不错的性能，虚拟 DOM 的价值不在性能，而在于别处</p>
+<p>虚拟 DOM 解决了哪些关键问题：</p>
+<ol>
+<li>研发体验 / 研发效率的问题</li>
+<li>跨平台</li>
+</ol>
+<h2 id="调和reconciler与diff算法"><a class="anchor" href="#调和reconciler与diff算法">#</a> 调和（Reconciler）与 Diff 算法</h2>
+<p>调和（协调）：将虚拟 DOM 与真实 DOM 的状态进行同步，是一个<strong>使一致</strong>的过程</p>
+<p>Diff：判断要删除、新建、移动的节点，是一个<strong>找不同</strong>的过程</p>
+<p><strong>Reconciler != Diff</strong>，但是一般说调和（协调）就是指的 Diff 算法，因为 Diff 算法确实是调和过程最具代表性的一环</p>
+<h3 id="diff"><a class="anchor" href="#diff">#</a> Diff</h3>
+<p>Diff 算法的设计思想：</p>
+<ul>
+<li>若两个组件属于同一个类型，它们将拥有相同的 DOM 树形结构</li>
+<li>处于同一层级的一组子节点，可用通过设置 key 作为唯一标识从而维持各个节点在不同渲染过程中的稳定性</li>
+</ul>
+<p>Diff 逻辑：</p>
+<ul>
+<li>Diff 算法性能突破的关键点在于 “分层对比”</li>
+<li>类型一致的节点才有继续 Diff 的必要性</li>
+<li>key 属性的设置，可以帮我们尽可能重用同一层级内的节点</li>
+</ul>
+<p>比较过程大致如下：</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/tagbug/demo@latest/img/image-20220410125901052.png" alt="image-20220410125901052"></p>
+<p>key 属性帮助 React “记住” 节点，以尽可能重用同一层级内的节点：</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/tagbug/demo@latest/img/image-20220410130109270.png" alt="image-20220410130109270"></p>
+<p>React15 的栈调和大致如上，主要特征为同步的 “<strong>树递归</strong>”，其本质还是递归算法，而 React16 + 则采用了 Fiber 调和</p>
+<h2 id="setstate是同步异步"><a class="anchor" href="#setstate是同步异步">#</a> setState 是同步 / 异步？</h2>
+<blockquote>
+<p>这里指的是 React15，React16 + 之后，setState 也被 Fiber 化，处理逻辑又有所不同</p>
+</blockquote>
+<p>本质上来说：setState 并不单纯是同步 / 异步的，setState 的表现会因调用场景的不同而不同，表现为异步主要<strong>与 React 的批量更新（BatchUpdate）和事务（Transaction）机制有关</strong></p>
+<p>当 setState 在组件内部的方法被调用时，React 会在调用该方法前手动开启事务，在方法结束后手动关闭事务，而当事务处于开启状态时，setState 的所有变更会被存入批量更新队列中（ <code>pendingStateQueue.push(state)</code> -&gt; <code>dirtyComponents.push(component)</code> ），当事务处于关闭状态时，所有的操作都会即时被应用（视图也会被即时更新）</p>
+<p>所以当 setState 在 ReactComponent 中被调用时，表现就是 “异步”（其实也不是真正的异步）的，而在 setTimeOut () 中被调用时，表现则为同步</p>
+<h2 id="栈调和与fiber调和"><a class="anchor" href="#栈调和与fiber调和">#</a> 栈调和与 Fiber 调和</h2>
+<p>在 React15 的栈调和机制下，由于本质上还是树结构的深度优先遍历算法，因此避免不了使用递归，当树节点较多，应用较复杂时，就难免会导致 Diff 长时间霸占 JavaScript 主线程，使得用户界面无响应。</p>
+<p>React16 + 采用的 Fiber：</p>
+<ul>
+<li>从架构角度来看，是对 React 核心算法的重写</li>
+<li>从编码角度来看，是 React 内部所定义的一种数据结构</li>
+<li>从工作流的角度来看，节点保存了组件需要更新的状态和副作用</li>
+</ul>
+<p>Fiber 架构是为了实现 “增量渲染”，即渲染任务的可中断、可恢复，并给不同的任务赋予不同的优先级</p>
+<p>Fiber 下的渲染流程：</p>
+<pre class="mermaid graph"><svg id="mermaid-1649668108843" width="100%" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" height="55" style="max-width: 682.734375px;" viewBox="0 0 682.734375 55"><g><g class="output"><g class="clusters"></g><g class="edgePaths"><g class="edgePath LS-Scheduler LE-Reconiciler" id="L-Scheduler-Reconiciler" style="opacity: 1;"><path class="path" d="M238.15625,27.5L263.15625,27.5L288.15625,27.5" marker-end="url(#arrowhead12)" style="fill:none"></path><defs><marker id="arrowhead12" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="strokeWidth" markerWidth="8" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowheadPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker></defs></g><g class="edgePath LS-Reconiciler LE-Renderer" id="L-Reconiciler-Renderer" style="opacity: 1;"><path class="path" d="M447.265625,27.5L472.265625,27.5L497.265625,27.5" marker-end="url(#arrowhead13)" style="fill:none"></path><defs><marker id="arrowhead13" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="strokeWidth" markerWidth="8" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowheadPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker></defs></g></g><g class="edgeLabels"><g class="edgeLabel" transform="" style="opacity: 1;"><g transform="translate(0,0)" class="label"><rect rx="0" ry="0" width="0" height="0"></rect><text><tspan xml:space="preserve" dy="1em" x="1"></tspan></text></g></g><g class="edgeLabel" transform="" style="opacity: 1;"><g transform="translate(0,0)" class="label"><rect rx="0" ry="0" width="0" height="0"></rect><text><tspan xml:space="preserve" dy="1em" x="1"></tspan></text></g></g></g><g class="nodes"><g class="node default" id="flowchart-Scheduler-3" transform="translate(123.078125,27.5)" style="opacity: 1;"><rect rx="5" ry="5" x="-115.078125" y="-19.5" width="230.15625" height="39" class="label-container"></rect><g class="label" transform="translate(0,0)"><g transform="translate(-105.078125,-9.5)"><text style=""><tspan xml:space="preserve" dy="1em" x="1">Scheduler--调度更新的优先级</tspan></text></g></g></g><g class="node default" id="flowchart-Reconiciler-4" transform="translate(367.7109375,27.5)" style="opacity: 1;"><rect rx="5" ry="5" x="-79.5546875" y="-19.5" width="159.109375" height="39" class="label-container"></rect><g class="label" transform="translate(0,0)"><g transform="translate(-69.5546875,-9.5)"><text style=""><tspan xml:space="preserve" dy="1em" x="1">Reconiciler--找不同</tspan></text></g></g></g><g class="node default" id="flowchart-Renderer-5" transform="translate(586,27.5)" style="opacity: 1;"><rect rx="5" ry="5" x="-88.734375" y="-19.5" width="177.46875" height="39" class="label-container"></rect><g class="label" transform="translate(0,0)"><g transform="translate(-78.734375,-9.5)"><text style=""><tspan xml:space="preserve" dy="1em" x="1">Renderer--渲染`不同`</tspan></text></g></g></g></g></g></g></svg></pre><p>Fiber 架构对生命周期的影响：</p>
+<pre class="mermaid graph"><svg id="mermaid-1649668110161" width="100%" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" height="144" style="max-width: 549.53125px;" viewBox="0 0 549.53125 144"><g><g class="output"><g class="clusters"></g><g class="edgePaths"><g class="edgePath LS-render开始 LE-停不下来的递归计算" id="L-render开始-停不下来的递归计算" style="opacity: 1;"><path class="path" d="M90.53932584269663,52.5L132.546875,27.5L157.546875,27.5" marker-end="url(#arrowhead16)" style="fill:none;stroke-width:2px;stroke-dasharray:3;"></path><defs><marker id="arrowhead16" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="strokeWidth" markerWidth="8" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowheadPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker></defs></g><g class="edgePath LS-停不下来的递归计算 LE-commit提交渲染" id="L-停不下来的递归计算-commit提交渲染" style="opacity: 1;"><path class="path" d="M321.546875,27.5L362.546875,27.5L424.34023876404495,52.5" marker-end="url(#arrowhead17)" style="fill:none;stroke-width:2px;stroke-dasharray:3;"></path><defs><marker id="arrowhead17" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="strokeWidth" markerWidth="8" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowheadPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker></defs></g><g class="edgePath LS-render开始 LE-工作单元的集合" id="L-render开始-工作单元的集合" style="opacity: 1;"><path class="path" d="M90.53932584269663,91.5L132.546875,116.5L173.546875,116.5" marker-end="url(#arrowhead18)" style="fill:none"></path><defs><marker id="arrowhead18" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="strokeWidth" markerWidth="8" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowheadPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker></defs></g><g class="edgePath LS-工作单元的集合 LE-commit提交渲染" id="L-工作单元的集合-commit提交渲染" style="opacity: 1;"><path class="path" d="M305.546875,116.5L362.546875,116.5L424.34023876404495,91.5" marker-end="url(#arrowhead19)" style="fill:none"></path><defs><marker id="arrowhead19" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="strokeWidth" markerWidth="8" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowheadPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker></defs></g></g><g class="edgeLabels"><g class="edgeLabel" transform="" style="opacity: 1;"><g transform="translate(0,0)" class="label"><rect rx="0" ry="0" width="0" height="0"></rect><text><tspan xml:space="preserve" dy="1em" x="1"></tspan></text></g></g><g class="edgeLabel" transform="translate(362.546875,27.5)" style="opacity: 1;"><g transform="translate(-16,-9.5)" class="label"><rect rx="0" ry="0" width="32" height="19"></rect><text><tspan xml:space="preserve" dy="1em" x="1">同步</tspan></text></g></g><g class="edgeLabel" transform="" style="opacity: 1;"><g transform="translate(0,0)" class="label"><rect rx="0" ry="0" width="0" height="0"></rect><text><tspan xml:space="preserve" dy="1em" x="1"></tspan></text></g></g><g class="edgeLabel" transform="translate(362.546875,116.5)" style="opacity: 1;"><g transform="translate(-16,-9.5)" class="label"><rect rx="0" ry="0" width="32" height="19"></rect><text><tspan xml:space="preserve" dy="1em" x="1">异步</tspan></text></g></g></g><g class="nodes"><g class="node default" id="flowchart-render开始-6" transform="translate(57.7734375,72)" style="opacity: 1;"><rect rx="0" ry="0" x="-49.7734375" y="-19.5" width="99.546875" height="39" class="label-container"></rect><g class="label" transform="translate(0,0)"><g transform="translate(-39.7734375,-9.5)"><text style=""><tspan xml:space="preserve" dy="1em" x="1">render开始</tspan></text></g></g></g><g class="node default" id="flowchart-停不下来的递归计算-7" transform="translate(239.546875,27.5)" style="opacity: 1;"><rect rx="0" ry="0" x="-82" y="-19.5" width="164" height="39" class="label-container"></rect><g class="label" transform="translate(0,0)"><g transform="translate(-72,-9.5)"><text style=""><tspan xml:space="preserve" dy="1em" x="1">停不下来的递归计算</tspan></text></g></g></g><g class="node default" id="flowchart-commit提交渲染-8" transform="translate(472.5390625,72)" style="opacity: 1;"><rect rx="0" ry="0" x="-68.9921875" y="-19.5" width="137.984375" height="39" class="label-container"></rect><g class="label" transform="translate(0,0)"><g transform="translate(-58.9921875,-9.5)"><text style=""><tspan xml:space="preserve" dy="1em" x="1">commit提交渲染</tspan></text></g></g></g><g class="node default" id="flowchart-工作单元的集合-10" transform="translate(239.546875,116.5)" style="opacity: 1;"><rect rx="0" ry="0" x="-66" y="-19.5" width="132" height="39" class="label-container"></rect><g class="label" transform="translate(0,0)"><g transform="translate(-56,-9.5)"><text style=""><tspan xml:space="preserve" dy="1em" x="1">工作单元的集合</tspan></text></g></g></g></g></g></g></svg></pre><h2 id="reactdomrender调用栈"><a class="anchor" href="#reactdomrender调用栈">#</a> ReactDOM.render 调用栈</h2>
+<p>调用栈大致分为三个阶段：</p>
+<ol>
+<li>初始化阶段：render 调用到 scheduleUpdateOnFiber</li>
+<li>render 阶段：scheduleUpdateOnFiber 到 commitRoot</li>
+<li>commit 阶段：commitRoot 到结束</li>
+</ol>
+<p>初始化阶段只负责一件事：完成 Fiber 树基本实体（fiberRoot）的创建。大体流程如下：</p>
+<ul>
+<li>请求当前 Fiber 节点的 lane（优先级）</li>
+<li>结合 lane（优先级）创建当前 Fiber 节点的 update 对象，并将其入队</li>
+<li>调度当前节点（rootFiber）</li>
+</ul>
+<p>在 ReactDOM.render 中，perfromSyncWorkOnRoot 是 render 阶段的起点，render 阶段的任务就是完成 Fiber 树的构建，它是整个渲染链路中最核心的一环（虽然 Fiber 架构下，render 阶段是可打断的，然而 perfromSyncWorkOnRoot 却让 render 阶段是同步执行的）</p>
+<p><strong>那么为什么 ReactDOM.render 触发的首次渲染是个同步过程呢？</strong></p>
+<p>原因在于 React 在 16 + 后都有 3 种启动方式：</p>
+<ol>
+<li><strong>legacy 模式</strong>：ReactDOM.render (&lt;App/&gt;, rootNode)，不支持 Fiber 架构带来的新功能，触发的仍然是同步的渲染链路</li>
+<li>blocking 模式：ReactDOM.createBlockingRoot (rootNode).render (&lt;App/&gt;)，目前作为向第三种模式迁移的中间态</li>
+<li><strong>concurrent 模式</strong>：ReactDOM.createRoot (rootNode).render (&lt;App/&gt;)，这种模式开启了所有的新功能，最终的稳定模式</li>
+</ol>
+<p>其实不同的渲染模式在挂载阶段的差异，本质上来说是 mode 属性的差异，<strong>mode 属性</strong>决定这个工作流是同步的还是异步的</p>
+<p>Fiber 架构一定是异步渲染吗？React16 + 如果没有开启 Concurrent 模式还能叫 Fiber 架构吗？</p>
+<p>从动机上来看，Fiber 架构的设计确实是为了 Concurrent 而存在。但是 Fiber 架构在 React 中并不能够和异步渲染画严格的等号，因为它是一种同时兼容了同步渲染与异步渲染的设计</p>
+<h2 id="dom原生事件与react合成事件"><a class="anchor" href="#dom原生事件与react合成事件">#</a> DOM 原生事件与 React 合成事件</h2>
+<p>一个页面往往会被绑定许许多多的事件，而页面接收事件的顺序，就是<strong>事件流</strong></p>
+<p>一个事件的传播过程以此经历 3 个阶段：事件捕获阶段、目标阶段、事件冒泡阶段</p>
+<p>通过 event.target 可以拿到实际触发事件的那个元素，因而可以实现<strong>事件委托</strong>：把多个子元素的同一类型的监听逻辑合并到父元素上，通过一个监听函数来管理的行为</p>
+<p>当事件在具体的 DOM 节点上被触发后，最终都会冒泡到 document 上，因此 React 事件系统就可以依赖事件委托，在 document 上绑定统一的事件处理程序，将事件分发到具体的组件实例</p>
+<p>React 合成事件在底层抹平了不同浏览器的差异，在上层面向开发者暴露统一的、稳定的、与 DOM 原生事件相同的事件接口，虽然合成事件并不是原生 DOM 事件，但也存了原生 DOM 事件的引用（e.nativeEvent）</p>
+<p>React 通过 path 数组模拟事件的捕获阶段和冒泡阶段传播顺序，然后再分别执行按照顺序的事件处理回调函数</p>
+<h2 id="react应用性能优化"><a class="anchor" href="#react应用性能优化">#</a> React 应用性能优化</h2>
+<p>前端项目普适的性能优化手段对 React 应用也适用（如资源加载过程优化、减少重绘与回流、服务端渲染、启用 CDN 等），不过 React 还有一些特色的优化手段：</p>
+<ol>
+<li>
+<p>使用<strong> shouldComponentUpdate</strong> 规避冗余的更新逻辑</p>
+<p>shouldComponentUpdate 的默认返回值为 true，也就是<strong>无条件 re-render</strong>，我们可以手动增加逻辑，实现有条件的重绘，减少不必要的重绘</p>
+</li>
+<li>
+<p><strong>PureComponent</strong>+<strong>Immutable.js</strong></p>
+<p>PureComponent 能提前安排好更新判定逻辑（内置了 shouldComponentUpdate 的 props 和 state 的浅比较逻辑），然而 PureComponent 自带的浅比较逻辑会有两个问题：</p>
+<ol>
+<li>若数据内容没变，但是引用变了，会认为数据发生了变化，从而导致触发不必要的渲染</li>
+<li>若数据内容变了，但是引用没变，会认为数据没有发生变化，从而导致不渲染</li>
+</ol>
+<p>PureComponent 浅比较带来的问题本质上是对 “变化” 的判断不够精准导致的，而 Immutable 则可以让变化无处遁形</p>
+</li>
+<li>
+<p><strong>React.memo</strong> 与<strong> useMemo</strong></p>
+<p>在函数组件中，也有类似 shouldComponentUpdate/PureComponent 的工具可以使用：React.memo，通过它包装的函数组件会记住前一次的渲染结果，当入参不变时，渲染结果会直接复用前一次的结果</p>
+<p>useMemo 与 React.memo 类似：</p>
+<p>React.memo 控制是否需要重渲染一个组件</p>
+<p>useMemo 控制的则是是否需要重复执行某一段逻辑</p>
+</li>
+</ol>
+<h2 id="react应用设计模式"><a class="anchor" href="#react应用设计模式">#</a> React 应用设计模式</h2>
+<h3 id="高阶组件hoc"><a class="anchor" href="#高阶组件hoc">#</a> 高阶组件（HOC）</h3>
+<p>作为 React 中最经典的组件逻辑复用方式，HOC 在概念上沿袭了 HOF（高阶函数），高阶组件本质是一个函数，接收一个组件作为参数，返回值为一个新的组件，通过 HOC 可以复用同样的逻辑</p>
+<h3 id="render-props"><a class="anchor" href="#render-props">#</a> Render Props</h3>
+<p>Render Props 本身作为一个函数组件，它可以接受一个函数作为入参，这个函数可以处理自己的逻辑并返回一个新的组件，相对于 HOC 而言会更加灵活</p>
+<h3 id="单一职责-有状态组件-无状态组件"><a class="anchor" href="#单一职责-有状态组件-无状态组件">#</a> 单一职责、有状态组件、无状态组件</h3>
+<p>单一职责指的是：一个类或者模块有且只有一个改变的原因</p>
+<p>当一个组件内部不维护 state 时，它就是一个无状态组件，无状态组件也有一些别名，如 “容器组件”、“展示组件” 等，它最核心的的特点就是：把数据处理和页面渲染这两个工作剥离开来</p>
+<p>说到底，React 组件做的事无非两件：<strong>处理数据</strong>（数据的获取、格式化、分发等）和<strong>渲染界面</strong></p>
+<p>按照单一职责的原则，我们应该将数据处理和渲染界面的逻辑分离到不同的组件中，这样功能模块的组合将会更加灵活，也会更加有利于逻辑的复用</p>
+<h3 id="设计模式解决不了所有的问题"><a class="anchor" href="#设计模式解决不了所有的问题">#</a> 设计模式解决不了所有的问题</h3>
+<p>就 React 来说，无论是高阶组件，还是 Render Props，两者的出现都是为了弥补类组件在 “逻辑复用” 这个层面的不灵活性，然而两者都有一些无法解决的问题，如：嵌套地狱、较高的学习成本、props 属性命名冲突等</p>
+<p>当 React-Hooks 出现后，现在我们想去复用一段逻辑时，首选应该是 “<a target="_blank" rel="noopener" href="https://react.docschina.org/docs/hooks-custom.html"><strong>自定义 Hook</strong></a>”</p>
+<h2 id="参考"><a class="anchor" href="#参考">#</a> 参考</h2>
+<ul>
+<li><span class="exturl" data-url="aHR0cHM6Ly93d3cuYmlsaWJpbGkuY29tL3ZpZGVvL0JWMTJyNHkxcjd2TA==">React 高级进阶教程_2021</span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9yZWFjdC5kb2NzY2hpbmEub3JnLw==">React 官网</span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly96aC5qYXZhc2NyaXB0LmluZm8v">现代 JavaScript 教程</span></li>
+</ul>
+
+      <div class="tags">
+          <a href="/tags/Web/" rel="tag"><i class="ic i-tag"></i> Web</a>
+          <a href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag"><i class="ic i-tag"></i> 前端</a>
+          <a href="/tags/React/" rel="tag"><i class="ic i-tag"></i> React</a>
+      </div>
+  </div>
+
+   <footer>
+
+    <div class="meta">
+  <span class="item">
+    <span class="icon">
+      <i class="ic i-calendar-check"></i>
+    </span>
+    <span class="text">更新于</span>
+    <time title="修改时间：2022-04-11 16:23:39" itemprop="dateModified" datetime="2022-04-11T16:23:39+08:00">2022-04-11</time>
+  </span>
+  <span id="2022/04/11/React进阶/" class="item leancloud_visitors" data-flag-title="React进阶" title="阅读次数">
+      <span class="icon">
+        <i class="ic i-eye"></i>
+      </span>
+      <span class="text">阅读次数</span>
+      <span class="leancloud-visitors-count"></span>
+      <span class="text">次</span>
+  </span>
+</div>
+
+      
+<div class="reward">
+  <button><i class="ic i-heartbeat"></i> 赞赏</button>
+  <p>请我喝[茶]~(￣▽￣)~*</p>
+  <div id="qr">
+      
+      <div>
+        <img data-src="/images/wechatpay.png" alt="TagBug 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/alipay.jpg" alt="TagBug 支付宝">
+        <p>支付宝</p>
+      </div>
+  </div>
+</div>
+
+      
+
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>本文作者： </strong>TagBug <i class="ic i-at"><em>@</em></i>🐟
+  </li>
+  <li class="link">
+    <strong>本文链接：</strong>
+    <a href="http://tagbug.github.io/2022/04/11/React%E8%BF%9B%E9%98%B6/" title="React进阶">http://tagbug.github.io/2022/04/11/React进阶/</a>
+  </li>
+  <li class="license">
+    <strong>版权声明： </strong>本站所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+  </footer>
+
+</article>
+
+  </div>
+  
+
+<div class="post-nav">
+  <div class="item left">
+      
+
+  <a href="/2022/03/26/%E5%85%B3%E4%BA%8EVSCode%E6%8E%A8%E9%80%81GitHub%E5%9B%A2%E9%98%9F%E9%A1%B9%E7%9B%AE403%E7%9A%84%E9%97%AE%E9%A2%98/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;tva3.sinaimg.cn&#x2F;mw690&#x2F;81ef6186ly8gwtzc2wf0gj20zk0k0gpt.jpg" title="关于VSCode推送GitHub团队项目403的问题">
+  <span class="type">上一篇</span>
+  <span class="category">
+    <i class="ic i-flag"></i>
+    VSCode</span>
+  <h3>关于VSCode推送GitHub团队项目403的问题</h3>
+  </a>
+
+  </div>
+  <div class="item right">
+      
+
+  <a href="/2022/04/11/MySQL%E8%BF%9B%E9%98%B6/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;tva3.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1giciszlczyj20zk0m816d.jpg" title="MySQL进阶">
+  <span class="type">下一篇</span>
+  <span class="category">
+    <i class="ic i-flag"></i>
+    MySQL</span>
+  <h3>MySQL进阶</h3>
+  </a>
+
+  </div>
+</div>
+  
+  <div class="wrap" id="comments"></div>
+
+
+          </div>
+          <div id="sidebar">
+            
+
+<div class="inner">
+
+  <div class="panels">
+    <div class="inner">
+      <div class="contents panel pjax" data-title="文章目录">
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#react%E8%BF%9B%E9%98%B6"><span class="toc-number">1.</span> <span class="toc-text"> React 进阶</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#jsx"><span class="toc-number">1.1.</span> <span class="toc-text"> JSX</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%8Ereact15%E5%88%B0react16%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E5%8F%98%E5%8C%96"><span class="toc-number">1.2.</span> <span class="toc-text"> 从 React15 到 React16 + 的生命周期变化</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#fiber%E6%9E%B6%E6%9E%84"><span class="toc-number">1.2.1.</span> <span class="toc-text"> Fiber 架构</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E6%B5%81%E9%80%9A"><span class="toc-number">1.3.</span> <span class="toc-text"> 数据流通</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#react-hooks"><span class="toc-number">1.4.</span> <span class="toc-text"> React-Hooks</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E4%B8%8D%E8%83%BD%E5%B0%86hooks%E5%B5%8C%E5%A5%97%E5%9C%A8%E6%9D%A1%E4%BB%B6%E5%88%A4%E6%96%AD%E7%AD%89%E9%80%BB%E8%BE%91%E4%B8%AD"><span class="toc-number">1.4.1.</span> <span class="toc-text"> 为什么不能将 Hooks 嵌套在条件判断等逻辑中？</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%99%9A%E6%8B%9Fdom"><span class="toc-number">1.5.</span> <span class="toc-text"> 虚拟 DOM</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B0%83%E5%92%8Creconciler%E4%B8%8Ediff%E7%AE%97%E6%B3%95"><span class="toc-number">1.6.</span> <span class="toc-text"> 调和（Reconciler）与 Diff 算法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#diff"><span class="toc-number">1.6.1.</span> <span class="toc-text"> Diff</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#setstate%E6%98%AF%E5%90%8C%E6%AD%A5%E5%BC%82%E6%AD%A5"><span class="toc-number">1.7.</span> <span class="toc-text"> setState 是同步 &#x2F; 异步？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%88%E8%B0%83%E5%92%8C%E4%B8%8Efiber%E8%B0%83%E5%92%8C"><span class="toc-number">1.8.</span> <span class="toc-text"> 栈调和与 Fiber 调和</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#reactdomrender%E8%B0%83%E7%94%A8%E6%A0%88"><span class="toc-number">1.9.</span> <span class="toc-text"> ReactDOM.render 调用栈</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#dom%E5%8E%9F%E7%94%9F%E4%BA%8B%E4%BB%B6%E4%B8%8Ereact%E5%90%88%E6%88%90%E4%BA%8B%E4%BB%B6"><span class="toc-number">1.10.</span> <span class="toc-text"> DOM 原生事件与 React 合成事件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#react%E5%BA%94%E7%94%A8%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96"><span class="toc-number">1.11.</span> <span class="toc-text"> React 应用性能优化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#react%E5%BA%94%E7%94%A8%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F"><span class="toc-number">1.12.</span> <span class="toc-text"> React 应用设计模式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%AB%98%E9%98%B6%E7%BB%84%E4%BB%B6hoc"><span class="toc-number">1.12.1.</span> <span class="toc-text"> 高阶组件（HOC）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#render-props"><span class="toc-number">1.12.2.</span> <span class="toc-text"> Render Props</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%95%E4%B8%80%E8%81%8C%E8%B4%A3-%E6%9C%89%E7%8A%B6%E6%80%81%E7%BB%84%E4%BB%B6-%E6%97%A0%E7%8A%B6%E6%80%81%E7%BB%84%E4%BB%B6"><span class="toc-number">1.12.3.</span> <span class="toc-text"> 单一职责、有状态组件、无状态组件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E8%A7%A3%E5%86%B3%E4%B8%8D%E4%BA%86%E6%89%80%E6%9C%89%E7%9A%84%E9%97%AE%E9%A2%98"><span class="toc-number">1.12.4.</span> <span class="toc-text"> 设计模式解决不了所有的问题</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83"><span class="toc-number">1.13.</span> <span class="toc-text"> 参考</span></a></li></ol></li></ol>
+      </div>
+      <div class="related panel pjax" data-title="系列文章">
+        <ul>
+          <li class="active"><a href="/2022/04/11/React%E8%BF%9B%E9%98%B6/" rel="bookmark" title="React进阶">React进阶</a></li>
+        </ul>
+      </div>
+      <div class="overview panel" data-title="站点概览">
+        <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="image" itemprop="image" alt="TagBug"
+      data-src="/images/avatar.png">
+  <p class="name" itemprop="name">TagBug</p>
+  <div class="description" itemprop="description">所念皆星河</div>
+</div>
+
+<nav class="state">
+    <div class="item posts">
+      <a href="/archives/">
+        <span class="count">30</span>
+        <span class="name">文章</span>
+      </a>
+    </div>
+    <div class="item categories">
+      <a href="/categories/">
+        <span class="count">14</span>
+        <span class="name">分类</span>
+      </a>
+    </div>
+    <div class="item tags">
+      <a href="/tags/">
+        <span class="count">34</span>
+        <span class="name">标签</span>
+      </a>
+    </div>
+</nav>
+
+<div class="social">
+      <span class="exturl item github" data-url="aHR0cHM6Ly9naXRodWIuY29tL3RhZ2J1Zw==" title="https:&#x2F;&#x2F;github.com&#x2F;tagbug"><i class="fa fa-github"></i></span>
+      <span class="exturl item email" data-url="bWFpbHRvOjEyNDIxMzUyOTVAcXEuY29t" title="mailto:1242135295@qq.com"><i class="fa fa-at"></i></span>
+      <span class="exturl item telegram" data-url="aHR0cHM6Ly90Lm1lL3RhZ2J1Z19jaGFubmVs" title="https:&#x2F;&#x2F;t.me&#x2F;tagbug_channel"><i class="fa fa-telegram"></i></span>
+      <span class="exturl item bilibili" data-url="aHR0cHM6Ly9zcGFjZS5iaWxpYmlsaS5jb20vMjgyMjMzMg==" title="https:&#x2F;&#x2F;space.bilibili.com&#x2F;2822332"><i class="fa fa-youtube-play"></i></span>
+      <span class="exturl item weibo" data-url="aHR0cHM6Ly93ZWliby5jb20vdS8yMTc5OTQ4OTM0" title="https:&#x2F;&#x2F;weibo.com&#x2F;u&#x2F;2179948934"><i class="fa fa-weibo"></i></span>
+</div>
+
+<ul class="menu">
+  
+    
+  <li class="item">
+    <a href="/" rel="section"><i class="ic i-home"></i>首页</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/about/" rel="section"><i class="ic i-user"></i>关于</a>
+  </li>
+
+        
+  <li class="item dropdown">
+      <a href="javascript:void(0);"><i class="ic i-feather"></i>文章</a>
+    <ul class="submenu">
+
+        
+  <li class="item">
+    <a href="/archives/" rel="section"><i class="ic i-list-alt"></i>归档</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/categories/" rel="section"><i class="ic i-th"></i>分类</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/tags/" rel="section"><i class="ic i-tags"></i>标签</a>
+  </li>
+
+  </ul>
+    
+  <li class="item">
+    <a href="/friend/" rel="section"><i class="ic i-heart"></i>友链</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/music/" rel="section"><i class="ic i-music"></i>音乐</a>
+  </li>
+
+
+</ul>
+
+      </div>
+    </div>
+  </div>
+
+  <ul id="quick">
+    <li class="prev pjax">
+        <a href="/2022/03/26/%E5%85%B3%E4%BA%8EVSCode%E6%8E%A8%E9%80%81GitHub%E5%9B%A2%E9%98%9F%E9%A1%B9%E7%9B%AE403%E7%9A%84%E9%97%AE%E9%A2%98/" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a>
+    </li>
+    <li class="up"><i class="ic i-arrow-up"></i></li>
+    <li class="down"><i class="ic i-arrow-down"></i></li>
+    <li class="next pjax">
+        <a href="/2022/04/11/MySQL%E8%BF%9B%E9%98%B6/" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a>
+    </li>
+    <li class="percent"></li>
+  </ul>
+</div>
+
+
+          </div>
+          <div class="dimmer"></div>
+        </div>
+      </main>
+      <footer id="footer">
+        <div class="inner">
+          <div class="widgets">
+            
+<div class="rpost pjax">
+  <h2>随机文章</h2>
+  <ul>
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E5%89%8D%E7%AB%AF/" title="分类于 前端">前端</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/%E5%89%8D%E7%AB%AF/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="分类于 学习笔记">学习笔记</a>
+</div>
+
+    <span><a href="/2022/01/20/%E5%93%8D%E5%BA%94%E5%BC%8F%E7%B3%BB%E7%BB%9F%E4%B8%8EReact-%E7%AC%94%E8%AE%B0/" title="响应式系统与React - 笔记">响应式系统与React - 笔记</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E5%89%8D%E7%AB%AF/" title="分类于 前端">前端</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/%E5%89%8D%E7%AB%AF/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="分类于 学习笔记">学习笔记</a>
+</div>
+
+    <span><a href="/2022/01/26/Webpack%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB-%E7%AC%94%E8%AE%B0/" title="Webpack知识体系 - 笔记">Webpack知识体系 - 笔记</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E5%89%8D%E7%AB%AF/" title="分类于 前端">前端</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/%E5%89%8D%E7%AB%AF/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="分类于 学习笔记">学习笔记</a>
+</div>
+
+    <span><a href="/2022/01/17/%E5%A6%82%E4%BD%95%E5%86%99%E5%A5%BDJavaScript-%E7%AC%94%E8%AE%B0/" title="如何写好JavaScript - 笔记">如何写好JavaScript - 笔记</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E5%89%8D%E7%AB%AF/" title="分类于 前端">前端</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/%E5%89%8D%E7%AB%AF/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="分类于 学习笔记">学习笔记</a>
+</div>
+
+    <span><a href="/2022/01/26/Web%E5%A4%9A%E5%AA%92%E4%BD%93%E5%85%A5%E9%97%A8-%E7%AC%94%E8%AE%B0/" title="Web多媒体入门 - 笔记">Web多媒体入门 - 笔记</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" title="分类于 数据库">数据库</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL/" title="分类于 MySQL">MySQL</a>
+</div>
+
+    <span><a href="/2022/04/11/MySQL%E8%BF%9B%E9%98%B6/" title="MySQL进阶">MySQL进阶</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E5%89%8D%E7%AB%AF/" title="分类于 前端">前端</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/%E5%89%8D%E7%AB%AF/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="分类于 学习笔记">学习笔记</a>
+</div>
+
+    <span><a href="/2022/01/25/%E5%B0%8F%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91%E6%A6%82%E8%BF%B0-%E7%AC%94%E8%AE%B0/" title="小游戏开发概述 - 笔记">小游戏开发概述 - 笔记</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E5%89%8D%E7%AB%AF/" title="分类于 前端">前端</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/%E5%89%8D%E7%AB%AF/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="分类于 学习笔记">学习笔记</a>
+</div>
+
+    <span><a href="/2022/01/20/%E5%89%8D%E7%AB%AF%E5%8A%A8%E7%94%BB%E5%AE%9E%E7%8E%B0-%E7%AC%94%E8%AE%B0/" title="前端动画实现 - 笔记">前端动画实现 - 笔记</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E5%89%8D%E7%AB%AF/" title="分类于 前端">前端</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/%E5%89%8D%E7%AB%AF/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="分类于 学习笔记">学习笔记</a>
+</div>
+
+    <span><a href="/2022/01/18/Web%E6%A0%87%E5%87%86%E4%B8%8E%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91-%E7%AC%94%E8%AE%B0/" title="Web标准与前端开发 - 笔记">Web标准与前端开发 - 笔记</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E5%89%8D%E7%AB%AF/" title="分类于 前端">前端</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/%E5%89%8D%E7%AB%AF/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="分类于 学习笔记">学习笔记</a>
+</div>
+
+    <span><a href="/2022/01/21/WebGL%E5%9F%BA%E7%A1%80-%E7%AC%94%E8%AE%B0/" title="WebGL基础 - 笔记">WebGL基础 - 笔记</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E5%89%8D%E7%AB%AF/" title="分类于 前端">前端</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/%E5%89%8D%E7%AB%AF/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="分类于 学习笔记">学习笔记</a>
+</div>
+
+    <span><a href="/2022/01/20/Node-js-%E4%B8%8E%E5%BC%80%E5%8F%91%E5%AE%9E%E6%88%98-%E7%AC%94%E8%AE%B0/" title="Node.js 与开发实战 - 笔记">Node.js 与开发实战 - 笔记</a></span>
+  </li>
+
+  </ul>
+</div>
+<div>
+  <h2>最新评论</h2>
+  <ul class="leancloud-recent-comment"></ul>
+</div>
+
+          </div>
+          <div class="status">
+  <div class="copyright">
+    
+    &copy; 2021 – 
+    <span itemprop="copyrightYear">2022</span>
+    <span class="with-love">
+      <i class="ic i-sakura rotate"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">TagBug @ Tag Bug</span>
+  </div>
+  <div class="count">
+    <span class="post-meta-item-icon">
+      <i class="ic i-chart-area"></i>
+    </span>
+    <span title="站点总字数">108k 字</span>
+
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="ic i-coffee"></i>
+    </span>
+    <span title="站点阅读时长">1:38</span>
+    
+    <span class="post-meta-divider">|</span>
+    <span><a href="/rss.xml">RSS</a> & <a href="/atom.xml">Atom</a></span>
+  </div>
+
+  <div class="viewer">
+    <span>❤️感谢 <strong><span id="busuanzi_value_site_uv">282</span></strong> 小伙伴的 <strong><span id="busuanzi_value_site_pv">1685</span></strong> 次光临！❤️</span>
+  </div>
+  <script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" defer></script>
+  <div class="powered-by">
+    基于 <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
+  </div>
+</div>
+
+        </div>
+      </footer>
+    </div>
+    <script data-config="data-config" type="text/javascript">
+      var LOCAL = {
+        path: '2022/04/11/React进阶/',
+        favicon: {
+          show: "（●´3｀●）やれやれだぜ",
+          hide: "(´Д｀)大変だ！"
+        },
+        search: {
+          placeholder: "文章搜索",
+          empty: "关于 「 ${query} 」，什么也没搜到",
+          stats: "${time} ms 内找到 ${hits} 条结果"
+        },
+          valine: true,copy_tex: true,
+          katex: true,mermaid: true,fancybox: true,
+            copyright: '复制成功，转载请遵守 <i class="ic i-creative-commons"></i>BY-NC-SA 协议。',
+        ignores: [
+          function (uri) {
+            return uri.includes('#');
+          },
+          function (uri) {
+            return new RegExp(LOCAL.path + "$").test(uri);
+          }
+        ]
+      };
+    </script>
+
+    <script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
+
+    <script src="//cdn.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
+
+    <script src="/js/app.js?v=0.2.5"></script>
+
+    
+
+
+  </body>
+</html>
