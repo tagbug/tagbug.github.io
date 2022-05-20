@@ -1,0 +1,619 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#FFF">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="icon" type="image/ico" sizes="32x32" href="/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+<link rel="alternate" type="application/rss+xml" title="🐟" href="http://tagbug.github.io/rss.xml"/>
+<link rel="alternate" type="application/atom+xml" title="🐟" href="http://tagbug.github.io/atom.xml"/>
+<link rel="alternate" type="application/json" title="🐟" href="http://tagbug.github.io/feed.json"/>
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="/css/app.css?v=0.2.5">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+  <meta name="keywords" content="Windows Terminal,Windows" />
+
+
+<link rel="canonical" href="http://tagbug.github.io/2022/05/20/%E5%85%B3%E4%BA%8EWindows-Terminal%E6%97%A0%E6%B3%95%E5%9C%A8Win-X%E8%8F%9C%E5%8D%95%E5%92%8CWin-R%E4%B8%AD%E9%80%9A%E8%BF%87wt-exe%E6%89%93%E5%BC%80%E7%9A%84%E9%97%AE%E9%A2%98/">
+
+
+
+    <title>
+      
+关于Windows Terminal无法在Win+X菜单和Win+R中通过wt.exe打开的问题 - Windows - bug回忆录 |
+Tag Bug = 🐟</title>
+  <meta name="generator" content="Hexo 5.4.0"></head>
+  <body itemscope="itemscope" itemtype="http://schema.org/WebPage">
+    <div id="loading">
+      <div class="cat">
+        <div class="body"></div>
+        <div class="head">
+          <div class="face"></div>
+        </div>
+        <div class="foot">
+          <div class="tummy-end"></div>
+          <div class="bottom"></div>
+          <div class="legs left"></div>
+          <div class="legs right"></div>
+        </div>
+        <div class="paw">
+          <div class="hands left"></div>
+          <div class="hands right"></div>
+        </div>
+      </div>
+    </div>
+    <div id="container">
+      <header id="header" itemscope="itemscope" itemtype="http://schema.org/WPHeader">
+        <div class="inner">
+          <div id="brand">
+            <div class="pjax">
+              
+  <h1 itemprop="name headline">关于Windows Terminal无法在Win+X菜单和Win+R中通过wt.exe打开的问题
+  </h1>
+  
+<div class="meta">
+  <span class="item" title="创建时间：2022-05-20 21:19:58">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">发表于</span>
+    <time itemprop="dateCreated datePublished" datetime="2022-05-20T21:19:58+08:00">2022-05-20</time>
+  </span>
+  <span class="item" title="本文字数">
+    <span class="icon">
+      <i class="ic i-pen"></i>
+    </span>
+    <span class="text">本文字数</span>
+    <span>1.9k</span>
+    <span class="text">字</span>
+  </span>
+  <span class="item" title="阅读时长">
+    <span class="icon">
+      <i class="ic i-clock"></i>
+    </span>
+    <span class="text">阅读时长</span>
+    <span>2 分钟</span>
+  </span>
+</div>
+
+
+            </div>
+          </div>
+          <nav id="nav">
+  <div class="inner">
+    <div class="toggle">
+      <div class="lines" aria-label="切换导航栏">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <ul class="menu">
+      <li class="item title"><a href="/" rel="start">Tag Bug</a></li>
+    </ul>
+    <ul class="right">
+      <li class="item theme">
+        <i class="ic i-sun"></i>
+      </li>
+      <li class="item search">
+        <i class="ic i-search"></i>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+        </div>
+        <div id="imgs" class="pjax">
+            <img src="https://cdn.jsdelivr.net/gh/tagbug/demo@latest/img/1653061323816.jpg">
+        </div>
+      </header>
+      <div id="waves">
+        <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewbox="0 24 150 28" preserveaspectratio="none" shape-rendering="auto">
+          <defs>
+            <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"/>
+          </defs>
+          <g class="parallax">
+            <use xlink:href="#gentle-wave" x="48" y="0"/>
+            <use xlink:href="#gentle-wave" x="48" y="3"/>
+            <use xlink:href="#gentle-wave" x="48" y="5"/>
+            <use xlink:href="#gentle-wave" x="48" y="7"/>
+          </g>
+        </svg>
+      </div>
+      <main>
+        <div class="inner">
+          <div id="main" class="pjax">
+            
+  <div class="article wrap">
+    
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/">首页</a></span><i class="ic i-angle-right"></i>
+<span  itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/bug%E5%9B%9E%E5%BF%86%E5%BD%95/" itemprop="item" rel="index" title="分类于 bug回忆录"><span itemprop="name">bug回忆录</span></a>
+<meta itemprop="position" content="1" /></span>
+<i class="ic i-angle-right"></i>
+<span  class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/bug%E5%9B%9E%E5%BF%86%E5%BD%95/Windows/" itemprop="item" rel="index" title="分类于 Windows"><span itemprop="name">Windows</span></a>
+<meta itemprop="position" content="2" /></span>
+</div>
+
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh-CN">
+  <link itemprop="mainEntityOfPage" href="http://tagbug.github.io/2022/05/20/%E5%85%B3%E4%BA%8EWindows-Terminal%E6%97%A0%E6%B3%95%E5%9C%A8Win-X%E8%8F%9C%E5%8D%95%E5%92%8CWin-R%E4%B8%AD%E9%80%9A%E8%BF%87wt-exe%E6%89%93%E5%BC%80%E7%9A%84%E9%97%AE%E9%A2%98/">
+
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="/images/avatar.png">
+    <meta itemprop="name" content="TagBug">
+    <meta itemprop="description" content=", 所念皆星河">
+  </span>
+
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="🐟">
+  </span>
+
+  <div class="body md" itemprop="articleBody">
+    
+
+    <blockquote>
+<p>原因分析、解决方案</p>
+</blockquote>
+<span id="more"></span>
+<h1 id="原因分析"><a class="anchor" href="#原因分析">#</a> 原因分析</h1>
+<blockquote>
+<p>前置条件 1：之前偷懒用 Microsoft Store 安装 python 时，遇到了奇怪的权限问题（通过微软商店安装的 app 文件夹会有特殊权限限制，实测可以删除文件，但无法新建 / 重命名文件），测试的时候不小心<strong>修改了 <code>Program Files\WindowsApps</code>  文件夹的权限面板</strong></p>
+</blockquote>
+<blockquote>
+<p>前置条件 2：通过 Win+X 菜单和 Win+R 运行 wt.exe 都无法运行（打开后进程自动退出，且无 UI 提示），但是<strong>可以通过开始菜单和其他 terminal 中输入 wt.exe 运行</strong></p>
+</blockquote>
+<p>可以通过 terminal 中输入 wt.exe 运行就说明并非是应用损坏，而是<strong>启动方式问题</strong>，直觉想到可能是 Win+X 菜单和 Win+R 附带了什么奇怪的参数，想到火绒剑记录系统日志分析，日志记录如下：</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/tagbug/demo@latest/img/Snipaste_2022-05-20_22-15-56.jpg" alt="log"></p>
+<p>发现两个 wt.exe 的路径竟然不一样，位于 <code>\AppData\Local\Microsoft\WindowsApps\</code>  的 wt.exe 似乎是一个软链接，神奇的是资源管理器中显示这个文件是一个 0byte 的 exe，而不是.lnk，不知道为什么…</p>
+<p>总之，最终实际运行的还是位于 <code>\WindowsApps\Microsoft.WindowsTerminal_1.12.10983.0_x64__8wekyb3d8bbwe\</code>  下那个实际的 wt.exe（见下图），而且实测直接打开实际的 wt.exe 效果同 Win+R 打开（无反应），而打开软链接的 wt.exe 就可以正常运行</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/tagbug/demo@latest/img/Snipaste_2022-05-20_22-23-24.jpg" alt="log"></p>
+<p>那么现在有两个问题：</p>
+<ol>
+<li>同一个 wt.exe 命令，为什么 Win+R（Win+X 菜单实际上执行的也是 Win+R）和 terminal 找到并<strong>调用的文件位置不同</strong>？</li>
+<li>为什么软链接的 wt.exe 就能正常运行，而实际的 wt.exe 却无法运行，明明<strong>本质上都是同一个文件</strong>？</li>
+</ol>
+<p>关于问题 1：我的猜想是系统环境变量 Path 中对于这两个路径的定义， <code>\WindowsApps\Microsoft.WindowsTerminal_1.12.10983.0_x64__8wekyb3d8bbwe\</code>  位于 <code>\AppData\Local\Microsoft\WindowsApps\</code>  之前，所以优先调用了实际的 wt.exe，然而事实上 Path 中根本就只定义了 <code>\AppData\Local\Microsoft\WindowsApps\</code> ，所以<strong> Win+R 调用程序的逻辑应该与 terminal 不同</strong>，可能不依靠 Path 或 Path 的权重在较后位置（这也就对应了解决方法 1）</p>
+<p>关于问题 2：我的猜想是所处位置权限不同或调用方不同，导致实际运行 wt.exe 时，wt.exe 内部调用 syscall 被 Permission Denied（不知道算不算是 bug？），由于之前改过 <code>WindowsApps</code>  文件夹权限，直觉想到应该是 <code>WindowsApps</code>  有特殊权限系统导致，Google 后发现有很多<strong>由 <code>WindowsApps</code>  权限修改导致的 UWP 应用故障</strong>案例（这也就对应了解决方法 2）</p>
+<h1 id="解决方案"><a class="anchor" href="#解决方案">#</a> 解决方案</h1>
+<p>由上面的分析，想到下面的解决方法：</p>
+<ol>
+<li>修改 Win+R 调用逻辑</li>
+<li>重置 <code>WindowsApps</code>  权限</li>
+</ol>
+<p>这两个方案在国内论坛上都基本找不到相关资料，好在 Github 和 StackOverflow 上有遇到同样问题的老哥</p>
+<p>关于方案 1：需要修改注册表中的值： <code>HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\wt.exe</code>  下从 <code>C:\Program Files\WindowsApps\Microsoft.WindowsTerminal_1.12.10983.0_x64__8wekyb3d8bbwe\</code>  路径到  <code>C:\Users\用户名\AppData\Local\Microsoft\WindowsApps\</code> ，实测可行，如下图：</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/tagbug/demo@latest/img/Snipaste_2022-05-20_22-46-54.jpg" alt=""></p>
+<p>关于方案 2：可以尝试使用 <code>icacls &quot;C:\Program Files\WindowsApps&quot; /reset /t /c /q</code>  命令重置权限（需要 SYSTEM 权限才能运行该命令，可以借助<span class="exturl" data-url="aHR0cHM6Ly9kb2NzLm1pY3Jvc29mdC5jb20vZW4tdXMvc3lzaW50ZXJuYWxzL2Rvd25sb2Fkcy9wc2V4ZWM="> PsExec</span>， <code>psexec.exe -s icacls &quot;C:\Program Files\WindowsApps&quot; /reset /t /c /q</code> ），不过请注意：<strong>这个 reset 命令似乎需要先前有过备份，不然特殊权限很难恢复</strong>，实测在我的电脑上无效。替代方案：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL0FnZW50UmV2L1dpbmRvd3NBcHBzVW5mdWtrZXI=">Github 老哥写的 powershell 脚本</span>（没尝试过，可用性未知）</p>
+<p>参考:<br>
+<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL21pY3Jvc29mdC90ZXJtaW5hbC9pc3N1ZXMvNzA4MQ==">Github Issue 7081</span><br>
+<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL21pY3Jvc29mdC90ZXJtaW5hbC9pc3N1ZXMvNzk3NA==">Github Issue 7974</span><br>
+<span class="exturl" data-url="aHR0cHM6Ly93d3cud2luaGVscG9ubGluZS5jb20vYmxvZy93aW5kb3dzYXBwcy1mb2xkZXItcmVzdG9yZS1kZWZhdWx0LXBlcm1pc3Npb25zLw=="> 如何将 WindowsApps 文件夹权限重置为默认值</span><br>
+<span class="exturl" data-url="aHR0cHM6Ly9zdXBlcnVzZXIuY29tL3F1ZXN0aW9ucy8xMjg4MDE0L3Jlc2V0LWRlZmF1bHQtYWNscy1mb3ItYy1wcm9ncmFtLWZpbGVzLXdpbmRvd3NhcHBz">重置 C:\Program Files\WindowsApps 的默认 ACL</span></p>
+
+      <div class="tags">
+          <a href="/tags/Windows-Terminal/" rel="tag"><i class="ic i-tag"></i> Windows Terminal</a>
+          <a href="/tags/Windows/" rel="tag"><i class="ic i-tag"></i> Windows</a>
+      </div>
+  </div>
+
+   <footer>
+
+    <div class="meta">
+  <span class="item">
+    <span class="icon">
+      <i class="ic i-calendar-check"></i>
+    </span>
+    <span class="text">更新于</span>
+    <time title="修改时间：2022-05-20 23:42:46" itemprop="dateModified" datetime="2022-05-20T23:42:46+08:00">2022-05-20</time>
+  </span>
+  <span id="2022/05/20/关于Windows-Terminal无法在Win-X菜单和Win-R中通过wt-exe打开的问题/" class="item leancloud_visitors" data-flag-title="关于Windows Terminal无法在Win+X菜单和Win+R中通过wt.exe打开的问题" title="阅读次数">
+      <span class="icon">
+        <i class="ic i-eye"></i>
+      </span>
+      <span class="text">阅读次数</span>
+      <span class="leancloud-visitors-count"></span>
+      <span class="text">次</span>
+  </span>
+</div>
+
+      
+<div class="reward">
+  <button><i class="ic i-heartbeat"></i> 赞赏</button>
+  <p>请我喝[茶]~(￣▽￣)~*</p>
+  <div id="qr">
+      
+      <div>
+        <img data-src="/images/wechatpay.png" alt="TagBug 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/alipay.jpg" alt="TagBug 支付宝">
+        <p>支付宝</p>
+      </div>
+  </div>
+</div>
+
+      
+
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>本文作者： </strong>TagBug <i class="ic i-at"><em>@</em></i>🐟
+  </li>
+  <li class="link">
+    <strong>本文链接：</strong>
+    <a href="http://tagbug.github.io/2022/05/20/%E5%85%B3%E4%BA%8EWindows-Terminal%E6%97%A0%E6%B3%95%E5%9C%A8Win-X%E8%8F%9C%E5%8D%95%E5%92%8CWin-R%E4%B8%AD%E9%80%9A%E8%BF%87wt-exe%E6%89%93%E5%BC%80%E7%9A%84%E9%97%AE%E9%A2%98/" title="关于Windows Terminal无法在Win+X菜单和Win+R中通过wt.exe打开的问题">http://tagbug.github.io/2022/05/20/关于Windows-Terminal无法在Win-X菜单和Win-R中通过wt-exe打开的问题/</a>
+  </li>
+  <li class="license">
+    <strong>版权声明： </strong>本站所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+  </footer>
+
+</article>
+
+  </div>
+  
+
+<div class="post-nav">
+  <div class="item left">
+      
+
+  <a href="/2022/05/01/%E5%B0%8F%E8%AE%B01/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;cdn.jsdelivr.net&#x2F;gh&#x2F;tagbug&#x2F;demo@latest&#x2F;img&#x2F;1651669680788.jpg" title="小记1">
+  <span class="type">上一篇</span>
+  <span class="category">
+    <i class="ic i-flag"></i>
+    小记</span>
+  <h3>小记1</h3>
+  </a>
+
+  </div>
+  <div class="item right">
+  </div>
+</div>
+  
+  <div class="wrap" id="comments"></div>
+
+
+          </div>
+          <div id="sidebar">
+            
+
+<div class="inner">
+
+  <div class="panels">
+    <div class="inner">
+      <div class="contents panel pjax" data-title="文章目录">
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8E%9F%E5%9B%A0%E5%88%86%E6%9E%90"><span class="toc-number">1.</span> <span class="toc-text"> 原因分析</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="toc-number">2.</span> <span class="toc-text"> 解决方案</span></a></li></ol>
+      </div>
+      <div class="related panel pjax" data-title="系列文章">
+        <ul>
+          <li class="active"><a href="/2022/05/20/%E5%85%B3%E4%BA%8EWindows-Terminal%E6%97%A0%E6%B3%95%E5%9C%A8Win-X%E8%8F%9C%E5%8D%95%E5%92%8CWin-R%E4%B8%AD%E9%80%9A%E8%BF%87wt-exe%E6%89%93%E5%BC%80%E7%9A%84%E9%97%AE%E9%A2%98/" rel="bookmark" title="关于Windows Terminal无法在Win+X菜单和Win+R中通过wt.exe打开的问题">关于Windows Terminal无法在Win+X菜单和Win+R中通过wt.exe打开的问题</a></li>
+        </ul>
+      </div>
+      <div class="overview panel" data-title="站点概览">
+        <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="image" itemprop="image" alt="TagBug"
+      data-src="/images/avatar.png">
+  <p class="name" itemprop="name">TagBug</p>
+  <div class="description" itemprop="description">所念皆星河</div>
+</div>
+
+<nav class="state">
+    <div class="item posts">
+      <a href="/archives/">
+        <span class="count">32</span>
+        <span class="name">文章</span>
+      </a>
+    </div>
+    <div class="item categories">
+      <a href="/categories/">
+        <span class="count">17</span>
+        <span class="name">分类</span>
+      </a>
+    </div>
+    <div class="item tags">
+      <a href="/tags/">
+        <span class="count">37</span>
+        <span class="name">标签</span>
+      </a>
+    </div>
+</nav>
+
+<div class="social">
+      <span class="exturl item github" data-url="aHR0cHM6Ly9naXRodWIuY29tL3RhZ2J1Zw==" title="https:&#x2F;&#x2F;github.com&#x2F;tagbug"><i class="fa fa-github"></i></span>
+      <span class="exturl item email" data-url="bWFpbHRvOjEyNDIxMzUyOTVAcXEuY29t" title="mailto:1242135295@qq.com"><i class="fa fa-at"></i></span>
+      <span class="exturl item telegram" data-url="aHR0cHM6Ly90Lm1lL3RhZ2J1Z19jaGFubmVs" title="https:&#x2F;&#x2F;t.me&#x2F;tagbug_channel"><i class="fa fa-telegram"></i></span>
+      <span class="exturl item bilibili" data-url="aHR0cHM6Ly9zcGFjZS5iaWxpYmlsaS5jb20vMjgyMjMzMg==" title="https:&#x2F;&#x2F;space.bilibili.com&#x2F;2822332"><i class="fa fa-youtube-play"></i></span>
+      <span class="exturl item weibo" data-url="aHR0cHM6Ly93ZWliby5jb20vdS8yMTc5OTQ4OTM0" title="https:&#x2F;&#x2F;weibo.com&#x2F;u&#x2F;2179948934"><i class="fa fa-weibo"></i></span>
+</div>
+
+<ul class="menu">
+  
+    
+  <li class="item">
+    <a href="/" rel="section"><i class="ic i-home"></i>首页</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/about/" rel="section"><i class="ic i-user"></i>关于</a>
+  </li>
+
+        
+  <li class="item dropdown">
+      <a href="javascript:void(0);"><i class="ic i-feather"></i>文章</a>
+    <ul class="submenu">
+
+        
+  <li class="item">
+    <a href="/archives/" rel="section"><i class="ic i-list-alt"></i>归档</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/categories/" rel="section"><i class="ic i-th"></i>分类</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/tags/" rel="section"><i class="ic i-tags"></i>标签</a>
+  </li>
+
+  </ul>
+    
+  <li class="item">
+    <a href="/friend/" rel="section"><i class="ic i-heart"></i>友链</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/music/" rel="section"><i class="ic i-music"></i>音乐</a>
+  </li>
+
+
+</ul>
+
+      </div>
+    </div>
+  </div>
+
+  <ul id="quick">
+    <li class="prev pjax">
+    </li>
+    <li class="up"><i class="ic i-arrow-up"></i></li>
+    <li class="down"><i class="ic i-arrow-down"></i></li>
+    <li class="next pjax">
+    </li>
+    <li class="percent"></li>
+  </ul>
+</div>
+
+
+          </div>
+          <div class="dimmer"></div>
+        </div>
+      </main>
+      <footer id="footer">
+        <div class="inner">
+          <div class="widgets">
+            
+<div class="rpost pjax">
+  <h2>随机文章</h2>
+  <ul>
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/works/" title="分类于 works">works</a>
+</div>
+
+    <span><a href="/2021/02/04/ujsAutoClock%E5%BC%80%E5%8F%91%E6%80%9D%E8%B7%AF%E5%8F%8A%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/" title="ujsAutoClock使用方法及开发思路">ujsAutoClock使用方法及开发思路</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E5%89%8D%E7%AB%AF/" title="分类于 前端">前端</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/%E5%89%8D%E7%AB%AF/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="分类于 学习笔记">学习笔记</a>
+</div>
+
+    <span><a href="/2021/09/25/Node-js%E5%85%A5%E9%97%A8-%E7%AC%94%E8%AE%B0/" title="Node.js入门 - 笔记">Node.js入门 - 笔记</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" title="分类于 数据库">数据库</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL/" title="分类于 MySQL">MySQL</a>
+</div>
+
+    <span><a href="/2022/04/11/MySQL%E8%BF%9B%E9%98%B6/" title="MySQL进阶">MySQL进阶</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E5%89%8D%E7%AB%AF/" title="分类于 前端">前端</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/%E5%89%8D%E7%AB%AF/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="分类于 学习笔记">学习笔记</a>
+</div>
+
+    <span><a href="/2022/01/17/%E5%89%8D%E7%AB%AF%E4%B8%8EHTML-%E7%AC%94%E8%AE%B0/" title="前端与HTML - 笔记">前端与HTML - 笔记</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E5%89%8D%E7%AB%AF/" title="分类于 前端">前端</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/%E5%89%8D%E7%AB%AF/React/" title="分类于 React">React</a>
+</div>
+
+    <span><a href="/2022/04/11/React%E8%BF%9B%E9%98%B6/" title="React进阶">React进阶</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E5%89%8D%E7%AB%AF/" title="分类于 前端">前端</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/%E5%89%8D%E7%AB%AF/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="分类于 学习笔记">学习笔记</a>
+</div>
+
+    <span><a href="/2022/01/21/Web%E5%AE%89%E5%85%A8%E5%9F%BA%E7%A1%80-%E7%AC%94%E8%AE%B0/" title="Web安全基础 - 笔记">Web安全基础 - 笔记</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E5%89%8D%E7%AB%AF/" title="分类于 前端">前端</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/%E5%89%8D%E7%AB%AF/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="分类于 学习笔记">学习笔记</a>
+</div>
+
+    <span><a href="/2022/01/26/Webpack%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB-%E7%AC%94%E8%AE%B0/" title="Webpack知识体系 - 笔记">Webpack知识体系 - 笔记</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Linux/" title="分类于 Linux">Linux</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/Linux/Shell/" title="分类于 Shell">Shell</a>
+</div>
+
+    <span><a href="/2021/02/23/Linux%E7%BB%88%E7%AB%AF%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%93/" title="Linux终端使用总结">Linux终端使用总结</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" title="分类于 算法与数据结构">算法与数据结构</a>
+</div>
+
+    <span><a href="/2021/05/07/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93/" title="排序算法总结">排序算法总结</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E5%89%8D%E7%AB%AF/" title="分类于 前端">前端</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/%E5%89%8D%E7%AB%AF/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="分类于 学习笔记">学习笔记</a>
+</div>
+
+    <span><a href="/2022/01/20/%E5%93%8D%E5%BA%94%E5%BC%8F%E7%B3%BB%E7%BB%9F%E4%B8%8EReact-%E7%AC%94%E8%AE%B0/" title="响应式系统与React - 笔记">响应式系统与React - 笔记</a></span>
+  </li>
+
+  </ul>
+</div>
+<div>
+  <h2>最新评论</h2>
+  <ul class="leancloud-recent-comment"></ul>
+</div>
+
+          </div>
+          <div class="status">
+  <div class="copyright">
+    
+    &copy; 2021 – 
+    <span itemprop="copyrightYear">2022</span>
+    <span class="with-love">
+      <i class="ic i-sakura rotate"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">TagBug @ Tag Bug</span>
+  </div>
+  <div class="count">
+    <span class="post-meta-item-icon">
+      <i class="ic i-chart-area"></i>
+    </span>
+    <span title="站点总字数">111k 字</span>
+
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="ic i-coffee"></i>
+    </span>
+    <span title="站点阅读时长">1:41</span>
+    
+    <span class="post-meta-divider">|</span>
+    <span><a href="/rss.xml">RSS</a> & <a href="/atom.xml">Atom</a></span>
+  </div>
+
+  <div class="viewer">
+    <span>❤️感谢 <strong><span id="busuanzi_value_site_uv">282</span></strong> 小伙伴的 <strong><span id="busuanzi_value_site_pv">1685</span></strong> 次光临！❤️</span>
+  </div>
+  <script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" defer></script>
+  <div class="powered-by">
+    基于 <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
+  </div>
+</div>
+
+        </div>
+      </footer>
+    </div>
+    <script data-config="data-config" type="text/javascript">
+      var LOCAL = {
+        path: '2022/05/20/关于Windows-Terminal无法在Win-X菜单和Win-R中通过wt-exe打开的问题/',
+        favicon: {
+          show: "（●´3｀●）やれやれだぜ",
+          hide: "(´Д｀)大変だ！"
+        },
+        search: {
+          placeholder: "文章搜索",
+          empty: "关于 「 ${query} 」，什么也没搜到",
+          stats: "${time} ms 内找到 ${hits} 条结果"
+        },
+          valine: true,copy_tex: true,
+          katex: true,mermaid: true,fancybox: true,
+            copyright: '复制成功，转载请遵守 <i class="ic i-creative-commons"></i>BY-NC-SA 协议。',
+        ignores: [
+          function (uri) {
+            return uri.includes('#');
+          },
+          function (uri) {
+            return new RegExp(LOCAL.path + "$").test(uri);
+          }
+        ]
+      };
+    </script>
+
+    <script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
+
+    <script src="//cdn.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
+
+    <script src="/js/app.js?v=0.2.5"></script>
+
+    
+
+
+  </body>
+</html>
